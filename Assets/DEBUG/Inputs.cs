@@ -89,6 +89,78 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""DPadUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b4ca5af-5bbe-4341-9aa9-ca8608279811"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DPadDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f41d29e-c86a-42e0-9ecf-4b617995a9f0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DPadLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""55982fc5-7092-4b92-9fce-e142a8e24366"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DPadRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""87e6f294-90f3-4075-9bd3-b59726594f23"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftBumper"",
+                    ""type"": ""Button"",
+                    ""id"": ""16cda5bd-f213-4a48-b6c4-32f9290b391b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightBumper"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e684788-342e-4a2a-94c3-0a1b9c9b34b1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""acce809d-a58d-408f-b53e-4bc6fb60b6d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""23ceb24f-54ae-49c2-ab7d-1da1a893198a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -183,7 +255,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5d89b405-2d43-4535-a681-d7dac8887267"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -194,7 +266,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ab83b4ff-2e9b-4f01-8f07-12df6e268c0b"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -245,6 +317,94 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""LeftTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f24177f-caef-4c85-b39e-f310dafbd8bb"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DPadUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8bff71b-5826-4cdb-a02f-d0bc26c79304"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DPadDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""692f7a6b-3f65-4608-973f-6740fa133614"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DPadLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b0a57a9-6482-4a65-a1aa-e5aa37940daf"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DPadRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd22a049-b950-4085-955e-56e1baa1a311"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftBumper"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49df5fab-8e1f-44e4-adf1-757e13d97c25"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightBumper"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aba18825-d893-40a1-8190-947628af08cb"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""403069c1-e0fb-4b3e-aab2-17181f2bf8af"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -260,6 +420,14 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_TardigreBasicActions_X = m_TardigreBasicActions.FindAction("X", throwIfNotFound: true);
         m_TardigreBasicActions_RightTrigger = m_TardigreBasicActions.FindAction("RightTrigger", throwIfNotFound: true);
         m_TardigreBasicActions_LeftTrigger = m_TardigreBasicActions.FindAction("LeftTrigger", throwIfNotFound: true);
+        m_TardigreBasicActions_DPadUp = m_TardigreBasicActions.FindAction("DPadUp", throwIfNotFound: true);
+        m_TardigreBasicActions_DPadDown = m_TardigreBasicActions.FindAction("DPadDown", throwIfNotFound: true);
+        m_TardigreBasicActions_DPadLeft = m_TardigreBasicActions.FindAction("DPadLeft", throwIfNotFound: true);
+        m_TardigreBasicActions_DPadRight = m_TardigreBasicActions.FindAction("DPadRight", throwIfNotFound: true);
+        m_TardigreBasicActions_LeftBumper = m_TardigreBasicActions.FindAction("LeftBumper", throwIfNotFound: true);
+        m_TardigreBasicActions_RightBumper = m_TardigreBasicActions.FindAction("RightBumper", throwIfNotFound: true);
+        m_TardigreBasicActions_Select = m_TardigreBasicActions.FindAction("Select", throwIfNotFound: true);
+        m_TardigreBasicActions_Start = m_TardigreBasicActions.FindAction("Start", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -326,6 +494,14 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_TardigreBasicActions_X;
     private readonly InputAction m_TardigreBasicActions_RightTrigger;
     private readonly InputAction m_TardigreBasicActions_LeftTrigger;
+    private readonly InputAction m_TardigreBasicActions_DPadUp;
+    private readonly InputAction m_TardigreBasicActions_DPadDown;
+    private readonly InputAction m_TardigreBasicActions_DPadLeft;
+    private readonly InputAction m_TardigreBasicActions_DPadRight;
+    private readonly InputAction m_TardigreBasicActions_LeftBumper;
+    private readonly InputAction m_TardigreBasicActions_RightBumper;
+    private readonly InputAction m_TardigreBasicActions_Select;
+    private readonly InputAction m_TardigreBasicActions_Start;
     public struct TardigreBasicActionsActions
     {
         private @Inputs m_Wrapper;
@@ -337,6 +513,14 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @X => m_Wrapper.m_TardigreBasicActions_X;
         public InputAction @RightTrigger => m_Wrapper.m_TardigreBasicActions_RightTrigger;
         public InputAction @LeftTrigger => m_Wrapper.m_TardigreBasicActions_LeftTrigger;
+        public InputAction @DPadUp => m_Wrapper.m_TardigreBasicActions_DPadUp;
+        public InputAction @DPadDown => m_Wrapper.m_TardigreBasicActions_DPadDown;
+        public InputAction @DPadLeft => m_Wrapper.m_TardigreBasicActions_DPadLeft;
+        public InputAction @DPadRight => m_Wrapper.m_TardigreBasicActions_DPadRight;
+        public InputAction @LeftBumper => m_Wrapper.m_TardigreBasicActions_LeftBumper;
+        public InputAction @RightBumper => m_Wrapper.m_TardigreBasicActions_RightBumper;
+        public InputAction @Select => m_Wrapper.m_TardigreBasicActions_Select;
+        public InputAction @Start => m_Wrapper.m_TardigreBasicActions_Start;
         public InputActionMap Get() { return m_Wrapper.m_TardigreBasicActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -367,6 +551,30 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @LeftTrigger.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnLeftTrigger;
                 @LeftTrigger.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnLeftTrigger;
                 @LeftTrigger.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnLeftTrigger;
+                @DPadUp.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadUp;
+                @DPadUp.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadUp;
+                @DPadUp.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadUp;
+                @DPadDown.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadDown;
+                @DPadDown.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadDown;
+                @DPadDown.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadDown;
+                @DPadLeft.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadLeft;
+                @DPadLeft.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadLeft;
+                @DPadLeft.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadLeft;
+                @DPadRight.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadRight;
+                @DPadRight.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadRight;
+                @DPadRight.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnDPadRight;
+                @LeftBumper.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnLeftBumper;
+                @LeftBumper.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnLeftBumper;
+                @LeftBumper.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnLeftBumper;
+                @RightBumper.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnRightBumper;
+                @RightBumper.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnRightBumper;
+                @RightBumper.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnRightBumper;
+                @Select.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnSelect;
+                @Select.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnSelect;
+                @Select.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnSelect;
+                @Start.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnStart;
             }
             m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -392,6 +600,30 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @LeftTrigger.started += instance.OnLeftTrigger;
                 @LeftTrigger.performed += instance.OnLeftTrigger;
                 @LeftTrigger.canceled += instance.OnLeftTrigger;
+                @DPadUp.started += instance.OnDPadUp;
+                @DPadUp.performed += instance.OnDPadUp;
+                @DPadUp.canceled += instance.OnDPadUp;
+                @DPadDown.started += instance.OnDPadDown;
+                @DPadDown.performed += instance.OnDPadDown;
+                @DPadDown.canceled += instance.OnDPadDown;
+                @DPadLeft.started += instance.OnDPadLeft;
+                @DPadLeft.performed += instance.OnDPadLeft;
+                @DPadLeft.canceled += instance.OnDPadLeft;
+                @DPadRight.started += instance.OnDPadRight;
+                @DPadRight.performed += instance.OnDPadRight;
+                @DPadRight.canceled += instance.OnDPadRight;
+                @LeftBumper.started += instance.OnLeftBumper;
+                @LeftBumper.performed += instance.OnLeftBumper;
+                @LeftBumper.canceled += instance.OnLeftBumper;
+                @RightBumper.started += instance.OnRightBumper;
+                @RightBumper.performed += instance.OnRightBumper;
+                @RightBumper.canceled += instance.OnRightBumper;
+                @Select.started += instance.OnSelect;
+                @Select.performed += instance.OnSelect;
+                @Select.canceled += instance.OnSelect;
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
             }
         }
     }
@@ -405,5 +637,13 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnX(InputAction.CallbackContext context);
         void OnRightTrigger(InputAction.CallbackContext context);
         void OnLeftTrigger(InputAction.CallbackContext context);
+        void OnDPadUp(InputAction.CallbackContext context);
+        void OnDPadDown(InputAction.CallbackContext context);
+        void OnDPadLeft(InputAction.CallbackContext context);
+        void OnDPadRight(InputAction.CallbackContext context);
+        void OnLeftBumper(InputAction.CallbackContext context);
+        void OnRightBumper(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
     }
 }
