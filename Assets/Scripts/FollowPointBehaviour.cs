@@ -2,22 +2,20 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class FollowPointBehaviour : MonoBehaviour {
     public GameObject pointObject;
+    public float smoothTimeMax = .15f;
+    public float smoothTime;
+    public float speed = 10f;
+    Vector3 velocity;
 
-    private Rigidbody _rigidbody;
+    private Vector3 _pointPosition;
 
-    private void Awake() {
-        _rigidbody = GetComponent<Rigidbody>();
+    private void Start() {
+        smoothTime = (Random.value * smoothTimeMax) + .01f;
     }
 
     void Update() {
-        Vector3 pointPosition = pointObject.transform.position;
-        Vector3 objPosition = gameObject.transform.position;
-        Vector3 moveDir = new Vector3((pointPosition.x - objPosition.x), (pointPosition.y - objPosition.y),
-            (pointPosition.z - objPosition.z));
-        float distanceToPoint = moveDir.magnitude;
-        _rigidbody.MovePosition(pointPosition);
-        if (distanceToPoint <= .1f) {
-            _rigidbody.velocity = Vector3.zero;
-        }
+        _pointPosition = pointObject.transform.position;
+        transform.position =
+            Vector3.SmoothDamp(transform.position, _pointPosition, ref velocity, smoothTime, speed);
     }
 }
