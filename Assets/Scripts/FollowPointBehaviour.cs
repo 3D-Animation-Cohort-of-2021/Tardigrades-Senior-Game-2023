@@ -2,7 +2,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class FollowPointBehaviour : MonoBehaviour {
     public GameObject pointObject;
-    public float smoothTimeMax = .15f;
+    public float smoothTimeMax = .20f;
     public float smoothTime;
     public float speed = 10f;
     Vector3 velocity;
