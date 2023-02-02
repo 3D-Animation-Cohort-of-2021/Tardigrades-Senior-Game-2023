@@ -28,7 +28,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
             ""id"": ""e30d3461-2fb6-4e86-bfa9-2b7124b8007e"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""LeftJoycon"",
                     ""type"": ""Value"",
                     ""id"": ""b13b0224-46dc-4f52-8185-02fbed8afd13"",
                     ""expectedControlType"": ""Stick"",
@@ -161,6 +161,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightJoycon"",
+                    ""type"": ""Value"",
+                    ""id"": ""504789a0-c336-4f01-b6e6-d46d79ae2658"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -171,7 +180,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""LeftJoycon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -182,7 +191,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""LeftJoycon"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -193,7 +202,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""LeftJoycon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -204,7 +213,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""LeftJoycon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -215,7 +224,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""LeftJoycon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -226,7 +235,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""LeftJoycon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -265,8 +274,30 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8abf9ae5-fd1a-44f2-8859-96a35552826b"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""B"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ab83b4ff-2e9b-4f01-8f07-12df6e268c0b"",
                     ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Y"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a045741-83e4-4450-bb39-f4e03558e3f9"",
+                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -309,8 +340,30 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""b264680a-8d3a-42ac-b2be-caa7ad354fce"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""381dd1d4-e823-4719-b8e5-d9bad724d541"",
                     ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c10b004-cafe-4b0a-8397-4fedcbb3f9b8"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -331,8 +384,30 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""6418393b-17cd-4f51-9bf0-df7a040fbf61"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DPadUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e8bff71b-5826-4cdb-a02f-d0bc26c79304"",
                     ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DPadDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b3865f7-1b77-45a5-b84d-b0bda5c9e953"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -353,8 +428,30 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""7c641703-14f0-480e-b971-52bec68cddf3"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DPadLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7b0a57a9-6482-4a65-a1aa-e5aa37940daf"",
                     ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DPadRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b576614-969c-42f2-ad56-edbae2050404"",
+                    ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -375,8 +472,30 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f5386b40-1f72-45f9-be58-2c6ad6c6d603"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftBumper"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""49df5fab-8e1f-44e4-adf1-757e13d97c25"",
                     ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightBumper"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e94d8992-f30a-447b-985f-aa79b44e1984"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -397,6 +516,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""eebb9ed1-97f3-4a47-ae47-129b6e9f7dd4"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""403069c1-e0fb-4b3e-aab2-17181f2bf8af"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
@@ -405,6 +535,83 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35579b34-cc3e-4001-a54b-12e20aa7fe33"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ac9415d-16b5-4860-b51c-0d9a55455d65"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightJoycon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""901f2be0-da91-4386-b76b-d9be7ab36804"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightJoycon"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""6348943e-90b3-4d49-bb56-634c3ac40576"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightJoycon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f5f7a509-39b9-4f4a-9f72-f97762c297d9"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightJoycon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""09310632-8c23-4463-9b39-d1be1ccbee76"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightJoycon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3f9123ed-0cb1-491a-92fc-1d699be79e07"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightJoycon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -413,7 +620,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
 }");
         // TardigreBasicActions
         m_TardigreBasicActions = asset.FindActionMap("TardigreBasicActions", throwIfNotFound: true);
-        m_TardigreBasicActions_Move = m_TardigreBasicActions.FindAction("Move", throwIfNotFound: true);
+        m_TardigreBasicActions_LeftJoycon = m_TardigreBasicActions.FindAction("LeftJoycon", throwIfNotFound: true);
         m_TardigreBasicActions_A = m_TardigreBasicActions.FindAction("A", throwIfNotFound: true);
         m_TardigreBasicActions_B = m_TardigreBasicActions.FindAction("B", throwIfNotFound: true);
         m_TardigreBasicActions_Y = m_TardigreBasicActions.FindAction("Y", throwIfNotFound: true);
@@ -428,6 +635,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_TardigreBasicActions_RightBumper = m_TardigreBasicActions.FindAction("RightBumper", throwIfNotFound: true);
         m_TardigreBasicActions_Select = m_TardigreBasicActions.FindAction("Select", throwIfNotFound: true);
         m_TardigreBasicActions_Start = m_TardigreBasicActions.FindAction("Start", throwIfNotFound: true);
+        m_TardigreBasicActions_RightJoycon = m_TardigreBasicActions.FindAction("RightJoycon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -487,7 +695,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     // TardigreBasicActions
     private readonly InputActionMap m_TardigreBasicActions;
     private ITardigreBasicActionsActions m_TardigreBasicActionsActionsCallbackInterface;
-    private readonly InputAction m_TardigreBasicActions_Move;
+    private readonly InputAction m_TardigreBasicActions_LeftJoycon;
     private readonly InputAction m_TardigreBasicActions_A;
     private readonly InputAction m_TardigreBasicActions_B;
     private readonly InputAction m_TardigreBasicActions_Y;
@@ -502,11 +710,12 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_TardigreBasicActions_RightBumper;
     private readonly InputAction m_TardigreBasicActions_Select;
     private readonly InputAction m_TardigreBasicActions_Start;
+    private readonly InputAction m_TardigreBasicActions_RightJoycon;
     public struct TardigreBasicActionsActions
     {
         private @Inputs m_Wrapper;
         public TardigreBasicActionsActions(@Inputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_TardigreBasicActions_Move;
+        public InputAction @LeftJoycon => m_Wrapper.m_TardigreBasicActions_LeftJoycon;
         public InputAction @A => m_Wrapper.m_TardigreBasicActions_A;
         public InputAction @B => m_Wrapper.m_TardigreBasicActions_B;
         public InputAction @Y => m_Wrapper.m_TardigreBasicActions_Y;
@@ -521,6 +730,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @RightBumper => m_Wrapper.m_TardigreBasicActions_RightBumper;
         public InputAction @Select => m_Wrapper.m_TardigreBasicActions_Select;
         public InputAction @Start => m_Wrapper.m_TardigreBasicActions_Start;
+        public InputAction @RightJoycon => m_Wrapper.m_TardigreBasicActions_RightJoycon;
         public InputActionMap Get() { return m_Wrapper.m_TardigreBasicActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -530,9 +740,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnMove;
+                @LeftJoycon.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnLeftJoycon;
+                @LeftJoycon.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnLeftJoycon;
+                @LeftJoycon.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnLeftJoycon;
                 @A.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnA;
                 @A.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnA;
                 @A.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnA;
@@ -575,13 +785,16 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Start.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnStart;
+                @RightJoycon.started -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnRightJoycon;
+                @RightJoycon.performed -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnRightJoycon;
+                @RightJoycon.canceled -= m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface.OnRightJoycon;
             }
             m_Wrapper.m_TardigreBasicActionsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
+                @LeftJoycon.started += instance.OnLeftJoycon;
+                @LeftJoycon.performed += instance.OnLeftJoycon;
+                @LeftJoycon.canceled += instance.OnLeftJoycon;
                 @A.started += instance.OnA;
                 @A.performed += instance.OnA;
                 @A.canceled += instance.OnA;
@@ -624,13 +837,16 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
+                @RightJoycon.started += instance.OnRightJoycon;
+                @RightJoycon.performed += instance.OnRightJoycon;
+                @RightJoycon.canceled += instance.OnRightJoycon;
             }
         }
     }
     public TardigreBasicActionsActions @TardigreBasicActions => new TardigreBasicActionsActions(this);
     public interface ITardigreBasicActionsActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnLeftJoycon(InputAction.CallbackContext context);
         void OnA(InputAction.CallbackContext context);
         void OnB(InputAction.CallbackContext context);
         void OnY(InputAction.CallbackContext context);
@@ -645,5 +861,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnRightBumper(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
+        void OnRightJoycon(InputAction.CallbackContext context);
     }
 }

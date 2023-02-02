@@ -1,4 +1,4 @@
-using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -6,20 +6,27 @@ using UnityEngine.UI;
 public class DB_ButtonChange : MonoBehaviour
 {
     private PlayerInput playerInput;
+    private Gamepad _gamepad;
+    public float rTValue, lTValue;
+    public Vector2 lJValue, rJValue;
 
     //store controls
-    private InputAction Aaction,Baction,Xaction,Yaction,RTaction,LTaction,RBaction,LBaction,StartAction,SelectAction,DUpaction,DDownaction,DLeftaction,DRightaction;
-    public Image xSprite, ySprite, bSprite, aSprite, dUpSprite,dLeftSprite,dRightSprite,dDownSprite,rBSprite,lBSprite,startSprite,selectSprite;
+    private InputAction Aaction,Baction,Xaction,Yaction,RTaction,LTaction,RBaction,LBaction,StartAction,SelectAction,DUpaction,DDownaction,DLeftaction,DRightaction,leftJoyAction,RightJoyAction;
+    public Image xSprite, ySprite, bSprite, aSprite, dUpSprite,dLeftSprite,dRightSprite,dDownSprite,rBSprite,lBSprite,startSprite,selectSprite,rTSprite,lTSprite,lJSprite,rJSprite;
     public bool debugActive = true;
+    public TextMeshProUGUI leftVert, leftHoro, rightVert, rightHoro, leftTriggerText, rightTriggerText;
     private void Awake()
     {
+        _gamepad = InputSystem.GetDevice<Gamepad>();
         playerInput = GetComponent<PlayerInput>();
         Aaction = playerInput.actions["A"];
         Baction = playerInput.actions["B"];
         Xaction = playerInput.actions["X"];
         Yaction = playerInput.actions["Y"];
         RTaction = playerInput.actions["RightTrigger"];
+        //RTaction.ReadValue<float>();
         LTaction = playerInput.actions["LeftTrigger"];
+        //LTaction.ReadValue<float>();
         DUpaction = playerInput.actions["DPadUp"];
         DDownaction = playerInput.actions["DPadDown"];
         DLeftaction = playerInput.actions["DPadLeft"];
@@ -28,18 +35,22 @@ public class DB_ButtonChange : MonoBehaviour
         LBaction = playerInput.actions["LeftBumper"];
         StartAction = playerInput.actions["Start"];
         SelectAction = playerInput.actions["Select"];
-        
-        Aaction.ReadValue<bool>();
+        leftJoyAction = playerInput.actions["LeftJoycon"];
+        RightJoyAction = playerInput.actions["RightJoycon"];
     }
 
     private void Update()
     {
-        //writeButtonValues.xval = Xaction.IsPressed();
-        
-        
-        
-        //leftStick function
-        //right stick Function
+        rTValue = RTaction.ReadValue<float>();
+        lTValue = LTaction.ReadValue<float>();
+        lJValue = leftJoyAction.ReadValue<Vector2>();
+        rJValue = RightJoyAction.ReadValue<Vector2>();
+        leftHoro.text = lJValue.x.ToString();
+        rightHoro.text = rJValue.x.ToString();
+        leftVert.text = lJValue.y.ToString();
+        rightVert.text = rJValue.y.ToString();
+        leftTriggerText.text = lTValue.ToString();
+        rightTriggerText.text = rTValue.ToString();
     }
 
     public void XFunction(InputAction.CallbackContext context)
@@ -104,11 +115,11 @@ public class DB_ButtonChange : MonoBehaviour
         {
             if (context.started)
             {
-                xSprite.color = Color.red;
+                rTSprite.color = Color.red;
             }
             if (context.canceled)
             {
-                xSprite.color = Color.white;
+                rTSprite.color = Color.white;
             }
         }
     }
@@ -118,11 +129,11 @@ public class DB_ButtonChange : MonoBehaviour
         {
             if (context.started)
             {
-                xSprite.color = Color.red;
+                lTSprite.color = Color.red;
             }
             if (context.canceled)
             {
-                xSprite.color = Color.white;
+                lTSprite.color = Color.white;
             }
         }
     }
@@ -236,6 +247,34 @@ public class DB_ButtonChange : MonoBehaviour
             if (context.canceled)
             {
                 selectSprite.color = Color.white;
+            }
+        }
+    }
+    public void RightJoyFunction(InputAction.CallbackContext context)
+    {
+        if (debugActive)
+        {
+            if (context.started)
+            {
+                rJSprite.color = Color.red;
+            }
+            if (context.canceled)
+            {
+                rJSprite.color = Color.white;
+            }
+        }
+    }
+    public void LeftJoyFunction(InputAction.CallbackContext context)
+    {
+        if (debugActive)
+        {
+            if (context.started)
+            {
+                lJSprite.color = Color.red;
+            }
+            if (context.canceled)
+            {
+                lJSprite.color = Color.white;
             }
         }
     }
