@@ -55,15 +55,20 @@ public class DB_ButtonChange : MonoBehaviour
 
     public void XFunction(InputAction.CallbackContext context)
     {
+        Debug.Log("pressed");
         if (debugActive)
         {
             if (context.started)
             {
                 xSprite.color = Color.red;
+                Debug.Log("down");
+
             }
             if (context.canceled)
             {
                 xSprite.color = Color.white;
+                Debug.Log("Up");
+
             }
         }
     }
@@ -252,6 +257,7 @@ public class DB_ButtonChange : MonoBehaviour
     }
     public void RightJoyFunction(InputAction.CallbackContext context)
     {
+        Debug.Log(context);
         if (debugActive)
         {
             if (context.started)
