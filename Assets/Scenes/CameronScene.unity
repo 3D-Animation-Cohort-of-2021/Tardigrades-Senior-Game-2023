@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 285308240}
   - component: {fileID: 285308245}
   - component: {fileID: 285308246}
+  - component: {fileID: 285308247}
   m_Layer: 0
   m_Name: PlayerCenter
   m_TagString: Untagged
@@ -271,6 +272,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e2005d0a515496419a860f9b9d089ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &285308247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285308239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18bd31152b455194982f7d8304056c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugInput: {fileID: 11400000, guid: 938d6a0ddab19b8498cdd706b56e240f, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
