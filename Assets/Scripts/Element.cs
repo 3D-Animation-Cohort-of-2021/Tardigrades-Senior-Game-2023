@@ -6,9 +6,13 @@ public class Element : MonoBehaviour
     [SerializeField]protected float damage; 
     [SerializeField]protected float interval;
 
-    public new string GetType()
+    public string GetElementTypeString()
     {
         return type.ToString();
+    }
+    public Elem GetElementType()
+    {
+        return type;
     }
     public float GetDamage()
     {
@@ -24,6 +28,8 @@ public class Element : MonoBehaviour
     {
         switch (other)
         {
+            case Elem.Neutral:
+                return -1;
             case Elem.Fire when type == Elem.Water:
                 return 1;
             case Elem.Fire when type == Elem.Rock:
