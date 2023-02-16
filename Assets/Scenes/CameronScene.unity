@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 9bc7adaf3226dac47bc2810bb573c34d, type: 2}
 --- !u!1 &285308239
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +259,8 @@ MonoBehaviour:
   pigletPrefab: {fileID: 7240549923128066478, guid: 3306658bc9f13244b86056b0a10e6720,
     type: 3}
   radius: 10
-  amountToSpawn: 20
+  amountPerGroup: 5
+  amountOfGroups: 3
 --- !u!114 &285308246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,7 +536,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &497836274
 BoxCollider:
