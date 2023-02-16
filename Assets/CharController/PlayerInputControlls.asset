@@ -17,30 +17,6 @@ MonoBehaviour:
     m_Id: fb99ef22-072f-4901-b743-c17a3860bd84
     m_Asset: {fileID: 0}
     m_Actions:
-    - m_Name: FakeJump
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: 7914ef25-e26e-46a3-a945-d9f523481be6
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    - m_Name: Bblock
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: 51009d70-9fa1-401a-ac4f-bbb47503c43e
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    - m_Name: Xreload
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: 517981df-cc27-4089-9023-cce95c1a8f50
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
     - m_Name: CHANGEME
       m_Type: 1
       m_ExpectedControlType: Button
@@ -49,31 +25,55 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: MoveHoard
+      m_Type: 0
+      m_ExpectedControlType: Stick
+      m_Id: 5116e7f6-6418-40d8-9a31-d83555e2f164
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: NextSquad
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: ca1ceaad-b341-4675-b6a7-188bde2d0c39
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: PreviousSquad
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 6fabbd0b-a2b0-4cdc-8f4b-8cc64bd689c6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: RotateClockwise
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: a9039dbc-af0a-4dcb-b226-7c5dceed260b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: RotateCounterClockwise
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: 62127e4f-1c62-4e89-97cd-b0e775ca5ab5
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: MoveSquad
+      m_Type: 0
+      m_ExpectedControlType: Stick
+      m_Id: c8002fea-a89b-4355-a7af-c3c2ca998eb6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
-    - m_Name: 
-      m_Id: 9c71f2f8-616e-41ac-acf7-6240a508675f
-      m_Path: <Gamepad>/buttonSouth
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: FakeJump
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 33b17730-d0c6-43ee-8464-523140df53c3
-      m_Path: <Gamepad>/buttonEast
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Bblock
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 357d4f4c-26a8-4a65-bd91-f734ebbb6325
-      m_Path: <Gamepad>/buttonWest
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Xreload
-      m_Flags: 0
     - m_Name: 
       m_Id: cf394f6b-5afd-4d44-b5b3-f95939e3cacc
       m_Path: <Keyboard>/a
@@ -81,4 +81,52 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: CHANGEME
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 6bea284d-d641-4ccb-9e34-562fadba80e5
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 0
+    - m_Name: 
+      m_Id: d515d877-916a-4a13-aafb-1dadb1438f2a
+      m_Path: <Gamepad>/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: NextSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 224edcd4-a636-4e57-95e6-36f8e7fa1e76
+      m_Path: <Gamepad>/leftShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PreviousSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: f6b48ab6-3558-4a8c-bb7f-a0e49becf5d1
+      m_Path: <Gamepad>/rightTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: RotateClockwise
+      m_Flags: 0
+    - m_Name: 
+      m_Id: fa4974b1-21fa-49e3-a54f-138c2452b361
+      m_Path: <Gamepad>/leftTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: RotateCounterClockwise
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 65edfe45-7e19-4cd8-8dcc-4053aa82beba
+      m_Path: <Gamepad>/rightStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
       m_Flags: 0
