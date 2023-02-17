@@ -7,7 +7,7 @@ public class AssignMaterialToElement : MonoBehaviour
     private Elem elementType;
     private MeshRenderer mRender;
 
-    [SerializeField] private Material fireMat, waterMat, rockMat, neutralMat, unassignedMat;
+    [SerializeField] private Material fireMat, waterMat, stoneMat, neutralMat, unassignedMat;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +25,8 @@ public class AssignMaterialToElement : MonoBehaviour
             case Elem.Fire:
                 mRender.material = fireMat;
                 break;
-            case Elem.Rock:
-                mRender.material = rockMat;
+            case Elem.Stone:
+                mRender.material = stoneMat;
                 break;
             case Elem.Water:
                 mRender.material = waterMat;

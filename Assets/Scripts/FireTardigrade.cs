@@ -1,15 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FireTardigrade : TardigradeBase
 {
-    private void Start()
-    {
-        type = Elem.Fire;
-    }
-
     protected override void ReactToStrong()
     {
         base.ReactToStrong();

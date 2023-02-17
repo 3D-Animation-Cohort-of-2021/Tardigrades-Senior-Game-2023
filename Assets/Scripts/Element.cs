@@ -32,21 +32,21 @@ public class Element : MonoBehaviour
                 return -1;
             case Elem.Fire when type == Elem.Water:
                 return 1;
-            case Elem.Fire when type == Elem.Rock:
+            case Elem.Fire when type == Elem.Stone:
                 return -1;
             case Elem.Fire:
                 return 0;
-            case Elem.Water when type == Elem.Rock:
+            case Elem.Water when type == Elem.Stone:
                 return 1;
             case Elem.Water when type == Elem.Fire:
                 return -1;
             case Elem.Water:
                 return 0;
-            case Elem.Rock when type == Elem.Fire:
+            case Elem.Stone when type == Elem.Fire:
                 return 1;
-            case Elem.Rock when type == Elem.Water:
+            case Elem.Stone when type == Elem.Water:
                 return -1;
-            case Elem.Rock:
+            case Elem.Stone:
                 return 0;
             default:
                 return 0;
