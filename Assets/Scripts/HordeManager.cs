@@ -38,14 +38,14 @@ public class HordeManager : MonoBehaviour
         {
             if (tard.GetElementType() == tardType)
             {
-                selectedTards.Add(tard);
-                mat = tard.GetComponent<Renderer>().material;
-                if (mat.name != "HighlightMat (Instance)") print(tard + " needs to have highlightmat as the first material");
-                mat.SetFloat("_Highlight_Thickness", 0.1f);
+                Highlight(tard);
             }
         }
     }
 
+    /// <summary>
+    /// Will find nearest neutral tardigrade and mutate it
+    /// </summary>
     public void SpreadMutation()
     {
         //Turn list of tards into a list of their positions then take the average to find the middle of the group;
@@ -67,6 +67,10 @@ public class HordeManager : MonoBehaviour
         else Mutate(closestTard);
     }
     
+    /// <summary>
+    /// Destroys a tardigrade and replaces it with a new type of tardigrade determined by the selectionType
+    /// </summary>
+    /// <param name="tard">The tardigrade to be mutated</param>
     private void Mutate(TardigradeBase tard)
     {
         //get old tards stats like hp and position
@@ -83,8 +87,17 @@ public class HordeManager : MonoBehaviour
                 TardigradeBase newTard = Instantiate(obj, trans.position, trans.rotation);
                 newTard.health = oldHealth;
                 allTards.Add(newTard);
+                Highlight(newTard);
+                break;
             }
         }
-        SelectGroup(selectedType);
+    }
+
+    private void Highlight(TardigradeBase tard)
+    {
+        selectedTards.Add(tard);
+        Material mat = tard.GetComponent<Renderer>().material;
+        if (mat.name != "HighlightMat (Instance)") print(tard + " needs to have highlightmat as the first material");
+        mat.SetFloat("_Highlight_Thickness", 0.1f);
     }
 }
