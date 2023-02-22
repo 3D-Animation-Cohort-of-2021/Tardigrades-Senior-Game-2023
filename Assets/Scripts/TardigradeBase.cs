@@ -22,6 +22,12 @@ public abstract class TardigradeBase : MonoBehaviour
         
         print("Damage Taken: "+ (other.GetDamage() + bonusDamage));
     }
+
+    public void TakeGeneralDamage(float dmg)
+    {
+        health -= dmg;
+        Debug.Log(gameObject+" took "+dmg+ " damage");
+    }
     public string GetElementTypeString()
     {
         return type.ToString();
