@@ -8,8 +8,9 @@ public class PlayerControl : MonoBehaviour
 {
     public DebugInputSO debugInput;
     private CharacterController charController;
-    private Vector3 leftStickMovement, triggerRotation;
+    private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
     public Slider SquadSlider;
+    public SO_Vector3 SquadsMoveCommands;
 
     void Awake()
     {
@@ -92,10 +93,10 @@ public class PlayerControl : MonoBehaviour
     }
     public void MoveSquad(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            
-        }
+        rightStickMovement.x = context.ReadValue<Vector2>().x;
+        rightStickMovement.z = context.ReadValue<Vector2>().y;
+        SquadsMoveCommands.vectorThree = rightStickMovement;
+
     }
     public void RotateClockwise(InputAction.CallbackContext context)
     {

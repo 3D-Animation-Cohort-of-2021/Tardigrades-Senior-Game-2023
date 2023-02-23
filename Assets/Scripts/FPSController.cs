@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+//Made By Parker Bennion
 
 public class FPSController : MonoBehaviour
 {
