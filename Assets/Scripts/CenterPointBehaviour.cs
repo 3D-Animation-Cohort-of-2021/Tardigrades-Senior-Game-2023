@@ -10,9 +10,11 @@ public class CenterPointBehaviour : MonoBehaviour {
     public float radius;
     public int amountToSpawn;
     
+    //needed ref (Will)
     private CinemachineTargetGroup cTgroup;
     public GameObject targetGroup;
     void Start() {
+        //ref to PlayerTargetGroup (Will)
         cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
         
         
@@ -21,7 +23,7 @@ public class CenterPointBehaviour : MonoBehaviour {
             var newPiglet = Instantiate(pigletPrefab, newPoint, quaternion.identity);
             newPiglet.GetComponent<FollowPointBehaviour>().pointObject = 
                 Instantiate(pointObject, newPoint, quaternion.identity, transform);
-            
+            //Send new instantited to target group list (Will)
             cTgroup.AddMember(newPiglet.transform,1f,5f );
         }
     }
