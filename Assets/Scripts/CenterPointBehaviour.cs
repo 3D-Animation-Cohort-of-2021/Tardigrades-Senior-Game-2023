@@ -1,4 +1,7 @@
+using System;
+using Cinemachine;
 using Unity.Mathematics;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,12 +9,20 @@ public class CenterPointBehaviour : MonoBehaviour {
     public GameObject pointObject, pigletPrefab;
     public float radius;
     public int amountToSpawn;
+    
+    private CinemachineTargetGroup cTgroup;
+    public GameObject targetGroup;
     void Start() {
+        cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
+        
+        
         for (int i = 0; i < amountToSpawn; i++) {
             var newPoint = RandomPointInRadius();
             var newPiglet = Instantiate(pigletPrefab, newPoint, quaternion.identity);
             newPiglet.GetComponent<FollowPointBehaviour>().pointObject = 
                 Instantiate(pointObject, newPoint, quaternion.identity, transform);
+            
+            cTgroup.AddMember(newPiglet.transform,1f,5f );
         }
     }
 
