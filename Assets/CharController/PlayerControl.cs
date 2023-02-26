@@ -1,6 +1,7 @@
 using System.Reflection;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.Events;
 using Slider = UnityEngine.UI.Slider;
 //Made By Parker Bennion
 
@@ -11,6 +12,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
     public Slider SquadSlider;
     public SO_Vector3 SquadsMoveCommands;
+    private UnityEvent squadChange;
 
     void Awake()
     {
@@ -80,7 +82,8 @@ public class PlayerControl : MonoBehaviour
     {
         if (context.started)
         {
-            SquadSlider.value -= .25f;
+            SquadSlider.value -= 1;
+            squadChange.Invoke();
         }
 
     }
@@ -88,7 +91,8 @@ public class PlayerControl : MonoBehaviour
     {
         if (context.started)
         {
-            SquadSlider.value += .25f;
+            SquadSlider.value += 1;
+            squadChange.Invoke();
         }
     }
     public void MoveSquad(InputAction.CallbackContext context)

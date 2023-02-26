@@ -1,59 +1,68 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
+
 [RequireComponent(typeof(CharacterController))]
 public class SquadBrain : MonoBehaviour
 {
-    public GameObject playerCenter;
     public SO_Vector3 movementVector;
     private CharacterController thisSquadsController;
     private WaitForFixedUpdate wffu;
     
+    public int brianNumber;
+
     public bool thisSquadIsActive;
     void Start()
     {
         //thisSquadIsActive = false;
         thisSquadsController = GetComponent<CharacterController>();
+        thisSquadIsActive = false;
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("collisoin");
+        if (other.CompareTag("Player"))
+        {
+            thisSquadIsActive = true;
+            WakeUp();
+            Debug.Log("awake");
+        }
     }
 
-    public void ActivateSquad()
+    private void WakeUp()
     {
-        if (!thisSquadIsActive)
+        brianNumber = SquadManager.squads[0].SquadID;
+        ActivateSquad(brianNumber);
+    }
+    
+    
+    public void ActivateSquad(int squadNumber)
+    {
+        if (!thisSquadIsActive && squadNumber == brianNumber)
         {
-            transform.position = (playerCenter.transform.position + new Vector3(5, 0, 5)); // why wont this move the squad????
-            transform.parent = playerCenter.transform;
             thisSquadIsActive = true;
             StartCoroutine(ActiveSquad());
         }
     }
 
-    public void DisactivateSquad()
-    {
-        transform.parent = null;
-        thisSquadIsActive = false;
-    }
+    
 
-     IEnumerator ActiveSquad()
+    IEnumerator ActiveSquad()
      {
          while (thisSquadIsActive)
          {
-             
              thisSquadsController.Move((movementVector.vectorThree * (Time.deltaTime * 10)));
              yield return wffu;
          }
-
-         thisSquadIsActive = false;
      }
-
-     private void Update()
-     {
-         if (Input.GetKeyUp(KeyCode.I))
-         {
-             ActivateSquad();
-         }
-         if (Input.GetKeyUp(KeyCode.K))
-         {
-             DisactivateSquad();
-         }
-     }
+    
+    public void DeactivateSquad(int squadNumber)
+    {
+        if (squadNumber != brianNumber)
+        {
+            thisSquadIsActive = false;
+        }
+    }
 }
