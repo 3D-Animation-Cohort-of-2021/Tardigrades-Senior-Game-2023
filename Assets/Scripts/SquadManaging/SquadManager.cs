@@ -11,6 +11,7 @@ public class SquadManager : MonoBehaviour
     public GameObject parentObj;
     private List<GameObject> currentSquads;
     public static List<Squad> squads = new List<Squad>();
+    public GameObject squadPrefab;
 
     public int squadIDGiver;
     //public Slider squadSlider;
@@ -37,7 +38,9 @@ public class SquadManager : MonoBehaviour
     
     public void InstanceNewSquad(GameObject newSquad)
     {
-        newSquad.transform.parent = parentObj.transform;
+        Instantiate(squadPrefab, parentObj.transform);
+        //create squad from prefab
+        //newSquad.transform.parent = parentObj.transform;
         Debug.Log(squads[squadIDGiver].SquadName + " Name");
         Debug.Log(squads[squadIDGiver].SquadID + " ID");
         Debug.Log(squads[squadIDGiver].SquadObj + " GameObject");

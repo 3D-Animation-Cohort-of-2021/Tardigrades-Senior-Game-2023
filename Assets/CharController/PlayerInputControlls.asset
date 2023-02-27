@@ -90,6 +90,46 @@ MonoBehaviour:
       m_Groups: 
       m_Action: MoveHoard
       m_Flags: 0
+    - m_Name: arrows
+      m_Id: d7a858e1-ddf3-4465-92da-a6c970adb006
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 4
+    - m_Name: up
+      m_Id: c4e58636-c679-470a-aaa1-4c180197f6c1
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 62c9272b-9da4-4681-af68-0cea95ae5dc1
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 8
+    - m_Name: left
+      m_Id: c2d89a7f-67df-4480-942c-33e6146878ac
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 8
+    - m_Name: right
+      m_Id: b3d2602b-7ba3-4010-839a-e943302bd594
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 8
     - m_Name: 
       m_Id: d515d877-916a-4a13-aafb-1dadb1438f2a
       m_Path: <Gamepad>/rightShoulder
@@ -130,3 +170,43 @@ MonoBehaviour:
       m_Groups: 
       m_Action: MoveSquad
       m_Flags: 0
+    - m_Name: Wasd
+      m_Id: 3622bc4f-5068-40be-8360-0885145e66fb
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 4
+    - m_Name: up
+      m_Id: e28d2dd8-20f2-4c23-b45d-8e7e49eebd62
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 300d0be8-7134-465d-b573-826a764f3291
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 09679813-a882-489c-971b-6b7c7337d149
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 54f5d3b9-478d-4af3-9be6-59d6671ffe32
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 8

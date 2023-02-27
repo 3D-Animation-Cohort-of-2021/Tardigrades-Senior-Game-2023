@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 [CreateAssetMenu]
 public class SO_SquadLists : ScriptableObject
@@ -30,10 +29,7 @@ public class SO_SquadLists : ScriptableObject
     {
         currentSquads.Add(possibleSquads[targetSquad]);
     }
-
     
-
-
     //takes a squad out of the list based on intager
     public void KillSquad(int targetSquad)
     {
