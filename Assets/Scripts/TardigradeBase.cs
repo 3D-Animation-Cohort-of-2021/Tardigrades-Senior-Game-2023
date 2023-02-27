@@ -2,10 +2,10 @@ using UnityEngine;
 
 public abstract class TardigradeBase : MonoBehaviour
 {
-    [SerializeField]protected float health = 5;
+    [SerializeField]public float health = 5;
     protected float speed;
     protected float weaknessMultiplier = 0.5f;
-    protected Elem type;
+    [SerializeField]protected Elem type;
 
     /// <summary>
     /// Purpose: Calculates type based damage and subtracts it from health
