@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(CharacterController))]
 public class SquadBrain : MonoBehaviour
 {
-    public SO_Vector3 movementVector;
+    public SO_SquadData movementVector;
     private CharacterController thisSquadsController;
     private WaitForFixedUpdate wffu;
     
@@ -20,7 +21,8 @@ public class SquadBrain : MonoBehaviour
     
     private void WakeUp()
     {
-        brianNumber = SquadManager.squads[0].SquadID;
+        brianNumber = SquadManager.squads.Count-1;
+        //change to grow with squad
         ActivateSquad(brianNumber);
     }
     
@@ -31,6 +33,14 @@ public class SquadBrain : MonoBehaviour
             StartCoroutine(ActiveSquad());
         }
     }
+    public void ActivateSquad()
+    {
+        if (movementVector.squadNumber == brianNumber)
+        {
+            StartCoroutine(ActiveSquad());
+        }
+    }
+    
     
     IEnumerator ActiveSquad()
      {

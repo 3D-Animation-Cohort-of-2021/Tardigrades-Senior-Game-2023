@@ -10,9 +10,8 @@ public class PlayerControl : MonoBehaviour
     public DebugInputSO debugInput;
     private CharacterController charController;
     private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
-    public Slider SquadSlider;
-    public SO_Vector3 SquadsMoveCommands;
-    private UnityEvent squadChange;
+    public SO_SquadData SquadsMoveCommands;
+    public UnityEvent squadChangeNext, squadChangePrevious;
 
     void Awake()
     {
@@ -25,7 +24,9 @@ public class PlayerControl : MonoBehaviour
             debugInput.map.actions[i].Enable();
         }
 
+        SquadsMoveCommands.SetSquadNumber(0);
         charController = GetComponent<CharacterController>();
+        
     }
 
     public void InputReceived(InputAction.CallbackContext context)
@@ -82,8 +83,13 @@ public class PlayerControl : MonoBehaviour
     {
         if (context.started)
         {
-            SquadSlider.value -= 1;
-            squadChange.Invoke();
+            
+            SquadsMoveCommands.SubtractSquadNumber();
+        }
+
+        if (context.canceled)
+        {
+            squadChangePrevious.Invoke();
         }
 
     }
@@ -91,8 +97,13 @@ public class PlayerControl : MonoBehaviour
     {
         if (context.started)
         {
-            SquadSlider.value += 1;
-            squadChange.Invoke();
+            
+            SquadsMoveCommands.addSquadNumber();
+        }
+
+        if (context.canceled)
+        {
+            squadChangeNext.Invoke();
         }
     }
     public void MoveSquad(InputAction.CallbackContext context)
