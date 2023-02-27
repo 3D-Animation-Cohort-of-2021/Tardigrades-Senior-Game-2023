@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
-using TMPro;
 
 public class PlayerControl : MonoBehaviour
 {
