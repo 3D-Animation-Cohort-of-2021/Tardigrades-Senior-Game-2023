@@ -27,13 +27,11 @@ public class SquadManager : MonoBehaviour
         GameObject tempObject;
         if (other.CompareTag("SQUAD"))
         {
-            
             squads.Add(new Squad(){SquadName = other.name, SquadID = squads.Count , SquadObj = other.gameObject});
             tempObject = other.gameObject;
             squadInstanceTempVector = tempObject.transform.position;
             InstanceNewSquad(tempObject);
             Destroy(tempObject);
-            
         }
     }
     
@@ -41,8 +39,6 @@ public class SquadManager : MonoBehaviour
     public void InstanceNewSquad(GameObject newSquad)
     {
         Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
-        //create squad from prefab
-        //newSquad.transform.parent = parentObj.transform;
         //Debug.Log(squads[squadIDGiver].SquadName + " Name");
         //Debug.Log(squads[squadIDGiver].SquadID + " ID");
         //Debug.Log(squads[squadIDGiver].SquadObj + " GameObject");

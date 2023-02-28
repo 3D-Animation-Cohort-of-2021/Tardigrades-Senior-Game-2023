@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 285308242}
   - component: {fileID: 285308241}
   - component: {fileID: 285308240}
-  - component: {fileID: 285308245}
   - component: {fileID: 285308247}
   - component: {fileID: 285308250}
   m_Layer: 0
@@ -242,24 +241,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &285308245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285308239}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 632a863e35dd00a4cbc73c5a10fd4805, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointObject: {fileID: 7240549923128066478, guid: 3c769045aea6fd746bff30089ed75b52,
-    type: 3}
-  pigletPrefab: {fileID: 7240549923128066478, guid: 3306658bc9f13244b86056b0a10e6720,
-    type: 3}
-  radius: 10
-  amountToSpawn: 20
 --- !u!114 &285308247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,7 +1641,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisSlider: {fileID: 1986034186}
-  squadData: {fileID: 0}
 --- !u!1001 &2078165565
 PrefabInstance:
   m_ObjectHideFlags: 0
