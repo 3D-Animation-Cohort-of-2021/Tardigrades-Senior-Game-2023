@@ -1,26 +1,34 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using Random = UnityEngine.Random;
 
 //Made By Parker Bennion
 public class SquadManager : MonoBehaviour
 {
-    public GameObject parentObj;
+    public GameObject parentObj, pigletPrefab, squadPrefab;
     public static List<Squad> squads = new List<Squad>();
-    public GameObject squadPrefab;
     private Vector3 squadInstanceTempVector;
+    public int howManySquads;
 
     public int squadIDGiver;
+    public float radius;
+    public int amountPerGroup;
     //public Slider squadSlider;
 
     private void Start()
     {
-        //currentSquads.Add(PossibleSquads[0]);
-        //currentSquads.Last().transform.parent = parentObj.transform;
         squads = new List<Squad>();
         squadIDGiver = 0;
 
+        StartCoroutine(InstanceSquadManually());
     }
-    
+    private Vector3 RandomPointInRadius() 
+    {
+        Vector3 currentPos = transform.position;
+        return new Vector3((currentPos.x + Random.Range(-radius, radius)), currentPos.y, (currentPos.z + Random.Range(-radius, radius)));
+    }
+
     //on tirgger with a squad spawning prefab. add to the squad list and instance a squad.
     private void OnTriggerEnter(Collider other)
     {
@@ -35,13 +43,37 @@ public class SquadManager : MonoBehaviour
         }
     }
     
+    IEnumerator InstanceSquadManually()
+    {
+        for (int i = 0; i < howManySquads; i++)
+        {
+            squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = squadPrefab});
+            GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
+            squadIDGiver++;
+            yield return new WaitForSeconds(.01f);
+            for (int j = 0; j < amountPerGroup; j++) 
+            {
+                Vector3 newPos = RandomPointInRadius();
+                GameObject newPiglet = Instantiate(pigletPrefab, newPos, Quaternion.identity);
+                newPiglet.GetComponent<FollowPointBehaviour>().pointObject = groupPoint;
+            }
+        }
+    }
+
     //instances the new squad as a child of the players certer.
     public void InstanceNewSquad(GameObject newSquad)
     {
-        Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
+        GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
+        for (int j = 0; j < amountPerGroup; j++) 
+        {
+            Vector3 newPos = RandomPointInRadius();
+            GameObject newPiglet = Instantiate(pigletPrefab, newPos, Quaternion.identity);
+            newPiglet.GetComponent<FollowPointBehaviour>().pointObject = groupPoint;
+        }
         //Debug.Log(squads[squadIDGiver].SquadName + " Name");
         //Debug.Log(squads[squadIDGiver].SquadID + " ID");
         //Debug.Log(squads[squadIDGiver].SquadObj + " GameObject");
         squadIDGiver++;
     }
+    
 }

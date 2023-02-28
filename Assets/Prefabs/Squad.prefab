@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3504510557906400540}
   - component: {fileID: 1768433235164309935}
   - component: {fileID: -1948280030328019800}
+  - component: {fileID: -2269384126596487215}
   m_Layer: 0
   m_Name: Squad
   m_TagString: Untagged
@@ -163,3 +164,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-2269384126596487215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231842820090641727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632a863e35dd00a4cbc73c5a10fd4805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointObject: {fileID: 1231842820090641727}
+  pigletPrefab: {fileID: 7240549923128066478, guid: 3306658bc9f13244b86056b0a10e6720,
+    type: 3}
+  radius: 5
+  amountToSpawn: 5

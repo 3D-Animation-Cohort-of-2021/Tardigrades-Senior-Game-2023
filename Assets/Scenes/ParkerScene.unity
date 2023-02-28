@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 72e2088eeaa95734e91cb030cbd79fcc, type: 2}
 --- !u!1 &285308239
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 285308240}
   - component: {fileID: 285308247}
   - component: {fileID: 285308250}
+  - component: {fileID: 285308251}
   m_Layer: 0
   m_Name: PlayerCenter
   m_TagString: Player
@@ -158,7 +159,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 0
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -298,9 +299,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObj: {fileID: 285308239}
+  pigletPrefab: {fileID: 7240549923128066478, guid: 3306658bc9f13244b86056b0a10e6720,
+    type: 3}
   squadPrefab: {fileID: 1231842820090641727, guid: 2bc7e48eacef0384abed64818d633ff2,
     type: 3}
+  howManySquads: 5
   squadIDGiver: 0
+  radius: 1
+  amountPerGroup: 5
+--- !u!114 &285308251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285308239}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632a863e35dd00a4cbc73c5a10fd4805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointObject: {fileID: 1231842820090641727, guid: 2bc7e48eacef0384abed64818d633ff2,
+    type: 3}
+  pigletPrefab: {fileID: 7240549923128066478, guid: 3306658bc9f13244b86056b0a10e6720,
+    type: 3}
+  radius: 4
+  amountPerGroup: 5
+  amountOfGroups: 1
 --- !u!1 &320943080
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +652,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &497836274
 BoxCollider:
