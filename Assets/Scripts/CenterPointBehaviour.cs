@@ -5,13 +5,16 @@ using Random = UnityEngine.Random;
 public class CenterPointBehaviour : MonoBehaviour {
     public GameObject pointObject, pigletPrefab;
     public float radius;
-    public int amountToSpawn;
+    public int amountPerGroup, amountOfGroups;
     void Start() {
-        for (int i = 0; i < amountToSpawn; i++) {
-            var newPoint = RandomPointInRadius();
-            var newPiglet = Instantiate(pigletPrefab, newPoint, quaternion.identity);
-            newPiglet.GetComponent<FollowPointBehaviour>().pointObject = 
-                Instantiate(pointObject, newPoint, quaternion.identity, transform);
+        for (int i = 0; i < amountOfGroups; i++) {
+            var groupPoint =
+                Instantiate(pointObject, RandomPointInRadius(), quaternion.identity, transform);
+            for (int j = 0; j < amountPerGroup; j++) {
+                var newPos = RandomPointInRadius();
+                var newPiglet = Instantiate(pigletPrefab, newPos, quaternion.identity);
+                newPiglet.GetComponent<FollowPointBehaviour>().pointObject = groupPoint;
+            }
         }
     }
 
