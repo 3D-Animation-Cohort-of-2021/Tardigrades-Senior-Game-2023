@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1014268742364380093}
   - component: {fileID: 3324116017866894694}
   - component: {fileID: 3504510557906400540}
-  - component: {fileID: 1768433235164309935}
   - component: {fileID: -1948280030328019800}
   m_Layer: 0
   m_Name: Squad
@@ -114,25 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
-  brianNumber: -1
---- !u!143 &1768433235164309935
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231842820090641727}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  brainNumber: 0
 --- !u!114 &-1948280030328019800
 MonoBehaviour:
   m_ObjectHideFlags: 0

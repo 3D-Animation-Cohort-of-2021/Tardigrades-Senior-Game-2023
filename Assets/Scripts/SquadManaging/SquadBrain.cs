@@ -1,41 +1,53 @@
-using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(CharacterController))]
 public class SquadBrain : MonoBehaviour
 {
     public SO_SquadData movementVector;
-    private CharacterController thisSquadsController;
+    public GameObject piggyPrefab;
+    public int amountPerGroup;
+    public int radius;
+    private Rigidbody squadRigidbody;
     private WaitForFixedUpdate wffu;
     
-    public int brianNumber;
+
+    
+    public int brainNumber;
     void Start()
     {
         //thisSquadIsActive = false;
-        thisSquadsController = GetComponent<CharacterController>();
-        WakeUp();
+        squadRigidbody = GetComponent<Rigidbody>();
+
+
+        for (int j = 0; j < amountPerGroup; j++)
+        {
+            var newPos = RandomPointInRadius();
+            var newPiglet = Instantiate(piggyPrefab, newPos, Quaternion.identity);
+            newPiglet.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
+        }
     }
     
-    private void WakeUp()
+    public void WakeUp()
     {
-        brianNumber = SquadManager.squads.Count-1;
+        brainNumber = SquadManager.squads.Count-1;
+        Debug.Log(brainNumber);
         //change to grow with squad
-        ActivateSquad(brianNumber);
+        ActivateSquad(brainNumber);
     }
     
-    public void ActivateSquad(int squadNumber)
+    private void ActivateSquad(int squadNumber)
     {
-        if (squadNumber == brianNumber)
+        if (squadNumber == brainNumber)
         {
             StartCoroutine(ActiveSquad());
         }
     }
+
     public void ActivateSquad()
     {
-        if (movementVector.squadNumber == brianNumber)
+        if (movementVector.squadNumber == brainNumber)
         {
             StartCoroutine(ActiveSquad());
         }
@@ -43,10 +55,20 @@ public class SquadBrain : MonoBehaviour
 
     IEnumerator ActiveSquad()
      {
-         while (brianNumber == movementVector.squadNumber)
+         while (brainNumber == movementVector.squadNumber)
          {
-             thisSquadsController.Move((movementVector.vectorThree * (Time.deltaTime * 10)));
+            if (movementVector != null)
+            {
+                transform.Translate((movementVector.vectorThree) * Time.deltaTime * 10);
+            }
              yield return wffu;
          }
      }
+
+    private Vector3 RandomPointInRadius()
+    {
+        var currentPos = transform.position;
+        return new Vector3((currentPos.x + Random.Range(-radius, radius)), currentPos.y,
+            (currentPos.z + Random.Range(-radius, radius)));
+    }
 }

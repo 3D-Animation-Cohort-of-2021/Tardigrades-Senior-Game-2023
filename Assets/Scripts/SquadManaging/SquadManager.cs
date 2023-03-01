@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //Made By Parker Bennion
@@ -17,31 +19,44 @@ public class SquadManager : MonoBehaviour
         //currentSquads.Add(PossibleSquads[0]);
         //currentSquads.Last().transform.parent = parentObj.transform;
         squads = new List<Squad>();
+
         squadIDGiver = 0;
 
+        StartCoroutine(SetupChildren());
+
+    }
+
+    IEnumerator SetupChildren()
+    {
+        yield return new WaitForFixedUpdate();
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject childSquad = transform.GetChild(i).gameObject;
+            SquadBrain childBrain = childSquad.GetComponent<SquadBrain>();
+            squads.Add(new Squad() { SquadName = $"Poo Poo Pee Pee {squads.Count}", SquadID = squads.Count, SquadObj = childSquad });
+
+            childBrain.WakeUp();
+            squadIDGiver++;
+        }
     }
     
     //on tirgger with a squad spawning prefab. add to the squad list and instance a squad.
     private void OnTriggerEnter(Collider other)
     {
-        GameObject tempObject;
-        if (other.CompareTag("SQUAD"))
+        GameObject tempObject = other.gameObject;
+
+        if (tempObject.CompareTag("SQUAD"))
         {
-            squads.Add(new Squad(){SquadName = other.name, SquadID = squads.Count , SquadObj = other.gameObject});
-            tempObject = other.gameObject;
-            squadInstanceTempVector = tempObject.transform.position;
-            InstanceNewSquad(tempObject);
-            Destroy(tempObject);
+            Debug.Log("Collided with squad");
+            tempObject.tag = "Untagged";
+
+            SquadBrain childBrain = tempObject.GetComponent<SquadBrain>();
+            squads.Add(new Squad(){SquadName = $"Poo Poo Pee Pee {squads.Count}", SquadID = squads.Count , SquadObj = tempObject });
+
+            tempObject.transform.parent = transform;
+
+            childBrain.WakeUp();
+            squadIDGiver++;
         }
-    }
-    
-    //instances the new squad as a child of the players certer.
-    public void InstanceNewSquad(GameObject newSquad)
-    {
-        Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
-        //Debug.Log(squads[squadIDGiver].SquadName + " Name");
-        //Debug.Log(squads[squadIDGiver].SquadID + " ID");
-        //Debug.Log(squads[squadIDGiver].SquadObj + " GameObject");
-        squadIDGiver++;
     }
 }
