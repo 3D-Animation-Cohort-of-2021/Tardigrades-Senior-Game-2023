@@ -9,7 +9,7 @@ public class SquadBrain : MonoBehaviour
     public GameObject piggyPrefab;
     public int amountPerGroup;
     public int radius;
-    private Rigidbody squadRigidbody;
+    private CharacterController squadController;
     private WaitForFixedUpdate wffu;
     
 
@@ -18,7 +18,7 @@ public class SquadBrain : MonoBehaviour
     void Start()
     {
         //thisSquadIsActive = false;
-        squadRigidbody = GetComponent<Rigidbody>();
+        squadController = GetComponent<CharacterController>();
 
 
         for (int j = 0; j < amountPerGroup; j++)
@@ -59,11 +59,27 @@ public class SquadBrain : MonoBehaviour
          {
             if (movementVector != null)
             {
-                transform.Translate((movementVector.vectorThree) * Time.deltaTime * 10);
+
+                squadController.Move(((movementVector.vectorThree) * Time.deltaTime * 10));
+
             }
              yield return wffu;
          }
      }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(gameObject.layer != LayerMask.NameToLayer("Squad") && other.gameObject.layer == LayerMask.NameToLayer("Squad"))
+        {
+            Debug.Log("Squad detected squad");
+            SquadManager parentManager = GetComponentInParent<SquadManager>();
+
+            if(parentManager != null)
+            {
+                parentManager.ReceiveSquadFromChild(other);
+            }
+        }
+    }
 
     private Vector3 RandomPointInRadius()
     {

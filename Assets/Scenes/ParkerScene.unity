@@ -137,8 +137,8 @@ GameObject:
   - component: {fileID: 285308247}
   - component: {fileID: 285308250}
   - component: {fileID: 285308251}
-  - component: {fileID: 285308253}
   - component: {fileID: 285308252}
+  - component: {fileID: 285308253}
   m_Layer: 7
   m_Name: PlayerCenter
   m_TagString: Player
@@ -290,24 +290,8 @@ MonoBehaviour:
   radius: 10
   amountPerGroup: 5
   amountOfGroups: 3
---- !u!54 &285308252
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285308239}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
---- !u!135 &285308253
-SphereCollider:
+--- !u!143 &285308252
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -317,7 +301,25 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+  m_Height: 1
   m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &285308253
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285308239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.39
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &320943080
 GameObject:
@@ -887,11 +889,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8681732589859106084, guid: efd5cc798ae454db480a017eb4e4a22d,
-        type: 3}
-      propertyPath: raiseListenObj.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 35610919964600981, guid: efd5cc798ae454db480a017eb4e4a22d,
         type: 3}
       propertyPath: m_Name

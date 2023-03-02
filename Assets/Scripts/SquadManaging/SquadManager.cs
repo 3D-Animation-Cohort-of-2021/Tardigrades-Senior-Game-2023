@@ -39,6 +39,11 @@ public class SquadManager : MonoBehaviour
             squadIDGiver++;
         }
     }
+
+    public void ReceiveSquadFromChild(Collider other)
+    {
+        OnTriggerEnter(other);
+    }
     
     //on tirgger with a squad spawning prefab. add to the squad list and instance a squad.
     private void OnTriggerEnter(Collider other)
@@ -48,7 +53,8 @@ public class SquadManager : MonoBehaviour
         if (tempObject.CompareTag("SQUAD"))
         {
             Debug.Log("Collided with squad");
-            tempObject.tag = "Untagged";
+
+            tempObject.layer = LayerMask.NameToLayer("Center");
 
             SquadBrain childBrain = tempObject.GetComponent<SquadBrain>();
             squads.Add(new Squad(){SquadName = $"Poo Poo Pee Pee {squads.Count}", SquadID = squads.Count , SquadObj = tempObject });

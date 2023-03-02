@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class PlayerControl : MonoBehaviour
 {
     public DebugInputSO debugInput;
-    private Rigidbody controlRigibody;
+    private CharacterController characterController;
     private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
     public UnityEvent squadChangeNext, squadChangePrevious;
@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         SquadsMoveCommands.SetSquadNumber(0);
-        controlRigibody = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
         
     }
 
@@ -45,7 +45,7 @@ public class PlayerControl : MonoBehaviour
     public void FixedUpdate()
     {
         //MoveHoard
-        controlRigibody.velocity = ((leftStickMovement) * 10);
+        characterController.Move((leftStickMovement) * (Time.deltaTime * 10));
 
         //MoveSquad
         
@@ -77,6 +77,7 @@ public class PlayerControl : MonoBehaviour
     {
         leftStickMovement.x = context.ReadValue<Vector2>().x;
         leftStickMovement.z = context.ReadValue<Vector2>().y;
+
     }
     public void PreviousSquad(InputAction.CallbackContext context)
     {
@@ -109,6 +110,7 @@ public class PlayerControl : MonoBehaviour
     {
         rightStickMovement.x = context.ReadValue<Vector2>().x;
         rightStickMovement.z = context.ReadValue<Vector2>().y;
+
         SquadsMoveCommands.vectorThree = rightStickMovement;
 
     }
