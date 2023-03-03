@@ -2,7 +2,6 @@ using System.Reflection;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.Events;
-using Slider = UnityEngine.UI.Slider;
 //Made By Parker Bennion
 
 public class PlayerControl : MonoBehaviour

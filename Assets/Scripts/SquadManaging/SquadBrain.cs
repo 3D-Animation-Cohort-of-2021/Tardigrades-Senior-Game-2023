@@ -40,8 +40,7 @@ public class SquadBrain : MonoBehaviour
             StartCoroutine(ActiveSquad());
         }
     }
-    
-    
+
     IEnumerator ActiveSquad()
      {
          while (brianNumber == movementVector.squadNumber)
