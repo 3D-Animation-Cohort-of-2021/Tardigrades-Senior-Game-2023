@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class StoneTardigrade : TardigradeBase
 {
-   private void Start()
-   {
-      type = Elem.Rock;
-   }
-   
    protected override void ReactToStrong()
    {
       base.ReactToStrong();
