@@ -73,6 +73,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: MutateSquad
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 1a246790-e08a-4486-9701-f6f8227cff16
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: cf394f6b-5afd-4d44-b5b3-f95939e3cacc
@@ -210,3 +218,11 @@ MonoBehaviour:
       m_Groups: 
       m_Action: MoveSquad
       m_Flags: 8
+    - m_Name: 
+      m_Id: 46941b96-b4a1-4ddc-aaab-7a0370043b15
+      m_Path: <Gamepad>/buttonNorth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MutateSquad
+      m_Flags: 0

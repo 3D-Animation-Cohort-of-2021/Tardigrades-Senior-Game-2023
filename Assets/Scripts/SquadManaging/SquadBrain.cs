@@ -61,7 +61,6 @@ public class SquadBrain : MonoBehaviour
             if (prefab.GetComponent<TardigradeBase>().GetElementType() == squadType)
             {
                 tardInitial = prefab;
-                Debug.Log(squadType);
             }
         }
         if (tardInitial != null)
@@ -75,12 +74,8 @@ public class SquadBrain : MonoBehaviour
             
             }
         }
-        else
-        {
-            Debug.Log("NULL");
-        }
-        
-        
+
+
     }
     
     private Vector3 RandomPointInRadius() 
