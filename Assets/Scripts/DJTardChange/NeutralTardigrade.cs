@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class NeutralTardigrade : TardigradeBase
 {
-    [SerializeField]private TardigradeBase firePrefab, waterPrefab, stonePrefab;
-    void Start()
-    {
-        type = Elem.Neutral;
-    }
-
-    public void Mutate(Elem tardType)
-    {
-        print(tardType);
-    }
-    
+    // void Start()
+    // {
+    //     type = Elem.Neutral;
+    // }
 }

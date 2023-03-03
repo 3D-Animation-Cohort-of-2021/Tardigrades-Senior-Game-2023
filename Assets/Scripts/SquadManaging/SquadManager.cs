@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Random = UnityEngine.Random;
+
 //using Random = UnityEngine.Random;
 
 //Made By Parker Bennion
@@ -15,6 +18,7 @@ public class SquadManager : MonoBehaviour
     public int squadIDGiver;
     public float radius;
     public int amountPerGroup;
+    
     
     private CinemachineTargetGroup cTgroup;
     public GameObject targetGroup;
@@ -49,10 +53,19 @@ public class SquadManager : MonoBehaviour
     
     IEnumerator InstanceSquadManually()
     {
-        for (int i = 0; i < howManySquads; i++)
+        foreach (Elem TardType in Enum.GetValues(typeof(Elem)))
         {
             squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = squadPrefab});
             GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
+            groupPoint.GetComponent<SquadBrain>().squadType = TardType;
+            squadIDGiver++;
+            yield return new WaitForSeconds(.01f);
+        }
+        /*for (int i = 0; i < Enum.GetNames(typeof(Elem)).Length; i++)
+        {
+            squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = squadPrefab});
+            GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
+            groupPoint.GetComponent<SquadBrain>().squadType = Elem.Neutral;
             squadIDGiver++;
             yield return new WaitForSeconds(.01f);
             for (int j = 0; j < amountPerGroup; j++) 
@@ -66,7 +79,7 @@ public class SquadManager : MonoBehaviour
                     cTgroup.AddMember(newPiglet.transform, 1f, 5f);
                 }
             }
-        }
+        }*/
     }
 
     //instances the new squad as a child of the players certer.
