@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 //using Random = UnityEngine.Random;
 
 //Made By Parker Bennion
@@ -14,6 +15,9 @@ public class SquadManager : MonoBehaviour
     public int squadIDGiver;
     public float radius;
     public int amountPerGroup;
+    
+    private CinemachineTargetGroup cTgroup;
+    public GameObject targetGroup;
     //public Slider squadSlider;
 
     private void Start()
@@ -56,6 +60,11 @@ public class SquadManager : MonoBehaviour
                 Vector3 newPos = RandomPointInRadius();
                 GameObject newPiglet = Instantiate(pigletPrefab, newPos, Quaternion.identity);
                 newPiglet.GetComponent<FollowPointBehaviour>().pointObject = groupPoint;
+                if (targetGroup != null)
+                {
+                    cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
+                    cTgroup.AddMember(newPiglet.transform, 1f, 5f);
+                }
             }
         }
     }
