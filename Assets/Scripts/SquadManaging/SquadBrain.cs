@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(CharacterController))]
 public class SquadBrain : MonoBehaviour
@@ -10,7 +9,10 @@ public class SquadBrain : MonoBehaviour
     public SO_SquadData movementVector;
     private CharacterController thisSquadsController;
     private WaitForFixedUpdate wffu;
-    
+    public Elem squadType;
+    public float radius;
+    public SO_ObjList pigletFabs;
+
     public int brianNumber;
     void Start()
     {
@@ -24,6 +26,7 @@ public class SquadBrain : MonoBehaviour
         brianNumber = SquadManager.squads.Count-1;
         //change to grow with squad
         ActivateSquad(brianNumber);
+        Populate(4);
     }
     
     public void ActivateSquad(int squadNumber)
@@ -49,4 +52,40 @@ public class SquadBrain : MonoBehaviour
              yield return wffu;
          }
      }
+
+    public void Populate(int amountOfTards)
+    {
+        GameObject tardInitial = null;
+        foreach (GameObject prefab in pigletFabs.objectGames)
+        {
+            if (prefab.GetComponent<TardigradeBase>().GetElementType() == squadType)
+            {
+                tardInitial = prefab;
+                Debug.Log(squadType);
+            }
+        }
+        if (tardInitial != null)
+        {
+            for (int i = 0; i < amountOfTards; i++)
+            {
+            
+                Vector3 newPos = RandomPointInRadius();
+                GameObject newPiglet = Instantiate(tardInitial, newPos, Quaternion.identity);
+                newPiglet.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
+            
+            }
+        }
+        else
+        {
+            Debug.Log("NULL");
+        }
+        
+        
+    }
+    
+    private Vector3 RandomPointInRadius() 
+    {
+        Vector3 currentPos = transform.position;
+        return new Vector3((currentPos.x + Random.Range(-radius, radius)), currentPos.y, (currentPos.z + Random.Range(-radius, radius)));
+    }
 }
