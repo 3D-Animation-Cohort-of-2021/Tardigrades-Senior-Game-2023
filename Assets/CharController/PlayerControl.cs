@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         SquadsMoveCommands.SetSquadNumber(0);
+        SquadsMoveCommands.SetSquadTotal(0);
         characterController = GetComponent<CharacterController>();
         
     }
@@ -98,7 +99,7 @@ public class PlayerControl : MonoBehaviour
         if (context.started)
         {
             
-            SquadsMoveCommands.addSquadNumber();
+            SquadsMoveCommands.AddSquadNumber();
         }
 
         if (context.canceled)

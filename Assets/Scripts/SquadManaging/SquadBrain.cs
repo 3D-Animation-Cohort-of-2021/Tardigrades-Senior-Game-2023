@@ -14,6 +14,8 @@ public class SquadBrain : MonoBehaviour
     public int brainNumber = -1;
     public Elem squadType;
 
+    private Coroutine activeSquad = null;
+
     void Start()
     {
         //thisSquadIsActive = false;
@@ -26,24 +28,36 @@ public class SquadBrain : MonoBehaviour
     public void WakeUp()
     {
         brainNumber = SquadManager.squads.Count-1;
-        Debug.Log(brainNumber);
-        //change to grow with squad
+        movementVector.SetSquadTotal(brainNumber + 1);
         ActivateSquad(brainNumber);
     }
     
     private void ActivateSquad(int squadNumber)
     {
+
+        if(activeSquad != null)
+        {
+            StopCoroutine(activeSquad);
+            activeSquad = null;
+        }
+
         if (squadNumber == brainNumber)
         {
-            StartCoroutine(ActiveSquad());
+            activeSquad = StartCoroutine(ActiveSquad());
         }
     }
 
     public void ActivateSquad()
     {
+        if (activeSquad != null)
+        {
+            StopCoroutine(activeSquad);
+            activeSquad = null;
+        }
+
         if (movementVector.squadNumber == brainNumber)
         {
-            StartCoroutine(ActiveSquad());
+            activeSquad = StartCoroutine(ActiveSquad());
         }
     }
 
@@ -65,7 +79,6 @@ public class SquadBrain : MonoBehaviour
     {
         if(gameObject.layer != LayerMask.NameToLayer("Squad") && other.gameObject.layer == LayerMask.NameToLayer("Squad"))
         {
-            Debug.Log("Squad detected squad");
             SquadManager parentManager = GetComponentInParent<SquadManager>();
 
             if(parentManager != null)
