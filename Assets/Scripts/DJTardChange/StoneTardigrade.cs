@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class StoneTardigrade : TardigradeBase
 {
-   protected override void ReactToStrong()
+
+    protected override void ReactToStrong()
    {
       base.ReactToStrong();
       Debug.Log("The stone tardigrade is steadfast against the water");

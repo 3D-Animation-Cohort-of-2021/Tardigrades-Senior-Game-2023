@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WaterTardigrade : TardigradeBase
 {
+
     protected override void ReactToStrong()
     {
         base.ReactToStrong();

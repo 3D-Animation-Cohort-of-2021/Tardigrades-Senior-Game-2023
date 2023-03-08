@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class NeutralTardigrade : TardigradeBase
 {
-    // void Start()
-    // {
-    //     type = Elem.Neutral;
-    // }
+
 }

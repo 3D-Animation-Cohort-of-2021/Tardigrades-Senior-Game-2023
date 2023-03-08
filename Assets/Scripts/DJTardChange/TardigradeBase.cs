@@ -1,3 +1,4 @@
+using System.Runtime.Versioning;
 using UnityEngine;
 
 public abstract class TardigradeBase : MonoBehaviour
@@ -6,6 +7,9 @@ public abstract class TardigradeBase : MonoBehaviour
     protected float speed;
     protected float weaknessMultiplier = 0.5f;
     [SerializeField]protected Elem type;
+    [SerializeField]protected MaterialListSO tardigradeMaterial;
+
+    
 
     /// <summary>
     /// Purpose: Calculates type based damage and subtracts it from health
@@ -51,5 +55,44 @@ public abstract class TardigradeBase : MonoBehaviour
         Debug.Log(gameObject + "is resistant to that damage");
     }
 
+    private void UpdateAppearance()
+    {
+        GetComponent<Renderer>().material = tardigradeMaterial.GetMaterialSetByType(type).material;
+        Debug.Log(tardigradeMaterial.GetMaterialSetByType(type).material);
+    }
 
+    public bool ConvertTardigrade(Elem element)
+    {
+
+        if(element == type)
+        {
+            return false;
+        }
+        TardigradeBase tardigradeBase = null;
+        switch (element)
+        {
+            case Elem.Fire:
+                tardigradeBase = gameObject.AddComponent<FireTardigrade>();
+                break;
+            case Elem.Water:
+                tardigradeBase = gameObject.AddComponent<WaterTardigrade>();
+                break;
+            case Elem.Stone:
+                tardigradeBase = gameObject.AddComponent<StoneTardigrade>();
+                break;
+            case Elem.Neutral:
+                tardigradeBase = gameObject.AddComponent <NeutralTardigrade>();
+                break;
+            default:
+                break;
+
+        }
+
+        tardigradeBase.type = element;
+        tardigradeBase.tardigradeMaterial = tardigradeMaterial;
+        tardigradeBase.UpdateAppearance();
+
+        return true;
+
+    }
 }

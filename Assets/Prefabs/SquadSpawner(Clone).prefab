@@ -52,7 +52,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35610919964600981}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -100,11 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
-  piggyPrefab: {fileID: 7240549923128066478, guid: 3306658bc9f13244b86056b0a10e6720,
+  piggyPrefab: {fileID: 8713643393502141244, guid: 741b956faa1cd6a4fa76718508ee149c,
     type: 3}
   amountPerGroup: 5
   radius: 10
   brainNumber: -1
+  squadType: 0
 --- !u!114 &-8681732589859106084
 MonoBehaviour:
   m_ObjectHideFlags: 0

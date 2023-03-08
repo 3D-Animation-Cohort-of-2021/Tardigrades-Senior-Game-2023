@@ -21,6 +21,9 @@ public class FollowPointBehaviour : MonoBehaviour {
     }
 
     private void Update() {
-        _navMeshAgent.destination = pointObject.transform.position;
+        if (pointObject != null)
+        {
+            _navMeshAgent.destination = pointObject.transform.position;
+        }
     }
 }

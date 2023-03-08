@@ -11,12 +11,9 @@ public class SquadBrain : MonoBehaviour
     public int radius;
     private CharacterController squadController;
     private WaitForFixedUpdate wffu;
-    public int brainNumber;
+    public int brainNumber = -1;
     public Elem squadType;
-    public float radius;
-    public SO_ObjList pigletFabs;
 
-    public int brianNumber;
     void Start()
     {
         //thisSquadIsActive = false;
@@ -80,22 +77,21 @@ public class SquadBrain : MonoBehaviour
 
     public void Populate(int amountOfTards)
     {
-        GameObject tardInitial = null;
-        foreach (GameObject prefab in pigletFabs.objectGames)
-        {
-            if (prefab.GetComponent<TardigradeBase>().GetElementType() == squadType)
-            {
-                tardInitial = prefab;
-            }
-        }
-        if (tardInitial != null)
+        if (piggyPrefab != null)
         {
             for (int i = 0; i < amountOfTards; i++)
             {
             
                 Vector3 newPos = RandomPointInRadius();
-                GameObject newPiglet = Instantiate(tardInitial, newPos, Quaternion.identity);
+                GameObject newPiglet = Instantiate(piggyPrefab, newPos, Quaternion.identity);
+
                 newPiglet.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
+
+                TardigradeBase pigBase = newPiglet.GetComponent<TardigradeBase>();
+                if (pigBase.ConvertTardigrade(squadType))
+                {
+                    Destroy(pigBase);
+                }
             
             }
         }

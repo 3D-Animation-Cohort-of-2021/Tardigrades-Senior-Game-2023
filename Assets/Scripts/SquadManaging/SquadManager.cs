@@ -10,11 +10,10 @@ using Random = UnityEngine.Random;
 //Made By Parker Bennion
 public class SquadManager : MonoBehaviour
 {
-    public GameObject parentObj, pigletPrefab, squadPrefab;
+    public GameObject parentObj, squadPrefab;
     public static List<Squad> squads = new List<Squad>();
     private Vector3 squadInstanceTempVector;
     public int howManySquads;
-
     public int squadIDGiver;
     public float radius;
     public int amountPerGroup;
@@ -77,12 +76,12 @@ public class SquadManager : MonoBehaviour
 
             childBrain.WakeUp();
             squadIDGiver++;
+            
         }
     }
-    
     IEnumerator InstanceSquadManually()
     {
-        foreach (Elem TardType in Enum.GetValues(typeof(Elem)))
+        foreach (Elem TardType in System.Enum.GetValues(typeof(Elem)))
         {
             squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = squadPrefab});
             GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
@@ -112,18 +111,4 @@ public class SquadManager : MonoBehaviour
     }
 
     //instances the new squad as a child of the players certer.
-    public void InstanceNewSquad(GameObject newSquad)
-    {
-        GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
-        for (int j = 0; j < amountPerGroup; j++) 
-        {
-            Vector3 newPos = RandomPointInRadius();
-            GameObject newPiglet = Instantiate(pigletPrefab, newPos, Quaternion.identity);
-            newPiglet.GetComponent<FollowPointBehaviour>().pointObject = groupPoint;
-        }
-        //Debug.Log(squads[squadIDGiver].SquadName + " Name");
-        //Debug.Log(squads[squadIDGiver].SquadID + " ID");
-        //Debug.Log(squads[squadIDGiver].SquadObj + " GameObject");
-        squadIDGiver++;
-    }
 }

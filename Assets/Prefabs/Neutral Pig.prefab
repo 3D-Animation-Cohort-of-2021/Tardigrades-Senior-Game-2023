@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4646791122522326532}
   - component: {fileID: 6343865474415663689}
   - component: {fileID: -7575134752102518461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neutral Pig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,8 +65,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6f3d44b7c4ae448cc90d36bb4f74956c, type: 2}
   - {fileID: 2100000, guid: 7427ea3a56254984fb1d0eed55ce4347, type: 2}
+  - {fileID: 2100000, guid: 6f3d44b7c4ae448cc90d36bb4f74956c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   type: 0
+  tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf, type: 2}
 --- !u!195 &6343865474415663689
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 4
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
