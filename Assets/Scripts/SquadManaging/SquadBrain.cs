@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class SquadBrain : MonoBehaviour
 {
@@ -11,22 +11,19 @@ public class SquadBrain : MonoBehaviour
     public int radius;
     private CharacterController squadController;
     private WaitForFixedUpdate wffu;
-    
-
-    
     public int brainNumber;
+    public Elem squadType;
+    public float radius;
+    public SO_ObjList pigletFabs;
+
+    public int brianNumber;
     void Start()
     {
         //thisSquadIsActive = false;
         squadController = GetComponent<CharacterController>();
 
 
-        for (int j = 0; j < amountPerGroup; j++)
-        {
-            var newPos = RandomPointInRadius();
-            var newPiglet = Instantiate(piggyPrefab, newPos, Quaternion.identity);
-            newPiglet.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
-        }
+        Populate(amountPerGroup);
     }
     
     public void WakeUp()
@@ -81,10 +78,34 @@ public class SquadBrain : MonoBehaviour
         }
     }
 
-    private Vector3 RandomPointInRadius()
+    public void Populate(int amountOfTards)
     {
-        var currentPos = transform.position;
-        return new Vector3((currentPos.x + Random.Range(-radius, radius)), currentPos.y,
-            (currentPos.z + Random.Range(-radius, radius)));
+        GameObject tardInitial = null;
+        foreach (GameObject prefab in pigletFabs.objectGames)
+        {
+            if (prefab.GetComponent<TardigradeBase>().GetElementType() == squadType)
+            {
+                tardInitial = prefab;
+            }
+        }
+        if (tardInitial != null)
+        {
+            for (int i = 0; i < amountOfTards; i++)
+            {
+            
+                Vector3 newPos = RandomPointInRadius();
+                GameObject newPiglet = Instantiate(tardInitial, newPos, Quaternion.identity);
+                newPiglet.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
+            
+            }
+        }
+
+
+    }
+    
+    private Vector3 RandomPointInRadius() 
+    {
+        Vector3 currentPos = transform.position;
+        return new Vector3((currentPos.x + Random.Range(-radius, radius)), currentPos.y, (currentPos.z + Random.Range(-radius, radius)));
     }
 }

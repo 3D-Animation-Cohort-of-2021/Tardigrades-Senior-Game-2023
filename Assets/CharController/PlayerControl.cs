@@ -136,5 +136,13 @@ public class PlayerControl : MonoBehaviour
             triggerRotation.y = 0;
         }
     }
+    
+    public void MutateSquad(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Mutate script here");
+        }
+    }
 
 }
