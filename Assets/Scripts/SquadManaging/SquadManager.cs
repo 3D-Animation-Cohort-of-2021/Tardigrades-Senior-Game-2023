@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 //Made By Parker Bennion
 public class SquadManager : MonoBehaviour
 {
-    public GameObject parentObj, squadPrefab;
+    public GameObject squadPrefab;
     public static List<Squad> squads = new List<Squad>();
     private Vector3 squadInstanceTempVector;
     public int howManySquads;
@@ -40,7 +40,7 @@ public class SquadManager : MonoBehaviour
         {
             GameObject childSquad = transform.GetChild(i).gameObject;
             SquadBrain childBrain = childSquad.GetComponent<SquadBrain>();
-            squads.Add(new Squad() { SquadName = $"Poo Poo Pee Pee {squads.Count}", SquadID = squads.Count, SquadObj = childSquad });
+            squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squads.Count, SquadObj = childSquad });
 
             childBrain.WakeUp();
             squadIDGiver++;
@@ -50,7 +50,6 @@ public class SquadManager : MonoBehaviour
     public void ReceiveSquadFromChild(Collider other)
     {
         OnTriggerEnter(other);
-        StartCoroutine(InstanceSquadManually());
     }
     private Vector3 RandomPointInRadius() 
     {
@@ -70,7 +69,7 @@ public class SquadManager : MonoBehaviour
             tempObject.layer = LayerMask.NameToLayer("Center");
 
             SquadBrain childBrain = tempObject.GetComponent<SquadBrain>();
-            squads.Add(new Squad(){SquadName = $"Poo Poo Pee Pee {squads.Count}", SquadID = squads.Count , SquadObj = tempObject });
+            squads.Add(new Squad(){SquadName = $"Squad {squads.Count}", SquadID = squads.Count , SquadObj = tempObject });
 
             tempObject.transform.parent = transform;
 
@@ -79,36 +78,5 @@ public class SquadManager : MonoBehaviour
             
         }
     }
-    IEnumerator InstanceSquadManually()
-    {
-        foreach (Elem TardType in System.Enum.GetValues(typeof(Elem)))
-        {
-            squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = squadPrefab});
-            GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
-            groupPoint.GetComponent<SquadBrain>().squadType = TardType;
-            squadIDGiver++;
-            yield return new WaitForSeconds(.01f);
-        }
-        /*for (int i = 0; i < Enum.GetNames(typeof(Elem)).Length; i++)
-        {
-            squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = squadPrefab});
-            GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
-            groupPoint.GetComponent<SquadBrain>().squadType = Elem.Neutral;
-            squadIDGiver++;
-            yield return new WaitForSeconds(.01f);
-            for (int j = 0; j < amountPerGroup; j++) 
-            {
-                Vector3 newPos = RandomPointInRadius();
-                GameObject newPiglet = Instantiate(pigletPrefab, newPos, Quaternion.identity);
-                newPiglet.GetComponent<FollowPointBehaviour>().pointObject = groupPoint;
-                if (targetGroup != null)
-                {
-                    cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
-                    cTgroup.AddMember(newPiglet.transform, 1f, 5f);
-                }
-            }
-        }*/
-    }
-
-    //instances the new squad as a child of the players certer.
+    
 }
