@@ -29,6 +29,8 @@ public class SquadManager : MonoBehaviour
 
         squadIDGiver = 0;
 
+        cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
+
         StartCoroutine(SetupChildren());
 
     }
@@ -39,11 +41,7 @@ public class SquadManager : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject childSquad = transform.GetChild(i).gameObject;
-            SquadBrain childBrain = childSquad.GetComponent<SquadBrain>();
-            squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squads.Count, SquadObj = childSquad });
-
-            childBrain.WakeUp();
-            squadIDGiver++;
+            ClaimSquad(childSquad);
         }
     }
 
@@ -61,22 +59,31 @@ public class SquadManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject tempObject = other.gameObject;
-
         if (tempObject.CompareTag("SQUAD"))
         {
-            Debug.Log("Collided with squad");
+            ClaimSquad(tempObject);
+        }
+    }
 
-            tempObject.layer = LayerMask.NameToLayer("Center");
+    private void ClaimSquad(GameObject squad)
+    {
+            squad.layer = LayerMask.NameToLayer("Center");
 
-            SquadBrain childBrain = tempObject.GetComponent<SquadBrain>();
-            squads.Add(new Squad(){SquadName = $"Squad {squads.Count}", SquadID = squads.Count , SquadObj = tempObject });
+            SquadBrain childBrain = squad.GetComponent<SquadBrain>();
+            squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squads.Count, SquadObj = squad });
 
-            tempObject.transform.parent = transform;
+            squad.transform.parent = transform;
+
+            AddToTargetGroup(squad);
 
             childBrain.WakeUp();
             squadIDGiver++;
-            
-        }
     }
+
+    private void AddToTargetGroup(GameObject squad)
+    {
+        //cTgroup.AddMember(squad.transform, 1, 1);
+    }
+
     
 }
