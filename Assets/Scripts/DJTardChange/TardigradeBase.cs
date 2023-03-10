@@ -1,6 +1,7 @@
+using System;
 using System.Runtime.Versioning;
 using UnityEngine;
-
+[RequireComponent(typeof(Rigidbody))]
 public abstract class TardigradeBase : MonoBehaviour
 {
     [SerializeField]public float health = 5;
@@ -9,7 +10,17 @@ public abstract class TardigradeBase : MonoBehaviour
     [SerializeField]protected Elem type;
     [SerializeField]protected MaterialListSO tardigradeMaterial;
 
-    
+    protected void Awake()
+    {
+        GetComponent<Rigidbody>().useGravity = false;
+    }
+
+    public void TakeGeneralDamage(float dmg)
+    {
+        health -= dmg;
+        Debug.Log("The Tardigrade took "+dmg+" damage");
+        //do vfx or animation or whatever
+    }
 
     /// <summary>
     /// Purpose: Calculates type based damage and subtracts it from health
