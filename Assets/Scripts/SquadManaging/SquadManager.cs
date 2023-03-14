@@ -1,51 +1,89 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Cinemachine;
+using Random = UnityEngine.Random;
+
+//using Random = UnityEngine.Random;
 
 //Made By Parker Bennion
 public class SquadManager : MonoBehaviour
 {
-    public GameObject parentObj;
-    public static List<Squad> squads = new List<Squad>();
     public GameObject squadPrefab;
+    public static List<Squad> squads = new List<Squad>();
     private Vector3 squadInstanceTempVector;
-
+    public int howManySquads;
     public int squadIDGiver;
+    public float radius;
+    public int amountPerGroup;
+    
+    
+    private CinemachineTargetGroup cTgroup;
+    public GameObject targetGroup;
     //public Slider squadSlider;
 
     private void Start()
     {
-        //currentSquads.Add(PossibleSquads[0]);
-        //currentSquads.Last().transform.parent = parentObj.transform;
         squads = new List<Squad>();
+
         squadIDGiver = 0;
 
+        cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
+
+        StartCoroutine(SetupChildren());
+
     }
-    
+
+    IEnumerator SetupChildren()
+    {
+        yield return new WaitForFixedUpdate();
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject childSquad = transform.GetChild(i).gameObject;
+            ClaimSquad(childSquad);
+        }
+    }
+
+    public void ReceiveSquadFromChild(Collider other)
+    {
+        OnTriggerEnter(other);
+    }
+    private Vector3 RandomPointInRadius() 
+    {
+        Vector3 currentPos = transform.position;
+        return new Vector3((currentPos.x + Random.Range(-radius, radius)), currentPos.y, (currentPos.z + Random.Range(-radius, radius)));
+    }
+
     //on tirgger with a squad spawning prefab. add to the squad list and instance a squad.
     private void OnTriggerEnter(Collider other)
     {
-        GameObject tempObject;
-        if (other.CompareTag("SQUAD"))
+        GameObject tempObject = other.gameObject;
+        if (tempObject.CompareTag("SQUAD"))
         {
-            
-            squads.Add(new Squad(){SquadName = other.name, SquadID = squads.Count , SquadObj = other.gameObject});
-            tempObject = other.gameObject;
-            squadInstanceTempVector = tempObject.transform.position;
-            InstanceNewSquad(tempObject);
-            Destroy(tempObject);
-            
+            ClaimSquad(tempObject);
         }
     }
-    
-    //instances the new squad as a child of the players certer.
-    public void InstanceNewSquad(GameObject newSquad)
+
+    private void ClaimSquad(GameObject squad)
     {
-        Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
-        //create squad from prefab
-        //newSquad.transform.parent = parentObj.transform;
-        //Debug.Log(squads[squadIDGiver].SquadName + " Name");
-        //Debug.Log(squads[squadIDGiver].SquadID + " ID");
-        //Debug.Log(squads[squadIDGiver].SquadObj + " GameObject");
-        squadIDGiver++;
+            squad.layer = LayerMask.NameToLayer("Center");
+
+            SquadBrain childBrain = squad.GetComponent<SquadBrain>();
+            squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squads.Count, SquadObj = squad });
+
+            squad.transform.parent = transform;
+
+            AddToTargetGroup(squad);
+
+            childBrain.WakeUp();
+            squadIDGiver++;
     }
+
+    private void AddToTargetGroup(GameObject squad)
+    {
+        //cTgroup.AddMember(squad.transform, 1, 1);
+    }
+
+    
 }

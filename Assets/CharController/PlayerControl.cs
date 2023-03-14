@@ -2,13 +2,12 @@ using System.Reflection;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.Events;
-using Slider = UnityEngine.UI.Slider;
 //Made By Parker Bennion
 
 public class PlayerControl : MonoBehaviour
 {
     public DebugInputSO debugInput;
-    private CharacterController charController;
+    private CharacterController characterController;
     private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
     public UnityEvent squadChangeNext, squadChangePrevious;
@@ -25,7 +24,8 @@ public class PlayerControl : MonoBehaviour
         }
 
         SquadsMoveCommands.SetSquadNumber(0);
-        charController = GetComponent<CharacterController>();
+        SquadsMoveCommands.SetSquadTotal(0);
+        characterController = GetComponent<CharacterController>();
         
     }
 
@@ -46,7 +46,7 @@ public class PlayerControl : MonoBehaviour
     public void FixedUpdate()
     {
         //MoveHoard
-        charController.Move((leftStickMovement * (Time.deltaTime * 10)));
+        characterController.Move((leftStickMovement) * (Time.deltaTime * 10));
 
         //MoveSquad
         
@@ -78,6 +78,7 @@ public class PlayerControl : MonoBehaviour
     {
         leftStickMovement.x = context.ReadValue<Vector2>().x;
         leftStickMovement.z = context.ReadValue<Vector2>().y;
+
     }
     public void PreviousSquad(InputAction.CallbackContext context)
     {
@@ -98,7 +99,7 @@ public class PlayerControl : MonoBehaviour
         if (context.started)
         {
             
-            SquadsMoveCommands.addSquadNumber();
+            SquadsMoveCommands.AddSquadNumber();
         }
 
         if (context.canceled)
@@ -110,6 +111,7 @@ public class PlayerControl : MonoBehaviour
     {
         rightStickMovement.x = context.ReadValue<Vector2>().x;
         rightStickMovement.z = context.ReadValue<Vector2>().y;
+
         SquadsMoveCommands.vectorThree = rightStickMovement;
 
     }
@@ -133,6 +135,14 @@ public class PlayerControl : MonoBehaviour
         if (context.canceled)
         {
             triggerRotation.y = 0;
+        }
+    }
+    
+    public void MutateSquad(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Mutate script here");
         }
     }
 

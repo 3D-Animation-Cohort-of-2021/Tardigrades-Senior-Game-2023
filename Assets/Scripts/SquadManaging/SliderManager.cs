@@ -1,32 +1,25 @@
-using System;
 using UnityEngine;
 using Slider = UnityEngine.UI.Slider;
-
+//Made by Parker Bennion
 public class SliderManager : MonoBehaviour
 {
     public Slider thisSlider;
-    public SO_SquadData squadData;
 
+    //sets slider value
     private void Start()
     {
         thisSlider.maxValue = 10;
     }
 
+    //adds value to slider
     public void AddSlider()
     {
         thisSlider.value++;
-        SliderMaxValueUpdate();
     }
 
+    //takes value from slider
     public void MinusSlider()
     {
         thisSlider.value--;
-        SliderMaxValueUpdate();
-    }
-
-    public void SliderMaxValueUpdate()
-    {
-        //int tempNmber = squadData.squadNumber;
-        //thisSlider.maxValue = tempNmber;
     }
 }

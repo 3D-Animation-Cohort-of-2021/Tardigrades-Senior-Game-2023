@@ -11,8 +11,11 @@ GameObject:
   - component: {fileID: 4783543676186657865}
   - component: {fileID: 7366038402374925174}
   - component: {fileID: 3546848307014019996}
-  - component: {fileID: 7977881954717617461}
-  m_Layer: 0
+  - component: {fileID: -9008041915360486251}
+  - component: {fileID: -8681732589859106084}
+  - component: {fileID: 840209293370142514}
+  - component: {fileID: -581391058194510774}
+  m_Layer: 9
   m_Name: SquadSpawner(Clone)
   m_TagString: SQUAD
   m_Icon: {fileID: 0}
@@ -49,7 +52,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35610919964600981}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -84,8 +87,75 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7977881954717617461
-CapsuleCollider:
+--- !u!114 &-9008041915360486251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35610919964600981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7ec4a10e427c94a8e68c22d8eb724e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
+  piggyPrefab: {fileID: 8713643393502141244, guid: 741b956faa1cd6a4fa76718508ee149c,
+    type: 3}
+  amountPerGroup: 5
+  radius: 10
+  brainNumber: -1
+  squadType: 0
+--- !u!114 &-8681732589859106084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35610919964600981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21decdb7d1c38d46a1f16b27475f876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raiseListenObj:
+  - {fileID: 11400000, guid: 47a682018b09d19428e23d7c73b62faf, type: 2}
+  - {fileID: 11400000, guid: d1eb20ad5a1978e4f8688861928f00f2, type: 2}
+  onRaiseEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -9008041915360486251}
+        m_TargetAssemblyTypeName: SquadBrain, Assembly-CSharp
+        m_MethodName: ActivateSquad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!143 &840209293370142514
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35610919964600981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &-581391058194510774
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +164,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
