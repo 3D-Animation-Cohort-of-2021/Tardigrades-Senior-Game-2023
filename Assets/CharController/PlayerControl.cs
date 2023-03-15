@@ -46,7 +46,7 @@ public class PlayerControl : MonoBehaviour
     public void FixedUpdate()
     {
         //MoveHoard
-        characterController.Move((leftStickMovement) * (Time.deltaTime * 10));
+        characterController.SimpleMove((leftStickMovement) * 10);
 
         //MoveSquad
         
