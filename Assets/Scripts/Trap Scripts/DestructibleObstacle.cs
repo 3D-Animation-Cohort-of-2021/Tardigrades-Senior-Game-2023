@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
-public class DestructibleObstacle : Element
+public class DestructibleObstacle : Obstacle
 {
     private void OnCollisionEnter(Collision collision)
     {
@@ -17,10 +17,6 @@ public class DestructibleObstacle : Element
             }
         }
     }
-
-    private void ReactAndDestroy()
-    {
-        Destroy(gameObject);
-    }
+    
     
 }
