@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class SquadBrain : MonoBehaviour
@@ -9,29 +10,46 @@ public class SquadBrain : MonoBehaviour
     public GameObject piggyPrefab;
     public int amountPerGroup;
     public int radius;
-    private CharacterController squadController;
+    private NavMeshAgent navMeshAgent;
     private WaitForFixedUpdate wffu;
     public int brainNumber = -1;
     public Elem squadType;
 
     private Coroutine activeSquad = null;
 
+    private void Awake()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+    }
+
     void Start()
     {
         //thisSquadIsActive = false;
-        squadController = GetComponent<CharacterController>();
-
-
+        
+        navMeshAgent.speed = 10f;
         Populate(amountPerGroup);
     }
-    
+
+    private void FixedUpdate()
+    {
+        if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= radius))
+        {
+            navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.position - transform.parent.position), radius * 0.95f));
+        }
+
+        if(transform.parent != null && Vector3.Distance(transform.position, transform.parent.position) <= radius)
+        {
+            navMeshAgent.ResetPath();
+        }
+    }
+
     public void WakeUp()
     {
         brainNumber = SquadManager.squads.Count-1;
         movementVector.SetSquadTotal(brainNumber + 1);
         ActivateSquad(brainNumber);
     }
-    
+
     private void ActivateSquad(int squadNumber)
     {
 
@@ -67,8 +85,7 @@ public class SquadBrain : MonoBehaviour
          {
             if (movementVector != null)
             {
-
-                squadController.Move(((movementVector.vectorThree) * Time.deltaTime * 10));
+                    navMeshAgent.Move(movementVector.vectorThree * Time.deltaTime * 10);
 
             }
              yield return wffu;
@@ -110,6 +127,11 @@ public class SquadBrain : MonoBehaviour
         }
 
 
+    }
+
+    public void TeleportSquad(Vector3 dest)
+    {
+        navMeshAgent.Warp(dest + Vector3.up * navMeshAgent.baseOffset);
     }
     
     private Vector3 RandomPointInRadius() 

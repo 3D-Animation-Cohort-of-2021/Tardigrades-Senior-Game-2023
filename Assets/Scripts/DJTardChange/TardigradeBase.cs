@@ -58,7 +58,6 @@ public abstract class TardigradeBase : MonoBehaviour
     private void UpdateAppearance()
     {
         GetComponent<Renderer>().material = tardigradeMaterial.GetMaterialSetByType(type).material;
-        Debug.Log(tardigradeMaterial.GetMaterialSetByType(type).material);
     }
 
     public bool ConvertTardigrade(Elem element)

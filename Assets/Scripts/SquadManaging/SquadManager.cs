@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Cinemachine;
 using Random = UnityEngine.Random;
+using UnityEngine.AI;
 
 //using Random = UnityEngine.Random;
 
@@ -78,6 +79,14 @@ public class SquadManager : MonoBehaviour
 
             childBrain.WakeUp();
             squadIDGiver++;
+    }
+
+    public void TeleportSquadsToCenter(float centerOffset)
+    {
+        foreach(Squad squad in squads)
+        {
+            squad.SquadObj.GetComponent<SquadBrain>().TeleportSquad(transform.position + Vector3.down * centerOffset);
+        }
     }
 
     private void AddToTargetGroup(GameObject squad)
