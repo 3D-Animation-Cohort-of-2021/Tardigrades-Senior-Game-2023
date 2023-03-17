@@ -18,9 +18,9 @@ public class SquadManager : MonoBehaviour
     public int squadIDGiver;
     public float radius;
     public int amountPerGroup;
-    
-    
-    private CinemachineTargetGroup cTgroup;
+
+    //Will: Variables needed for camera
+    private CinemachineTargeting camTargetScript;
     public GameObject targetGroup;
     //public Slider squadSlider;
 
@@ -28,6 +28,8 @@ public class SquadManager : MonoBehaviour
     {
         squads = new List<Squad>();
         squadIDGiver = 0;
+        //Will: Reference needed for camera
+        camTargetScript = targetGroup.GetComponent<CinemachineTargeting>();
 
         StartCoroutine(InstanceSquadManually());
     }
@@ -59,6 +61,8 @@ public class SquadManager : MonoBehaviour
             GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
             groupPoint.GetComponent<SquadBrain>().squadType = TardType;
             squadIDGiver++;
+            //Will: Adds start squads to target group in CinemachineTargeting script
+            camTargetScript.AddTarget(groupPoint.transform);
             yield return new WaitForSeconds(.01f);
         }
         /*for (int i = 0; i < Enum.GetNames(typeof(Elem)).Length; i++)
@@ -92,6 +96,8 @@ public class SquadManager : MonoBehaviour
             GameObject newPiglet = Instantiate(pigletPrefab, newPos, Quaternion.identity);
             newPiglet.GetComponent<FollowPointBehaviour>().pointObject = groupPoint;
         }
+        //Will: Adds new squads to target group in CinemachineTargeting script
+        camTargetScript.AddTarget(groupPoint.transform);
         //Debug.Log(squads[squadIDGiver].SquadName + " Name");
         //Debug.Log(squads[squadIDGiver].SquadID + " ID");
         //Debug.Log(squads[squadIDGiver].SquadObj + " GameObject");
