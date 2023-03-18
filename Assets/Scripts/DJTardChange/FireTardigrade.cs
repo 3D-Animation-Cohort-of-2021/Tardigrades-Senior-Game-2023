@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FireTardigrade : TardigradeBase
 {
+    public ParticleSystem explosionPrefab;
     protected override void ReactToStrong()
     {
         base.ReactToStrong();
@@ -12,5 +13,11 @@ public class FireTardigrade : TardigradeBase
     {
         base.ReactToWeak();
         Debug.Log("The fire tardigrade is nearly put out by the water trap");
+    }
+
+    public override void PrimaryAbility()
+    {
+        Instantiate(explosionPrefab);
+        print("Explosion");
     }
 }

@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
     private CharacterController charController;
     private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
-    public UnityEvent squadChangeNext, squadChangePrevious;
+    public UnityEvent squadChangeNext, squadChangePrevious, MutateEvent;
 
     void Awake()
     {
@@ -140,6 +140,7 @@ public class PlayerControl : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Mutate script here");
+            MutateEvent.Invoke();
         }
     }
 

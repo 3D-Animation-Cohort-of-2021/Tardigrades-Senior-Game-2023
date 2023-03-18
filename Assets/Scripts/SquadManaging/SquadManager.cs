@@ -23,6 +23,7 @@ public class SquadManager : MonoBehaviour
     private CinemachineTargetGroup cTgroup;
     public GameObject targetGroup;
     //public Slider squadSlider;
+    
 
     private void Start()
     {
@@ -97,5 +98,4 @@ public class SquadManager : MonoBehaviour
         //Debug.Log(squads[squadIDGiver].SquadObj + " GameObject");
         squadIDGiver++;
     }
-    
 }

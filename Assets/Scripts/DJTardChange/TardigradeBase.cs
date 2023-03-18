@@ -51,5 +51,9 @@ public abstract class TardigradeBase : MonoBehaviour
         Debug.Log(gameObject + "is resistant to that damage");
     }
 
+    public virtual void PrimaryAbility()
+    {
+        //Use Elemental Ability
+    }
 
 }

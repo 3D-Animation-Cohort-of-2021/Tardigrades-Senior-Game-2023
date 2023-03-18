@@ -12,6 +12,8 @@ public class SquadBrain : MonoBehaviour
     public Elem squadType;
     public float radius;
     public SO_ObjList pigletFabs;
+    
+    [SerializeField]private List<TardigradeBase> myTards;
 
     public int brianNumber;
     void Start()
@@ -34,6 +36,11 @@ public class SquadBrain : MonoBehaviour
         if (squadNumber == brianNumber)
         {
             StartCoroutine(ActiveSquad());
+            //Grabs new selection and Highlights them
+            foreach (TardigradeBase tard in myTards)
+            {
+                ChangeHighlight(tard, true);
+            }
         }
     }
     public void ActivateSquad()
@@ -41,6 +48,11 @@ public class SquadBrain : MonoBehaviour
         if (movementVector.squadNumber == brianNumber)
         {
             StartCoroutine(ActiveSquad());
+            //Grabs new selection and Highlights them
+            foreach (TardigradeBase tard in myTards)
+            {
+                ChangeHighlight(tard, true);
+            }
         }
     }
 
@@ -50,6 +62,11 @@ public class SquadBrain : MonoBehaviour
          {
              thisSquadsController.Move((movementVector.vectorThree * (Time.deltaTime * 10)));
              yield return wffu;
+         }
+         //Turns old highlights off and clears the old selection
+         foreach (TardigradeBase tard in myTards)
+         {
+             ChangeHighlight(tard,false);
          }
      }
 
@@ -70,7 +87,7 @@ public class SquadBrain : MonoBehaviour
             
                 Vector3 newPos = RandomPointInRadius();
                 GameObject newPiglet = Instantiate(tardInitial, newPos, Quaternion.identity);
-                newPiglet.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
+                AddToSquad(newPiglet.GetComponent<TardigradeBase>());
             
             }
         }
@@ -82,5 +99,42 @@ public class SquadBrain : MonoBehaviour
     {
         Vector3 currentPos = transform.position;
         return new Vector3((currentPos.x + Random.Range(-radius, radius)), currentPos.y, (currentPos.z + Random.Range(-radius, radius)));
+    }
+
+    /// <summary>
+    /// Adds a tardigrade to this squad
+    /// </summary>
+    public void AddToSquad(TardigradeBase newTard)
+    {
+        myTards.Add(newTard);
+        newTard.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
+    }
+    /// <summary>
+    /// Removes a tardigrade from this squad
+    /// </summary>
+    public void RemoveFromSquad(TardigradeBase oldTard)
+    {
+        myTards.Remove(oldTard);
+        oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
+    }
+    
+    
+    /// <summary>
+    /// Changes highlight shader material visibility
+    /// </summary>
+    /// <param name="shouldHighlight">Should the tardigrade be highlighted or unhighighted</param>
+    private void ChangeHighlight(TardigradeBase tard, bool shouldHighlight)
+    {
+        float thickness = 0f;
+        if (shouldHighlight) thickness = 0.1f;
+        
+        Material[] mats = tard.GetComponent<Renderer>().materials;
+        foreach (Material mat in mats)
+        {
+            if (mat.name =="HighlightMat (Instance)")
+            {
+                mat.SetFloat("_Highlight_Thickness", thickness);
+            }
+        }
     }
 }
