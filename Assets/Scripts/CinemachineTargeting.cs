@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -11,10 +12,17 @@ public class CinemachineTargeting : MonoBehaviour
     [SerializeField]
     private float targetEase = 0.15f ;
     //adds the squads to the target group list
+
+    private void Start()
+    {
+        _targetGroup = GetComponent<CinemachineTargetGroup>();
+    }
+
     public void AddTarget (Transform target)
     {
         if (_targetGroup != null)
         {
+            Debug.Log("hello");
             if (_targetGroup.FindMember(target) == -1)
             {
                 _targetGroup.AddMember(target, 0, 10);
