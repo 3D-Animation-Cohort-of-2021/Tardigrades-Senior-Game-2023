@@ -1,16 +1,20 @@
 using System.Reflection;
 using UnityEngine.InputSystem;
-using UnityEngine.Events;
-using UnityEngine.UI;
 using UnityEngine;
-using TMPro;
+using UnityEngine.Events;
+//Made By Parker Bennion
 
 public class PlayerControl : MonoBehaviour
 {
     public DebugInputSO debugInput;
+    private CharacterController characterController;
+    private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
+    public SO_SquadData SquadsMoveCommands;
+    public UnityEvent squadChangeNext, squadChangePrevious;
+
     void Awake()
     {
-        for(int i = 0; i < debugInput.map.actions.Count; i++)
+        for (int i = 0; i < debugInput.map.actions.Count; i++)
         {
             debugInput.map.actions[i].started += InputReceived;
             debugInput.map.actions[i].performed += InputReceived;
@@ -19,8 +23,12 @@ public class PlayerControl : MonoBehaviour
             debugInput.map.actions[i].Enable();
         }
 
+        SquadsMoveCommands.SetSquadNumber(0);
+        SquadsMoveCommands.SetSquadTotal(0);
+        characterController = GetComponent<CharacterController>();
+        
     }
-    
+
     public void InputReceived(InputAction.CallbackContext context)
     {
         string tempFuncion;
@@ -35,30 +43,107 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    //this is a teplate to make other controlls vvv
-    //this is a teplate to make other controlls vvv
-    
-    
-    public void CHANGEME(InputAction.CallbackContext context) //change change me to the exact name of the control added in the debug input scriptable object
+    public void FixedUpdate()
+    {
+        //MoveHoard
+        characterController.Move((leftStickMovement) * (Time.deltaTime * 10));
+
+        //MoveSquad
+        
+        //RotateSquad
+        transform.Rotate(triggerRotation * (Time.deltaTime * 50));
+    }
+
+
+    public void
+        CHANGEME(InputAction.CallbackContext context) //change change me to the exact name of the control added in the debug input scriptable object
     {
         if (context.started)
         {
-            Debug.Log("Started"+"CHANGEME");
+            Debug.Log("Started" + "CHANGEME");
+        }
+
+        if (context.canceled)
+        {
+            Debug.Log("Canceled" + "CHANGEME");
+        }
+
+        if (context.performed)
+        {
+            Debug.Log("Performed" + "CHANGEME");
+        }
+    }
+
+    public void MoveHoard(InputAction.CallbackContext context)
+    {
+        leftStickMovement.x = context.ReadValue<Vector2>().x;
+        leftStickMovement.z = context.ReadValue<Vector2>().y;
+
+    }
+    public void PreviousSquad(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            
+            SquadsMoveCommands.SubtractSquadNumber();
+        }
+
+        if (context.canceled)
+        {
+            squadChangePrevious.Invoke();
+        }
+
+    }
+    public void NextSquad(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            
+            SquadsMoveCommands.AddSquadNumber();
+        }
+
+        if (context.canceled)
+        {
+            squadChangeNext.Invoke();
+        }
+    }
+    public void MoveSquad(InputAction.CallbackContext context)
+    {
+        rightStickMovement.x = context.ReadValue<Vector2>().x;
+        rightStickMovement.z = context.ReadValue<Vector2>().y;
+
+        SquadsMoveCommands.vectorThree = rightStickMovement;
+
+    }
+    public void RotateClockwise(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            triggerRotation.y = context.ReadValue<float>();
         }
         if (context.canceled)
         {
-            Debug.Log("Canceled"+"CHANGEME");
+            triggerRotation.y = 0;
         }
+    }
+    public void RotateCounterClockwise(InputAction.CallbackContext context)
+    {
         if (context.performed)
         {
-            Debug.Log("Performed"+"CHANGEME");
+            triggerRotation.y = context.ReadValue<float>()*-1;
+        }
+        if (context.canceled)
+        {
+            triggerRotation.y = 0;
         }
     }
     
-    
-    //this is a teplate to make other controlls ^^^
-    //this is a teplate to make other controlls ^^^
-    
-    
-    
+    public void MutateSquad(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Mutate script here");
+        }
+    }
+
 }
