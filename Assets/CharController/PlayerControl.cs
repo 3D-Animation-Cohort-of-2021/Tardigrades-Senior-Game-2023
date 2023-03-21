@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
     private CharacterController charController;
     private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
-    public UnityEvent squadChangeNext, squadChangePrevious, MutateEvent;
+    public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent;
 
     void Awake()
     {
@@ -139,7 +139,15 @@ public class PlayerControl : MonoBehaviour
     {
         if (context.started)
         {
-            MutateEvent.Invoke();
+            mutateEvent.Invoke();
+        }
+    }
+
+    public void PrimaryAbility(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            primaryAbilityEvent.Invoke();
         }
     }
 

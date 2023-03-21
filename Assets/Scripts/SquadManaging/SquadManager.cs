@@ -106,49 +106,54 @@ public class SquadManager : MonoBehaviour
         squadIDGiver++;
     }
 
-    public void MutateActiveSquad()
+    private void SetActiveSquad()
     {
-        bool canMutate = true;
         foreach (Squad squad in squads)
         {
             if(SquadDataSO.squadNumber == 0)
             {
-                print("Neutrals can't mutate!");
-                canMutate = false;
+                activeSquad = null;
                 break;
             }
             if (squad.SquadID == 0)
             {
                 neutralSquad = squad.SquadObj.GetComponent<SquadBrain>();
             }
-            else if (squad.SquadID == SquadDataSO.squadNumber)
+            if (squad.SquadID == SquadDataSO.squadNumber)
             {
                 activeSquad = squad.SquadObj.GetComponent<SquadBrain>();
             }
         }
-        if(canMutate)
+    }
+    public void MutateActiveSquad()
+    {
+        SetActiveSquad();
+        if (activeSquad == null)
         {
-            List<TardigradeBase> neutralTards = neutralSquad.GetTards();
-            List<TardigradeBase> activeTards = activeSquad.GetTards();
-        
-            //Turn list of tards into a list of their positions then take the average to find the middle of the group;
-            List<Vector3> transforms = activeTards.Select(go => go.transform.position).ToList();
-            Vector3 middleOfGroup = transforms.Aggregate(new Vector3(0,0,0), (s,v) => s + v) / transforms.Count;
-
-            float minDistance = Single.PositiveInfinity;
-            TardigradeBase closestTard = null;
-            foreach (TardigradeBase tard in neutralTards)
-            {
-                float distance = Vector3.Distance(tard.transform.position, middleOfGroup);
-                if (distance < minDistance)
-                {
-                    closestTard = tard;
-                    minDistance = distance;
-                }
-            }
-            if(closestTard == null) print("Hey There are no neutral tards to transform");
-            else Mutate(closestTard);
+            print("Neutrals can't be mutated!");
+            return;
         }
+        
+        List<TardigradeBase> neutralTards = neutralSquad.GetTards();
+        List<TardigradeBase> activeTards = activeSquad.GetTards();
+
+        //Turn list of tards into a list of their positions then take the average to find the middle of the group;
+        List<Vector3> transforms = activeTards.Select(go => go.transform.position).ToList();
+        Vector3 middleOfGroup = transforms.Aggregate(new Vector3(0,0,0), (s,v) => s + v) / transforms.Count;
+
+        float minDistance = Single.PositiveInfinity;
+        TardigradeBase closestTard = null;
+        foreach (TardigradeBase tard in neutralTards)
+        {
+            float distance = Vector3.Distance(tard.transform.position, middleOfGroup);
+            if (distance < minDistance)
+            {
+                closestTard = tard;
+                minDistance = distance;
+            }
+        }
+        if(closestTard == null) print("Hey There are no neutral tards to transform");
+        else Mutate(closestTard);
     }
     private void Mutate(TardigradeBase tard)
     {
@@ -170,5 +175,16 @@ public class SquadManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void SquadUsePrimaryAbility()
+    {
+        SetActiveSquad();
+        if (activeSquad == null)
+        {
+            print("Neutrals can't use abilities!");
+            return;
+        }
+        activeSquad.TardsUsePrimaryAbility();
     }
 }

@@ -17,7 +17,6 @@ public class FireTardigrade : TardigradeBase
 
     public override void PrimaryAbility()
     {
-        Instantiate(explosionPrefab);
-        print("Explosion");
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
     }
 }
