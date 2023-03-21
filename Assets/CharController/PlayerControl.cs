@@ -137,9 +137,8 @@ public class PlayerControl : MonoBehaviour
     
     public void MutateSquad(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            Debug.Log("Mutate script here");
             MutateEvent.Invoke();
         }
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Cinemachine;
 using Random = UnityEngine.Random;
@@ -10,6 +11,7 @@ using Random = UnityEngine.Random;
 //Made By Parker Bennion
 public class SquadManager : MonoBehaviour
 {
+    [SerializeField]private SO_SquadData SquadDataSO;
     public GameObject parentObj, pigletPrefab, squadPrefab;
     public static List<Squad> squads = new List<Squad>();
     private Vector3 squadInstanceTempVector;
@@ -23,6 +25,10 @@ public class SquadManager : MonoBehaviour
     private CinemachineTargetGroup cTgroup;
     public GameObject targetGroup;
     //public Slider squadSlider;
+    
+    private SquadBrain neutralSquad = null;
+    private SquadBrain activeSquad = null;
+    [SerializeField]private TardigradeBase[] prefabs;
     
 
     private void Start()
@@ -56,12 +62,13 @@ public class SquadManager : MonoBehaviour
     {
         foreach (Elem TardType in Enum.GetValues(typeof(Elem)))
         {
-            squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = squadPrefab});
             GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
+            squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = groupPoint});
             groupPoint.GetComponent<SquadBrain>().squadType = TardType;
             squadIDGiver++;
             yield return new WaitForSeconds(.01f);
         }
+        
         /*for (int i = 0; i < Enum.GetNames(typeof(Elem)).Length; i++)
         {
             squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = squadPrefab});
@@ -97,5 +104,71 @@ public class SquadManager : MonoBehaviour
         //Debug.Log(squads[squadIDGiver].SquadID + " ID");
         //Debug.Log(squads[squadIDGiver].SquadObj + " GameObject");
         squadIDGiver++;
+    }
+
+    public void MutateActiveSquad()
+    {
+        bool canMutate = true;
+        foreach (Squad squad in squads)
+        {
+            if(SquadDataSO.squadNumber == 0)
+            {
+                print("Neutrals can't mutate!");
+                canMutate = false;
+                break;
+            }
+            if (squad.SquadID == 0)
+            {
+                neutralSquad = squad.SquadObj.GetComponent<SquadBrain>();
+            }
+            else if (squad.SquadID == SquadDataSO.squadNumber)
+            {
+                activeSquad = squad.SquadObj.GetComponent<SquadBrain>();
+            }
+        }
+        if(canMutate)
+        {
+            List<TardigradeBase> neutralTards = neutralSquad.GetTards();
+            List<TardigradeBase> activeTards = activeSquad.GetTards();
+        
+            //Turn list of tards into a list of their positions then take the average to find the middle of the group;
+            List<Vector3> transforms = activeTards.Select(go => go.transform.position).ToList();
+            Vector3 middleOfGroup = transforms.Aggregate(new Vector3(0,0,0), (s,v) => s + v) / transforms.Count;
+
+            float minDistance = Single.PositiveInfinity;
+            TardigradeBase closestTard = null;
+            foreach (TardigradeBase tard in neutralTards)
+            {
+                float distance = Vector3.Distance(tard.transform.position, middleOfGroup);
+                if (distance < minDistance)
+                {
+                    closestTard = tard;
+                    minDistance = distance;
+                }
+            }
+            if(closestTard == null) print("Hey There are no neutral tards to transform");
+            else Mutate(closestTard);
+        }
+    }
+    private void Mutate(TardigradeBase tard)
+    {
+        //get old tards stats like hp and position
+        Transform trans = tard.transform;
+        float oldHealth = tard.health;
+        //destroy the old tard
+        neutralSquad.RemoveFromSquad(tard);
+        Destroy(tard.gameObject);
+        //instatiate new one in its place
+        foreach (TardigradeBase obj in prefabs)
+        {
+            if (obj.GetElementType() == activeSquad.squadType)
+            {
+                TardigradeBase newTard = Instantiate(obj, trans.position, trans.rotation);
+                newTard.health = oldHealth;
+                activeSquad.AddToSquad(newTard);
+                activeSquad.ChangeHighlight(newTard, true);
+                break;
+            }
+        }
     }
 }

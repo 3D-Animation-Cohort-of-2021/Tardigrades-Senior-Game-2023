@@ -123,7 +123,7 @@ public class SquadBrain : MonoBehaviour
     /// Changes highlight shader material visibility
     /// </summary>
     /// <param name="shouldHighlight">Should the tardigrade be highlighted or unhighighted</param>
-    private void ChangeHighlight(TardigradeBase tard, bool shouldHighlight)
+    public void ChangeHighlight(TardigradeBase tard, bool shouldHighlight)
     {
         float thickness = 0f;
         if (shouldHighlight) thickness = 0.1f;
@@ -136,5 +136,10 @@ public class SquadBrain : MonoBehaviour
                 mat.SetFloat("_Highlight_Thickness", thickness);
             }
         }
+    }
+
+    public List<TardigradeBase> GetTards()
+    {
+        return myTards;
     }
 }
