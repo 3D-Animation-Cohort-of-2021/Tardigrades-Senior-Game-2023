@@ -140,8 +140,7 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    public void
-        CHANGEME(InputAction.CallbackContext context) //change change me to the exact name of the control added in the debug input scriptable object
+    public void CHANGEME(InputAction.CallbackContext context) //change change me to the exact name of the control added in the debug input scriptable object
     {
         if (context.started)
         {

@@ -42,19 +42,18 @@ public class SquadBrain : MonoBehaviour
         if(transform.parent != null && Vector3.Distance(transform.position, transform.parent.position) <= radius)
         {
             navMeshAgent.ResetPath();
-            //Grabs new selection and Highlights them
-            foreach (TardigradeBase tard in myTards)
-            {
-                ChangeHighlight(tard, true);
-            }
         }
     }
 
     public void WakeUp()
     {
-        brainNumber = SquadManager.squads.Count-1;
-        movementVector.SetSquadTotal(brainNumber + 1);
-        ActivateSquad(brainNumber);
+        brainNumber = SquadManager.squads[SquadManager.squads.Count - 1].SquadID;
+        
+        if (squadType != Elem.Neutral)
+        {
+            movementVector.IncrementSquadTotal();
+            ActivateSquad();
+        }
     }
 
     private void ActivateSquad(int squadNumber)
@@ -66,9 +65,20 @@ public class SquadBrain : MonoBehaviour
             activeSquad = null;
         }
 
-        if (squadNumber == brainNumber)
+        if (movementVector.squadNumber == squadNumber && squadType != Elem.Neutral)
         {
             activeSquad = StartCoroutine(ActiveSquad());
+            foreach (TardigradeBase tard in myTards)
+            {
+                ChangeHighlight(tard, true);
+            }
+        }
+        else
+        {
+            foreach (TardigradeBase tard in myTards)
+            {
+                ChangeHighlight(tard, false);
+            }
         }
     }
 
@@ -80,13 +90,21 @@ public class SquadBrain : MonoBehaviour
             activeSquad = null;
         }
 
-        if (movementVector.squadNumber == brainNumber)
+        if (movementVector.squadNumber == brainNumber && squadType != Elem.Neutral )
         {
             activeSquad = StartCoroutine(ActiveSquad());
+
             //Grabs new selection and Highlights them
             foreach (TardigradeBase tard in myTards)
             {
                 ChangeHighlight(tard, true);
+            }
+        }
+        else
+        {
+            foreach (TardigradeBase tard in myTards)
+            {
+                ChangeHighlight(tard, false);
             }
         }
     }
@@ -103,10 +121,6 @@ public class SquadBrain : MonoBehaviour
              yield return wffu;
          }
          //Turns old highlights off and clears the old selection
-         foreach (TardigradeBase tard in myTards)
-         {
-             ChangeHighlight(tard,false);
-         }
      }
 
     private void OnTriggerEnter(Collider other)
@@ -132,14 +146,26 @@ public class SquadBrain : MonoBehaviour
                 Vector3 newPos = RandomPointInRadius();
                 GameObject newPiglet = Instantiate(piggyPrefab, newPos, Quaternion.identity);
 
-                newPiglet.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
-
                 TardigradeBase pigBase = newPiglet.GetComponent<TardigradeBase>();
                 if (pigBase.ConvertTardigrade(squadType))
                 {
+                    myTards.Remove(pigBase);
+                    pigBase.enabled = false;
                     Destroy(pigBase);
+                    TardigradeBase[] bases = newPiglet.GetComponents<TardigradeBase>();
+
+                    foreach(TardigradeBase tBase in bases)
+                    {
+                        if (tBase.enabled)
+                        {
+                            pigBase = tBase;
+                        }
+                    }
                 }
-                AddToSquad(newPiglet.GetComponent<TardigradeBase>());
+                if (pigBase != null)
+                {
+                    AddToSquad(pigBase);
+                }
             
             }
         }
@@ -183,7 +209,11 @@ public class SquadBrain : MonoBehaviour
     public void ChangeHighlight(TardigradeBase tard, bool shouldHighlight)
     {
         float thickness = 0f;
-        if (shouldHighlight) thickness = 0.1f;
+
+        if (shouldHighlight)
+        {
+            thickness = 0.1f;
+        }
         
         Material[] mats = tard.GetComponent<Renderer>().materials;
         foreach (Material mat in mats)
@@ -207,5 +237,15 @@ public class SquadBrain : MonoBehaviour
     public List<TardigradeBase> GetTards()
     {
         return myTards;
+    }
+
+    public bool IsActive()
+    {
+        if(activeSquad != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

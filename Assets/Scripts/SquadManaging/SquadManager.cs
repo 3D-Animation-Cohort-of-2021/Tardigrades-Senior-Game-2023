@@ -12,13 +12,10 @@ using UnityEngine.AI;
 public class SquadManager : MonoBehaviour
 {
     public GameObject squadPrefab;
-    [SerializeField]private SO_SquadData SquadDataSO;
     public static List<Squad> squads = new List<Squad>();
-    private Vector3 squadInstanceTempVector;
-    public int howManySquads;
+
     public int squadIDGiver;
     public float radius;
-    public int amountPerGroup;
     
     
     private CinemachineTargetGroup cTgroup;
@@ -27,7 +24,6 @@ public class SquadManager : MonoBehaviour
     
     private SquadBrain neutralSquad = null;
     private SquadBrain activeSquad = null;
-    [SerializeField]private TardigradeBase[] prefabs;
     
 
     private void Start()
@@ -56,11 +52,6 @@ public class SquadManager : MonoBehaviour
     {
         OnTriggerEnter(other);
     }
-    private Vector3 RandomPointInRadius() 
-    {
-        Vector3 currentPos = transform.position;
-        return new Vector3((currentPos.x + Random.Range(-radius, radius)), currentPos.y, (currentPos.z + Random.Range(-radius, radius)));
-    }
 
     //on tirgger with a squad spawning prefab. add to the squad list and instance a squad.
     private void OnTriggerEnter(Collider other)
@@ -71,59 +62,44 @@ public class SquadManager : MonoBehaviour
             ClaimSquad(tempObject);
         }
     }
-    
-    IEnumerator InstanceSquadManually()
-    {
-        foreach (Elem TardType in System.Enum.GetValues(typeof(Elem)))
-        {
-            GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, transform);
-            squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = groupPoint});
-            groupPoint.GetComponent<SquadBrain>().squadType = TardType;
-            squadIDGiver++;
-            yield return new WaitForSeconds(.01f);
-        }
-        
-        /*for (int i = 0; i < Enum.GetNames(typeof(Elem)).Length; i++)
-        {
-            squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = squadPrefab});
-            GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
-            groupPoint.GetComponent<SquadBrain>().squadType = Elem.Neutral;
-            squadIDGiver++;
-            yield return new WaitForSeconds(.01f);
-            for (int j = 0; j < amountPerGroup; j++) 
-            {
-                Vector3 newPos = RandomPointInRadius();
-                GameObject newPiglet = Instantiate(pigletPrefab, newPos, Quaternion.identity);
-                newPiglet.GetComponent<FollowPointBehaviour>().pointObject = groupPoint;
-                if (targetGroup != null)
-                {
-                    cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
-                    cTgroup.AddMember(newPiglet.transform, 1f, 5f);
-                }
-            }
-        }*/
-    }
+
+
 
     private void ClaimSquad(GameObject squad)
     {
-            squad.layer = LayerMask.NameToLayer("Center");
+        squad.layer = LayerMask.NameToLayer("Center");
 
-            SquadBrain childBrain = squad.GetComponent<SquadBrain>();
-            squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squads.Count, SquadObj = squad });
-
-            squad.transform.parent = transform;
-
-            AddToTargetGroup(squad);
-
-            childBrain.WakeUp();
+        SquadBrain childBrain = squad.GetComponent<SquadBrain>();
+        if (childBrain.squadType != Elem.Neutral)
+        {
+            squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squadIDGiver, SquadObj = childBrain });
             squadIDGiver++;
+        }
+        else
+        {
+            squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = -1, SquadObj = childBrain });
+        }
+
+        if (childBrain.squadType == Elem.Neutral)
+        {
+            float centerOffset = GetComponent<NavMeshAgent>().baseOffset;
+
+            childBrain.TeleportSquad(transform.position + Vector3.down * centerOffset);
+        }
+
+
+        squad.transform.parent = transform;
+
+        AddToTargetGroup(squad);
+
+        childBrain.WakeUp();
     }
 
     public void TeleportSquadsToCenter(float centerOffset)
     {
         foreach(Squad squad in squads)
         {
-            squad.SquadObj.GetComponent<SquadBrain>().TeleportSquad(transform.position + Vector3.down * centerOffset);
+            squad.SquadObj.TeleportSquad(transform.position + Vector3.down * centerOffset);
         }
     }
 
@@ -137,16 +113,19 @@ public class SquadManager : MonoBehaviour
     {
         foreach (Squad squad in squads)
         {
-            if(SquadDataSO.squadNumber == 0)
+            SquadBrain currentBrain = squad.SquadObj;
+            
+            if (currentBrain.squadType == Elem.Neutral)
+            {
+                neutralSquad = squad.SquadObj.GetComponent<SquadBrain>();
+            }
+
+            if (currentBrain.IsActive() && currentBrain.squadType == Elem.Neutral)
             {
                 activeSquad = null;
                 break;
             }
-            if (squad.SquadID == 0)
-            {
-                neutralSquad = squad.SquadObj.GetComponent<SquadBrain>();
-            }
-            if (squad.SquadID == SquadDataSO.squadNumber)
+            else if (currentBrain.IsActive())
             {
                 activeSquad = squad.SquadObj.GetComponent<SquadBrain>();
             }
@@ -170,6 +149,7 @@ public class SquadManager : MonoBehaviour
 
         float minDistance = System.Single.PositiveInfinity;
         TardigradeBase closestTard = null;
+
         foreach (TardigradeBase tard in neutralTards)
         {
             float distance = Vector3.Distance(tard.transform.position, middleOfGroup);
@@ -179,8 +159,16 @@ public class SquadManager : MonoBehaviour
                 minDistance = distance;
             }
         }
-        if(closestTard == null) print("Hey There are no neutral tards to transform");
-        else Mutate(closestTard);
+
+        if (closestTard == null)
+        {
+            print("Hey There are no neutral tards to transform");
+        }
+        else
+        {
+            Mutate(closestTard);
+        }
+            
     }
     private void Mutate(TardigradeBase tard)
     {
@@ -189,19 +177,14 @@ public class SquadManager : MonoBehaviour
         float oldHealth = tard.health;
         //destroy the old tard
         neutralSquad.RemoveFromSquad(tard);
-        Destroy(tard.gameObject);
         //instatiate new one in its place
-        foreach (TardigradeBase obj in prefabs)
-        {
-            if (obj.GetElementType() == activeSquad.squadType)
-            {
-                TardigradeBase newTard = Instantiate(obj, trans.position, trans.rotation);
-                newTard.health = oldHealth;
-                activeSquad.AddToSquad(newTard);
-                activeSquad.ChangeHighlight(newTard, true);
-                break;
-            }
-        }
+
+        activeSquad.AddToSquad(tard);
+        activeSquad.ChangeHighlight(tard, true);
+
+        tard.ConvertTardigrade(activeSquad.squadType);
+
+        
     }
 
     public void SquadUsePrimaryAbility()

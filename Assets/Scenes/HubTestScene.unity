@@ -4648,10 +4648,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squadPrefab: {fileID: 35610919964600981, guid: efd5cc798ae454db480a017eb4e4a22d,
     type: 3}
-  howManySquads: 0
   squadIDGiver: 0
-  radius: 0
-  amountPerGroup: 0
+  radius: 1
   targetGroup: {fileID: 587701093}
 --- !u!114 &1916601011
 MonoBehaviour:
@@ -4667,6 +4665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugInput: {fileID: 11400000, guid: 938d6a0ddab19b8498cdd706b56e240f, type: 2}
   SquadsMoveCommands: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
+  method: 2
   squadChangeNext:
     m_PersistentCalls:
       m_Calls:
@@ -4697,7 +4696,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  method: 2
+  mutateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1916601010}
+        m_TargetAssemblyTypeName: SquadManager, Assembly-CSharp
+        m_MethodName: MutateActiveSquad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  primaryAbilityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1916601010}
+        m_TargetAssemblyTypeName: SquadManager, Assembly-CSharp
+        m_MethodName: SquadUsePrimaryAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &1916601013
 SphereCollider:
   m_ObjectHideFlags: 0
