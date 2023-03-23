@@ -19,11 +19,10 @@ public class PlayerControl : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
-    public UnityEvent squadChangeNext, squadChangePrevious;
     public OffMeshLinkMoveMethod method = OffMeshLinkMoveMethod.Parabola;
 
     private Coroutine offMeshPathInstance = null;
-
+    public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent;
 
     void Awake()
     {
@@ -226,9 +225,17 @@ public class PlayerControl : MonoBehaviour
     
     public void MutateSquad(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            Debug.Log("Mutate script here");
+            mutateEvent.Invoke();
+        }
+    }
+
+    public void PrimaryAbility(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            primaryAbilityEvent.Invoke();
         }
     }
 

@@ -60,6 +60,11 @@ public abstract class TardigradeBase : MonoBehaviour
         GetComponent<Renderer>().material = tardigradeMaterial.GetMaterialSetByType(type).material;
     }
 
+    public virtual void PrimaryAbility()
+    {
+        //Use Elemental Ability
+    }
+
     public bool ConvertTardigrade(Elem element)
     {
 
