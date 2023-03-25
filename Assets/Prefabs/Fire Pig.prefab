@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 343225728191052656}
   - component: {fileID: 8400095008217802659}
   - component: {fileID: 4113862750945549236}
+  - component: {fileID: 7038502598761792765}
+  - component: {fileID: -4119385071724282439}
   m_Layer: 0
   m_Name: Fire Pig
   m_TagString: Untagged
@@ -67,6 +69,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 6f3d44b7c4ae448cc90d36bb4f74956c, type: 2}
   - {fileID: 2100000, guid: a45512dbd4ba8c141bcce8651de36553, type: 2}
+  - {fileID: 2100000, guid: 3b7c78f4a0a217f4ea037760bb49303a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,3 +155,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointObject: {fileID: 0}
+--- !u!95 &7038502598761792765
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343225728191052424}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5bd761d93cca0cc4d8a427a67119022e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-4119385071724282439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343225728191052424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aaae5f384080d428a0695bdeea03e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  activatable: 0

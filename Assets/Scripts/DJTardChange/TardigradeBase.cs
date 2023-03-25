@@ -1,11 +1,22 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Ability))]
 public abstract class TardigradeBase : MonoBehaviour
 {
     [SerializeField]public float health = 5;
     protected float speed;
     protected float weaknessMultiplier = 0.5f;
     [SerializeField]protected Elem type;
+    
+    protected Ability primary;
+
+    private void Awake()
+    {
+        primary = GetComponent<Ability>();
+    }
 
     /// <summary>
     /// Purpose: Calculates type based damage and subtracts it from health
@@ -53,7 +64,14 @@ public abstract class TardigradeBase : MonoBehaviour
 
     public virtual void PrimaryAbility()
     {
-        //Use Elemental Ability
+        
+    }
+
+    protected IEnumerator CooldownTracker(Ability ability)
+    {
+        ability.activatable = false;
+        yield return new WaitForSeconds(ability.cooldown);
+        ability.activatable = true;
     }
 
 }

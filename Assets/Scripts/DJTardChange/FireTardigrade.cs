@@ -1,8 +1,18 @@
+using System;
+using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FireTardigrade : TardigradeBase
 {
     public ParticleSystem explosionPrefab;
+
+    protected void Start()
+    {
+        primary.cooldown = 3;
+        primary.activatable = true;
+    }
+
     protected override void ReactToStrong()
     {
         base.ReactToStrong();
@@ -17,6 +27,8 @@ public class FireTardigrade : TardigradeBase
 
     public override void PrimaryAbility()
     {
+        if (!primary.activatable) return;
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        StartCoroutine(CooldownTracker(primary));
     }
 }
