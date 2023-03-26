@@ -139,6 +139,12 @@ public class SquadManager : MonoBehaviour
             print("Neutrals can't be mutated!");
             return;
         }
+
+        if(neutralSquad == null)
+        {
+            print("No Neutrals to mutate");
+            return;
+        }
         
         List<TardigradeBase> neutralTards = neutralSquad.GetTards();
         List<TardigradeBase> activeTards = activeSquad.GetTards();
@@ -173,18 +179,23 @@ public class SquadManager : MonoBehaviour
     private void Mutate(TardigradeBase tard)
     {
         //get old tards stats like hp and position
-        Transform trans = tard.transform;
-        float oldHealth = tard.health;
+
+        TardigradeBase newBase = tard.ConvertTardigrade(activeSquad.squadType);
+
+        if (newBase == null) 
+        {
+            return;
+        }
+
         //destroy the old tard
         neutralSquad.RemoveFromSquad(tard);
+        Destroy(tard);
         //instatiate new one in its place
 
-        activeSquad.AddToSquad(tard);
-        activeSquad.ChangeHighlight(tard, true);
+        activeSquad.AddToSquad(newBase);
+        activeSquad.ChangeHighlight(newBase, true);
 
-        tard.ConvertTardigrade(activeSquad.squadType);
 
-        
     }
 
     public void SquadUsePrimaryAbility()

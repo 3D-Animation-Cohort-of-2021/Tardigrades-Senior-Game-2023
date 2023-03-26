@@ -8,8 +8,8 @@ public abstract class TardigradeBase : MonoBehaviour
     protected float weaknessMultiplier = 0.5f;
     [SerializeField]protected Elem type;
     [SerializeField]protected MaterialListSO tardigradeMaterial;
+    public GameObject abilityPrefab;
 
-    
 
     /// <summary>
     /// Purpose: Calculates type based damage and subtracts it from health
@@ -57,7 +57,9 @@ public abstract class TardigradeBase : MonoBehaviour
 
     private void UpdateAppearance()
     {
-        GetComponent<Renderer>().material = tardigradeMaterial.GetMaterialSetByType(type).material;
+        MaterialSetSO materialSetSO = tardigradeMaterial.GetMaterialSetByType(type);
+        GetComponent<Renderer>().material = materialSetSO.material;
+        abilityPrefab = materialSetSO.activeAbilityEffect;
     }
 
     public virtual void PrimaryAbility()
@@ -65,12 +67,12 @@ public abstract class TardigradeBase : MonoBehaviour
         //Use Elemental Ability
     }
 
-    public bool ConvertTardigrade(Elem element)
+    public TardigradeBase ConvertTardigrade(Elem element)
     {
 
         if(element == type)
         {
-            return false;
+            return null;
         }
         TardigradeBase tardigradeBase = null;
         switch (element)
@@ -91,12 +93,12 @@ public abstract class TardigradeBase : MonoBehaviour
                 break;
 
         }
-
+        tardigradeBase.health = health;
         tardigradeBase.type = element;
         tardigradeBase.tardigradeMaterial = tardigradeMaterial;
         tardigradeBase.UpdateAppearance();
 
-        return true;
+        return tardigradeBase;
 
     }
 }

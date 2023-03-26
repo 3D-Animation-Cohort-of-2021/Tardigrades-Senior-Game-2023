@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class FireTardigrade : TardigradeBase
 {
-    public ParticleSystem explosionPrefab;
     protected override void ReactToStrong()
     {
         base.ReactToStrong();
@@ -17,6 +16,6 @@ public class FireTardigrade : TardigradeBase
 
     public override void PrimaryAbility()
     {
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Instantiate(abilityPrefab, transform.position, Quaternion.identity);
     }
 }
