@@ -147,25 +147,19 @@ public class SquadBrain : MonoBehaviour
                 GameObject newPiglet = Instantiate(piggyPrefab, newPos, Quaternion.identity);
 
                 TardigradeBase pigBase = newPiglet.GetComponent<TardigradeBase>();
-                if (pigBase.ConvertTardigrade(squadType))
+                TardigradeBase newBase = pigBase.ConvertTardigrade(squadType);
+
+                if (newBase != null)
                 {
                     myTards.Remove(pigBase);
-                    pigBase.enabled = false;
-                    Destroy(pigBase);
-                    TardigradeBase[] bases = newPiglet.GetComponents<TardigradeBase>();
 
-                    foreach(TardigradeBase tBase in bases)
-                    {
-                        if (tBase.enabled)
-                        {
-                            pigBase = tBase;
-                        }
-                    }
+                    Destroy(pigBase);
+
+                    pigBase = newBase;
                 }
-                if (pigBase != null)
-                {
+
+
                     AddToSquad(pigBase);
-                }
             
             }
         }
