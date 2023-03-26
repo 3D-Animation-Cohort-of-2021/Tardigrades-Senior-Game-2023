@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class WaterTardigrade : TardigradeBase
 {
-    private float iceDuration = 10;
+    private float iceDuration = 3;
     public ParticleSystem iceShardsPrefab;
+    public List<TardigradeBase> shieldableTards;
 
     protected void Start()
     {
-        primary.cooldown = 13;
+        primary.cooldown = 4;
         primary.activatable = true;
     }
 
@@ -28,16 +29,25 @@ public class WaterTardigrade : TardigradeBase
     public override void PrimaryAbility()
     {
         if (!primary.activatable) return;
-        StartCoroutine(IceAbility());
+        FindTargetsInRange();
         StartCoroutine(CooldownTracker(primary));
     }
 
-    private IEnumerator IceAbility()
+    private void FindTargetsInRange()
     {
-        GetComponent<Animator>().SetBool("IceShield", true);
+        foreach (TardigradeBase tard in shieldableTards)
+        {
+            StartCoroutine(IceAbility(tard));
+        }
+        StartCoroutine(IceAbility(this));
+    }
+    private IEnumerator IceAbility(TardigradeBase tard)
+    {
+        if (tard.GetComponent<Animator>().GetBool("IceShield")) yield break;
+        tard.GetComponent<Animator>().SetBool("IceShield", true);
         yield return new WaitForSeconds(iceDuration);
-        GetComponent<Animator>().SetBool("IceShield", false);
-        Instantiate(iceShardsPrefab, transform.position, Quaternion.identity);
+        tard.GetComponent<Animator>().SetBool("IceShield", false);
+        Instantiate(iceShardsPrefab, tard.transform);
 
     }
 }
