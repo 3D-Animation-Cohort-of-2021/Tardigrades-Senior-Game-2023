@@ -93,6 +93,7 @@ public class SquadManager : MonoBehaviour
         AddToTargetGroup(squad);
 
         childBrain.WakeUp();
+        SetActiveSquad();
     }
 
     public void TeleportSquadsToCenter(float centerOffset)
@@ -118,7 +119,7 @@ public class SquadManager : MonoBehaviour
             
             if (currentBrain.squadType == Elem.Neutral)
             {
-                neutralSquad = squad.SquadObj.GetComponent<SquadBrain>();
+                neutralSquad = currentBrain;
             }
 
             if (currentBrain.IsActive() && currentBrain.squadType == Elem.Neutral)
@@ -212,7 +213,10 @@ public class SquadManager : MonoBehaviour
 
     public void UpdateActiveFormation(Formation newFormation)
     {
-        activeSquad.UpdateFormation(newFormation);
+        if (activeSquad != null)
+        {
+            activeSquad.UpdateFormation(newFormation);
+        }
     }
 
     

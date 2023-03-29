@@ -192,7 +192,7 @@ public class SquadBrain : MonoBehaviour
         myTards.Add(newTard);
         newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
 
-        UpdateFormation(formation);
+        UpdateFormation(formation, true);
     }
     /// <summary>
     /// Removes a tardigrade from this squad
@@ -210,7 +210,7 @@ public class SquadBrain : MonoBehaviour
         }
         else
         {
-            UpdateFormation(formation);
+            UpdateFormation(formation, true);
         }
     }
     
@@ -264,7 +264,17 @@ public class SquadBrain : MonoBehaviour
 
     public void UpdateFormation(Formation newFormation)
     {
+        UpdateFormation(newFormation, false);
+    }
+        private void UpdateFormation(Formation newFormation, bool formationOverride)
+    {
+        if (!formationOverride && formation == newFormation)
+        {
+            return;
+        }
+
         formation = newFormation;
+
         if (myTards != null)
         {
             switch(formation)
