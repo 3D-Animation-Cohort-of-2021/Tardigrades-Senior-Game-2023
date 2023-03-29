@@ -16,7 +16,7 @@ public class SquadBrain : MonoBehaviour
     public float radius;
 
     private Formation formation = Formation.Cluster;
-    private float spacing;
+    private float spacing = 1;
     private List<CustomTransform> formationPositions;
     
     [SerializeField]private List<TardigradeBase> myTards;
@@ -53,6 +53,11 @@ public class SquadBrain : MonoBehaviour
     public void WakeUp()
     {
         brainNumber = SquadManager.squads[SquadManager.squads.Count - 1].SquadID;
+
+        foreach(CustomTransform customTransform in formationPositions)
+        {
+            customTransform.Center = transform.parent;
+        }
         
         if (squadType != Elem.Neutral)
         {
@@ -187,7 +192,17 @@ public class SquadBrain : MonoBehaviour
     /// </summary>
     public void AddToSquad(TardigradeBase newTard)
     {
-        CustomTransform newTransform = new CustomTransform(transform, Vector3.zero, Quaternion.identity, Vector3.one);
+        CustomTransform newTransform;
+
+        if (transform.parent != null)
+        {
+            newTransform = new CustomTransform(transform.parent, transform, Vector3.zero, Quaternion.identity, Vector3.one);
+        }
+        else
+        {
+            newTransform = new CustomTransform(transform, Vector3.zero, Quaternion.identity, Vector3.one);
+        }
+
         formationPositions.Add(newTransform);
         myTards.Add(newTard);
         newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
@@ -298,6 +313,7 @@ public class SquadBrain : MonoBehaviour
     private void ClusterFormation()
     {
         float clusterRadius = Mathf.Log((float)formationPositions.Count, 4);
+
         for (int i = 0; i < formationPositions.Count; i++)
         {
 
@@ -307,9 +323,14 @@ public class SquadBrain : MonoBehaviour
 
     private void LineFormation()
     {
+        float centeredOffset = ((float)formationPositions.Count * spacing * 0.5f);
+
         for (int i = 0; i < formationPositions.Count; i++)
         {
-            
+            formationPositions[i].Position = Vector3.zero;
+            formationPositions[i].Position -= new Vector3(centeredOffset, 0, 0);
+            formationPositions[i].Position += new Vector3((float)i * spacing, 0, 0);
+
         }
     }
 
@@ -323,9 +344,13 @@ public class SquadBrain : MonoBehaviour
 
     private void WedgeFormation()
     {
+        float centeredOffset = ((float)formationPositions.Count * spacing * 0.5f);
+
         for (int i = 0; i < formationPositions.Count; i++)
         {
-
+            formationPositions[i].Position = Vector3.zero;
+            formationPositions[i].Position -= new Vector3(centeredOffset, 0, 0);
+            formationPositions[i].Position += new Vector3(i * spacing, 0, 0);
         }
     }
 }

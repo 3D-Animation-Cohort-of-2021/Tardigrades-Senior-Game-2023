@@ -22,7 +22,29 @@ public class FollowPointBehaviour : MonoBehaviour {
     private void Update() {
         if (pointObject != null)
         {
-            _navMeshAgent.destination = pointObject.Position + pointObject.Parent.position;
+            Vector3 destination = pointObject.Position;
+            
+            if (pointObject.Center !=  null)
+            {
+                float directionModifier = 1;
+
+                Vector3 normalizedParent = Vector3.Normalize(pointObject.Parent.position - pointObject.Center.position);
+
+                if(normalizedParent.x < 0)
+                {
+                    directionModifier = -1;
+                }
+
+                float angle = (Mathf.Acos(normalizedParent.z) * directionModifier);
+                Debug.Log(angle);
+                float tempZ = destination.z * Mathf.Cos(angle) - destination.x * Mathf.Sin(angle);
+                float tempX = destination.z * Mathf.Sin(angle) + destination.x * Mathf.Cos(angle);
+
+                destination.z = tempZ;
+                destination.x = tempX;
+            }
+
+            _navMeshAgent.destination = destination + pointObject.Parent.position;
         }
     }
 }

@@ -213,6 +213,7 @@ public class SquadManager : MonoBehaviour
 
     public void UpdateActiveFormation(Formation newFormation)
     {
+        SetActiveSquad();
         if (activeSquad != null)
         {
             activeSquad.UpdateFormation(newFormation);
