@@ -70,7 +70,7 @@ public class MenuControl : MonoBehaviour
     {
         if (context.started)
         {
-            openMenuEvent.Invoke();
+            returnEvent.Invoke();
             Debug.Log("Started" + "'Return'.");
         }
 
