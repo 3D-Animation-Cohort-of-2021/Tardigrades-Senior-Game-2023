@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -333,6 +333,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  mutateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 285308250}
+        m_TargetAssemblyTypeName: SquadManager, Assembly-CSharp
+        m_MethodName: MutateActiveSquad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  primaryAbilityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 285308250}
+        m_TargetAssemblyTypeName: SquadManager, Assembly-CSharp
+        m_MethodName: SquadUsePrimaryAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &285308250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a17bbedaef6ee4098ffdd2a2133e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SquadDataSO: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
   parentObj: {fileID: 285308239}
   pigletPrefab: {fileID: 8713643393502141244, guid: 741b956faa1cd6a4fa76718508ee149c,
     type: 3}
@@ -355,6 +386,11 @@ MonoBehaviour:
   radius: 1
   amountPerGroup: 5
   targetGroup: {fileID: 53925281}
+  prefabs:
+  - {fileID: 4646791122522326532, guid: 741b956faa1cd6a4fa76718508ee149c, type: 3}
+  - {fileID: 343225728191052656, guid: 6c8097070fb1b45698762f89a766dbaa, type: 3}
+  - {fileID: 9207113105633815923, guid: b4154a9da8583d24c9b59495fe22eafa, type: 3}
+  - {fileID: 4610411275076166624, guid: 5cfe59228dc65e343925836969fe7fc7, type: 3}
 --- !u!1 &320943080
 GameObject:
   m_ObjectHideFlags: 0

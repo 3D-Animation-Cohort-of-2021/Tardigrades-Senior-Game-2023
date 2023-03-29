@@ -20,6 +20,16 @@ public class SO_SquadData : ScriptableObject
         totalSquads = newTotal;
     }
 
+    public void IncrementSquadTotal()
+    {
+        totalSquads++;
+    }
+
+    public void DecrementSquadTotal()
+    {
+        totalSquads--;
+    }
+
     //changes which squad to control and caps at 10 (see squad brain for more details)
     public void AddSquadNumber()
     {

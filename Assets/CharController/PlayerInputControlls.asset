@@ -81,6 +81,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: PrimaryAbility
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: f678d842-abbd-4fbd-b8a3-ccec510b94df
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: cf394f6b-5afd-4d44-b5b3-f95939e3cacc
@@ -147,8 +155,24 @@ MonoBehaviour:
       m_Action: NextSquad
       m_Flags: 0
     - m_Name: 
+      m_Id: dc7266a8-1110-44c6-855e-a45578d9326f
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: NextSquad
+      m_Flags: 0
+    - m_Name: 
       m_Id: 224edcd4-a636-4e57-95e6-36f8e7fa1e76
       m_Path: <Gamepad>/leftShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PreviousSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 603820fc-5b1b-4e5f-adf1-1d51df86c4ba
+      m_Path: <Keyboard>/q
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -225,4 +249,28 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: MutateSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: b6d3cb4b-c790-4bf9-8f4c-fa1bd9e100e3
+      m_Path: <Keyboard>/enter
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MutateSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: cb603479-174a-4813-96fa-23b93387364c
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PrimaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 7db32c14-958a-45e7-bb9d-cfd0a724164b
+      m_Path: <Keyboard>/p
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PrimaryAbility
       m_Flags: 0
