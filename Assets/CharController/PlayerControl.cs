@@ -23,6 +23,7 @@ public class PlayerControl : MonoBehaviour
 
     private Coroutine offMeshPathInstance = null;
     public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent;
+    public UnityEvent<Formation> updateFormation;
 
     void Awake()
     {
@@ -235,6 +236,38 @@ public class PlayerControl : MonoBehaviour
         if (context.started)
         {
             primaryAbilityEvent.Invoke();
+        }
+    }
+
+    public void FormationOne(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            updateFormation.Invoke(Formation.Cluster);
+        }
+    }
+
+    public void FormationTwo(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            updateFormation.Invoke(Formation.Line);
+        }
+    }
+
+    public void FormationThree(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            updateFormation.Invoke(Formation.Circle);
+        }
+    }
+
+    public void FormationFour(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            updateFormation.Invoke(Formation.Wedge);
         }
     }
 

@@ -14,6 +14,10 @@ public class SquadBrain : MonoBehaviour
     public int brainNumber = -1;
     public Elem squadType;
     public float radius;
+
+    private Formation formation = Formation.Cluster;
+    private float spacing;
+    private List<CustomTransform> formationPositions;
     
     [SerializeField]private List<TardigradeBase> myTards;
 
@@ -22,6 +26,7 @@ public class SquadBrain : MonoBehaviour
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        formationPositions = new List<CustomTransform>();
     }
 
     void Start()
@@ -143,7 +148,7 @@ public class SquadBrain : MonoBehaviour
             for (int i = 0; i < amountOfTards; i++)
             {
             
-                Vector3 newPos = RandomPointInRadius();
+                Vector3 newPos = transform.position + RandomPointInRadius(1f);
                 GameObject newPiglet = Instantiate(piggyPrefab, newPos, Quaternion.identity);
 
                 TardigradeBase pigBase = newPiglet.GetComponent<TardigradeBase>();
@@ -158,8 +163,7 @@ public class SquadBrain : MonoBehaviour
                     pigBase = newBase;
                 }
 
-
-                    AddToSquad(pigBase);
+                AddToSquad(pigBase);
             
             }
         }
@@ -172,10 +176,10 @@ public class SquadBrain : MonoBehaviour
         navMeshAgent.Warp(dest + Vector3.up * navMeshAgent.baseOffset);
     }
     
-    private Vector3 RandomPointInRadius() 
+    private Vector3 RandomPointInRadius(float clusterRadius) 
     {
         Vector3 currentPos = transform.position;
-        return new Vector3((currentPos.x + Random.Range(-radius, radius)), currentPos.y, (currentPos.z + Random.Range(-radius, radius)));
+        return new Vector3((Random.Range(-clusterRadius, clusterRadius)), 0, (Random.Range(-clusterRadius, clusterRadius)));
     }
 
     /// <summary>
@@ -183,16 +187,31 @@ public class SquadBrain : MonoBehaviour
     /// </summary>
     public void AddToSquad(TardigradeBase newTard)
     {
+        CustomTransform newTransform = new CustomTransform(transform, Vector3.zero, Quaternion.identity, Vector3.one);
+        formationPositions.Add(newTransform);
         myTards.Add(newTard);
-        newTard.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
+        newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
+
+        UpdateFormation(formation);
     }
     /// <summary>
     /// Removes a tardigrade from this squad
     /// </summary>
     public void RemoveFromSquad(TardigradeBase oldTard)
     {
-        myTards.Remove(oldTard);
+        int index = myTards.IndexOf(oldTard);
+        myTards.RemoveAt(index);
+        formationPositions.RemoveAt(index);
         oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
+
+        if(myTards.Count < 1) 
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            UpdateFormation(formation);
+        }
     }
     
     
@@ -242,4 +261,69 @@ public class SquadBrain : MonoBehaviour
 
         return false;
     }
+
+    public void UpdateFormation(Formation newFormation)
+    {
+        formation = newFormation;
+        if (myTards != null)
+        {
+            switch(formation)
+            {
+                case Formation.Cluster:
+                    ClusterFormation();
+                    break;
+                case Formation.Line:
+                    LineFormation();
+                    break;
+                case Formation.Circle:
+                    CircleFormation();
+                    break;
+                case Formation.Wedge:
+                    WedgeFormation();
+                    break;
+            }
+        }
+    }
+
+    private void ClusterFormation()
+    {
+        float clusterRadius = Mathf.Log((float)formationPositions.Count, 4);
+        for (int i = 0; i < formationPositions.Count; i++)
+        {
+
+            formationPositions[i].Position = RandomPointInRadius(clusterRadius);
+        }
+    }
+
+    private void LineFormation()
+    {
+        for (int i = 0; i < formationPositions.Count; i++)
+        {
+            
+        }
+    }
+
+    private void CircleFormation()
+    {
+        for (int i = 0; i < formationPositions.Count; i++)
+        {
+
+        }
+    }
+
+    private void WedgeFormation()
+    {
+        for (int i = 0; i < formationPositions.Count; i++)
+        {
+
+        }
+    }
+}
+
+public enum Formation
+{
+    Cluster,
+    Line,
+    Circle,
+    Wedge
 }

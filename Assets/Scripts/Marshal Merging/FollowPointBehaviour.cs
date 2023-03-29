@@ -4,9 +4,8 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class FollowPointBehaviour : MonoBehaviour {
-    public GameObject pointObject;
-    
-    private Vector3 _pointPosition;
+    public CustomTransform pointObject;
+
     private NavMeshAgent _navMeshAgent;
 
     private void Awake() {
@@ -23,7 +22,7 @@ public class FollowPointBehaviour : MonoBehaviour {
     private void Update() {
         if (pointObject != null)
         {
-            _navMeshAgent.destination = pointObject.transform.position;
+            _navMeshAgent.destination = pointObject.Position + pointObject.Parent.position;
         }
     }
 }

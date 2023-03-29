@@ -108,6 +108,7 @@ public class SquadManager : MonoBehaviour
         //cTgroup.AddMember(squad.transform, 1, 1);
     }
 
+
     
     private void SetActiveSquad()
     {
@@ -208,4 +209,11 @@ public class SquadManager : MonoBehaviour
         }
         activeSquad.TardsUsePrimaryAbility();
     }
+
+    public void UpdateActiveFormation(Formation newFormation)
+    {
+        activeSquad.UpdateFormation(newFormation);
+    }
+
+    
 }
