@@ -7,18 +7,20 @@ using UnityEngine.Events;
 public class MenuControl : MonoBehaviour
 {
     public DebugInputSO debugInput;
-    private Vector3 leftStickMovement, rightStickMovement, downStickMovement, upStickMovement;
-    public UnityEvent openMenuEvent, selectionEvent, returnEvent;
+    public UnityEvent openMenuEvent, selectionEvent, returnEvent, exitEvent;
+    public GameObject[] verticalGameObjArray;
+    private int gameObjIndex = 0;
     
     void Awake()
     {
         //Method created by Parker Bennion
+        //Also Parker, Broski, what are these methods what are they doing
         for (int i = 0; i < debugInput.map.actions.Count; i++)
         {
             debugInput.map.actions[i].started += InputReceived;
             debugInput.map.actions[i].performed += InputReceived;
             debugInput.map.actions[i].canceled += InputReceived;
-
+            
             debugInput.map.actions[i].Enable();
         }
         
@@ -26,7 +28,8 @@ public class MenuControl : MonoBehaviour
 
     public void InputReceived(InputAction.CallbackContext context)
     {
-        //Method created by Parker Bennion
+        //Method created by Parker Bennion.
+        //Also Parker, Broski, what are these methods what are they doing
         string tempFunction;
         if (context.action.name != null)
         {
@@ -84,7 +87,6 @@ public class MenuControl : MonoBehaviour
     {
         if (context.started)
         {
-            openMenuEvent.Invoke();
             Debug.Log("Started" + "'Move'.");
         }
 
@@ -94,6 +96,18 @@ public class MenuControl : MonoBehaviour
         }
     }
     
-   
+    public void Exit(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            exitEvent.Invoke();
+            Debug.Log("Started" + "'Exit'.");
+        }
+
+        if (context.performed)
+        {
+            Debug.Log("Performed" + "'Exit'.");
+        }
+    }
 
 }

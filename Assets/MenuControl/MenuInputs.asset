@@ -49,6 +49,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: Exit
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 4c22b225-711a-4ccd-ab8c-fbed6a9f6d78
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: 9517441e-0679-439f-8fe5-3076965edcab
@@ -146,3 +154,19 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move
       m_Flags: 8
+    - m_Name: 
+      m_Id: 9bd2b9c0-46ce-4a5e-9228-3f080a104cbb
+      m_Path: <XInputController>/buttonWest
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Exit
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 1afeea47-517d-43d6-a097-75588d724b24
+      m_Path: <Keyboard>/#(X)
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Exit
+      m_Flags: 0
