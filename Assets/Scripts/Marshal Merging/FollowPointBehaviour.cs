@@ -36,7 +36,6 @@ public class FollowPointBehaviour : MonoBehaviour {
                 }
 
                 float angle = (Mathf.Acos(normalizedParent.z) * directionModifier);
-                Debug.Log(angle);
                 float tempZ = destination.z * Mathf.Cos(angle) - destination.x * Mathf.Sin(angle);
                 float tempX = destination.z * Mathf.Sin(angle) + destination.x * Mathf.Cos(angle);
 

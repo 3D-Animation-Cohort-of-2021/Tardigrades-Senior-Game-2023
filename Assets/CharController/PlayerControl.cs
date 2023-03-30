@@ -23,7 +23,8 @@ public class PlayerControl : MonoBehaviour
 
     private Coroutine offMeshPathInstance = null;
     public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent;
-    public UnityEvent<Formation> updateFormation;
+    public UnityEvent<int> updateFormation;
+    public UnityEvent<float> updateSpacing;
 
     void Awake()
     {
@@ -239,35 +240,35 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    public void FormationOne(InputAction.CallbackContext context)
+    public void PrevFormation(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            updateFormation.Invoke(Formation.Cluster);
+            updateFormation.Invoke(-1);
         }
     }
 
-    public void FormationTwo(InputAction.CallbackContext context)
+    public void NextFormation(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            updateFormation.Invoke(Formation.Line);
+            updateFormation.Invoke(1);
         }
     }
 
-    public void FormationThree(InputAction.CallbackContext context)
+    public void IncreaseSpacing(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            updateFormation.Invoke(Formation.Circle);
+            updateSpacing.Invoke(0.5f);
         }
     }
 
-    public void FormationFour(InputAction.CallbackContext context)
+    public void DecreaseSpacing(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            updateFormation.Invoke(Formation.Wedge);
+            updateSpacing.Invoke(-0.5f);
         }
     }
 

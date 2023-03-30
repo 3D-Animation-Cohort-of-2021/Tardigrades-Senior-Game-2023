@@ -211,12 +211,21 @@ public class SquadManager : MonoBehaviour
         activeSquad.TardsUsePrimaryAbility();
     }
 
-    public void UpdateActiveFormation(Formation newFormation)
+    public void UpdateActiveFormation(int formationIterator)
     {
         SetActiveSquad();
         if (activeSquad != null)
         {
-            activeSquad.UpdateFormation(newFormation);
+            activeSquad.UpdateFormation(formationIterator);
+        }
+    }
+
+    public void UpdateSpacing(float spacing)
+    {
+        SetActiveSquad();
+        if (activeSquad != null)
+        {
+            activeSquad.UpdateSpacing(spacing);
         }
     }
 
