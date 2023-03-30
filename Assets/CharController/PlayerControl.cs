@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class PlayerControl : MonoBehaviour
 {
-    public DebugInputSO debugInput;
+    public DebugInputSO debugInput,MenuControllerInput;
     private CharacterController characterController;
     private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
@@ -143,6 +143,14 @@ public class PlayerControl : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Mutate script here");
+        }
+    }
+
+    public void SwitchToMenu(InputAction.CallbackContext context)
+    {
+        if (context.canceled)
+        {
+            debugInput = MenuControllerInput;
         }
     }
 
