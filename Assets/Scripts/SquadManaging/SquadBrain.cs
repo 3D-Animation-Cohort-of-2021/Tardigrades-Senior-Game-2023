@@ -313,44 +313,70 @@ public class SquadBrain : MonoBehaviour
     private void ClusterFormation()
     {
         float clusterRadius = Mathf.Log((float)formationPositions.Count, 4);
+        float minSpacing = 1;
+        float fullSpacing = minSpacing + spacing;
 
         for (int i = 0; i < formationPositions.Count; i++)
         {
 
-            formationPositions[i].Position = RandomPointInRadius(clusterRadius);
+            formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing);
         }
     }
 
     private void LineFormation()
     {
-        float centeredOffset = ((float)formationPositions.Count * spacing * 0.5f);
+        
+        float minSpacing = 1;
+        float fullSpacing = minSpacing + spacing;
+        float centeredOffset = (((float)formationPositions.Count - 1) * fullSpacing * 0.5f);
 
         for (int i = 0; i < formationPositions.Count; i++)
         {
             formationPositions[i].Position = Vector3.zero;
             formationPositions[i].Position -= new Vector3(centeredOffset, 0, 0);
-            formationPositions[i].Position += new Vector3((float)i * spacing, 0, 0);
+            formationPositions[i].Position += new Vector3((float)i * fullSpacing, 0, 0.5f);
 
         }
     }
 
     private void CircleFormation()
     {
+        float angleRad = (2 * Mathf.PI) / formationPositions.Count;
+        float currentAngle = 0;
+        float minSpacing = (float)formationPositions.Count * 0.2f;
+        float fullSpacing = minSpacing + (spacing * 1.5f);
+
         for (int i = 0; i < formationPositions.Count; i++)
         {
+            Vector3 position = new Vector3(Mathf.Cos(currentAngle), 0, Mathf.Sin(currentAngle));
+            position *= fullSpacing;
+            formationPositions[i].Position = position;
+            currentAngle += angleRad;
 
         }
     }
 
     private void WedgeFormation()
     {
-        float centeredOffset = ((float)formationPositions.Count * spacing * 0.5f);
+        
+        float minSpacing = 1;
+        float fullSpacing = minSpacing + spacing;
+        float centeredOffset = ((float)(formationPositions.Count - 1) * fullSpacing * 0.5f);
 
         for (int i = 0; i < formationPositions.Count; i++)
         {
+            float positionZ = 0f;
+            if(i < formationPositions.Count - 1 - i) 
+            { 
+                positionZ = (float)i * fullSpacing;
+            }
+            else
+            {
+                positionZ = (float)(formationPositions.Count - 1 - i) * fullSpacing;
+            }
             formationPositions[i].Position = Vector3.zero;
-            formationPositions[i].Position -= new Vector3(centeredOffset, 0, 0);
-            formationPositions[i].Position += new Vector3(i * spacing, 0, 0);
+            formationPositions[i].Position -= new Vector3(centeredOffset, 0, centeredOffset / 2);
+            formationPositions[i].Position += new Vector3(i * fullSpacing, 0, positionZ);
         }
     }
 }
