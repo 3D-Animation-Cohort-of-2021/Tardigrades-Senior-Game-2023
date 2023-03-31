@@ -4,22 +4,18 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class TestRock : Element
+public class TestRock : MonoBehaviour, IDamageable
 {
+    private Elem type;
     private float health = 10;
     private void Start()
     {
         type = Elem.Stone;
-        damage = 0;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Damage(float dmgNum, Elem dmgType)
     {
-        Element otherDmg = other.GetComponent<Element>();
-        if (otherDmg!=null)
-        {
-            health -= otherDmg.GetDamage();
-            if(health<=0) Destroy(gameObject);
-        }
+        health -= EffectiveTable.CalculateEffectiveDMG(type, dmgType, dmgNum);
+        if(health<=0) Destroy(gameObject);
     }
 }

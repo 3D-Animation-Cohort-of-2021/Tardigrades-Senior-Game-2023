@@ -6,6 +6,7 @@ using UnityEngine;
 public class FireTardigrade : TardigradeBase
 {
     public ParticleSystem explosionPrefab;
+    private float damage = 10;
 
     protected void Start()
     {
@@ -28,7 +29,9 @@ public class FireTardigrade : TardigradeBase
     public override void PrimaryAbility()
     {
         if (!primary.activatable) return;
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        DamageOnEnter explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity)
+            .GetComponent<DamageOnEnter>();
+        explosion.dmg = damage;
         StartCoroutine(CooldownTracker(primary));
     }
 }

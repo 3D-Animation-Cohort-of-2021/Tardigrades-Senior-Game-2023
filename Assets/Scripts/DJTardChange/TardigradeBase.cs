@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Ability))]
-public abstract class TardigradeBase : MonoBehaviour
+public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     [SerializeField]public float health = 5;
     protected float speed;
-    protected float weaknessMultiplier = 0.5f;
     [SerializeField]protected Elem type;
     
     protected Ability primary;
@@ -17,21 +16,18 @@ public abstract class TardigradeBase : MonoBehaviour
     {
         primary = GetComponent<Ability>();
     }
-
-    /// <summary>
-    /// Purpose: Calculates type based damage and subtracts it from health
-    /// </summary>
-    /// <param name="other">The Element component of the triggering object</param>
-    protected void TakeDamage(Element other)
+    
+    public void Damage(float dmgNum, Elem dmgType)
     {
-        float bonusDamage = other.IsWeak(type) * weaknessMultiplier * other.GetDamage();
-        if (other.IsWeak(type)==1)
-            ReactToWeak();
-        else if (other.IsWeak(type)==-1)
-            ReactToStrong();
-        health -= (other.GetDamage() + bonusDamage);
+        float finalDmg = EffectiveTable.CalculateEffectiveDMG(type, dmgType, dmgNum);
+        float modifier = EffectiveTable.CalculateEffectiveDMG(type, dmgType);
         
-        print("Damage Taken: "+ (other.GetDamage() + bonusDamage));
+        if (modifier==1.5f)
+            ReactToWeak();
+        else if (modifier==0.5f)
+            ReactToStrong();
+        health -= finalDmg;
+        print("Damage Taken: "+ finalDmg);
     }
     public string GetElementTypeString()
     {
@@ -41,15 +37,6 @@ public abstract class TardigradeBase : MonoBehaviour
     public Elem GetElementType()
     {
         return type;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Element>())
-        {
-            //print(other.GetComponent<Element>().GetType());
-            TakeDamage(other.GetComponent<Element>());
-        }
     }
 
     protected virtual void ReactToWeak()
@@ -64,7 +51,7 @@ public abstract class TardigradeBase : MonoBehaviour
 
     public virtual void PrimaryAbility()
     {
-        
+        //To be overloaded in child classes
     }
 
     protected IEnumerator CooldownTracker(Ability ability)
