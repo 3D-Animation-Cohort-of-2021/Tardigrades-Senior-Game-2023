@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(CharacterController))]
 public class SquadBrain : MonoBehaviour
 {
+    public Camera cam;
+    public Canvas healthBarCanvas;
     public SO_SquadData movementVector;
     private CharacterController thisSquadsController;
     private WaitForFixedUpdate wffu;
@@ -86,9 +88,12 @@ public class SquadBrain : MonoBehaviour
             {
             
                 Vector3 newPos = RandomPointInRadius();
-                GameObject newPiglet = Instantiate(tardInitial, newPos, Quaternion.identity);
-                AddToSquad(newPiglet.GetComponent<TardigradeBase>());
-            
+                TardigradeBase newPiglet = Instantiate(tardInitial, newPos, Quaternion.identity).GetComponent<TardigradeBase>();
+                AddToSquad(newPiglet);
+                newPiglet.mySquad = this;
+                newPiglet.SetupHealthBar(healthBarCanvas, cam);
+
+
             }
         }
 
@@ -127,13 +132,16 @@ public class SquadBrain : MonoBehaviour
     {
         float thickness = 0f;
         if (shouldHighlight) thickness = 0.1f;
-        
-        Material[] mats = tard.GetComponent<Renderer>().materials;
-        foreach (Material mat in mats)
+
+        if (tard.TryGetComponent<Renderer>(out Renderer renderer))
         {
-            if (mat.name =="HighlightMat (Instance)")
+            Material[] mats = renderer.materials;
+            foreach (Material mat in mats)
             {
-                mat.SetFloat("_Highlight_Thickness", thickness);
+                if (mat.name =="HighlightMat (Instance)")
+                {
+                    mat.SetFloat("_Highlight_Thickness", thickness);
+                }
             }
         }
     }

@@ -18,12 +18,12 @@ public class WaterTardigrade : TardigradeBase
     protected override void ReactToStrong()
     {
         base.ReactToStrong();
-        Debug.Log("the water tardigrade is barely affected by the fire");
+        //Debug.Log("the water tardigrade is barely affected by the fire");
     }
     protected override void ReactToWeak()
     {
         base.ReactToWeak();
-        Debug.Log("the water tardigrade is hindered by the stone trap");
+        //Debug.Log("the water tardigrade is hindered by the stone trap");
     }
 
     public override void PrimaryAbility()
@@ -37,17 +37,8 @@ public class WaterTardigrade : TardigradeBase
     {
         foreach (TardigradeBase tard in shieldableTards)
         {
-            StartCoroutine(IceAbility(tard));
+            StartCoroutine(tard.ActivateIceShield(iceDuration, iceShardsPrefab));
         }
-        StartCoroutine(IceAbility(this));
-    }
-    private IEnumerator IceAbility(TardigradeBase tard)
-    {
-        if (tard.GetComponent<Animator>().GetBool("IceShield")) yield break;
-        tard.GetComponent<Animator>().SetBool("IceShield", true);
-        yield return new WaitForSeconds(iceDuration);
-        tard.GetComponent<Animator>().SetBool("IceShield", false);
-        Instantiate(iceShardsPrefab, tard.transform);
-
+        StartCoroutine(ActivateIceShield(iceDuration, iceShardsPrefab));
     }
 }

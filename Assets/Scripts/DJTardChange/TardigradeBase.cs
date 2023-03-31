@@ -6,15 +6,21 @@ using UnityEngine;
 [RequireComponent(typeof(Ability))]
 public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
-    [SerializeField]public float health = 5;
+    [SerializeField]public float health = 20;
+    private float maxHealth;
+    [SerializeField] private ProgressBar healthBar;
     protected float speed;
     [SerializeField]protected Elem type;
+    public SquadBrain mySquad;
     
     protected Ability primary;
+    
+    
 
     private void Awake()
     {
         primary = GetComponent<Ability>();
+        maxHealth = health;
     }
     
     public void Damage(float dmgNum, Elem dmgType)
@@ -26,7 +32,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             ReactToWeak();
         else if (modifier==0.5f)
             ReactToStrong();
+        
         health -= finalDmg;
+        healthBar.SetProgress(health / maxHealth, 1);
+        if (health <= 0)
+        {
+            Death();
+        }
+        
         print("Damage Taken: "+ finalDmg);
     }
     public string GetElementTypeString()
@@ -41,12 +54,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
     protected virtual void ReactToWeak()
     {
-        Debug.Log(gameObject + "is weak to that damage");
+        //Debug.Log(gameObject + "is weak to that damage");
     }
 
     protected virtual void ReactToStrong()
     {
-        Debug.Log(gameObject + "is resistant to that damage");
+        //Debug.Log(gameObject + "is resistant to that damage");
     }
 
     public virtual void PrimaryAbility()
@@ -61,4 +74,35 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         ability.activatable = true;
     }
 
+    protected void Death()
+    {
+        mySquad.RemoveFromSquad(this);
+        Destroy(gameObject);
+        Destroy(healthBar.gameObject);
+    }
+
+    public void SetupHealthBar(Canvas canvas, Camera cam)
+    {
+        healthBar.transform.SetParent(canvas.transform);
+        if (healthBar.TryGetComponent<Billboard>(out Billboard billboard))
+        {
+            billboard.cam = cam;
+            billboard.canRun = true;
+        }
+    }
+
+    public IEnumerator ActivateIceShield(float iceDuration, ParticleSystem iceShardsPrefab)
+    {
+        
+        if (TryGetComponent<Animator>(out Animator animator))
+        {
+            if(animator.GetBool("IceShield")) yield break;
+            
+            animator.SetBool("IceShield", true);
+            yield return new WaitForSeconds(iceDuration);
+            
+            animator.SetBool("IceShield", false);
+            Instantiate(iceShardsPrefab, transform);
+        }
+    }
 }

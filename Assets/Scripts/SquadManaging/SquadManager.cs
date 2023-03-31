@@ -16,6 +16,8 @@ public class SquadManager : MonoBehaviour
     public static List<Squad> squads = new List<Squad>();
     private Vector3 squadInstanceTempVector;
     public int howManySquads;
+    [SerializeField] private Camera cam;
+    [SerializeField]private Canvas healthBarCanvas;
 
     public int squadIDGiver;
     public float radius;
@@ -64,7 +66,12 @@ public class SquadManager : MonoBehaviour
         {
             GameObject groupPoint = Instantiate(squadPrefab, squadInstanceTempVector, Quaternion.identity, parentObj.transform);
             squads.Add(new Squad(){SquadName = $"plop + {squads.Count}", SquadID = squadIDGiver , SquadObj = groupPoint});
-            groupPoint.GetComponent<SquadBrain>().squadType = TardType;
+            if (groupPoint.TryGetComponent<SquadBrain>(out SquadBrain newSquad))
+            {
+                newSquad.squadType = TardType;
+                newSquad.cam = cam;
+                newSquad.healthBarCanvas = healthBarCanvas;
+            }
             squadIDGiver++;
             yield return new WaitForSeconds(.01f);
         }
