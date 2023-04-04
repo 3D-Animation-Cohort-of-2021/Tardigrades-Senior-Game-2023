@@ -17,8 +17,9 @@ public class LargeObstacle : Obstacle
         UnWeakenThisObstacle();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("Collision");
         if (collision.gameObject.GetComponent<TardigradeBase>())
         {
            Elem colType = collision.gameObject.GetComponent<TardigradeBase>().GetElementType();
@@ -43,9 +44,13 @@ public class LargeObstacle : Obstacle
                    Debug.Log("The obstacle took "+ (fullDamageTaken / 3)+" damage but the tardigrade took "+damage+" damage");
                }
            }
-           else if (colType==reactiveTo && weakened)
+           else if (colType==reactiveTo)
            {
-               UnWeakenThisObstacle();
+               currentHealth = totalHealth;
+               if(weakened)
+               {
+                   UnWeakenThisObstacle();
+               }
                Debug.Log("The obstacle was reactivated!");
            }
         }
