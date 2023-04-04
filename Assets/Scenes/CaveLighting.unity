@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugInput: {fileID: 11400000, guid: 938d6a0ddab19b8498cdd706b56e240f, type: 2}
   SquadsMoveCommands: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
+  method: 2
   squadChangeNext:
     m_PersistentCalls:
       m_Calls:
@@ -334,6 +335,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  mutateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  primaryAbilityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &285308250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,10 +355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squadPrefab: {fileID: 1231842820090641727, guid: 2bc7e48eacef0384abed64818d633ff2,
     type: 3}
-  howManySquads: 5
   squadIDGiver: 0
   radius: 1
-  amountPerGroup: 5
   targetGroup: {fileID: 53925281}
 --- !u!114 &285308251
 MonoBehaviour:
@@ -526,7 +531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: -2.9965901, y: 31.635864, z: -11.092503}
+  m_LocalPosition: {x: 0, y: 28.190779, z: -10.260609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -722,6 +727,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2091000375741040625, guid: 9397620236e57c74bbedb64b4f11129f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6242376882441438672, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
       propertyPath: m_Name
