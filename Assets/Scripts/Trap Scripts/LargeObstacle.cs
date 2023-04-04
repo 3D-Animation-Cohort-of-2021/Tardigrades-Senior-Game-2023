@@ -38,7 +38,8 @@ public class LargeObstacle : Obstacle
                else
                {
                    ChangeHealth((fullDamageTaken / 3)*-1);
-                   collision.gameObject.GetComponent<TardigradeBase>().TakeGeneralDamage(damage);
+                   //collision.gameObject.GetComponent<TardigradeBase>().TakeGeneralDamage(damage);
+                   //deal damage to tardigrade
                    Debug.Log("The obstacle took "+ (fullDamageTaken / 3)+" damage but the tardigrade took "+damage+" damage");
                }
            }

@@ -27,6 +27,17 @@ public abstract class TardigradeBase : MonoBehaviour
         
         print("Damage Taken: "+ (other.GetDamage() + bonusDamage));
     }
+    public void TakeDamage(Element other, float amt)
+    {
+        float bonusDamage = other.IsWeak(type) * weaknessMultiplier * other.GetDamage();
+        if (other.IsWeak(type)==1)
+            ReactToWeak();
+        else if (other.IsWeak(type)==-1)
+            ReactToStrong();
+        health -= (amt + bonusDamage);
+        
+        print("Damage Taken: "+ (other.GetDamage() + bonusDamage));
+    }
     public string GetElementTypeString()
     {
         return type.ToString();
