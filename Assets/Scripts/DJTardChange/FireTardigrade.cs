@@ -13,4 +13,9 @@ public class FireTardigrade : TardigradeBase
         base.ReactToWeak();
         Debug.Log("The fire tardigrade is nearly put out by the water trap");
     }
+
+    public override void PrimaryAbility()
+    {
+        Instantiate(abilityPrefab, transform.position, Quaternion.identity);
+    }
 }

@@ -24,12 +24,10 @@ public class HordeManager : MonoBehaviour
     public void SelectGroup(Elem tardType)
     {
         selectedType = tardType;
-        Material mat;
         //Turns old highlights off and clears the old selection
-        foreach (TardigradeBase obj in selectedTards)
+        foreach (TardigradeBase tard in selectedTards)
         {
-            mat = obj.GetComponent<Renderer>().material;
-            mat.SetFloat("_Highlight_Thickness", 0);
+            ChangeHighlight(tard,false);
         }
         selectedTards.Clear();
         
@@ -38,7 +36,8 @@ public class HordeManager : MonoBehaviour
         {
             if (tard.GetElementType() == tardType)
             {
-                Highlight(tard);
+                selectedTards.Add(tard);
+                ChangeHighlight(tard, true);
             }
         }
     }
@@ -87,17 +86,28 @@ public class HordeManager : MonoBehaviour
                 TardigradeBase newTard = Instantiate(obj, trans.position, trans.rotation);
                 newTard.health = oldHealth;
                 allTards.Add(newTard);
-                Highlight(newTard);
+                ChangeHighlight(newTard, true);
                 break;
             }
         }
     }
-
-    private void Highlight(TardigradeBase tard)
+    
+    /// <summary>
+    /// Changes highlight shader material visibility
+    /// </summary>
+    /// <param name="shouldHighlight">Should the tardigrade be highlighted or unhighighted</param>
+    private void ChangeHighlight(TardigradeBase tard, bool shouldHighlight)
     {
-        selectedTards.Add(tard);
-        Material mat = tard.GetComponent<Renderer>().material;
-        if (mat.name != "HighlightMat (Instance)") print(tard + " needs to have highlightmat as the first material");
-        mat.SetFloat("_Highlight_Thickness", 0.1f);
+        float thickness = 0f;
+        if (shouldHighlight) thickness = 0.1f;
+        
+        Material[] mats = tard.GetComponent<Renderer>().materials;
+        foreach (Material mat in mats)
+        {
+            if (mat.name =="HighlightMat (Instance)")
+            {
+                mat.SetFloat("_Highlight_Thickness", thickness);
+            }
+        }
     }
 }
