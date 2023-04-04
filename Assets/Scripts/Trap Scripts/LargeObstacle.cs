@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class LargeObstacle : Obstacle
 {
     private bool weakened;
-
+    public Elem weakTo, strongTo, reactiveTo;
     public float fullDamageTaken;
 
     public UnityEvent weakenEvent, unWeakenEvent;
@@ -22,13 +22,13 @@ public class LargeObstacle : Obstacle
         if (collision.gameObject.GetComponent<TardigradeBase>())
         {
            Elem colType = collision.gameObject.GetComponent<TardigradeBase>().GetElementType();
-           if (IsWeak(colType) == -1)//obstacle attacked by stronger piglet
+           if (colType == weakTo)//obstacle attacked by stronger piglet
            {
                if(!weakened)
                    WeakenThisObstacle();
                ChangeHealth(fullDamageTaken*-1);
            }
-           else if(IsWeak(colType)==1)//obstacle attacked by weaker piglet
+           else if(colType==strongTo)//obstacle attacked by weaker piglet
            {
                if (weakened)
                {
@@ -42,7 +42,7 @@ public class LargeObstacle : Obstacle
                    Debug.Log("The obstacle took "+ (fullDamageTaken / 3)+" damage but the tardigrade took "+damage+" damage");
                }
            }
-           else if (IsWeak(colType) == 0 && weakened)
+           else if (colType==reactiveTo && weakened)
            {
                UnWeakenThisObstacle();
                Debug.Log("The obstacle was reactivated!");
