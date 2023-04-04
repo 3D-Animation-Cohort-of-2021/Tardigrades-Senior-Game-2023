@@ -26,8 +26,8 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     - m_Name: MoveHoard
-      m_Type: 0
-      m_ExpectedControlType: Stick
+      m_Type: 2
+      m_ExpectedControlType: Vector2
       m_Id: 5116e7f6-6418-40d8-9a31-d83555e2f164
       m_Processors: 
       m_Interactions: 
@@ -178,6 +178,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: MoveHoard
       m_Flags: 8
+    - m_Name: 
+      m_Id: 6a70565c-37eb-4031-a587-6c06b4a851ec
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 0
     - m_Name: 
       m_Id: d515d877-916a-4a13-aafb-1dadb1438f2a
       m_Path: <Gamepad>/rightShoulder
