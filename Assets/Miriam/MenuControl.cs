@@ -2,34 +2,36 @@ using System.Reflection;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.Events;
-//Miriam Jardine Version for Menu Controls
 
+//To use this script, attach it to a game object above a canvas you want to use.
+//Add sub-select menus underneath in a hierarchy.
+//Then add the events you would like to occur with each input.
 public class MenuControl : MonoBehaviour
 {
     public DebugInputSO debugInput;
-    public UnityEvent openMenuEvent, selectionEvent, returnEvent, exitEvent;
-    public GameObject[] verticalGameObjArray;
-    private int gameObjIndex = 0;
-    
+    public UnityEvent openMenuEvent, selectionEvent, returnEvent, exitEvent, navigateEvent;
+    public UnityEvent<GameObject> selectObjEvent;
+
+    private GameObject selectedObj;
+
     void Awake()
     {
         //Method created by Parker Bennion
-        //Also Parker, Broski, what are these methods what are they doing
+        
         for (int i = 0; i < debugInput.map.actions.Count; i++)
         {
             debugInput.map.actions[i].started += InputReceived;
             debugInput.map.actions[i].performed += InputReceived;
             debugInput.map.actions[i].canceled += InputReceived;
-            
             debugInput.map.actions[i].Enable();
         }
-        
+
     }
 
     public void InputReceived(InputAction.CallbackContext context)
     {
         //Method created by Parker Bennion.
-        //Also Parker, Broski, what are these methods what are they doing
+  
         string tempFunction;
         if (context.action.name != null)
         {
@@ -42,32 +44,27 @@ public class MenuControl : MonoBehaviour
         }
     }
 
-  
+    
+    public void Menu(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            openMenuEvent.Invoke();
+            //Place initial selected button on the UI.
+            selectObjEvent.Invoke(selectedObj);
+            Debug.Log("Started" + "'Open Menu'.");
+        }
+
+    }
     public void Select(InputAction.CallbackContext context)
     {
         if (context.started)
         {
             selectionEvent.Invoke();
+            
             Debug.Log("Started" + "'select'.") ;
         }
 
-        if (context.performed)
-        {
-            Debug.Log("Performed" + "'select'.");
-        }
-    }
-    public void OpenMenu(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            openMenuEvent.Invoke();
-            Debug.Log("Started" + "'Open Menu'.");
-        }
-
-        if (context.performed)
-        {
-            Debug.Log("Performed" + "'Open Menu'.");
-        }
     }
     public void Return(InputAction.CallbackContext context)
     {
@@ -77,25 +74,8 @@ public class MenuControl : MonoBehaviour
             Debug.Log("Started" + "'Return'.");
         }
 
-        if (context.performed)
-        {
-            Debug.Log("Performed" + "'Return'.");
-        }
     }
-    
-    public void Move(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            Debug.Log("Started" + "'Move'.");
-        }
 
-        if (context.performed)
-        {
-            Debug.Log("Performed" + "'Move'.");
-        }
-    }
-    
     public void Exit(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -104,10 +84,17 @@ public class MenuControl : MonoBehaviour
             Debug.Log("Started" + "'Exit'.");
         }
 
-        if (context.performed)
+    }
+    
+    public void Navigate(InputAction.CallbackContext context)
+    {
+        //this method is mainly for calling actions associated with the move input. The actual move input is controlled by the defaultInputActionMap,
+        if (context.started)
         {
-            Debug.Log("Performed" + "'Exit'.");
+            navigateEvent.Invoke();
+            Debug.Log("Started" + "'Navigate'.");
         }
+        
     }
 
 }

@@ -647,15 +647,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Left Joystick"",
-                    ""type"": ""Value"",
-                    ""id"": ""b65ce78d-3af0-494b-9b0a-4474b592eebf"",
-                    ""expectedControlType"": ""Stick"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""X"",
                     ""type"": ""Button"",
                     ""id"": ""8f86e074-26d5-4207-98e2-530fe3551e50"",
@@ -663,6 +654,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""64836241-aa16-4ffb-a041-07e51db872e9"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -701,8 +701,19 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""92865db2-b675-4a8a-b1c1-bd9e9ad3a1f5"",
-                    ""path"": ""<Keyboard>/#(1)"",
+                    ""id"": ""2c9fde88-b669-4c93-8838-eca16b278bb3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20e1f0c9-84e9-4f35-b970-5f7bec8bf6f0"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -724,79 +735,13 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e3ae68cf-bc53-49d8-851c-977cf93896a1"",
-                    ""path"": ""<Keyboard>/#(4)"",
+                    ""path"": ""<Keyboard>/backspace"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""B"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4c4f9228-61d6-403a-b3c9-9014b9b51af4"",
-                    ""path"": ""<XInputController>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left Joystick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Arrow Ctrls"",
-                    ""id"": ""6a11d105-56b2-4764-8b62-4665acb19195"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left Joystick"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Up"",
-                    ""id"": ""b8385254-fead-4ef4-90ea-b7c9f340ee67"",
-                    ""path"": ""<Keyboard>/#(W)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left Joystick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Down"",
-                    ""id"": ""23004dc4-8967-4946-ae88-cc1b9173be97"",
-                    ""path"": ""<Keyboard>/#(S)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left Joystick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Left"",
-                    ""id"": ""bb618d33-49e0-4a9b-b216-24e0670b89e1"",
-                    ""path"": ""<Keyboard>/#(A)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left Joystick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Right"",
-                    ""id"": ""d96a9e4c-4d14-42d2-9dff-2761e4cf0e5c"",
-                    ""path"": ""<Keyboard>/#(D)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left Joystick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -819,6 +764,116 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""X"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Xbox Controller"",
+                    ""id"": ""54ec9720-ee30-4857-b97b-712c6478bb7a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""0cb0c2a1-e1bb-45bd-a896-ba615a5291a2"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""aade8b0a-0f75-4e00-888b-30f6dd1d9284"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""de752a2b-3621-426f-a10f-2f90071c974e"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""1dba766c-85e2-4f22-942e-dc66cb3cef9e"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""5f26bfad-1a12-49e4-acdb-00d9fdeb73b1"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""39498329-23c1-4a4e-a586-1353c35dddf5"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""61b3a82e-2819-4f96-9dff-c9f45e53a427"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""79dc8051-4dd8-4af6-8b05-6fb5356a33fd"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2f30e192-a49e-4c50-b5b3-3fcf6a6a4eb7"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -848,8 +903,8 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_MenuActions_Menu = m_MenuActions.FindAction("Menu", throwIfNotFound: true);
         m_MenuActions_A = m_MenuActions.FindAction("A", throwIfNotFound: true);
         m_MenuActions_B = m_MenuActions.FindAction("B", throwIfNotFound: true);
-        m_MenuActions_LeftJoystick = m_MenuActions.FindAction("Left Joystick", throwIfNotFound: true);
         m_MenuActions_X = m_MenuActions.FindAction("X", throwIfNotFound: true);
+        m_MenuActions_Navigate = m_MenuActions.FindAction("Navigate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1065,8 +1120,8 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_MenuActions_Menu;
     private readonly InputAction m_MenuActions_A;
     private readonly InputAction m_MenuActions_B;
-    private readonly InputAction m_MenuActions_LeftJoystick;
     private readonly InputAction m_MenuActions_X;
+    private readonly InputAction m_MenuActions_Navigate;
     public struct MenuActionsActions
     {
         private @Inputs m_Wrapper;
@@ -1074,8 +1129,8 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @Menu => m_Wrapper.m_MenuActions_Menu;
         public InputAction @A => m_Wrapper.m_MenuActions_A;
         public InputAction @B => m_Wrapper.m_MenuActions_B;
-        public InputAction @LeftJoystick => m_Wrapper.m_MenuActions_LeftJoystick;
         public InputAction @X => m_Wrapper.m_MenuActions_X;
+        public InputAction @Navigate => m_Wrapper.m_MenuActions_Navigate;
         public InputActionMap Get() { return m_Wrapper.m_MenuActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1094,12 +1149,12 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @B.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnB;
                 @B.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnB;
                 @B.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnB;
-                @LeftJoystick.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnLeftJoystick;
-                @LeftJoystick.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnLeftJoystick;
-                @LeftJoystick.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnLeftJoystick;
                 @X.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnX;
                 @X.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnX;
                 @X.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnX;
+                @Navigate.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnNavigate;
+                @Navigate.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnNavigate;
+                @Navigate.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnNavigate;
             }
             m_Wrapper.m_MenuActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -1113,12 +1168,12 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @B.started += instance.OnB;
                 @B.performed += instance.OnB;
                 @B.canceled += instance.OnB;
-                @LeftJoystick.started += instance.OnLeftJoystick;
-                @LeftJoystick.performed += instance.OnLeftJoystick;
-                @LeftJoystick.canceled += instance.OnLeftJoystick;
                 @X.started += instance.OnX;
                 @X.performed += instance.OnX;
                 @X.canceled += instance.OnX;
+                @Navigate.started += instance.OnNavigate;
+                @Navigate.performed += instance.OnNavigate;
+                @Navigate.canceled += instance.OnNavigate;
             }
         }
     }
@@ -1147,7 +1202,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnA(InputAction.CallbackContext context);
         void OnB(InputAction.CallbackContext context);
-        void OnLeftJoystick(InputAction.CallbackContext context);
         void OnX(InputAction.CallbackContext context);
+        void OnNavigate(InputAction.CallbackContext context);
     }
 }
