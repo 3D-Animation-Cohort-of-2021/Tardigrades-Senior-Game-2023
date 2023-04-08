@@ -14,15 +14,18 @@ public class ShieldRangeHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        TardigradeBase newTard = other.GetComponent<TardigradeBase>();
-        if (newTard == null) return;
-        parentTard.shieldableTards.Add(newTard);
+         if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
+         {
+             parentTard.shieldableTards.Add(newTard);
+         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        TardigradeBase newTard = other.GetComponent<TardigradeBase>();
-        if (newTard == null) return;
-        parentTard.shieldableTards.Remove(newTard);
+        if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
+        {
+            parentTard.shieldableTards.Remove(newTard);
+        }
     }
+    
 }

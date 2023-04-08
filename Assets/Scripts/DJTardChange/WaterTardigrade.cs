@@ -6,7 +6,6 @@ using UnityEngine;
 public class WaterTardigrade : TardigradeBase
 {
     private float iceDuration = 3;
-    public ParticleSystem iceShardsPrefab;
     public List<TardigradeBase> shieldableTards;
 
     protected void Start()
@@ -37,8 +36,9 @@ public class WaterTardigrade : TardigradeBase
     {
         foreach (TardigradeBase tard in shieldableTards)
         {
-            StartCoroutine(tard.ActivateIceShield(iceDuration, iceShardsPrefab));
+            if(tard == null) continue;
+            StartCoroutine(tard.ActivateIceShield(iceDuration));
         }
-        StartCoroutine(ActivateIceShield(iceDuration, iceShardsPrefab));
+        StartCoroutine(ActivateIceShield(iceDuration));
     }
 }

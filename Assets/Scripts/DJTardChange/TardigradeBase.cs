@@ -12,6 +12,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     protected float speed;
     [SerializeField]protected Elem type;
     public SquadBrain mySquad;
+    [SerializeField]protected ParticleSystem iceShardsPrefab;
+    
     
     protected Ability primary;
     
@@ -33,6 +35,15 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         else if (modifier==0.5f)
             ReactToStrong();
         
+        if (TryGetComponent<Animator>(out Animator animator))
+        {
+            if (animator.GetBool("IceShield"))
+            {
+                finalDmg = 0;
+                animator.SetBool("IceShield", false);
+                Instantiate(iceShardsPrefab, transform);
+            }
+        }
         health -= finalDmg;
         healthBar.SetProgress(health / maxHealth, 1);
         if (health <= 0)
@@ -40,7 +51,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             Death();
         }
         
-        print("Damage Taken: "+ finalDmg);
+        //print("Damage Taken: "+ finalDmg);
     }
     public string GetElementTypeString()
     {
@@ -91,18 +102,20 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
     }
 
-    public IEnumerator ActivateIceShield(float iceDuration, ParticleSystem iceShardsPrefab)
+    public IEnumerator ActivateIceShield(float iceDuration)
     {
-        
         if (TryGetComponent<Animator>(out Animator animator))
         {
             if(animator.GetBool("IceShield")) yield break;
             
             animator.SetBool("IceShield", true);
             yield return new WaitForSeconds(iceDuration);
-            
-            animator.SetBool("IceShield", false);
-            Instantiate(iceShardsPrefab, transform);
+
+            if (gameObject != null)
+            {
+                animator.SetBool("IceShield", false);
+                Instantiate(iceShardsPrefab, transform);
+            }
         }
     }
 }
