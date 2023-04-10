@@ -17,4 +17,10 @@ public class StoneTardigrade : TardigradeBase
       base.ReactToWeak();
       Debug.Log("The stone tardigrade is weakened by the fire trap");
    }
+
+   public override void PrimaryAbility()
+   {
+      transform.rotation = followBehavior.pointObject.Rotation;
+      Instantiate(abilityPrefab, transform.position + transform.forward, transform.rotation);
+   }
 }

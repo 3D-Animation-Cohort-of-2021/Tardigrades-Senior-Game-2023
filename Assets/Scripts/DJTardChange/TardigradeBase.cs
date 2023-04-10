@@ -1,6 +1,8 @@
 using System;
 using System.Runtime.Versioning;
 using UnityEngine;
+
+[RequireComponent(typeof(FollowPointBehaviour))]
 public abstract class TardigradeBase : MonoBehaviour
 {
     [SerializeField]public float health = 5;
@@ -9,6 +11,13 @@ public abstract class TardigradeBase : MonoBehaviour
     [SerializeField]protected Elem type;
     [SerializeField]protected MaterialListSO tardigradeMaterial;
     public GameObject abilityPrefab;
+    protected FollowPointBehaviour followBehavior;
+
+    private void Awake() {
+
+        followBehavior = GetComponent<FollowPointBehaviour>();
+
+    }
 
 
 

@@ -24,7 +24,20 @@ public class FollowPointBehaviour : MonoBehaviour {
         {
             Vector3 destination = pointObject.Position;
             
-            if (pointObject.Center !=  null)
+            if (pointObject.Center !=  null && pointObject.willRotate)
+            {
+                CalculateAngle(out destination);
+            }
+
+            _navMeshAgent.destination = destination + pointObject.Parent.position;
+        }
+    }
+
+    private void CalculateAngle(out Vector3 destination)
+    {
+        destination = pointObject.Position;
+
+        if (pointObject.Center !=  null)
             {
                 float directionModifier = 1;
 
@@ -36,14 +49,16 @@ public class FollowPointBehaviour : MonoBehaviour {
                 }
 
                 float angle = (Mathf.Acos(normalizedParent.z) * directionModifier);
+                Quaternion q = new Quaternion();
+
+                q.eulerAngles = new Vector3(0f, Mathf.Rad2Deg * angle, 0f);
+                pointObject.Rotation = q;
+
                 float tempZ = destination.z * Mathf.Cos(angle) - destination.x * Mathf.Sin(angle);
                 float tempX = destination.z * Mathf.Sin(angle) + destination.x * Mathf.Cos(angle);
 
                 destination.z = tempZ;
                 destination.x = tempX;
             }
-
-            _navMeshAgent.destination = destination + pointObject.Parent.position;
-        }
     }
 }
