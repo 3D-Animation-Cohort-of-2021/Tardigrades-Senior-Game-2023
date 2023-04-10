@@ -98,7 +98,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         ability.activatable = true;
     }
 
-    protected void Death()
+    public void Death()
     {
         mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);

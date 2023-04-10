@@ -169,7 +169,7 @@ public class SquadManager : MonoBehaviour
         float oldHealth = tard.health;
         //destroy the old tard
         neutralSquad.RemoveFromSquad(tard);
-        Destroy(tard.gameObject);
+        tard.Death();
         //instatiate new one in its place
         foreach (TardigradeBase obj in prefabs)
         {
@@ -179,6 +179,8 @@ public class SquadManager : MonoBehaviour
                 newTard.health = oldHealth;
                 activeSquad.AddToSquad(newTard);
                 activeSquad.ChangeHighlight(newTard, true);
+                newTard.mySquad = activeSquad;
+                newTard.SetupHealthBar(healthBarCanvas, cam);
                 break;
             }
         }

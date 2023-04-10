@@ -113,6 +113,7 @@ public class SquadBrain : MonoBehaviour
     {
         myTards.Add(newTard);
         newTard.GetComponent<FollowPointBehaviour>().pointObject = gameObject;
+        newTard.mySquad = this;
     }
     /// <summary>
     /// Removes a tardigrade from this squad
