@@ -1,20 +1,24 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShieldRangeHandler : MonoBehaviour
 {
     private WaterTardigrade parentTard;
+    private List<TardigradeBase> tardList;
 
     private void Start()
     {
         parentTard = GetComponentInParent<WaterTardigrade>();
+        tardList = parentTard.shieldableTards;
     }
 
     private void OnTriggerEnter(Collider other)
     {
          if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
          {
-             parentTard.shieldableTards.Add(newTard);
+             tardList.Add(newTard);
              newTard.OnDestroy += RemoveTard;
+             UpdateList();
          }
     }
 
@@ -22,14 +26,21 @@ public class ShieldRangeHandler : MonoBehaviour
     {
         if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
         {
-            parentTard.shieldableTards.Remove(newTard);
+            tardList.Remove(newTard);
             newTard.OnDestroy -= RemoveTard;
+            UpdateList();
         }
     }
     
     public void RemoveTard(TardigradeBase newTard)
     {
-        parentTard.shieldableTards.Remove(newTard);
+        tardList.Remove(newTard);
+        UpdateList();
+    }
+
+    protected void UpdateList()
+    {
+        parentTard.shieldableTards = tardList;
     }
     
 }
