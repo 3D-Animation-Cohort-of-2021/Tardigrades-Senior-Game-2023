@@ -154,6 +154,14 @@ public class SquadBrain : MonoBehaviour
             tard.PrimaryAbility();   
         }
     }
+    public void TardsUseSecondaryAbility()
+    {
+        //check and track cooldown here
+        foreach (TardigradeBase tard in myTards)
+        {
+            tard.SecondaryAbility();   
+        }
+    }
 
     public List<TardigradeBase> GetTards()
     {

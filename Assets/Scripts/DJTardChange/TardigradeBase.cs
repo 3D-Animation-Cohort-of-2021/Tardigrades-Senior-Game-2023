@@ -13,15 +13,24 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     [SerializeField]protected Elem type;
     public SquadBrain mySquad;
     [SerializeField]protected ParticleSystem iceShardsPrefab;
-    
+
+    public delegate void DestroyEvent(TardigradeBase tard);
+
+    public DestroyEvent OnDestroy;
     
     protected Ability primary;
+    protected Ability secondary;
     
     
 
     private void Awake()
     {
-        primary = GetComponent<Ability>();
+        primary = gameObject.AddComponent<Ability>();
+        secondary = gameObject.AddComponent<Ability>();
+
+        primary.activatable = true;
+        secondary.activatable = true;
+        
         maxHealth = health;
     }
     
@@ -77,6 +86,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         //To be overloaded in child classes
     }
+    public virtual void SecondaryAbility()
+    {
+        //To be overloaded in child classes
+    }
 
     protected IEnumerator CooldownTracker(Ability ability)
     {
@@ -88,6 +101,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     protected void Death()
     {
         mySquad.RemoveFromSquad(this);
+        OnDestroy?.Invoke(this);
         Destroy(gameObject);
         Destroy(healthBar.gameObject);
     }
@@ -117,5 +131,15 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
                 Instantiate(iceShardsPrefab, transform);
             }
         }
+    }
+
+    public void Heal(float healthGain)
+    {
+        health += healthGain;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        healthBar.SetProgress(health / maxHealth, 1);
     }
 }

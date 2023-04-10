@@ -89,6 +89,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: SecondaryAbility
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 5b1fb546-d106-45e2-a203-90c45c760d54
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: cf394f6b-5afd-4d44-b5b3-f95939e3cacc
@@ -273,4 +281,20 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: PrimaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 92fc6408-7bcb-4cfc-97b6-be81cceaa9c4
+      m_Path: <Gamepad>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SecondaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: c027f7b5-1991-4734-b68d-6d3c68668d80
+      m_Path: <Keyboard>/o
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SecondaryAbility
       m_Flags: 0

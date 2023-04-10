@@ -194,4 +194,14 @@ public class SquadManager : MonoBehaviour
         }
         activeSquad.TardsUsePrimaryAbility();
     }
+    public void SquadUseSecondaryAbility()
+    {
+        SetActiveSquad();
+        if (activeSquad == null)
+        {
+            print("Neutrals can't use abilities!");
+            return;
+        }
+        activeSquad.TardsUseSecondaryAbility();
+    }
 }

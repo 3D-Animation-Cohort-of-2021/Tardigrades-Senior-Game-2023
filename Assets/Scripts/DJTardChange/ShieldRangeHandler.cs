@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShieldRangeHandler : MonoBehaviour
@@ -17,6 +14,7 @@ public class ShieldRangeHandler : MonoBehaviour
          if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
          {
              parentTard.shieldableTards.Add(newTard);
+             newTard.OnDestroy += RemoveTard;
          }
     }
 
@@ -25,7 +23,13 @@ public class ShieldRangeHandler : MonoBehaviour
         if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
         {
             parentTard.shieldableTards.Remove(newTard);
+            newTard.OnDestroy -= RemoveTard;
         }
+    }
+    
+    public void RemoveTard(TardigradeBase newTard)
+    {
+        parentTard.shieldableTards.Remove(newTard);
     }
     
 }
