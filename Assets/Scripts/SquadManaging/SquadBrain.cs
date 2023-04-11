@@ -130,7 +130,6 @@ public class SquadBrain : MonoBehaviour
             }
             yield return wffu;
         }
-        //Turns old highlights off and clears the old selection
     }
 
     private void OnTriggerEnter(Collider other)

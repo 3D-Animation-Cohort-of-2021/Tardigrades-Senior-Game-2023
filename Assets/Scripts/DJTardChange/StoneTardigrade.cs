@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class StoneTardigrade : TardigradeBase
 {
@@ -20,7 +21,13 @@ public class StoneTardigrade : TardigradeBase
 
    public override void PrimaryAbility()
    {
-      transform.rotation = followBehavior.pointObject.Rotation;
-      Instantiate(abilityPrefab, transform.position + transform.forward, transform.rotation);
+        Quaternion stoneRotation = Quaternion.identity;
+        Quaternion tardRotation = transform.rotation;
+        Vector3 stoneEuler = new Vector3(0, Random.Range(0, 360), 0);
+        stoneRotation.eulerAngles = stoneEuler;
+
+        transform.rotation = followBehavior.pointObject.Rotation;
+        Instantiate(abilityPrefab, transform.position + transform.forward, stoneRotation);
+        transform.rotation = tardRotation;
    }
 }
