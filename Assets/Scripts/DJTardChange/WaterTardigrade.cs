@@ -45,9 +45,9 @@ public class WaterTardigrade : TardigradeBase
         foreach (TardigradeBase tard in shieldableTards)
         {
             if(tard == null) continue;
-            StartCoroutine(tard.ActivateIceShield(iceDuration));
+            tard.StartIce(iceDuration);
         }
-        StartCoroutine(ActivateIceShield(iceDuration));
+        StartIce(iceDuration);
     }
     private void HealTargets()
     {

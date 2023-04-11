@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Ability))]
 public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     [SerializeField]public float health = 20;
@@ -20,6 +19,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     
     protected Ability primary;
     protected Ability secondary;
+
+    public Coroutine IceCoroutine;
     
     
 
@@ -102,8 +103,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
+        if(IceCoroutine != null) StopCoroutine(IceCoroutine);
         Destroy(gameObject);
         Destroy(healthBar.gameObject);
+        
+        
     }
 
     public void SetupHealthBar(Canvas canvas, Camera cam)
@@ -125,12 +129,15 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             animator.SetBool("IceShield", true);
             yield return new WaitForSeconds(iceDuration);
 
-            if (gameObject != null)
+            if (animator)
             {
                 animator.SetBool("IceShield", false);
                 Instantiate(iceShardsPrefab, transform);
             }
+
         }
+
+        IceCoroutine = null;
     }
 
     public void Heal(float healthGain)
@@ -141,5 +148,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             health = maxHealth;
         }
         healthBar.SetProgress(health / maxHealth, 1);
+    }
+
+    public void StartIce(float iceDuration)
+    {
+        IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration));
     }
 }
