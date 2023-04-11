@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.AI;
 using System.Collections;
+using UnityEditor.Rendering.LookDev;
 //Made By Parker Bennion
 
 public enum OffMeshLinkMoveMethod
@@ -18,11 +19,14 @@ public class PlayerControl : MonoBehaviour
     public DebugInputSO debugInput;
     private NavMeshAgent navMeshAgent;
     private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
+    private Camera cam;
     public SO_SquadData SquadsMoveCommands;
     public OffMeshLinkMoveMethod method = OffMeshLinkMoveMethod.Parabola;
 
     private Coroutine offMeshPathInstance = null;
     public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent;
+    public UnityEvent<int> updateFormation;
+    public UnityEvent<float> updateSpacing;
 
     void Awake()
     {
@@ -38,6 +42,7 @@ public class PlayerControl : MonoBehaviour
         SquadsMoveCommands.SetSquadNumber(0);
         SquadsMoveCommands.SetSquadTotal(0);
         navMeshAgent = GetComponent<NavMeshAgent>();
+        cam = Camera.main;
         
     }
 
@@ -160,15 +165,46 @@ public class PlayerControl : MonoBehaviour
 
     public void MoveHoard(InputAction.CallbackContext context)
     {
-        leftStickMovement.x = context.ReadValue<Vector2>().x;
-        leftStickMovement.z = context.ReadValue<Vector2>().y;
-
+        if (context.control.parent.name == "Mouse")
+        {
+            MoveHoardMouse(context);
+        }
+        else
+        {
+            leftStickMovement.x = context.ReadValue<Vector2>().x;
+            leftStickMovement.z = context.ReadValue<Vector2>().y;
+        }
     }
+
+    private void MoveHoardMouse(InputAction.CallbackContext context)
+    {
+        if(cam == null)
+        {
+            cam = Camera.main;
+        }
+
+        Vector2 centerScreen = cam.WorldToScreenPoint(transform.position);
+
+        Vector2 offsetFromCenter = context.ReadValue<Vector2>() - centerScreen;
+
+        if (Mathf.Abs(offsetFromCenter.x) > 50 || Mathf.Abs(offsetFromCenter.y) > 50)
+        {
+            Vector2 normalizedOffset = offsetFromCenter.normalized;
+
+            leftStickMovement.x = normalizedOffset.x;
+            leftStickMovement.z = normalizedOffset.y;
+        }
+        else
+        {
+            leftStickMovement.x = 0;
+            leftStickMovement.z = 0;
+        }
+    }
+
     public void PreviousSquad(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            
             SquadsMoveCommands.SubtractSquadNumber();
         }
 
@@ -235,6 +271,38 @@ public class PlayerControl : MonoBehaviour
         if (context.started)
         {
             primaryAbilityEvent.Invoke();
+        }
+    }
+
+    public void PrevFormation(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            updateFormation.Invoke(-1);
+        }
+    }
+
+    public void NextFormation(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            updateFormation.Invoke(1);
+        }
+    }
+
+    public void IncreaseSpacing(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            updateSpacing.Invoke(0.5f);
+        }
+    }
+
+    public void DecreaseSpacing(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            updateSpacing.Invoke(-0.5f);
         }
     }
 

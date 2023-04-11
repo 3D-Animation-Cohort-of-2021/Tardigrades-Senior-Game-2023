@@ -26,8 +26,8 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     - m_Name: MoveHoard
-      m_Type: 0
-      m_ExpectedControlType: Stick
+      m_Type: 2
+      m_ExpectedControlType: Vector2
       m_Id: 5116e7f6-6418-40d8-9a31-d83555e2f164
       m_Processors: 
       m_Interactions: 
@@ -89,6 +89,38 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: IncreaseSpacing
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: d56a374b-c7cf-41fd-b01e-a2208f91b614
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: DecreaseSpacing
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 46ab964d-e96f-412d-80d7-6630489a8f78
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: NextFormation
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 2706f293-8550-4d61-8576-993afb7449d1
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: PrevFormation
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 6cccdbe6-8d53-44df-b4e7-80b187e18b89
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: cf394f6b-5afd-4d44-b5b3-f95939e3cacc
@@ -146,6 +178,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: MoveHoard
       m_Flags: 8
+    - m_Name: 
+      m_Id: 6a70565c-37eb-4031-a587-6c06b4a851ec
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 0
     - m_Name: 
       m_Id: d515d877-916a-4a13-aafb-1dadb1438f2a
       m_Path: <Gamepad>/rightShoulder
@@ -273,4 +313,68 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: PrimaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 56de5b8b-c85a-4777-8f3b-e096e48a78a6
+      m_Path: <Gamepad>/dpad/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: IncreaseSpacing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: ef3885b1-56c0-4558-a41a-f5adb7d1f497
+      m_Path: <Keyboard>/1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: IncreaseSpacing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 24697d89-08ae-440d-a6a5-6d38a929e85c
+      m_Path: <Gamepad>/dpad/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: DecreaseSpacing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 02e09a78-0f5b-4a50-8345-b3623422aee1
+      m_Path: <Keyboard>/2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: DecreaseSpacing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 0b134379-2c77-4d59-808b-d3c501c7bd8c
+      m_Path: <Gamepad>/dpad/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: NextFormation
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 7d220a28-4f47-4790-bb2c-b7f53b60aa44
+      m_Path: <Keyboard>/3
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: NextFormation
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 9f54e88b-1129-485d-a23b-151a50f009cb
+      m_Path: <Gamepad>/dpad/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PrevFormation
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 010037f3-032a-45bc-b11d-4c2ca70bb273
+      m_Path: <Keyboard>/4
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PrevFormation
       m_Flags: 0
