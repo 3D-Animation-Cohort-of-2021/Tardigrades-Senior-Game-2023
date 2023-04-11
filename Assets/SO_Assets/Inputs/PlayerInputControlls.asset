@@ -1,0 +1,380 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944b5c80141db22fcb9ce59aa17161c6, type: 3}
+  m_Name: PlayerInputControlls
+  m_EditorClassIdentifier: 
+  map:
+    m_Name: Map
+    m_Id: fb99ef22-072f-4901-b743-c17a3860bd84
+    m_Asset: {fileID: 0}
+    m_Actions:
+    - m_Name: CHANGEME
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 6f5f17b9-6864-426b-9590-453ac5408355
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: MoveHoard
+      m_Type: 2
+      m_ExpectedControlType: Vector2
+      m_Id: 5116e7f6-6418-40d8-9a31-d83555e2f164
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: NextSquad
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: ca1ceaad-b341-4675-b6a7-188bde2d0c39
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: PreviousSquad
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 6fabbd0b-a2b0-4cdc-8f4b-8cc64bd689c6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: RotateClockwise
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: a9039dbc-af0a-4dcb-b226-7c5dceed260b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: RotateCounterClockwise
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: 62127e4f-1c62-4e89-97cd-b0e775ca5ab5
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: MoveSquad
+      m_Type: 0
+      m_ExpectedControlType: Stick
+      m_Id: c8002fea-a89b-4355-a7af-c3c2ca998eb6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: MutateSquad
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 1a246790-e08a-4486-9701-f6f8227cff16
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: PrimaryAbility
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: f678d842-abbd-4fbd-b8a3-ccec510b94df
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: IncreaseSpacing
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: d56a374b-c7cf-41fd-b01e-a2208f91b614
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: DecreaseSpacing
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 46ab964d-e96f-412d-80d7-6630489a8f78
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: NextFormation
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 2706f293-8550-4d61-8576-993afb7449d1
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: PrevFormation
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 6cccdbe6-8d53-44df-b4e7-80b187e18b89
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 
+      m_Id: cf394f6b-5afd-4d44-b5b3-f95939e3cacc
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CHANGEME
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 6bea284d-d641-4ccb-9e34-562fadba80e5
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 0
+    - m_Name: arrows
+      m_Id: d7a858e1-ddf3-4465-92da-a6c970adb006
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 4
+    - m_Name: up
+      m_Id: c4e58636-c679-470a-aaa1-4c180197f6c1
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 62c9272b-9da4-4681-af68-0cea95ae5dc1
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 8
+    - m_Name: left
+      m_Id: c2d89a7f-67df-4480-942c-33e6146878ac
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 8
+    - m_Name: right
+      m_Id: b3d2602b-7ba3-4010-839a-e943302bd594
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 8
+    - m_Name: 
+      m_Id: 6a70565c-37eb-4031-a587-6c06b4a851ec
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveHoard
+      m_Flags: 0
+    - m_Name: 
+      m_Id: d515d877-916a-4a13-aafb-1dadb1438f2a
+      m_Path: <Gamepad>/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: NextSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: dc7266a8-1110-44c6-855e-a45578d9326f
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: NextSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 224edcd4-a636-4e57-95e6-36f8e7fa1e76
+      m_Path: <Gamepad>/leftShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PreviousSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 603820fc-5b1b-4e5f-adf1-1d51df86c4ba
+      m_Path: <Keyboard>/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PreviousSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: f6b48ab6-3558-4a8c-bb7f-a0e49becf5d1
+      m_Path: <Gamepad>/rightTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: RotateClockwise
+      m_Flags: 0
+    - m_Name: 
+      m_Id: fa4974b1-21fa-49e3-a54f-138c2452b361
+      m_Path: <Gamepad>/leftTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: RotateCounterClockwise
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 65edfe45-7e19-4cd8-8dcc-4053aa82beba
+      m_Path: <Gamepad>/rightStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 0
+    - m_Name: Wasd
+      m_Id: 3622bc4f-5068-40be-8360-0885145e66fb
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 4
+    - m_Name: up
+      m_Id: e28d2dd8-20f2-4c23-b45d-8e7e49eebd62
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 300d0be8-7134-465d-b573-826a764f3291
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 09679813-a882-489c-971b-6b7c7337d149
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 54f5d3b9-478d-4af3-9be6-59d6671ffe32
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MoveSquad
+      m_Flags: 8
+    - m_Name: 
+      m_Id: 46941b96-b4a1-4ddc-aaab-7a0370043b15
+      m_Path: <Gamepad>/buttonNorth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MutateSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: b6d3cb4b-c790-4bf9-8f4c-fa1bd9e100e3
+      m_Path: <Keyboard>/enter
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MutateSquad
+      m_Flags: 0
+    - m_Name: 
+      m_Id: cb603479-174a-4813-96fa-23b93387364c
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PrimaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 7db32c14-958a-45e7-bb9d-cfd0a724164b
+      m_Path: <Keyboard>/p
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PrimaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 56de5b8b-c85a-4777-8f3b-e096e48a78a6
+      m_Path: <Gamepad>/dpad/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: IncreaseSpacing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: ef3885b1-56c0-4558-a41a-f5adb7d1f497
+      m_Path: <Keyboard>/1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: IncreaseSpacing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 24697d89-08ae-440d-a6a5-6d38a929e85c
+      m_Path: <Gamepad>/dpad/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: DecreaseSpacing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 02e09a78-0f5b-4a50-8345-b3623422aee1
+      m_Path: <Keyboard>/2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: DecreaseSpacing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 0b134379-2c77-4d59-808b-d3c501c7bd8c
+      m_Path: <Gamepad>/dpad/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: NextFormation
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 7d220a28-4f47-4790-bb2c-b7f53b60aa44
+      m_Path: <Keyboard>/3
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: NextFormation
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 9f54e88b-1129-485d-a23b-151a50f009cb
+      m_Path: <Gamepad>/dpad/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PrevFormation
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 010037f3-032a-45bc-b11d-4c2ca70bb273
+      m_Path: <Keyboard>/4
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PrevFormation
+      m_Flags: 0
