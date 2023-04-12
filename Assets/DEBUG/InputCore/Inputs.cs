@@ -614,6 +614,268 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""MenuActions"",
+            ""id"": ""efbf0af4-3f9f-4e15-a345-c3b767df3b78"",
+            ""actions"": [
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bfa77eb-8117-46af-a28e-eac7c4e42f52"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""A"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca1104e4-5eb6-4b99-986e-7239604a46e5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""B"",
+                    ""type"": ""Button"",
+                    ""id"": ""822067de-9b44-4225-abbd-b94fb080649e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""X"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f86e074-26d5-4207-98e2-530fe3551e50"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""64836241-aa16-4ffb-a041-07e51db872e9"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""00e40803-ffc1-4f32-ac8b-e986791ca44b"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ebee5708-4d73-4529-af63-61436268e976"",
+                    ""path"": ""<Keyboard>/#(M)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bccc2018-98c4-4c21-98fb-a7225f7cfd47"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c9fde88-b669-4c93-8838-eca16b278bb3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20e1f0c9-84e9-4f35-b970-5f7bec8bf6f0"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4277a772-fd09-4016-90f5-89a1752c6ef9"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""B"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3ae68cf-bc53-49d8-851c-977cf93896a1"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""B"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1dc4688f-9913-4d91-8c8e-bd782c26ca3e"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""X"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1c89f87a-200d-4854-89bb-aa5c082868e9"",
+                    ""path"": ""<Keyboard>/#(X)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""X"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Xbox Controller"",
+                    ""id"": ""54ec9720-ee30-4857-b97b-712c6478bb7a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""0cb0c2a1-e1bb-45bd-a896-ba615a5291a2"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""aade8b0a-0f75-4e00-888b-30f6dd1d9284"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""de752a2b-3621-426f-a10f-2f90071c974e"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""1dba766c-85e2-4f22-942e-dc66cb3cef9e"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""5f26bfad-1a12-49e4-acdb-00d9fdeb73b1"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""39498329-23c1-4a4e-a586-1353c35dddf5"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""61b3a82e-2819-4f96-9dff-c9f45e53a427"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""79dc8051-4dd8-4af6-8b05-6fb5356a33fd"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2f30e192-a49e-4c50-b5b3-3fcf6a6a4eb7"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -636,6 +898,13 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_TardigreBasicActions_Select = m_TardigreBasicActions.FindAction("Select", throwIfNotFound: true);
         m_TardigreBasicActions_Start = m_TardigreBasicActions.FindAction("Start", throwIfNotFound: true);
         m_TardigreBasicActions_RightJoycon = m_TardigreBasicActions.FindAction("RightJoycon", throwIfNotFound: true);
+        // MenuActions
+        m_MenuActions = asset.FindActionMap("MenuActions", throwIfNotFound: true);
+        m_MenuActions_Menu = m_MenuActions.FindAction("Menu", throwIfNotFound: true);
+        m_MenuActions_A = m_MenuActions.FindAction("A", throwIfNotFound: true);
+        m_MenuActions_B = m_MenuActions.FindAction("B", throwIfNotFound: true);
+        m_MenuActions_X = m_MenuActions.FindAction("X", throwIfNotFound: true);
+        m_MenuActions_Navigate = m_MenuActions.FindAction("Navigate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -844,6 +1113,71 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         }
     }
     public TardigreBasicActionsActions @TardigreBasicActions => new TardigreBasicActionsActions(this);
+
+    // MenuActions
+    private readonly InputActionMap m_MenuActions;
+    private IMenuActionsActions m_MenuActionsActionsCallbackInterface;
+    private readonly InputAction m_MenuActions_Menu;
+    private readonly InputAction m_MenuActions_A;
+    private readonly InputAction m_MenuActions_B;
+    private readonly InputAction m_MenuActions_X;
+    private readonly InputAction m_MenuActions_Navigate;
+    public struct MenuActionsActions
+    {
+        private @Inputs m_Wrapper;
+        public MenuActionsActions(@Inputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Menu => m_Wrapper.m_MenuActions_Menu;
+        public InputAction @A => m_Wrapper.m_MenuActions_A;
+        public InputAction @B => m_Wrapper.m_MenuActions_B;
+        public InputAction @X => m_Wrapper.m_MenuActions_X;
+        public InputAction @Navigate => m_Wrapper.m_MenuActions_Navigate;
+        public InputActionMap Get() { return m_Wrapper.m_MenuActions; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActionsActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActionsActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsActionsCallbackInterface != null)
+            {
+                @Menu.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnMenu;
+                @A.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnA;
+                @A.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnA;
+                @A.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnA;
+                @B.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnB;
+                @B.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnB;
+                @B.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnB;
+                @X.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnX;
+                @X.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnX;
+                @X.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnX;
+                @Navigate.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnNavigate;
+                @Navigate.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnNavigate;
+                @Navigate.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnNavigate;
+            }
+            m_Wrapper.m_MenuActionsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
+                @A.started += instance.OnA;
+                @A.performed += instance.OnA;
+                @A.canceled += instance.OnA;
+                @B.started += instance.OnB;
+                @B.performed += instance.OnB;
+                @B.canceled += instance.OnB;
+                @X.started += instance.OnX;
+                @X.performed += instance.OnX;
+                @X.canceled += instance.OnX;
+                @Navigate.started += instance.OnNavigate;
+                @Navigate.performed += instance.OnNavigate;
+                @Navigate.canceled += instance.OnNavigate;
+            }
+        }
+    }
+    public MenuActionsActions @MenuActions => new MenuActionsActions(this);
     public interface ITardigreBasicActionsActions
     {
         void OnLeftJoycon(InputAction.CallbackContext context);
@@ -862,5 +1196,13 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnSelect(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
         void OnRightJoycon(InputAction.CallbackContext context);
+    }
+    public interface IMenuActionsActions
+    {
+        void OnMenu(InputAction.CallbackContext context);
+        void OnA(InputAction.CallbackContext context);
+        void OnB(InputAction.CallbackContext context);
+        void OnX(InputAction.CallbackContext context);
+        void OnNavigate(InputAction.CallbackContext context);
     }
 }
