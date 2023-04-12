@@ -1,21 +1,21 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The base class for all tardigrade types.
+/// <remarks>Written by DJ</remarks>
+/// </summary>
 public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     [SerializeField]public float health = 20;
     private float maxHealth;
     [SerializeField] private ProgressBar healthBar;
-    protected float speed;
     [SerializeField]protected Elem type;
     public SquadBrain mySquad;
     [SerializeField]protected ParticleSystem iceShardsPrefab;
 
-    public delegate void DestroyEvent(TardigradeBase tard);
-
-    public DestroyEvent OnDestroy;
+    public event Action<TardigradeBase> OnDestroy;
     
     protected Ability primary;
     protected Ability secondary;
@@ -29,12 +29,13 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         primary = gameObject.AddComponent<Ability>();
         secondary = gameObject.AddComponent<Ability>();
 
-        primary.activatable = true;
-        secondary.activatable = true;
-        
         maxHealth = health;
     }
     
+    /// <summary>
+    ///  Implements the <c>Damage</c> Interface. Finds how much damage should be taken.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
     public void Damage(float dmgNum, Elem dmgType)
     {
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(type, dmgType, dmgNum);
@@ -83,22 +84,28 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         //Debug.Log(gameObject + "is resistant to that damage");
     }
 
+    /// <summary>
+    ///  Is called when ability button is pressed. Should be overloaded in child class to add functionality.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
     public virtual void PrimaryAbility()
     {
-        //To be overloaded in child classes
+        primary.Cooldown();
     }
+    /// <summary>
+    ///  Is called when ability button is pressed. Should be overloaded in child class to add functionality.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
     public virtual void SecondaryAbility()
     {
-        //To be overloaded in child classes
+        secondary.Cooldown();
     }
+    
 
-    protected IEnumerator CooldownTracker(Ability ability)
-    {
-        ability.activatable = false;
-        yield return new WaitForSeconds(ability.cooldown);
-        ability.activatable = true;
-    }
-
+    /// <summary>
+    ///  Removes tard from any lists, stops coroutines, then destroys this tard.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
     public void Death()
     {
         mySquad.RemoveFromSquad(this);
@@ -106,10 +113,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         if(IceCoroutine != null) StopCoroutine(IceCoroutine);
         Destroy(gameObject);
         Destroy(healthBar.gameObject);
-        
-        
     }
 
+    /// <summary>
+    ///  Attaches health bar to the canvas and turns on the billboard if it exists.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
     public void SetupHealthBar(Canvas canvas, Camera cam)
     {
         healthBar.transform.SetParent(canvas.transform);
@@ -120,7 +129,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
     }
 
-    public IEnumerator ActivateIceShield(float iceDuration)
+    /// <summary>
+    ///  Turns the shield shader on for a duration.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
+    private IEnumerator ActivateIceShield(float iceDuration)
     {
         if (TryGetComponent<Animator>(out Animator animator))
         {
@@ -134,12 +147,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
                 animator.SetBool("IceShield", false);
                 Instantiate(iceShardsPrefab, transform);
             }
-
         }
-
         IceCoroutine = null;
     }
 
+    /// <summary>
+    ///  Adds <paramref name="healthGain"/> to health and updates the hp bar.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
     public void Heal(float healthGain)
     {
         health += healthGain;
@@ -150,6 +165,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         healthBar.SetProgress(health / maxHealth, 1);
     }
 
+    /// <summary>
+    ///  Starts the ActivateIceShield coroutine that Turns the shield shader on for a duration.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
     public void StartIce(float iceDuration)
     {
         IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration));

@@ -11,37 +11,13 @@ public class WaterTardigrade : TardigradeBase
     protected void Start()
     {
         primary.cooldown = 4;
-
         secondary.cooldown = 2;
-    }
-
-    protected override void ReactToStrong()
-    {
-        base.ReactToStrong();
-        //Debug.Log("the water tardigrade is barely affected by the fire");
-    }
-    protected override void ReactToWeak()
-    {
-        base.ReactToWeak();
-        //Debug.Log("the water tardigrade is hindered by the stone trap");
     }
 
     public override void PrimaryAbility()
     {
         if (!primary.activatable) return;
-        ShieldTargets();
-        StartCoroutine(CooldownTracker(primary));
-    }
-    
-    public override void SecondaryAbility()
-    {
-        if (!secondary.activatable) return;
-        HealTargets();
-        StartCoroutine(CooldownTracker(secondary));
-    }
-
-    private void ShieldTargets()
-    {
+        base.PrimaryAbility();
         foreach (TardigradeBase tard in shieldableTards)
         {
             if(tard == null) continue;
@@ -49,8 +25,11 @@ public class WaterTardigrade : TardigradeBase
         }
         StartIce(iceDuration);
     }
-    private void HealTargets()
+    
+    public override void SecondaryAbility()
     {
+        if (!secondary.activatable) return;
+        base.SecondaryAbility();
         foreach (TardigradeBase tard in shieldableTards)
         {
             if(tard == null) continue;
