@@ -1,6 +1,6 @@
+using System;
 using System.Runtime.Versioning;
 using UnityEngine;
-
 public abstract class TardigradeBase : MonoBehaviour
 {
     [SerializeField]public float health = 5;
@@ -9,6 +9,7 @@ public abstract class TardigradeBase : MonoBehaviour
     [SerializeField]protected Elem type;
     [SerializeField]protected MaterialListSO tardigradeMaterial;
     public GameObject abilityPrefab;
+
 
 
     /// <summary>
@@ -23,6 +24,17 @@ public abstract class TardigradeBase : MonoBehaviour
         else if (other.IsWeak(type)==-1)
             ReactToStrong();
         health -= (other.GetDamage() + bonusDamage);
+        
+        print("Damage Taken: "+ (other.GetDamage() + bonusDamage));
+    }
+    public void TakeDamage(Element other, float amt)
+    {
+        float bonusDamage = other.IsWeak(type) * weaknessMultiplier * other.GetDamage();
+        if (other.IsWeak(type)==1)
+            ReactToWeak();
+        else if (other.IsWeak(type)==-1)
+            ReactToStrong();
+        health -= (amt + bonusDamage);
         
         print("Damage Taken: "+ (other.GetDamage() + bonusDamage));
     }
