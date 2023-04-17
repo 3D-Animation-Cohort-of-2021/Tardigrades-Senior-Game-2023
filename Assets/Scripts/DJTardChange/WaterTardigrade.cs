@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WaterTardigrade : TardigradeBase
 {
+
     private float iceDuration = 3;
     public List<TardigradeBase> shieldableTards;
 
