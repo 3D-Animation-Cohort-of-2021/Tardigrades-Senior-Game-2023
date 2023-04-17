@@ -195,6 +195,7 @@ public class SquadManager : MonoBehaviour
         //instatiate new one in its place
 
         activeSquad.AddToSquad(newBase);
+        newBase.mySquad = activeSquad;
         activeSquad.ChangeHighlight(newBase, true);
 
 
@@ -209,6 +210,16 @@ public class SquadManager : MonoBehaviour
             return;
         }
         activeSquad.TardsUsePrimaryAbility();
+    }
+    public void SquadUseSecondaryAbility()
+    {
+        SetActiveSquad();
+        if (activeSquad == null)
+        {
+            print("Neutrals can't use abilities!");
+            return;
+        }
+        activeSquad.TardsUseSecondaryAbility();
     }
 
     public void UpdateActiveFormation(int formationIterator)
