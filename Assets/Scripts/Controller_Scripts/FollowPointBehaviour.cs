@@ -26,39 +26,49 @@ public class FollowPointBehaviour : MonoBehaviour {
             
             if (pointObject.Center !=  null && pointObject.willRotate)
             {
-                CalculateAngle(out destination);
+                CalculateAngleFromHordeCenter(out destination);
             }
 
             _navMeshAgent.destination = destination + pointObject.Parent.position;
         }
     }
 
-    private void CalculateAngle(out Vector3 destination)
+    private void CalculateAngleFromHordeCenter(out Vector3 destination)
+    {
+        CalculateAngle(out destination, pointObject.Parent.position, pointObject.Center.position);
+    }
+
+    public void CalculateAngleFromSquadCenter(out Vector3 destination)
+    {
+        CalculateAngle(out destination, pointObject.Center.position, pointObject.Center.position - pointObject.Position);
+    }
+
+    private void CalculateAngle(out Vector3 destination, Vector3 centerPoint, Vector3 directionPoint)
     {
         destination = pointObject.Position;
 
-        if (pointObject.Center !=  null)
+        if (pointObject.Center != null)
+        {
+            float directionModifier = 1;
+
+            Vector3 normalizedParent = Vector3.Normalize(centerPoint - directionPoint);
+
+            if (normalizedParent.x < 0)
             {
-                float directionModifier = 1;
-
-                Vector3 normalizedParent = Vector3.Normalize(pointObject.Parent.position - pointObject.Center.position);
-
-                if(normalizedParent.x < 0)
-                {
-                    directionModifier = -1;
-                }
-
-                float angle = (Mathf.Acos(normalizedParent.z) * directionModifier);
-                Quaternion q = new Quaternion();
-
-                q.eulerAngles = new Vector3(0f, Mathf.Rad2Deg * angle, 0f);
-                pointObject.Rotation = q;
-
-                float tempZ = destination.z * Mathf.Cos(angle) - destination.x * Mathf.Sin(angle);
-                float tempX = destination.z * Mathf.Sin(angle) + destination.x * Mathf.Cos(angle);
-
-                destination.z = tempZ;
-                destination.x = tempX;
+                directionModifier = -1;
             }
+
+            float angle = (Mathf.Acos(normalizedParent.z) * directionModifier);
+            Quaternion q = new Quaternion();
+
+            q.eulerAngles = new Vector3(0f, Mathf.Rad2Deg * angle, 0f);
+            pointObject.Rotation = q;
+
+            float tempZ = destination.z * Mathf.Cos(angle) - destination.x * Mathf.Sin(angle);
+            float tempX = destination.z * Mathf.Sin(angle) + destination.x * Mathf.Cos(angle);
+
+            destination.z = tempZ;
+            destination.x = tempX;
+        }
     }
 }

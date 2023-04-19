@@ -26,6 +26,12 @@ public class StoneTardigrade : TardigradeBase
         Vector3 stoneEuler = new Vector3(0, Random.Range(0, 360), 0);
         stoneRotation.eulerAngles = stoneEuler;
 
+        if (!followBehavior.pointObject.willRotate)
+        {
+            Vector3 destination = followBehavior.pointObject.Position;
+            followBehavior.CalculateAngleFromSquadCenter(out destination);
+        }
+
         transform.rotation = followBehavior.pointObject.Rotation;
         Instantiate(abilityPrefab, transform.position + transform.forward, stoneRotation);
         transform.rotation = tardRotation;
