@@ -41,6 +41,10 @@ public class SquadManager : MonoBehaviour
         SetUpCanvas();
     }
 
+    /// <summary>
+    /// Creates gameobject with canvas for the health bars to be parented to.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
     private void SetUpCanvas()
     {
         GameObject emptyGO = new GameObject();

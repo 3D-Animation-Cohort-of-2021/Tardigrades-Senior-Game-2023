@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageOnEnter : MonoBehaviour
@@ -20,9 +17,8 @@ public class DamageOnEnter : MonoBehaviour
                 }
                 else
                 {
-                    newDmg = dmg*0.075f;
+                    newDmg = dmg*0.1f;
                 }
-                
             }
             otherObj.Damage(newDmg, Elem.Fire);
         }

@@ -22,9 +22,9 @@ public class WaterTardigrade : TardigradeBase
         foreach (TardigradeBase tard in shieldableTards)
         {
             if(tard == null) continue;
-            tard.StartIce(iceDuration);
+            tard.StartIce(iceDuration, abilityPrefab);
         }
-        StartIce(iceDuration);
+        StartIce(iceDuration, abilityPrefab);
     }
     
     public override void SecondaryAbility()

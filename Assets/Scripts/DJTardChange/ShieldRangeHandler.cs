@@ -6,16 +6,17 @@ public class ShieldRangeHandler : MonoBehaviour
     private WaterTardigrade parentTard;
     private List<TardigradeBase> tardList;
 
-    private void Start()
+    private void Awake()
     {
         parentTard = GetComponentInParent<WaterTardigrade>();
-        tardList = parentTard.shieldableTards;
+        tardList = new List<TardigradeBase>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
          if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
          {
+             print(tardList);
              tardList.Add(newTard);
              newTard.OnDestroy += RemoveTard;
              UpdateList();

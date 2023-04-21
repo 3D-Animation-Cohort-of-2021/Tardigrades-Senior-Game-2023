@@ -7,14 +7,15 @@ using UnityEngine;
 /// </summary>
 public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
-    [SerializeField]public float health = 20;
+    public float health;
     private float maxHealth;
     protected ProgressBar healthBar;
     [SerializeField]protected Elem type;
     public SquadBrain mySquad;
-    [SerializeField]protected ParticleSystem iceShardsPrefab;
     [SerializeField]protected MaterialListSO tardigradeMaterial;
     public GameObject abilityPrefab;
+
+    private GameObject iceShardsForDeath;
 
     
 
@@ -57,7 +58,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             {
                 finalDmg = 0;
                 animator.SetBool("IceShield", false);
-                Instantiate(iceShardsPrefab, transform);
+                Instantiate(iceShardsForDeath, transform);
             }
         }
         health -= finalDmg;
@@ -67,7 +68,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             Death();
         }
         
-        //print("Damage Taken: "+ finalDmg);
+        print(GetComponent<TardigradeBase>() +" Damage Taken: "+ finalDmg);
     }
     public string GetElementTypeString()
     {
@@ -94,6 +95,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         MaterialSetSO materialSetSO = tardigradeMaterial.GetMaterialSetByType(type);
         GetComponent<Renderer>().material = materialSetSO.material;
         abilityPrefab = materialSetSO.activeAbilityEffect;
+        if (materialSetSO.childObject != null)
+        {
+            Instantiate(materialSetSO.childObject, transform);
+        }
     }
     
     /// <summary>
@@ -145,8 +150,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Turns the shield shader on for a duration.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    private IEnumerator ActivateIceShield(float iceDuration)
+    private IEnumerator ActivateIceShield(float iceDuration, GameObject iceShards)
     {
+        iceShardsForDeath = iceShards;
         if (TryGetComponent<Animator>(out Animator animator))
         {
             if(animator.GetBool("IceShield")) yield break;
@@ -157,7 +163,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             if (animator)
             {
                 animator.SetBool("IceShield", false);
-                Instantiate(iceShardsPrefab, transform);
+                Instantiate(iceShards, transform);
             }
         }
         IceCoroutine = null;
@@ -181,14 +187,13 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Starts the ActivateIceShield coroutine that Turns the shield shader on for a duration.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public void StartIce(float iceDuration)
+    public void StartIce(float iceDuration, GameObject iceShards)
     {
-        IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration));
+        IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
     }
 
     public TardigradeBase ConvertTardigrade(Elem element)
     {
-
         if(element == type)
         {
             return null;
