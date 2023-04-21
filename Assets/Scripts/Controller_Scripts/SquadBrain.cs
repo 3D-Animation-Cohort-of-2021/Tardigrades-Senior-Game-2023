@@ -23,7 +23,7 @@ public class SquadBrain : MonoBehaviour
 
     private Coroutine activeSquad = null;
 
-    public Camera cam;
+    private Camera cam;
     public Canvas healthBarCanvas;
 
     private void Awake()
@@ -38,6 +38,7 @@ public class SquadBrain : MonoBehaviour
 
         navMeshAgent.speed = 10f;
         Populate(amountPerGroup);
+        cam = Camera.main;
     }
 
     private void FixedUpdate()

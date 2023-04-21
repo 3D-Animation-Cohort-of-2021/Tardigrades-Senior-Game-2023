@@ -9,7 +9,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     [SerializeField]public float health = 20;
     private float maxHealth;
-    public ProgressBar healthBar;
+    protected ProgressBar healthBar;
     [SerializeField]protected Elem type;
     public SquadBrain mySquad;
     [SerializeField]protected ParticleSystem iceShardsPrefab;
@@ -51,7 +51,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         else if (modifier==0.5f)
             ReactToStrong();
         
-        if (TryGetComponent<Animator>(out Animator animator))
+        if (TryGetComponent(out Animator animator))
         {
             if (animator.GetBool("IceShield"))
             {

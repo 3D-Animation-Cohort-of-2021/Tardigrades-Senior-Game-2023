@@ -20,6 +20,5 @@ public class FireTardigrade : TardigradeBase
         base.PrimaryAbility();
         DamageOnEnter explosion = Instantiate(abilityPrefab, transform.position, Quaternion.identity).GetComponent<DamageOnEnter>();
         explosion.dmg = damage;
-        
     }
 }

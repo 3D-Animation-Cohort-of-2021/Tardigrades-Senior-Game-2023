@@ -5,6 +5,7 @@ using UnityEngine;
 using Cinemachine;
 using Random = UnityEngine.Random;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 //using Random = UnityEngine.Random;
 
@@ -24,9 +25,8 @@ public class SquadManager : MonoBehaviour
     
     private SquadBrain neutralSquad = null;
     private SquadBrain activeSquad = null;
-
-    [SerializeField] private Camera cam;
-    [SerializeField]private Canvas healthBarCanvas;
+    
+    private Canvas healthBarCanvas;
 
     private void Start()
     {
@@ -37,6 +37,18 @@ public class SquadManager : MonoBehaviour
         cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
 
         StartCoroutine(SetupChildren());
+        
+        SetUpCanvas();
+    }
+
+    private void SetUpCanvas()
+    {
+        GameObject emptyGO = new GameObject();
+        emptyGO.name = "HealthBarCanvas";
+        healthBarCanvas = emptyGO.AddComponent<Canvas>();
+        healthBarCanvas.renderMode = RenderMode.WorldSpace;
+        emptyGO.AddComponent<CanvasScaler>();
+        emptyGO.AddComponent<GraphicRaycaster>();
 
     }
 
@@ -90,7 +102,7 @@ public class SquadManager : MonoBehaviour
             childBrain.TeleportSquad(transform.position + Vector3.down * centerOffset);
         }
         
-        childBrain.cam = cam;
+        
         childBrain.healthBarCanvas = healthBarCanvas;
         
         squad.transform.parent = transform;
