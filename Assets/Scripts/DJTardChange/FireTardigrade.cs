@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class FireTardigrade : TardigradeBase
 {
-    public ParticleSystem explosionPrefab;
     private float damage = 10;
 
 

@@ -9,7 +9,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     [SerializeField]public float health = 20;
     private float maxHealth;
-    [SerializeField] private ProgressBar healthBar;
+    public ProgressBar healthBar;
     [SerializeField]protected Elem type;
     public SquadBrain mySquad;
     [SerializeField]protected ParticleSystem iceShardsPrefab;
@@ -31,6 +31,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         primary = gameObject.AddComponent<Ability>();
         secondary = gameObject.AddComponent<Ability>();
+
+        healthBar = GetComponentInChildren<ProgressBar>();
 
         maxHealth = health;
     }

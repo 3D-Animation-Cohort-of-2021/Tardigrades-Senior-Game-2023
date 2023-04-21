@@ -23,6 +23,9 @@ public class SquadBrain : MonoBehaviour
 
     private Coroutine activeSquad = null;
 
+    public Camera cam;
+    public Canvas healthBarCanvas;
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -64,6 +67,12 @@ public class SquadBrain : MonoBehaviour
             movementVector.IncrementSquadTotal();
             ActivateSquad();
         }
+
+        foreach (TardigradeBase tard in myTards)
+        {
+            tard.SetupHealthBar(healthBarCanvas, cam);
+        }
+        
     }
 
     private void ActivateSquad(int squadNumber)
@@ -168,6 +177,7 @@ public class SquadBrain : MonoBehaviour
                 }
 
                 AddToSquad(pigBase);
+                
                 pigBase.mySquad = this;
 
             }

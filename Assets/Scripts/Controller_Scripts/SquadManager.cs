@@ -24,7 +24,9 @@ public class SquadManager : MonoBehaviour
     
     private SquadBrain neutralSquad = null;
     private SquadBrain activeSquad = null;
-    
+
+    [SerializeField] private Camera cam;
+    [SerializeField]private Canvas healthBarCanvas;
 
     private void Start()
     {
@@ -73,6 +75,7 @@ public class SquadManager : MonoBehaviour
         if (childBrain.squadType != Elem.Neutral)
         {
             squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squadIDGiver, SquadObj = childBrain });
+            
             squadIDGiver++;
         }
         else
@@ -86,8 +89,10 @@ public class SquadManager : MonoBehaviour
 
             childBrain.TeleportSquad(transform.position + Vector3.down * centerOffset);
         }
-
-
+        
+        childBrain.cam = cam;
+        childBrain.healthBarCanvas = healthBarCanvas;
+        
         squad.transform.parent = transform;
 
         AddToTargetGroup(squad);
@@ -189,10 +194,11 @@ public class SquadManager : MonoBehaviour
             return;
         }
 
-        //destroy the old tard
+        
         neutralSquad.RemoveFromSquad(tard);
+        //destroy the old tardigradeBase component
         Destroy(tard);
-        //instatiate new one in its place
+        
 
         activeSquad.AddToSquad(newBase);
         newBase.mySquad = activeSquad;
