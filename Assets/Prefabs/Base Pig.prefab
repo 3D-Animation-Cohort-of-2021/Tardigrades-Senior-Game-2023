@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 7534826290414997728}
   - component: {fileID: 2758265163087526890}
   - component: {fileID: 1778015437801752117}
+  - component: {fileID: 7763300215214420756}
   m_Layer: 8
   m_Name: Base Pig
   m_TagString: Untagged
@@ -226,6 +227,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 7427ea3a56254984fb1d0eed55ce4347, type: 2}
   - {fileID: 2100000, guid: 6f3d44b7c4ae448cc90d36bb4f74956c, type: 2}
+  - {fileID: 2100000, guid: 3b7c78f4a0a217f4ea037760bb49303a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -275,8 +277,6 @@ MonoBehaviour:
   health: 20
   type: 0
   mySquad: {fileID: 0}
-  iceShardsPrefab: {fileID: 7244659578072814523, guid: da2413c2bca1e2745b0e9a905e4a8a04,
-    type: 3}
   tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf, type: 2}
   abilityPrefab: {fileID: 0}
 --- !u!195 &7534826290414997728
@@ -329,3 +329,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &7763300215214420756
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5221344193439535509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5bd761d93cca0cc4d8a427a67119022e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

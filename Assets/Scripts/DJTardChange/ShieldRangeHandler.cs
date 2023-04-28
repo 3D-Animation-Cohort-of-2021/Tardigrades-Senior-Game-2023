@@ -16,7 +16,6 @@ public class ShieldRangeHandler : MonoBehaviour
     {
          if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
          {
-             print(tardList);
              tardList.Add(newTard);
              newTard.OnDestroy += RemoveTard;
              UpdateList();

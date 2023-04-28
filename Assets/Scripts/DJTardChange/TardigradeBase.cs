@@ -203,15 +203,19 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             case Elem.Fire:
                 tardigradeBase = gameObject.AddComponent<FireTardigrade>();
+                tardigradeBase.gameObject.name = "FireTardigrade";
                 break;
             case Elem.Water:
                 tardigradeBase = gameObject.AddComponent<WaterTardigrade>();
+                tardigradeBase.gameObject.name = "WaterTardigrade";
                 break;
             case Elem.Stone:
                 tardigradeBase = gameObject.AddComponent<StoneTardigrade>();
+                tardigradeBase.gameObject.name = "StoneTardigrade";
                 break;
             case Elem.Neutral:
                 tardigradeBase = gameObject.AddComponent <NeutralTardigrade>();
+                tardigradeBase.gameObject.name = "NeutralTardigrade";
                 break;
             default:
                 break;
