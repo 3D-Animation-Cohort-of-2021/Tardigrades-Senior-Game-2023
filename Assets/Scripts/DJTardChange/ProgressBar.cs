@@ -43,7 +43,6 @@ public class ProgressBar : MonoBehaviour
             {
                 StopCoroutine(animCoroutine);
             }
-
             animCoroutine = StartCoroutine(AnimateProgress(progress, speed));
         }
     }

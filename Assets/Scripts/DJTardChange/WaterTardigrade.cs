@@ -34,8 +34,8 @@ public class WaterTardigrade : TardigradeBase
         foreach (TardigradeBase tard in shieldableTards)
         {
             if(tard == null) continue;
-            tard.Heal(.5f);
+            tard.Heal(2.5f);
         }
-        Heal(.5f);
+        Heal(2.5f);
     }
 }

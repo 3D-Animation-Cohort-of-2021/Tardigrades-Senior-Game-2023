@@ -222,6 +222,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
         }
         tardigradeBase.health = health;
+        tardigradeBase.maxHealth = maxHealth;
         tardigradeBase.type = element;
         tardigradeBase.tardigradeMaterial = tardigradeMaterial;
         tardigradeBase.UpdateAppearance();
