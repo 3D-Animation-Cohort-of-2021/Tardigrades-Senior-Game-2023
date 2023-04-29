@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
     public OffMeshLinkMoveMethod method = OffMeshLinkMoveMethod.Parabola;
 
     private Coroutine offMeshPathInstance = null;
-    public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent;
+    public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent, secondaryAbilityEvent;
     public UnityEvent<int> updateFormation;
     public UnityEvent<float> updateSpacing;
 
@@ -271,6 +271,14 @@ public class PlayerControl : MonoBehaviour
         if (context.started)
         {
             primaryAbilityEvent.Invoke();
+        }
+    }
+    
+    public void SecondaryAbility(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            secondaryAbilityEvent.Invoke();
         }
     }
 
