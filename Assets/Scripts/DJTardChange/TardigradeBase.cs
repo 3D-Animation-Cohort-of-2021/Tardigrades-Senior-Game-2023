@@ -17,12 +17,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public GameObject abilityPrefab;
     protected FollowPointBehaviour followBehavior;
 
-    private void Awake() {
-
-        followBehavior = GetComponent<FollowPointBehaviour>();
-
-    }
-
     private GameObject iceShardsForDeath;
 
     
@@ -41,6 +35,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         primary = gameObject.AddComponent<Ability>();
         secondary = gameObject.AddComponent<Ability>();
 
+        followBehavior = GetComponent<FollowPointBehaviour>();
         healthBar = GetComponentInChildren<ProgressBar>();
 
         maxHealth = health;
