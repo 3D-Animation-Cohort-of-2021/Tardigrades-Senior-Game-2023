@@ -3,18 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
-public class DestructibleObstacle : Obstacle
+public class DestructibleObstacle : Obstacle, IDamageable
 {
-    private void OnCollisionEnter(Collision collision)
+    public void Damage(float dmgNum, Elem dmgType)
     {
-        if (collision.gameObject.GetComponent<TardigradeBase>())
+        if (dmgType == Elem.Fire)
         {
-            Elem tardElement = collision.gameObject.GetComponent<TardigradeBase>().GetElementType();
-            if (IsWeak(tardElement)==-1)
-            {
-                Debug.Log("The object clears because it is weak");
-                ReactAndDestroy();
-            }
+            ReactAndDestroy();
         }
     }
     

@@ -23,6 +23,9 @@ public class SquadBrain : MonoBehaviour
 
     private Coroutine activeSquad = null;
 
+    private Camera cam;
+    public Canvas healthBarCanvas;
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -35,6 +38,7 @@ public class SquadBrain : MonoBehaviour
 
         navMeshAgent.speed = 10f;
         Populate(amountPerGroup);
+        cam = Camera.main;
     }
 
     private void FixedUpdate()
@@ -64,11 +68,16 @@ public class SquadBrain : MonoBehaviour
             movementVector.IncrementSquadTotal();
             ActivateSquad();
         }
+
+        foreach (TardigradeBase tard in myTards)
+        {
+            tard.SetupHealthBar(healthBarCanvas, cam);
+        }
+        
     }
 
     private void ActivateSquad(int squadNumber)
     {
-
         if (activeSquad != null)
         {
             StopCoroutine(activeSquad);
@@ -161,13 +170,15 @@ public class SquadBrain : MonoBehaviour
                 if (newBase != null)
                 {
                     myTards.Remove(pigBase);
-
+            
                     Destroy(pigBase);
 
                     pigBase = newBase;
                 }
 
                 AddToSquad(pigBase);
+                
+                pigBase.mySquad = this;
 
             }
         }
@@ -204,6 +215,7 @@ public class SquadBrain : MonoBehaviour
 
         formationPositions.Add(newTransform);
         myTards.Add(newTard);
+        newTard.mySquad = this;
         newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
 
         UpdateFormation(formation, true);
@@ -235,12 +247,15 @@ public class SquadBrain : MonoBehaviour
             thickness = 0.1f;
         }
 
-        Material[] mats = tard.GetComponent<Renderer>().materials;
-        foreach (Material mat in mats)
+        if (tard.TryGetComponent<Renderer>(out Renderer renderer))
         {
-            if (mat.name == "HighlightMat (Instance)")
+            Material[] mats = renderer.materials;
+            foreach (Material mat in mats)
             {
-                mat.SetFloat("_Highlight_Thickness", thickness);
+                if (mat.name =="HighlightMat (Instance)")
+                {
+                    mat.SetFloat("_Highlight_Thickness", thickness);
+                }
             }
         }
     }
@@ -251,6 +266,14 @@ public class SquadBrain : MonoBehaviour
         foreach (TardigradeBase tard in myTards)
         {
             tard.PrimaryAbility();
+        }
+    }
+    public void TardsUseSecondaryAbility()
+    {
+        //check and track cooldown here
+        foreach (TardigradeBase tard in myTards)
+        {
+            tard.SecondaryAbility();   
         }
     }
 

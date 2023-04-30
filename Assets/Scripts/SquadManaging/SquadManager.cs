@@ -5,6 +5,7 @@ using UnityEngine;
 using Cinemachine;
 using Random = UnityEngine.Random;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 //using Random = UnityEngine.Random;
 
@@ -25,6 +26,7 @@ public class SquadManager : MonoBehaviour
     private SquadBrain neutralSquad = null;
     private SquadBrain activeSquad = null;
     
+    private Canvas healthBarCanvas;
 
     private void Start()
     {
@@ -35,6 +37,22 @@ public class SquadManager : MonoBehaviour
         cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
 
         StartCoroutine(SetupChildren());
+        
+        SetUpCanvas();
+    }
+
+    /// <summary>
+    /// Creates gameobject with canvas for the health bars to be parented to.
+    /// <remarks>Written by DJ</remarks>
+    /// </summary>
+    private void SetUpCanvas()
+    {
+        GameObject emptyGO = new GameObject();
+        emptyGO.name = "HealthBarCanvas";
+        healthBarCanvas = emptyGO.AddComponent<Canvas>();
+        healthBarCanvas.renderMode = RenderMode.WorldSpace;
+        emptyGO.AddComponent<CanvasScaler>();
+        emptyGO.AddComponent<GraphicRaycaster>();
 
     }
 
@@ -73,6 +91,7 @@ public class SquadManager : MonoBehaviour
         if (childBrain.squadType != Elem.Neutral)
         {
             squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squadIDGiver, SquadObj = childBrain });
+            
             squadIDGiver++;
         }
         else
@@ -86,8 +105,10 @@ public class SquadManager : MonoBehaviour
 
             childBrain.TeleportSquad(transform.position + Vector3.down * centerOffset);
         }
-
-
+        
+        
+        childBrain.healthBarCanvas = healthBarCanvas;
+        
         squad.transform.parent = transform;
 
         AddToTargetGroup(squad);
@@ -189,12 +210,14 @@ public class SquadManager : MonoBehaviour
             return;
         }
 
-        //destroy the old tard
+        
         neutralSquad.RemoveFromSquad(tard);
+        //destroy the old tardigradeBase component
         Destroy(tard);
-        //instatiate new one in its place
+        
 
         activeSquad.AddToSquad(newBase);
+        newBase.mySquad = activeSquad;
         activeSquad.ChangeHighlight(newBase, true);
 
 
@@ -209,6 +232,16 @@ public class SquadManager : MonoBehaviour
             return;
         }
         activeSquad.TardsUsePrimaryAbility();
+    }
+    public void SquadUseSecondaryAbility()
+    {
+        SetActiveSquad();
+        if (activeSquad == null)
+        {
+            print("Neutrals can't use abilities!");
+            return;
+        }
+        activeSquad.TardsUseSecondaryAbility();
     }
 
     public void UpdateActiveFormation(int formationIterator)
