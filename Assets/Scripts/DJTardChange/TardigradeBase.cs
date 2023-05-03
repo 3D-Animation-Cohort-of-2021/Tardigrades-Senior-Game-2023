@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(FollowPointBehaviour))]
 /// <summary>
 /// The base class for all tardigrade types.
 /// <remarks>Written by DJ</remarks>
@@ -14,6 +15,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public SquadBrain mySquad;
     [SerializeField]protected MaterialListSO tardigradeMaterial;
     public GameObject abilityPrefab;
+    protected FollowPointBehaviour followBehavior;
 
     private GameObject iceShardsForDeath;
 
@@ -33,6 +35,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         primary = gameObject.AddComponent<Ability>();
         secondary = gameObject.AddComponent<Ability>();
 
+        followBehavior = GetComponent<FollowPointBehaviour>();
         healthBar = GetComponentInChildren<ProgressBar>();
 
         maxHealth = health;

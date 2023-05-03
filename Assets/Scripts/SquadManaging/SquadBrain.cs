@@ -139,7 +139,6 @@ public class SquadBrain : MonoBehaviour
             }
             yield return wffu;
         }
-        //Turns old highlights off and clears the old selection
     }
 
     private void OnTriggerEnter(Collider other)
@@ -367,6 +366,7 @@ public class SquadBrain : MonoBehaviour
         {
 
             formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing);
+            formationPositions[i].willRotate = false;
         }
     }
 
@@ -382,6 +382,7 @@ public class SquadBrain : MonoBehaviour
             formationPositions[i].Position = Vector3.zero;
             formationPositions[i].Position -= new Vector3(centeredOffset, 0, 0);
             formationPositions[i].Position += new Vector3((float)i * fullSpacing, 0, 0.5f);
+            formationPositions[i].willRotate = true;
 
         }
     }
@@ -399,7 +400,7 @@ public class SquadBrain : MonoBehaviour
             position *= fullSpacing;
             formationPositions[i].Position = position;
             currentAngle += angleRad;
-
+            formationPositions[i].willRotate = false;
         }
     }
 
@@ -424,6 +425,8 @@ public class SquadBrain : MonoBehaviour
             formationPositions[i].Position = Vector3.zero;
             formationPositions[i].Position -= new Vector3(centeredOffset, 0, centeredOffset / 2);
             formationPositions[i].Position += new Vector3(i * fullSpacing, 0, positionZ);
+
+            formationPositions[i].willRotate = true;
         }
     }
 }
