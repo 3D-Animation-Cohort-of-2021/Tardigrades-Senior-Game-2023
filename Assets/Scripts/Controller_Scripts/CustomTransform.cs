@@ -9,6 +9,7 @@ public class CustomTransform
     public Vector3 Position {  get; set; }
     public Quaternion Rotation { get; set;}
     public Vector3 Scale { get; set;}
+    public bool willRotate = true;
 
     public CustomTransform(Transform center, Transform parent, Vector3 position, Quaternion quaternion, Vector3 scale) 
     {

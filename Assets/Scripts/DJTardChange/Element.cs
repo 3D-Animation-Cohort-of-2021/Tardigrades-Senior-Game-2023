@@ -24,7 +24,7 @@ public class Element : MonoBehaviour
     /// </summary>
     /// <param name="other">an enum element type</param>
     /// <returns>1 if other is weak to the object's element, -1 if strong, and 0 if neutral</returns>
-    public int IsWeak(Elem other)
+    /*public int IsWeak(Elem other)
     {
         switch (other)
         {
@@ -51,5 +51,6 @@ public class Element : MonoBehaviour
             default:
                 return 0;
         }
-    }
+    }*/
+    
 }
