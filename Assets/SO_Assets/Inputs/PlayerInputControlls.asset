@@ -89,6 +89,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: SecondaryAbility
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 30e367cb-7d96-4506-bf5c-cb4fab71e28b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     - m_Name: IncreaseSpacing
       m_Type: 1
       m_ExpectedControlType: Button
@@ -377,4 +385,20 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: PrevFormation
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 95c96814-f3dc-421d-b301-93178d1603a7
+      m_Path: <Gamepad>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SecondaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 9d35c22b-0c37-4b01-9a6c-abe812146628
+      m_Path: <Keyboard>/o
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SecondaryAbility
       m_Flags: 0
