@@ -16,9 +16,13 @@ public class FireTardigrade : TardigradeBase
 
     public override void PrimaryAbility()
     {
-        if (!primary.activatable) return;
+        if (!primary.activatable)
+        {
+            return;
+        }
+
         base.PrimaryAbility();
         DamageOnEnter explosion = Instantiate(abilityPrefab, transform.position, Quaternion.identity).GetComponent<DamageOnEnter>();
-        explosion.dmg = damage;
+        explosion._damage = damage;
     }
 }

@@ -101,6 +101,7 @@ public class SquadManager : MonoBehaviour
         else
         {
             squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = -1, SquadObj = childBrain });
+            neutralSquad = childBrain;
         }
 
         if (childBrain.squadType == Elem.Neutral)

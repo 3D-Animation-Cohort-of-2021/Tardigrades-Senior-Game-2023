@@ -26,8 +26,10 @@ public class EffectiveTable
     {
         int row = (int)type;
         int col = (int)dmgType;
+
         return table[row][col];
     }
+
     /// <summary>
     /// Purpose: Calculates the damage taken based on type effectiveness
     /// </summary>
@@ -35,6 +37,7 @@ public class EffectiveTable
     public static float CalculateEffectiveDMG(Elem type, Elem dmgType, float dmgNum)
     {
         float modifier = CalculateEffectiveDMG(type, dmgType);
+
         return modifier * dmgNum;
     }
 }
