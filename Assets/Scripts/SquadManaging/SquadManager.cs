@@ -12,29 +12,29 @@ using UnityEngine.UI;
 //Made By Parker Bennion
 public class SquadManager : MonoBehaviour
 {
-    public GameObject squadPrefab;
-    public static List<Squad> squads = new List<Squad>();
+    public GameObject _squadPrefab;
+    public static List<Squad> _squads = new List<Squad>();
 
-    public int squadIDGiver;
-    public float radius;
+    public int _squadIDGiver;
+    public float _radius;
     
     
-    private CinemachineTargetGroup cTgroup;
-    public GameObject targetGroup;
+    private CinemachineTargetGroup _cTgroup;
+    public GameObject _targetGroup;
     //public Slider squadSlider;
     
-    private SquadBrain neutralSquad = null;
-    private SquadBrain activeSquad = null;
+    private SquadBrain _neutralSquad = null;
+    private SquadBrain _activeSquad = null;
     
-    private Canvas healthBarCanvas;
+    private Canvas _healthBarCanvas;
 
     private void Start()
     {
-        squads = new List<Squad>();
+        _squads = new List<Squad>();
 
-        squadIDGiver = 0;
+        _squadIDGiver = 0;
 
-        cTgroup = targetGroup.GetComponent<CinemachineTargetGroup>();
+        //_cTgroup = _targetGroup.GetComponent<CinemachineTargetGroup>();
 
         StartCoroutine(SetupChildren());
         
@@ -49,8 +49,8 @@ public class SquadManager : MonoBehaviour
     {
         GameObject emptyGO = new GameObject();
         emptyGO.name = "HealthBarCanvas";
-        healthBarCanvas = emptyGO.AddComponent<Canvas>();
-        healthBarCanvas.renderMode = RenderMode.WorldSpace;
+        _healthBarCanvas = emptyGO.AddComponent<Canvas>();
+        _healthBarCanvas.renderMode = RenderMode.WorldSpace;
         emptyGO.AddComponent<CanvasScaler>();
         emptyGO.AddComponent<GraphicRaycaster>();
 
@@ -78,11 +78,11 @@ public class SquadManager : MonoBehaviour
     //on tirgger with a squad spawning prefab. add to the squad list and instance a squad.
     private void OnTriggerEnter(Collider other)
     {
-        GameObject tempObject = other.gameObject;
+        GameObject collidedObject = other.gameObject;
         SquadBrain squadBrain;
-        if (tempObject.CompareTag("SQUAD") && tempObject.TryGetComponent<SquadBrain>(out squadBrain))
+        if (collidedObject.CompareTag("SQUAD") && collidedObject.TryGetComponent<SquadBrain>(out squadBrain))
         {
-            ClaimSquad(tempObject, squadBrain);
+            ClaimSquad(collidedObject, squadBrain);
         }
     }
 
@@ -90,18 +90,26 @@ public class SquadManager : MonoBehaviour
 
     private void ClaimSquad(GameObject squad, SquadBrain childBrain)
     {
+
         squad.layer = LayerMask.NameToLayer("Center");
+        SquadBrain matchingSquad;
+
+        if (HasSquadWithElement(childBrain.squadType, out matchingSquad))
+        {
+            MergeSquads(matchingSquad, childBrain);
+            return;
+        }
 
         if (childBrain.squadType != Elem.Neutral)
         {
-            squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squadIDGiver, SquadObj = childBrain });
+            _squads.Add(new Squad() { SquadName = $"Squad {_squads.Count}", SquadID = _squadIDGiver, SquadObj = childBrain });
             
-            squadIDGiver++;
+            _squadIDGiver++;
         }
         else
         {
-            squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = -1, SquadObj = childBrain });
-            neutralSquad = childBrain;
+            _squads.Add(new Squad() { SquadName = $"Squad {_squads.Count}", SquadID = -1, SquadObj = childBrain });
+            _neutralSquad = childBrain;
         }
 
         if (childBrain.squadType == Elem.Neutral)
@@ -112,7 +120,7 @@ public class SquadManager : MonoBehaviour
         }
         
         
-        childBrain.healthBarCanvas = healthBarCanvas;
+        childBrain.healthBarCanvas = _healthBarCanvas;
         
         squad.transform.parent = transform;
 
@@ -122,12 +130,78 @@ public class SquadManager : MonoBehaviour
         SetActiveSquad();
     }
 
+    private bool HasSquadWithElement(Elem elementType, out SquadBrain matchingSquad)
+    {
+        for(int i = 0; i < _squads.Count; i++)
+        {
+            if (_squads[i].GetSquadType() == elementType)
+            {
+                matchingSquad = _squads[i].SquadObj;
+                return true;
+            }
+        }
+
+        matchingSquad = null;
+        return false;
+    }
+
     public void TeleportSquadsToCenter(float centerOffset)
     {
-        foreach(Squad squad in squads)
+        foreach(Squad squad in _squads)
         {
             squad.SquadObj.TeleportSquad(transform.position + Vector3.down * centerOffset);
         }
+    }
+
+    public void MergeSquads(SquadBrain primaryBrain, SquadBrain disposableBrain)
+    {
+
+        List<TardigradeBase> tardigradesToTransfer = disposableBrain.GetTards();
+
+        for(int i = tardigradesToTransfer.Count - 1; i >= 0; i--)
+        {
+            TardigradeBase tempTardigrade = tardigradesToTransfer[i];
+
+            disposableBrain.RemoveFromSquad(tempTardigrade);
+            primaryBrain.AddToSquad(tempTardigrade);
+
+            if(_activeSquad == primaryBrain)
+            {
+                _activeSquad.ChangeHighlight(tempTardigrade, true);
+            }
+            else
+            {
+                _activeSquad.ChangeHighlight(tempTardigrade, false);
+            }
+            
+        }
+
+        for(int i = 0; i < _squads.Count; ++i)
+        {
+            if (_squads[i].SquadID == disposableBrain.brainNumber)
+            {
+                _squads.RemoveAt(i);
+                break;
+            }
+        }
+
+        int newSquadCounter = 0;
+        for (int i = 0; i < _squads.Count; ++i)
+        {
+            if (_squads[i].SquadObj.squadType != Elem.Neutral)
+            {
+                _squads[i].SquadID = newSquadCounter;
+                _squads[i].SquadObj.brainNumber = newSquadCounter;
+                newSquadCounter++;
+            }
+        }
+
+        DestroySquad(disposableBrain);
+    }
+
+    public void DestroySquad(SquadBrain brainToDestroy)
+    {
+        Destroy(brainToDestroy.gameObject);
     }
 
     private void AddToTargetGroup(GameObject squad)
@@ -139,19 +213,18 @@ public class SquadManager : MonoBehaviour
     
     private void SetActiveSquad()
     {
-        foreach (Squad squad in squads)
+        foreach (Squad squad in _squads)
         {
             SquadBrain currentBrain = squad.SquadObj;
             
-            if (currentBrain.IsActive() && currentBrain.squadType == Elem.Neutral)
+            if (currentBrain.squadType == Elem.Neutral)
             {
-                neutralSquad = currentBrain;
-                activeSquad = null;
-                break;
+                _neutralSquad = currentBrain;
+                _activeSquad = null;
             }
             else if (currentBrain.IsActive())
             {
-                activeSquad = squad.SquadObj.GetComponent<SquadBrain>();
+                _activeSquad = squad.SquadObj.GetComponent<SquadBrain>();
                 break;
             }
         }
@@ -159,20 +232,20 @@ public class SquadManager : MonoBehaviour
     public void MutateActiveSquad()
     {
         SetActiveSquad();
-        if (activeSquad == null)
+        if (_activeSquad == null)
         {
             print("Neutrals can't be mutated!");
             return;
         }
 
-        if(neutralSquad == null)
+        if(_neutralSquad == null)
         {
             print("No Neutrals to mutate");
             return;
         }
         
-        List<TardigradeBase> neutralTards = neutralSquad.GetTards();
-        List<TardigradeBase> activeTards = activeSquad.GetTards();
+        List<TardigradeBase> neutralTards = _neutralSquad.GetTards();
+        List<TardigradeBase> activeTards = _activeSquad.GetTards();
 
         //Turn list of tards into a list of their positions then take the average to find the middle of the group;
         List<Vector3> transforms = activeTards.Select(go => go.transform.position).ToList();
@@ -205,7 +278,7 @@ public class SquadManager : MonoBehaviour
     {
         //get old tards stats like hp and position
 
-        TardigradeBase newBase = tard.ConvertTardigrade(activeSquad.squadType);
+        TardigradeBase newBase = tard.ConvertTardigrade(_activeSquad.squadType);
 
         if (newBase == null) 
         {
@@ -213,14 +286,14 @@ public class SquadManager : MonoBehaviour
         }
 
         
-        neutralSquad.RemoveFromSquad(tard);
+        _neutralSquad.RemoveFromSquad(tard);
         //destroy the old tardigradeBase component
         Destroy(tard);
         
 
-        activeSquad.AddToSquad(newBase);
-        newBase.mySquad = activeSquad;
-        activeSquad.ChangeHighlight(newBase, true);
+        _activeSquad.AddToSquad(newBase);
+        newBase.mySquad = _activeSquad;
+        _activeSquad.ChangeHighlight(newBase, true);
 
 
     }
@@ -228,39 +301,39 @@ public class SquadManager : MonoBehaviour
     public void SquadUsePrimaryAbility()
     {
         SetActiveSquad();
-        if (activeSquad == null)
+        if (_activeSquad == null)
         {
             print("Neutrals can't use abilities!");
             return;
         }
-        activeSquad.TardsUsePrimaryAbility();
+        _activeSquad.TardsUsePrimaryAbility();
     }
     public void SquadUseSecondaryAbility()
     {
         SetActiveSquad();
-        if (activeSquad == null)
+        if (_activeSquad == null)
         {
             print("Neutrals can't use abilities!");
             return;
         }
-        activeSquad.TardsUseSecondaryAbility();
+        _activeSquad.TardsUseSecondaryAbility();
     }
 
     public void UpdateActiveFormation(int formationIterator)
     {
         SetActiveSquad();
-        if (activeSquad != null)
+        if (_activeSquad != null)
         {
-            activeSquad.UpdateFormation(formationIterator);
+            _activeSquad.UpdateFormation(formationIterator);
         }
     }
 
     public void UpdateSpacing(float spacing)
     {
         SetActiveSquad();
-        if (activeSquad != null)
+        if (_activeSquad != null)
         {
-            activeSquad.UpdateSpacing(spacing);
+            _activeSquad.UpdateSpacing(spacing);
         }
     }
 

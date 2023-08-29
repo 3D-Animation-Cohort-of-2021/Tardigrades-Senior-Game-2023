@@ -45,15 +45,19 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Implements the <c>Damage</c> Interface. Finds how much damage should be taken.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public void Damage(float dmgNum, Elem dmgType)
+    public void Damage(float damageAmount, Elem damageType)
     {
-        float finalDmg = EffectiveTable.CalculateEffectiveDMG(type, dmgType, dmgNum);
-        float modifier = EffectiveTable.CalculateEffectiveDMG(type, dmgType);
-        
-        if (modifier==1.5f)
+        float finalDmg = EffectiveTable.CalculateEffectiveDMG(type, damageType, damageAmount);
+        float modifier = EffectiveTable.CalculateEffectiveDMG(type, damageType);
+
+        if (modifier == 1.5f)
+        {
             ReactToWeak();
-        else if (modifier==0.5f)
+        }
+        else if (modifier == 0.5f)
+        {
             ReactToStrong();
+        }
         
         if (TryGetComponent(out Animator animator))
         {
@@ -139,15 +143,15 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Attaches health bar to the canvas and turns on the billboard if it exists.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public void SetupHealthBar(Canvas canvas, Camera cam)
-    {
-        healthBar.transform.SetParent(canvas.transform);
-        if (healthBar.TryGetComponent<Billboard>(out Billboard billboard))
-        {
-            billboard.cam = cam;
-            billboard.canRun = true;
-        }
-    }
+    //public void SetupHealthBar(Canvas canvas, Camera cam)
+    //{
+    //    healthBar.transform.SetParent(canvas.transform);
+    //    if (healthBar.TryGetComponent<Billboard>(out Billboard billboard))
+    //    {
+    //        billboard.cam = cam;
+    //        billboard.canRun = true;
+    //    }
+    //}
 
     /// <summary>
     ///  Turns the shield shader on for a duration.

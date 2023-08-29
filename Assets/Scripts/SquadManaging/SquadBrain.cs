@@ -56,7 +56,7 @@ public class SquadBrain : MonoBehaviour
 
     public void WakeUp()
     {
-        brainNumber = SquadManager.squads[SquadManager.squads.Count - 1].SquadID;
+        brainNumber = SquadManager._squads[SquadManager._squads.Count - 1].SquadID;
 
         foreach (CustomTransform customTransform in formationPositions)
         {
@@ -69,10 +69,10 @@ public class SquadBrain : MonoBehaviour
             ActivateSquad();
         }
 
-        foreach (TardigradeBase tard in myTards)
-        {
-            tard.SetupHealthBar(healthBarCanvas, cam);
-        }
+        //foreach (TardigradeBase tard in myTards)
+        //{
+        //    tard.SetupHealthBar(healthBarCanvas, cam);
+        //}
         
     }
 
