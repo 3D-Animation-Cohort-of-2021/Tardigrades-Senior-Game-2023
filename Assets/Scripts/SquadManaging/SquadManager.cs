@@ -61,8 +61,12 @@ public class SquadManager : MonoBehaviour
         yield return new WaitForFixedUpdate();
         for (int i = 0; i < transform.childCount; i++)
         {
-            GameObject childSquad = transform.GetChild(i).gameObject;
-            ClaimSquad(childSquad);
+            SquadBrain squadBrain;
+            if (transform.GetChild(i).TryGetComponent<SquadBrain>(out squadBrain))
+            {
+                GameObject childSquad = transform.GetChild(i).gameObject;
+                ClaimSquad(childSquad, squadBrain);
+            }
         }
     }
 
@@ -75,19 +79,19 @@ public class SquadManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject tempObject = other.gameObject;
-        if (tempObject.CompareTag("SQUAD"))
+        SquadBrain squadBrain;
+        if (tempObject.CompareTag("SQUAD") && tempObject.TryGetComponent<SquadBrain>(out squadBrain))
         {
-            ClaimSquad(tempObject);
+            ClaimSquad(tempObject, squadBrain);
         }
     }
 
 
 
-    private void ClaimSquad(GameObject squad)
+    private void ClaimSquad(GameObject squad, SquadBrain childBrain)
     {
         squad.layer = LayerMask.NameToLayer("Center");
 
-        SquadBrain childBrain = squad.GetComponent<SquadBrain>();
         if (childBrain.squadType != Elem.Neutral)
         {
             squads.Add(new Squad() { SquadName = $"Squad {squads.Count}", SquadID = squadIDGiver, SquadObj = childBrain });
@@ -138,19 +142,16 @@ public class SquadManager : MonoBehaviour
         {
             SquadBrain currentBrain = squad.SquadObj;
             
-            if (currentBrain.squadType == Elem.Neutral)
-            {
-                neutralSquad = currentBrain;
-            }
-
             if (currentBrain.IsActive() && currentBrain.squadType == Elem.Neutral)
             {
+                neutralSquad = currentBrain;
                 activeSquad = null;
                 break;
             }
             else if (currentBrain.IsActive())
             {
                 activeSquad = squad.SquadObj.GetComponent<SquadBrain>();
+                break;
             }
         }
     }
