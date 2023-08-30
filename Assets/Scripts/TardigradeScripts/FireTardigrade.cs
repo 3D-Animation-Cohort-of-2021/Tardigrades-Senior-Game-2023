@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class FireTardigrade : TardigradeBase
 {
-    private float damage = 1;
-
 
     protected void Start()
     {

@@ -19,7 +19,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
     private GameObject iceShardsForDeath;
 
-    
+    protected float damage = 1;
 
     public event System.Action<TardigradeBase> OnDestroy;
     

@@ -3,44 +3,69 @@ using UnityEngine;
 
 public class ShieldRangeHandler : MonoBehaviour
 {
-    private WaterTardigrade parentTard;
-    private List<TardigradeBase> tardList;
+    private WaterTardigrade _parentTard;
+    private List<TardigradeBase> _tardList;
+    private List<Obstacle> _obstacleList;
 
     private void Awake()
     {
-        parentTard = GetComponentInParent<WaterTardigrade>();
-        tardList = new List<TardigradeBase>();
+        _parentTard = GetComponentInParent<WaterTardigrade>();
+        _tardList = new List<TardigradeBase>();
+        _obstacleList = new List<Obstacle>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-         if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
+         if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard) && !_tardList.Contains(newTard))
          {
-             tardList.Add(newTard);
+             _tardList.Add(newTard);
              newTard.OnDestroy += RemoveTard;
-             UpdateList();
+            UpdateTardigradeList();
          }
+         else if(other.TryGetComponent<Obstacle>(out Obstacle newObstacle) && !_obstacleList.Contains(newObstacle))
+         {
+            _obstacleList.Add(newObstacle);
+            newObstacle.OnDestroy += RemoveObstacle;
+            UpdateObstacleList();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard))
+        if(other.TryGetComponent<TardigradeBase>(out TardigradeBase newTard) && _tardList.Contains(newTard))
         {
-            tardList.Remove(newTard);
+            _tardList.Remove(newTard);
             newTard.OnDestroy -= RemoveTard;
-            UpdateList();
+            UpdateTardigradeList();
         }
+        else if (other.TryGetComponent<Obstacle>(out Obstacle newObstacle) && _obstacleList.Contains(newObstacle))
+        {
+            _obstacleList.Remove(newObstacle);
+            newObstacle.OnDestroy -= RemoveObstacle;
+            UpdateObstacleList();
+        }
+    }
+
+    public void RemoveObstacle(Obstacle obstacleToRemove)
+    {
+        _obstacleList.Remove(obstacleToRemove);
+
     }
     
     public void RemoveTard(TardigradeBase newTard)
     {
-        tardList.Remove(newTard);
-        UpdateList();
+        _tardList.Remove(newTard);
+        UpdateTardigradeList();
     }
 
-    protected void UpdateList()
+    protected void UpdateObstacleList()
     {
-        parentTard.shieldableTards = tardList;
+        _parentTard._inRangeObstacles = _obstacleList;
+    }
+
+    protected void UpdateTardigradeList()
+    {
+        _parentTard._shieldableTards = _tardList;
     }
     
 }

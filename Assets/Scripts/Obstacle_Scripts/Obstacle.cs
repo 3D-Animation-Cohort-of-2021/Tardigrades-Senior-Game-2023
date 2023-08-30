@@ -9,6 +9,8 @@ public class Obstacle : MonoBehaviour, IDamageable
 {
     public float _totalHealth, _currentHealth;
 
+    public event System.Action<Obstacle> OnDestroy;
+
     public UnityEvent _destroyEvent;
     protected void Awake()
     {
@@ -32,6 +34,7 @@ public class Obstacle : MonoBehaviour, IDamageable
 
     public void SelfDestruct()
     {
+        OnDestroy?.Invoke(this);
         Destroy(gameObject);
     }
 
