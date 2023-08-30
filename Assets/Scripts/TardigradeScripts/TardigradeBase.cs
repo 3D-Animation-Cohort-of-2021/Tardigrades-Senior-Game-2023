@@ -100,8 +100,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private void UpdateAppearance()
     {
         MaterialSetSO materialSetSO = tardigradeMaterial.GetMaterialSetByType(type);
-        GetComponent<Renderer>().material = materialSetSO.material;
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        for(int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material = materialSetSO.material;
+        }
+        
         abilityPrefab = materialSetSO.activeAbilityEffect;
+
         if (materialSetSO.childObject != null)
         {
             Instantiate(materialSetSO.childObject, transform);

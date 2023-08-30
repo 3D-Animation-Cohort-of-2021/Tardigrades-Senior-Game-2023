@@ -8,7 +8,7 @@ public class DamageOnEnter : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         float newDmg = _damage;
-        if (other.TryGetComponent<IDamageable>(out IDamageable otherObj))
+        if (other.TryGetComponent<IDamageable>(out IDamageable otherObj) /*&& other.gameObject.layer == _mask*/ )
         {
             if(other.TryGetComponent<TardigradeBase>(out TardigradeBase tard))
             {

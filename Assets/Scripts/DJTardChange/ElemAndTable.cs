@@ -7,9 +7,17 @@ public enum Elem
     Stone
 }
 
+public enum Effectiveness
+{
+    Effective = 0,
+    Ineffective = 1,
+    Reactive = 2,
+    None = 3
+}
+
 public class EffectiveTable
 {
-    private static float[][] table =
+    private static float[][] _damageMultiplierTable =
     {
         //                   neu   fir   wat   sto
         /*Neu*/ new float[] {1.0f, 1.5f, 1.5f, 1.5f},
@@ -17,6 +25,23 @@ public class EffectiveTable
         /*Wat*/ new float[] {1.0f, 0.5f, 1.0f, 1.5f},
         /*Sto*/ new float[] {1.0f, 1.5f, 0.5f, 1.0f},
     };
+
+    private static Effectiveness[][] _effectivenessTable =
+    {
+        //                   neu   fir   wat   sto
+        /*Neu*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Effective, Effectiveness.Effective, Effectiveness.Effective},
+        /*Fir*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Reactive, Effectiveness.Effective, Effectiveness.Ineffective},
+        /*Wat*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Ineffective, Effectiveness.Reactive, Effectiveness.Effective},
+        /*Sto*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Effective, Effectiveness.Ineffective, Effectiveness.Reactive},
+    };
+
+    public static Effectiveness DetermineEffectiveness(Elem type, Elem dmgType)
+    {
+        int row = (int)type;
+        int col = (int)dmgType;
+
+        return _effectivenessTable[row][col];
+    }
 
     /// <summary>
     /// Purpose: Calculates the effectiveness modifier
@@ -27,7 +52,7 @@ public class EffectiveTable
         int row = (int)type;
         int col = (int)dmgType;
 
-        return table[row][col];
+        return _damageMultiplierTable[row][col];
     }
 
     /// <summary>
