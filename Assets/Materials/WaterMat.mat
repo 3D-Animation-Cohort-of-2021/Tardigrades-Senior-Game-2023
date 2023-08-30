@@ -7,15 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IceArmorMat
-  m_Shader: {fileID: -6465566751694194690, guid: 5d1b3bb17c29347468ca516e53b96693,
+  m_Name: WaterMat
+  m_Shader: {fileID: -6465566751694194690, guid: 2edfefa17bb2c424497e7cb39f65ec9f,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -93,31 +93,29 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Highlight_Thickness: 0.5
-    - _IceHeight: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Smooth: 0.8
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Thickness: 0.13
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _slider: 0.777
+    - _distortion: 0.05
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.98513746, b: 1, a: 1}
-    - _Color: {r: 0, g: 0.9851374, b: 1, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0, g: 0.8094387, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Highlight_Color: {r: 0, g: 1, b: 0.95904183, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Specular_color: {r: 0.4198113, g: 1, b: 0.85473484, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4913084793198620040
+--- !u!114 &3820713802047422694
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
