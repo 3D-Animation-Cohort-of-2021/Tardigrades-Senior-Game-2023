@@ -6,14 +6,36 @@ using UnityEngine;
 public class WaterTardigrade : TardigradeBase
 {
 
-    protected override void ReactToStrong()
+    private float iceDuration = 3;
+    public List<TardigradeBase> shieldableTards;
+
+    protected void Start()
     {
-        base.ReactToStrong();
-        Debug.Log("the water tardigrade is barely affected by the fire");
+        primary.cooldown = 4;
+        secondary.cooldown = 2;
     }
-    protected override void ReactToWeak()
+
+    public override void PrimaryAbility()
     {
-        base.ReactToWeak();
-        Debug.Log("the water tardigrade is hindered by the stone trap");
+        if (!primary.activatable) return;
+        base.PrimaryAbility();
+        foreach (TardigradeBase tard in shieldableTards)
+        {
+            if(tard == null) continue;
+            tard.StartIce(iceDuration, abilityPrefab);
+        }
+        StartIce(iceDuration, abilityPrefab);
+    }
+    
+    public override void SecondaryAbility()
+    {
+        if (!secondary.activatable) return;
+        base.SecondaryAbility();
+        foreach (TardigradeBase tard in shieldableTards)
+        {
+            if(tard == null) continue;
+            tard.Heal(2.5f);
+        }
+        Heal(2.5f);
     }
 }
