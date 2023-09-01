@@ -10,7 +10,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     public float health;
     private float maxHealth;
-    protected ProgressBar healthBar;
     [SerializeField]protected Elem type;
     public SquadBrain mySquad;
     [SerializeField]protected MaterialListSO tardigradeMaterial;
@@ -36,7 +35,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         secondary = gameObject.AddComponent<Ability>();
 
         followBehavior = GetComponent<FollowPointBehaviour>();
-        healthBar = GetComponentInChildren<ProgressBar>();
 
         maxHealth = health;
     }
@@ -69,7 +67,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             }
         }
         health -= finalDmg;
-        healthBar.SetProgress(health / maxHealth, 1);
+
         if (health <= 0)
         {
             Death();
@@ -142,7 +140,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         OnDestroy?.Invoke(this);
         if(IceCoroutine != null) StopCoroutine(IceCoroutine);
         Destroy(gameObject);
-        Destroy(healthBar.gameObject);
     }
     
     /// <summary>
@@ -193,7 +190,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             health = maxHealth;
         }
-        healthBar.SetProgress(health / maxHealth, 1);
     }
 
     /// <summary>
