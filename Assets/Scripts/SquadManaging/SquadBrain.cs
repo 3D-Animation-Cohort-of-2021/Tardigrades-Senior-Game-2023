@@ -178,7 +178,7 @@ public class SquadBrain : MonoBehaviour
 
                 AddToSquad(pigBase);
                 
-                pigBase.mySquad = this;
+                pigBase._mySquad = this;
 
             }
         }
@@ -215,7 +215,7 @@ public class SquadBrain : MonoBehaviour
 
         formationPositions.Add(newTransform);
         myTards.Add(newTard);
-        newTard.mySquad = this;
+        newTard._mySquad = this;
         newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
 
         UpdateFormation(formation, true);

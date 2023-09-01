@@ -15,6 +15,14 @@ public enum Effectiveness
     None = 3
 }
 
+public enum Status
+{
+    Burning,
+    Chilled,
+    Stunned,
+    None
+}
+
 public class EffectiveTable
 {
     private static float[][] _damageMultiplierTable =
@@ -35,6 +43,12 @@ public class EffectiveTable
         /*Sto*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Effective, Effectiveness.Ineffective, Effectiveness.Reactive},
     };
 
+    /// <summary>
+    /// Purpose: Check if an element is weak to a specified element type
+    /// </summary>
+    /// <param name="type">an enum Elem</param>
+    /// <param name="dmgType">an enum Elem</param>
+    /// <returns>enum of whether element is weak to the specified element</returns>
     public static Effectiveness DetermineEffectiveness(Elem type, Elem dmgType)
     {
         int row = (int)type;

@@ -13,13 +13,13 @@ public class WaterTardigrade : TardigradeBase
 
     protected void Start()
     {
-        primary.cooldown = 4;
-        secondary.cooldown = 2;
+        _primary.cooldown = 4;
+        _secondary.cooldown = 2;
     }
 
     public override void PrimaryAbility()
     {
-        if (!primary.activatable)
+        if (!_primary.activatable)
         {
             return;
         }
@@ -33,20 +33,20 @@ public class WaterTardigrade : TardigradeBase
                 continue;
             }
 
-            tard.StartIce(_iceDuration, abilityPrefab);
+            tard.StartIce(_iceDuration, _abilityPrefab);
         }
 
         foreach(Obstacle obstacle in _inRangeObstacles)
         {
-            obstacle.Damage(damage, type);
+            obstacle.Damage(_damage, _type);
         }
 
-        StartIce(_iceDuration, abilityPrefab);
+        StartIce(_iceDuration, _abilityPrefab);
     }
     
     public override void SecondaryAbility()
     {
-        if (!secondary.activatable) return;
+        if (!_secondary.activatable) return;
         base.SecondaryAbility();
         foreach (TardigradeBase tard in _shieldableTards)
         {

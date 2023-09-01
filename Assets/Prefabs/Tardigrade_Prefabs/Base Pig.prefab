@@ -99,10 +99,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5221344193439535509}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8134718607545142445
 MonoBehaviour:
@@ -116,11 +116,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff165fea31e64aba92316f4ec207379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  type: 0
-  mySquad: {fileID: 0}
-  tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf, type: 2}
-  abilityPrefab: {fileID: 0}
+  _health: 10
+  _type: 0
+  _mySquad: {fileID: 0}
+  _tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf,
+    type: 2}
+  _abilityPrefab: {fileID: 0}
+  _statusEffect: 0
 --- !u!195 &7534826290414997728
 NavMeshAgent:
   m_ObjectHideFlags: 0

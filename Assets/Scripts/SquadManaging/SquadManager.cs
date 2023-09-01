@@ -292,7 +292,7 @@ public class SquadManager : MonoBehaviour
         
 
         _activeSquad.AddToSquad(newBase);
-        newBase.mySquad = _activeSquad;
+        newBase._mySquad = _activeSquad;
         _activeSquad.ChangeHighlight(newBase, true);
 
 

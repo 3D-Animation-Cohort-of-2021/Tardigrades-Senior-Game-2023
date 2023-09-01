@@ -8,19 +8,20 @@ public class FireTardigrade : TardigradeBase
 
     protected void Start()
     {
-        primary.cooldown = 3;
-        primary.activatable = true;
+        _primary.cooldown = 3;
+        _primary.activatable = true;
     }
 
     public override void PrimaryAbility()
     {
-        if (!primary.activatable)
+        if (!_primary.activatable)
         {
             return;
         }
 
         base.PrimaryAbility();
-        DamageOnEnter explosion = Instantiate(abilityPrefab, transform.position, Quaternion.identity).GetComponent<DamageOnEnter>();
-        explosion._damage = damage;
+        DamageOnEnter explosion = Instantiate(_abilityPrefab, transform.position, Quaternion.identity).GetComponent<DamageOnEnter>();
+        explosion._damage = _damage;
+        SetStatus(Status.Burning, 3f);
     }
 }

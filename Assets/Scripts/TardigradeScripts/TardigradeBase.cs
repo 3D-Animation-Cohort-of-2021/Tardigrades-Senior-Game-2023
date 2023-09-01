@@ -8,45 +8,74 @@ using UnityEngine;
 /// </summary>
 public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
-    public float health;
-    private float maxHealth;
-    [SerializeField]protected Elem type;
-    public SquadBrain mySquad;
-    [SerializeField]protected MaterialListSO tardigradeMaterial;
-    public GameObject abilityPrefab;
-    protected FollowPointBehaviour followBehavior;
+    public float _health;
+    private float _maxHealth;
+    [SerializeField]protected Elem _type;
+    public SquadBrain _mySquad;
+    [SerializeField]protected MaterialListSO _tardigradeMaterial;
+    public GameObject _abilityPrefab;
+    protected FollowPointBehaviour _followBehavior;
 
-    private GameObject iceShardsForDeath;
+    private GameObject _iceShardsForDeath;
 
-    protected float damage = 1;
+    protected float _damage = 1;
 
     public event System.Action<TardigradeBase> OnDestroy;
     
-    protected Ability primary;
-    protected Ability secondary;
+    protected Ability _primary;
+    protected Ability _secondary;
+
+    public Status _statusEffect;
 
     public Coroutine IceCoroutine;
+    public Coroutine StatusRoutine;
     
     
 
     private void Awake()
     {
-        primary = gameObject.AddComponent<Ability>();
-        secondary = gameObject.AddComponent<Ability>();
+        _primary = gameObject.AddComponent<Ability>();
+        _secondary = gameObject.AddComponent<Ability>();
 
-        followBehavior = GetComponent<FollowPointBehaviour>();
+        _followBehavior = GetComponent<FollowPointBehaviour>();
+        _statusEffect = Status.None;
 
-        maxHealth = health;
+        _maxHealth = _health;
     }
-    
+
+    /// <summary>
+    /// Purpose: Give tardigrade a status effect
+    /// </summary>
+    /// <param name="statusEffect">status effect</param>
+    /// /// <param name="effectTime">time until effect is removed</param>
+    public void SetStatus(Status statusEffect, float effectTime)
+    {
+        _statusEffect = statusEffect;
+        if(StatusRoutine != null)
+        {
+            StopCoroutine(StatusRoutine);
+        }
+        StatusRoutine = StartCoroutine(RemoveStatus(effectTime));
+    }
+
+    /// <summary>
+    /// Purpose: Timer to remove status effect
+    /// </summary>
+    /// /// <param name="effectTime">time until effect is removed</param>
+    private IEnumerator RemoveStatus(float effectTime)
+    {
+        yield return new WaitForSeconds(effectTime);
+        _statusEffect = Status.None;
+    }
+
     /// <summary>
     ///  Implements the <c>Damage</c> Interface. Finds how much damage should be taken.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
     public void Damage(float damageAmount, Elem damageType)
     {
-        float finalDmg = EffectiveTable.CalculateEffectiveDMG(type, damageType, damageAmount);
-        float modifier = EffectiveTable.CalculateEffectiveDMG(type, damageType);
+        float finalDmg = EffectiveTable.CalculateEffectiveDMG(_type, damageType, damageAmount);
+        float modifier = EffectiveTable.CalculateEffectiveDMG(_type, damageType);
 
         if (modifier == 1.5f)
         {
@@ -63,12 +92,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             {
                 finalDmg = 0;
                 animator.SetBool("IceShield", false);
-                Instantiate(iceShardsForDeath, transform);
+                Instantiate(_iceShardsForDeath, transform);
             }
         }
-        health -= finalDmg;
+        _health -= finalDmg;
 
-        if (health <= 0)
+        if (_health <= 0)
         {
             Death();
         }
@@ -77,12 +106,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     }
     public string GetElementTypeString()
     {
-        return type.ToString();
+        return _type.ToString();
     }
 
     public Elem GetElementType()
     {
-        return type;
+        return _type;
     }
 
     protected virtual void ReactToWeak()
@@ -97,14 +126,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     
     private void UpdateAppearance()
     {
-        MaterialSetSO materialSetSO = tardigradeMaterial.GetMaterialSetByType(type);
+        MaterialSetSO materialSetSO = _tardigradeMaterial.GetMaterialSetByType(_type);
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         for(int i = 0; i < renderers.Length; i++)
         {
             renderers[i].material = materialSetSO.material;
         }
         
-        abilityPrefab = materialSetSO.activeAbilityEffect;
+        _abilityPrefab = materialSetSO.activeAbilityEffect;
 
         if (materialSetSO.childObject != null)
         {
@@ -118,7 +147,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void PrimaryAbility()
     {
-        primary.Cooldown();
+        _primary.Cooldown();
     }
     /// <summary>
     ///  Is called when ability button is pressed. Should be overloaded in child class to add functionality.
@@ -126,7 +155,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void SecondaryAbility()
     {
-        secondary.Cooldown();
+        _secondary.Cooldown();
     }
     
 
@@ -136,7 +165,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Death()
     {
-        mySquad.RemoveFromSquad(this);
+        _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
         if(IceCoroutine != null) StopCoroutine(IceCoroutine);
         Destroy(gameObject);
@@ -162,7 +191,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     private IEnumerator ActivateIceShield(float iceDuration, GameObject iceShards)
     {
-        iceShardsForDeath = iceShards;
+        _iceShardsForDeath = iceShards;
         if (TryGetComponent<Animator>(out Animator animator))
         {
             if(animator.GetBool("IceShield")) yield break;
@@ -185,10 +214,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Heal(float healthGain)
     {
-        health += healthGain;
-        if (health > maxHealth)
+        _health += healthGain;
+        if (_health > _maxHealth)
         {
-            health = maxHealth;
+            _health = _maxHealth;
         }
     }
 
@@ -201,9 +230,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
     }
 
+
+
     public TardigradeBase ConvertTardigrade(Elem element)
     {
-        if(element == type)
+        if(element == _type)
         {
             return null;
         }
@@ -230,10 +261,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
                 break;
 
         }
-        tardigradeBase.health = health;
-        tardigradeBase.maxHealth = maxHealth;
-        tardigradeBase.type = element;
-        tardigradeBase.tardigradeMaterial = tardigradeMaterial;
+        tardigradeBase._health = _health;
+        tardigradeBase._maxHealth = _maxHealth;
+        tardigradeBase._type = element;
+        tardigradeBase._tardigradeMaterial = _tardigradeMaterial;
         tardigradeBase.UpdateAppearance();
 
         return tardigradeBase;
