@@ -62,12 +62,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf2f73f3feb5da4ea471449bc9ca1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
-  damage: 2
-  interval: 0
-  totalHealth: 100
-  currentHealth: 0
-  destroyEvent:
+  _totalHealth: 10
+  _currentHealth: 10
+  _destroyEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5319367893639332733}
@@ -82,10 +79,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  weakTo: 2
-  strongTo: 3
-  reactiveTo: 1
-  fullDamageTaken: 35
+  _obstacleElement: 1
   weakenEvent:
     m_PersistentCalls:
       m_Calls:
