@@ -3,11 +3,12 @@ using UnityEngine;
 public class DamageOnEnter : MonoBehaviour
 {
 
-    public float dmg;
+    public float _damage;
+    public LayerMask _mask;
     private void OnTriggerEnter(Collider other)
     {
-        float newDmg = dmg;
-        if (other.TryGetComponent<IDamageable>(out IDamageable otherObj))
+        float newDmg = _damage;
+        if (other.TryGetComponent<IDamageable>(out IDamageable otherObj) /*&& other.gameObject.layer == _mask*/ )
         {
             if(other.TryGetComponent<TardigradeBase>(out TardigradeBase tard))
             {
@@ -17,7 +18,7 @@ public class DamageOnEnter : MonoBehaviour
                 }
                 else
                 {
-                    newDmg = dmg*0.1f;
+                    newDmg = _damage * 0.1f;
                 }
             }
             otherObj.Damage(newDmg, Elem.Fire);
