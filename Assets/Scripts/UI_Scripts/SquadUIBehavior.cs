@@ -11,7 +11,7 @@ public class SquadUIBehavior : MonoBehaviour
 [SerializeField] private UI_Brain brain;
 public Elem elemType;
 public float thisElemCD;
-public Image fillImage;
+public Image fillImage, abilityReadyImage;
 private WaitForSeconds wfs;
 private Coroutine currentRoutine;
 
@@ -64,13 +64,6 @@ public IEnumerator VisualCoolDown()
 
 private void SetAbilityReady(bool status)
 {
-    if (status)
-    {
-        //turn on Light
-    }
-    else
-    {
-        //turn off light
-    }
+    abilityReadyImage.enabled = status;
 }
 }
