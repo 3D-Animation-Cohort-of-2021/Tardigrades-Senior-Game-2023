@@ -240,24 +240,7 @@ public class SquadBrain : MonoBehaviour
     /// <param name="shouldHighlight">Should the tardigrade be highlighted or unhighighted</param>
     public void ChangeHighlight(TardigradeBase tard, bool shouldHighlight)
     {
-        float thickness = 0f;
-
-        if (shouldHighlight)
-        {
-            thickness = 0.1f;
-        }
-
-        if (tard.TryGetComponent<Renderer>(out Renderer renderer))
-        {
-            Material[] mats = renderer.materials;
-            foreach (Material mat in mats)
-            {
-                if (mat.name =="HighlightMat (Instance)")
-                {
-                    mat.SetFloat("_Highlight_Thickness", thickness);
-                }
-            }
-        }
+        tard.ChangeTardigradeHighlight(shouldHighlight);
     }
 
     public void TardsUsePrimaryAbility()
