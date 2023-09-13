@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(FollowPointBehaviour))]
 /// <summary>
@@ -10,13 +12,19 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     public float _health;
     private float _maxHealth;
+
     [SerializeField]protected Elem _type;
+
     public SquadBrain _mySquad;
+
     [SerializeField]protected MaterialListSO _tardigradeMaterial;
     public GameObject _abilityPrefab;
-    protected FollowPointBehaviour _followBehavior;
-
     private GameObject _iceShardsForDeath;
+    private Renderer[] _renderers;
+    private Animator[] _animators;
+
+    protected FollowPointBehaviour _followBehavior;
+    private VisualEffect _healEffect;
 
     protected float _damage = 1;
 
@@ -37,7 +45,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _primary = gameObject.AddComponent<Ability>();
         _secondary = gameObject.AddComponent<Ability>();
 
+        _healEffect = GetComponent<VisualEffect>();
         _followBehavior = GetComponent<FollowPointBehaviour>();
+        _renderers = GetComponentsInChildren<Renderer>();
+        _animators = GetComponentsInChildren<Animator>();
+
+
         _statusEffect = Status.None;
 
         _maxHealth = _health;
@@ -86,12 +99,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             ReactToStrong();
         }
         
-        if (TryGetComponent(out Animator animator))
+        if (_animators[1] != null)
         {
-            if (animator.GetBool("IceShield"))
+            if (_animators[1].GetBool("IceShield"))
             {
                 finalDmg = 0;
-                animator.SetBool("IceShield", false);
+                _animators[1].SetBool("IceShield", false);
                 Instantiate(_iceShardsForDeath, transform);
             }
         }
@@ -192,20 +205,52 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private IEnumerator ActivateIceShield(float iceDuration, GameObject iceShards)
     {
         _iceShardsForDeath = iceShards;
-        if (TryGetComponent<Animator>(out Animator animator))
+        if (_animators[1] != null)
         {
-            if(animator.GetBool("IceShield")) yield break;
-            
-            animator.SetBool("IceShield", true);
+            if (_animators[1].GetBool("IceShield"))
+            {
+                yield break;
+            }
+
+            _animators[1].SetBool("IceShield", true);
+
             yield return new WaitForSeconds(iceDuration);
 
-            if (animator)
+            if (_animators[1])
             {
-                animator.SetBool("IceShield", false);
+                _animators[1].SetBool("IceShield", false);
                 Instantiate(iceShards, transform);
             }
         }
         IceCoroutine = null;
+    }
+
+    public void ChangeTardigradeHighlight(bool shouldHighlight)
+    {
+        float thickness = 0f;
+
+        if (shouldHighlight)
+        {
+            thickness = 0.1f;
+        }
+
+        if (_renderers.Length == 0)
+        {
+            return;
+        }
+
+        for(int i = 0; i < _renderers.Length; i++)
+        {
+            Material[] mats = _renderers[i].materials;
+            foreach (Material mat in mats)
+            {
+                if (mat.name == "HighlightMat (Instance)")
+                {
+                    mat.SetFloat("_Highlight_Thickness", thickness);
+                }
+            }
+        }
+        
     }
 
     /// <summary>
@@ -215,6 +260,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public void Heal(float healthGain)
     {
         _health += healthGain;
+        _healEffect.Play();
         if (_health > _maxHealth)
         {
             _health = _maxHealth;
