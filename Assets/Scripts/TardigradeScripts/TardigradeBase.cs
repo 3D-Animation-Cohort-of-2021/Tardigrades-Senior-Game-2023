@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(FollowPointBehaviour))]
 /// <summary>
@@ -10,13 +11,17 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     public float _health;
     private float _maxHealth;
+
     [SerializeField]protected Elem _type;
+
     public SquadBrain _mySquad;
+
     [SerializeField]protected MaterialListSO _tardigradeMaterial;
     public GameObject _abilityPrefab;
-    protected FollowPointBehaviour _followBehavior;
-
     private GameObject _iceShardsForDeath;
+
+    protected FollowPointBehaviour _followBehavior;
+    private VisualEffect _healEffect;
 
     protected float _damage = 1;
 
@@ -37,6 +42,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _primary = gameObject.AddComponent<Ability>();
         _secondary = gameObject.AddComponent<Ability>();
 
+        _healEffect = GetComponent<VisualEffect>();
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _statusEffect = Status.None;
 
@@ -215,6 +221,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public void Heal(float healthGain)
     {
         _health += healthGain;
+        _healEffect.Play();
         if (_health > _maxHealth)
         {
             _health = _maxHealth;
