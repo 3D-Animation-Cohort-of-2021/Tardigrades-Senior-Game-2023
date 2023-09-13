@@ -10,4 +10,8 @@ public class Squad
     public int SquadID { get; set; }
     public SquadBrain SquadObj { get; set; }
 
+    public Elem GetSquadType()
+    {
+        return SquadObj.squadType;
+    }
 }
