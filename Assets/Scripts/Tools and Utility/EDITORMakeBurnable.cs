@@ -24,6 +24,15 @@ public class EDITORMakeBurnable : MonoBehaviour
 
             VisualEffect effect = this.AddComponent<VisualEffect>();
             effect.visualEffectAsset = burningEffect;
+            if (TryGetComponent<MeshFilter>(out MeshFilter meshFilter))
+            {
+                effect.SetMesh("Mesh", meshFilter.sharedMesh);
+            }
+            else
+            {
+                print("Couldn't find mesh");
+            }
+            
             effect.enabled = false;
             
             print("Made "+ this + " burnable");
