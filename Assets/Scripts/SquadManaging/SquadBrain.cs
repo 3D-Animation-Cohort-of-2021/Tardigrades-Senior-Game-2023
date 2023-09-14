@@ -56,7 +56,7 @@ public class SquadBrain : MonoBehaviour
 
     public void WakeUp()
     {
-        brainNumber = SquadManager.squads[SquadManager.squads.Count - 1].SquadID;
+        brainNumber = SquadManager._squads[SquadManager._squads.Count - 1].SquadID;
 
         foreach (CustomTransform customTransform in formationPositions)
         {
@@ -69,10 +69,10 @@ public class SquadBrain : MonoBehaviour
             ActivateSquad();
         }
 
-        foreach (TardigradeBase tard in myTards)
-        {
-            tard.SetupHealthBar(healthBarCanvas, cam);
-        }
+        //foreach (TardigradeBase tard in myTards)
+        //{
+        //    tard.SetupHealthBar(healthBarCanvas, cam);
+        //}
         
     }
 
@@ -178,7 +178,7 @@ public class SquadBrain : MonoBehaviour
 
                 AddToSquad(pigBase);
                 
-                pigBase.mySquad = this;
+                pigBase._mySquad = this;
 
             }
         }
@@ -215,7 +215,7 @@ public class SquadBrain : MonoBehaviour
 
         formationPositions.Add(newTransform);
         myTards.Add(newTard);
-        newTard.mySquad = this;
+        newTard._mySquad = this;
         newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
 
         UpdateFormation(formation, true);
@@ -240,24 +240,7 @@ public class SquadBrain : MonoBehaviour
     /// <param name="shouldHighlight">Should the tardigrade be highlighted or unhighighted</param>
     public void ChangeHighlight(TardigradeBase tard, bool shouldHighlight)
     {
-        float thickness = 0f;
-
-        if (shouldHighlight)
-        {
-            thickness = 0.1f;
-        }
-
-        if (tard.TryGetComponent<Renderer>(out Renderer renderer))
-        {
-            Material[] mats = renderer.materials;
-            foreach (Material mat in mats)
-            {
-                if (mat.name =="HighlightMat (Instance)")
-                {
-                    mat.SetFloat("_Highlight_Thickness", thickness);
-                }
-            }
-        }
+        tard.ChangeTardigradeHighlight(shouldHighlight);
     }
 
     public void TardsUsePrimaryAbility()
