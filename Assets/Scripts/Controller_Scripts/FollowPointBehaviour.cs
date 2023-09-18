@@ -7,9 +7,11 @@ public class FollowPointBehaviour : MonoBehaviour {
     public CustomTransform pointObject;
 
     private NavMeshAgent _navMeshAgent;
+    private Animator _tarAnimator;
 
     private void Awake() {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _tarAnimator = GetComponent<Animator>();
     }
 
     private void Start() {
@@ -31,6 +33,9 @@ public class FollowPointBehaviour : MonoBehaviour {
 
             _navMeshAgent.destination = destination + pointObject.Parent.position;
         }
+        
+        //Walk anim driver
+        _tarAnimator.SetFloat("speedPercent", (_navMeshAgent.velocity.magnitude / _navMeshAgent.speed));
     }
 
     private void CalculateAngleFromHordeCenter(out Vector3 destination)

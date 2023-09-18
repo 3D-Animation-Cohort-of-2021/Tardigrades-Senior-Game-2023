@@ -10,6 +10,12 @@ public class ShieldRangeHandler : MonoBehaviour
     private void Awake()
     {
         _parentTard = GetComponentInParent<WaterTardigrade>();
+
+        if( _parentTard == null)
+        {
+            Destroy(gameObject);
+        }
+
         _tardList = new List<TardigradeBase>();
         _obstacleList = new List<Obstacle>();
     }
