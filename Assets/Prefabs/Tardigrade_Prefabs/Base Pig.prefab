@@ -4483,7 +4483,6 @@ MonoBehaviour:
   _tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf,
     type: 2}
   _abilityPrefab: {fileID: 0}
-  _statusEffect: 3
   _fireAccessory: {fileID: 8847803118915077991}
   _waterAccessory: {fileID: 2358404373426619399}
   _earthAccessory: {fileID: 7478824364313617510}
@@ -4537,7 +4536,13 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 3
+        m_Name: Scale
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Delay
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:

@@ -24,7 +24,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private Animator[] _animators;
 
     protected FollowPointBehaviour _followBehavior;
-    private VisualEffect _healEffect;
+    protected VisualEffect _healEffect;
 
     protected float _damage = 1;
 
