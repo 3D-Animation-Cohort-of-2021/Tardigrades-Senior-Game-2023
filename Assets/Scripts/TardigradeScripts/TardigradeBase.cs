@@ -11,7 +11,7 @@ using UnityEngine.VFX;
 public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     public float _health;
-    private float _maxHealth;
+    public float _maxHealth;
 
     [SerializeField]protected Elem _type;
 
@@ -31,29 +31,40 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public event System.Action<TardigradeBase> OnDestroy;
     
     protected Ability _primary;
-    protected Ability _secondary;
+    protected ToggleAbility _secondary;
 
-    public Status _statusEffect;
+    protected Status _statusEffect;
 
     public Coroutine IceCoroutine;
     public Coroutine StatusRoutine;
-    
-    
+    public Coroutine SecondaryRoutine;
+
+    public GameObject _fireAccessory;
+    public GameObject _waterAccessory;
+    public GameObject _earthAccessory;
+
+    private WaitForSeconds _loopDelay;
+
+
 
     private void Awake()
     {
         _primary = gameObject.AddComponent<Ability>();
-        _secondary = gameObject.AddComponent<Ability>();
+        _secondary = gameObject.AddComponent<ToggleAbility>();
 
         _healEffect = GetComponent<VisualEffect>();
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
         _animators = GetComponentsInChildren<Animator>();
 
+        _loopDelay = new WaitForSeconds(_secondary.loopDelayTime);
 
         _statusEffect = Status.None;
 
-        _maxHealth = _health;
+        if(_type == Elem.Neutral && _earthAccessory != null)
+        {
+            UpdateAppearance();
+        }
     }
 
     /// <summary>
@@ -63,11 +74,20 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// /// <param name="effectTime">time until effect is removed</param>
     public void SetStatus(Status statusEffect, float effectTime)
     {
+        if(_statusEffect != statusEffect)
+        {
+            if (_secondary.ToggleStatus())
+            {
+                SecondaryAbility();
+            }
+        }
+
         _statusEffect = statusEffect;
         if(StatusRoutine != null)
         {
             StopCoroutine(StatusRoutine);
         }
+
         StatusRoutine = StartCoroutine(RemoveStatus(effectTime));
     }
 
@@ -79,6 +99,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(effectTime);
         _statusEffect = Status.None;
+    }
+
+    public Status GetStatus()
+    {
+        return _statusEffect;
     }
 
     /// <summary>
@@ -141,9 +166,18 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         MaterialSetSO materialSetSO = _tardigradeMaterial.GetMaterialSetByType(_type);
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
-        for(int i = 0; i < renderers.Length; i++)
+
+        _fireAccessory.SetActive(_type == Elem.Fire);
+        _waterAccessory.SetActive(_type == Elem.Water);
+        _earthAccessory.SetActive(_type == Elem.Stone);
+
+        for (int i = 0; i < renderers.Length; i++)
         {
-            renderers[i].material = materialSetSO.material;
+            if (renderers[i].gameObject.name.Contains("base"))
+            {
+                renderers[i].material = materialSetSO.material;
+                break;
+            }
         }
         
         _abilityPrefab = materialSetSO.activeAbilityEffect;
@@ -168,9 +202,37 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void SecondaryAbility()
     {
-        _secondary.Cooldown();
+        if (!_secondary.activatable)
+        {
+            return;
+        }
+
+        if (_secondary.FlipToggle())
+        {
+            SecondaryRoutine = StartCoroutine(SecondaryLoop());
+            _statusEffect = (Status)((int)_type);
+        }
+        else if (SecondaryRoutine != null)
+        {
+            StopCoroutine(SecondaryRoutine);
+        }
     }
-    
+
+    protected IEnumerator SecondaryLoop()
+    {
+        SecondaryAbilityEffect();
+
+        yield return _loopDelay;
+
+        SecondaryRoutine = StartCoroutine(SecondaryLoop());
+
+    }
+
+    protected virtual void SecondaryAbilityEffect()
+    {
+
+    }
+
 
     /// <summary>
     ///  Removes tard from any lists, stops coroutines, then destroys this tard.
@@ -231,7 +293,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
         if (shouldHighlight)
         {
-            thickness = 0.1f;
+            thickness = 0.05f;
         }
 
         if (_renderers.Length == 0)
@@ -259,12 +321,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Heal(float healthGain)
     {
-        _health += healthGain;
-        _healEffect.Play();
-        if (_health > _maxHealth)
-        {
-            _health = _maxHealth;
-        }
+        //if (_health < _maxHealth)
+            _health += healthGain;
+            _healEffect.Play();
+            if (_health > _maxHealth)
+            {
+                _health = _maxHealth;
+            }
+        //}
     }
 
     /// <summary>
@@ -311,6 +375,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase._maxHealth = _maxHealth;
         tardigradeBase._type = element;
         tardigradeBase._tardigradeMaterial = _tardigradeMaterial;
+        tardigradeBase._fireAccessory = _fireAccessory;
+        tardigradeBase._waterAccessory = _waterAccessory;
+        tardigradeBase._earthAccessory = _earthAccessory;
         tardigradeBase.UpdateAppearance();
 
         return tardigradeBase;

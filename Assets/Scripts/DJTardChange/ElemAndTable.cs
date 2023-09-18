@@ -17,10 +17,11 @@ public enum Effectiveness
 
 public enum Status
 {
+
+    None,
     Burning,
-    Chilled,
-    Stunned,
-    None
+    Wet,
+    Muddy
 }
 
 public class EffectiveTable

@@ -4,6 +4,9 @@ public class DamageOnEnter : MonoBehaviour
 {
 
     public float _damage;
+    public Elem _damageType;
+    public float _effectDuration;
+
     public LayerMask _mask;
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +15,7 @@ public class DamageOnEnter : MonoBehaviour
         {
             if(other.TryGetComponent<TardigradeBase>(out TardigradeBase tard))
             {
-                if (tard.GetElementType() == Elem.Fire)
+                if (tard.GetElementType() == _damageType)
                 {
                     newDmg = 0;
                 }
@@ -20,8 +23,9 @@ public class DamageOnEnter : MonoBehaviour
                 {
                     newDmg = _damage * 0.1f;
                 }
+                tard.SetStatus((Status)_damageType, _effectDuration);
             }
-            otherObj.Damage(newDmg, Elem.Fire);
+            otherObj.Damage(newDmg, _damageType);
         }
     }
 }

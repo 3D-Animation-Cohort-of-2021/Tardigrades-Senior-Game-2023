@@ -7,14 +7,18 @@ public class WaterTardigrade : TardigradeBase
 {
 
     private float _iceDuration = 3;
+    private float _healAmount = 2.5f;
     public List<TardigradeBase> _shieldableTards;
     public List<Obstacle> _inRangeObstacles;
+    private WaitForSeconds _loopDelay;
+
+    private Coroutine _healCoroutine;
 
 
     protected void Start()
     {
         _primary.cooldown = 4;
-        _secondary.cooldown = 2;
+        _secondary.cooldown = 0;
         _shieldableTards = new List<TardigradeBase>();
         _inRangeObstacles = new List<Obstacle>();
     }
@@ -45,24 +49,21 @@ public class WaterTardigrade : TardigradeBase
 
         StartIce(_iceDuration, _abilityPrefab);
     }
-    
-    public override void SecondaryAbility()
+
+    protected override void SecondaryAbilityEffect()
     {
-        if (!_secondary.activatable)
-        {
-            return;
-        }
-
-        base.SecondaryAbility();
-
+        Debug.Log("Healing...");
         foreach (TardigradeBase tard in _shieldableTards)
         {
             if (tard == null)
             {
                 continue;
             }
-            tard.Heal(2.5f);
+
+            tard.Heal(_healAmount);
         }
-        Heal(2.5f);
+
+        Heal(_healAmount);
+
     }
 }
