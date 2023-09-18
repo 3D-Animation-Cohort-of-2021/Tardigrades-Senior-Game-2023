@@ -10,26 +10,29 @@ public class Tutorial_Popup : MonoBehaviour
 
     [SerializeField] private Image tutTextImage;
     public bool oneTimeUse;
+    private Animator TutAnim;
     
     
     // Start is called before the first frame update
     private void Awake()
     {
-        tutTextImage.gameObject.SetActive(false);
+        TutAnim = tutTextImage.GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Tutorial up");
         if (other.gameObject.GetComponent(typeof(PlayerControl)))
-            tutTextImage.gameObject.SetActive(true);
+        {
+            TutAnim.SetBool("Active", true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Tutorial down");
         if (other.gameObject.GetComponent(typeof(PlayerControl)))
-            tutTextImage.gameObject.SetActive(false);
+        {
+            TutAnim.SetBool("Active", false);
+        }
         if(oneTimeUse)
             Destroy(this.gameObject);
     }
