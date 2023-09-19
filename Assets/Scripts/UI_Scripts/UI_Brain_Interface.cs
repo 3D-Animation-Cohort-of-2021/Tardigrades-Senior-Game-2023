@@ -6,12 +6,13 @@ using UnityEngine;
 public class UI_Brain_Interface : MonoBehaviour
 {
     [SerializeField]private Horde_Info brain;
+    public GameAction fireDeath, waterDeath, stoneDeath, normalDeath;
 
     public void UpdateNeutral(int num)
     {
         brain.ChangeNormalCount(num);
     }
-
+    
     public void UpdateFire(int num)
     {
         brain.ChangeFireValue(num);
