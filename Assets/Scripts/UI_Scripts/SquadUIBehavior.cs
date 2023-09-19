@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class SquadUIBehavior : MonoBehaviour
 {
 [SerializeField] private TextMeshProUGUI unitCounter;
-[SerializeField] private UI_Brain brain;
+[SerializeField] private Horde_Info brain;
 public Elem elemType;
 public float thisElemCD;
 public Image fillImage, abilityReadyImage;
