@@ -10,7 +10,9 @@ public class EDITORMakeBurnable : MonoBehaviour
 {
     public RuntimeAnimatorController animController;
     public VisualEffectAsset burningEffect;
+    public Material burnAtlas;
     public bool run;
+    private VisualEffect effect;
     void MakeBurnable()
     {
         if (!animController || !burningEffect)
@@ -21,18 +23,35 @@ public class EDITORMakeBurnable : MonoBehaviour
         {
             Animator anim = this.AddComponent<Animator>();
             anim.runtimeAnimatorController = animController;
-
-            VisualEffect effect = this.AddComponent<VisualEffect>();
+            
+            effect = this.AddComponent<VisualEffect>();
             effect.visualEffectAsset = burningEffect;
+
+            
             if (TryGetComponent<MeshFilter>(out MeshFilter meshFilter))
             {
                 effect.SetMesh("Mesh", meshFilter.sharedMesh);
+                
             }
             else
             {
                 print("Couldn't find mesh");
             }
+
+            if (TryGetComponent<MeshCollider>(out MeshCollider collider))
+            {
+                
+            }
+            else
+            {
+                this.AddComponent<MeshCollider>();
+            }
             
+            if (TryGetComponent<MeshRenderer>(out MeshRenderer renderer))
+            {
+                renderer.material = burnAtlas;
+            }
+
             effect.enabled = false;
             
             print("Made "+ this + " burnable");
@@ -46,8 +65,22 @@ public class EDITORMakeBurnable : MonoBehaviour
     {
         if (run)
         {
-            MakeBurnable();
             run = false;
+            if (TryGetComponent<Animator>(out Animator otherAnimator))
+            {
+                print("Can't make burnable. Object already has an Animator.");
+            }
+            else
+            {
+                if (TryGetComponent<VisualEffect>(out VisualEffect otherEffect))
+                {
+                    print("Can't make burnable. Object already has a Visual Effect.");
+                }
+                else
+                {
+                    MakeBurnable();
+                }
+            }
         }
     }
     
