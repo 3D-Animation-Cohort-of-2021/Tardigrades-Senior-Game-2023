@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ public class SquadManager : MonoBehaviour
 
     public int _squadIDGiver;
     public float _radius;
-    
+    private UI_Brain_Interface brainInterface;
     
     private CinemachineTargetGroup _cTgroup;
     public GameObject _targetGroup;
@@ -27,6 +28,13 @@ public class SquadManager : MonoBehaviour
     private SquadBrain _activeSquad = null;
     
     private Canvas _healthBarCanvas;
+
+    private void Awake()
+    {
+        brainInterface = FindObjectOfType<UI_Brain_Interface>();
+        brainInterface.resetHordeToZero();
+        //Nate's plugin to the UI
+    }
 
     private void Start()
     {
@@ -39,6 +47,8 @@ public class SquadManager : MonoBehaviour
         StartCoroutine(SetupChildren());
         
         SetUpCanvas();
+        
+        InitializeUI();
     }
 
     /// <summary>
@@ -93,7 +103,8 @@ public class SquadManager : MonoBehaviour
 
         squad.layer = LayerMask.NameToLayer("Center");
         SquadBrain matchingSquad;
-
+        //Tell Horde Info to update it's count
+        brainInterface.UpdateTypeCount(childBrain.squadType, childBrain.amountPerGroup);
         if (HasSquadWithElement(childBrain.squadType, out matchingSquad))
         {
             MergeSquads(matchingSquad, childBrain);
@@ -334,6 +345,20 @@ public class SquadManager : MonoBehaviour
         if (_activeSquad != null)
         {
             _activeSquad.UpdateSpacing(spacing);
+        }
+    }
+
+    private void InitializeUI()
+    {
+        foreach (Transform child in gameObject.transform)
+        {
+            SquadBrain sBrain = child.gameObject.GetComponent<SquadBrain>();
+            if (sBrain != null)
+            {
+                brainInterface.UpdateTypeCount(sBrain.squadType, sBrain.amountPerGroup);
+            }
+            else
+                Debug.Log("Child is not a Squad Brain");
         }
     }
 

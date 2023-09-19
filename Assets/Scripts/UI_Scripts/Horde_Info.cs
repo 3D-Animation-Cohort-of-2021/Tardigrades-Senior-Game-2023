@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu]
-public class UI_Brain : ScriptableObject
+public class Horde_Info : ScriptableObject
 {
   [SerializeField] private int numFire, numStone, numWater, numNormal;
   public float normalCD, fireCD, stoneCD, waterCD;
@@ -27,6 +27,39 @@ public class UI_Brain : ScriptableObject
   {
     numWater += val;
     callUpdateText.raise();
+  }
+
+  public void ResetToZero()
+  {
+    numFire = 0;
+    numNormal = 0;
+    numWater = 0;
+    numStone = 0;
+  }
+
+  public void ChangeTypeCount(Elem type, int val)
+  {
+    switch (type)
+    {
+        case Elem.Neutral:
+          numNormal += val;
+          callUpdateText.raise();
+          break;
+        case Elem.Fire:
+          numFire += val;
+          callUpdateText.raise();
+          break;
+        case Elem.Water:
+          numWater += val;
+          callUpdateText.raise();
+          break;
+        case Elem.Stone:
+          numStone += val;
+          callUpdateText.raise();
+          break;
+        default:
+          return;
+    }
   }
 
   public int GetTypeCount(Elem element)

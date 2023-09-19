@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UI_Brain_Interface : MonoBehaviour
 {
-    [SerializeField]private UI_Brain brain;
+    [SerializeField]private Horde_Info brain;
 
     public void UpdateNeutral(int num)
     {
@@ -25,5 +25,15 @@ public class UI_Brain_Interface : MonoBehaviour
     public void UpdateStone(int num)
     {
         brain.ChangeWaterCount(num);
+    }
+
+    public void UpdateTypeCount(Elem type, int num)
+    {
+        brain.ChangeTypeCount(type, num);
+    }
+
+    public void resetHordeToZero()
+    {
+        brain.ResetToZero();
     }
 }
