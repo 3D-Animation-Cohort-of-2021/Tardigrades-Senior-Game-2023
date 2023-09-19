@@ -52,7 +52,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _primary = gameObject.AddComponent<Ability>();
         _secondary = gameObject.AddComponent<ToggleAbility>();
 
-        _healEffect = GetComponent<VisualEffect>();
+        _healEffect = GetComponentInChildren<VisualEffect>();
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
         _animators = GetComponentsInChildren<Animator>();
