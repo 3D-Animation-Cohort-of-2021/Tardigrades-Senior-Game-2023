@@ -108,7 +108,6 @@ public class SquadBrain : MonoBehaviour
             StopCoroutine(activeSquad);
             activeSquad = null;
         }
-
         if (movementVector.squadNumber == brainNumber && squadType != Elem.Neutral)
         {
             activeSquad = StartCoroutine(ActiveSquad());
@@ -126,6 +125,7 @@ public class SquadBrain : MonoBehaviour
                 ChangeHighlight(tard, false);
             }
         }
+        
     }
 
     IEnumerator ActiveSquad()
@@ -146,7 +146,6 @@ public class SquadBrain : MonoBehaviour
         if (gameObject.layer != LayerMask.NameToLayer("Squad") && other.gameObject.layer == LayerMask.NameToLayer("Squad"))
         {
             SquadManager parentManager = GetComponentInParent<SquadManager>();
-
             if (parentManager != null)
             {
                 parentManager.ReceiveSquadFromChild(other);
@@ -217,7 +216,6 @@ public class SquadBrain : MonoBehaviour
         myTards.Add(newTard);
         newTard._mySquad = this;
         newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
-
         UpdateFormation(formation, true);
     }
     /// <summary>
