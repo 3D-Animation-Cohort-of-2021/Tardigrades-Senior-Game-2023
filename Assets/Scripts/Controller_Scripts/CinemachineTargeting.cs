@@ -9,22 +9,23 @@ public class CinemachineTargeting : MonoBehaviour
     //Made by Will Lemmons
     //Found most of it on unity threads by: v2-Ton-Studios
     private CinemachineTargetGroup _targetGroup;
+    public float _individualMemberRadius;
     [SerializeField]
     private float targetEase = 0.15f ;
     //adds the squads to the target group list
 
-    private void Start()
+    private void Awake()
     {
         _targetGroup = GetComponent<CinemachineTargetGroup>();
     }
 
-    public void AddTarget (Transform target)
+    public void AddTarget (Transform target, float targetRadius)
     {
         if (_targetGroup != null)
         {
             if (_targetGroup.FindMember(target) == -1)
             {
-                _targetGroup.AddMember(target, 0, 10);
+                _targetGroup.AddMember(target, 0, targetRadius);
                 StartCoroutine(easeInMember(target));
             }
         }

@@ -43,7 +43,7 @@ public class SquadManager : MonoBehaviour
         _squadIDGiver = 0;
 
         _camTargetScript = _targetGroup.GetComponent<CinemachineTargeting>();
-        AddToTargetGroup(gameObject);
+        AddToTargetGroup(gameObject, 2.5f);
 
         StartCoroutine(SetupChildren());
         
@@ -76,7 +76,7 @@ public class SquadManager : MonoBehaviour
             if (transform.GetChild(i).TryGetComponent<SquadBrain>(out squadBrain))
             {
                 GameObject childSquad = transform.GetChild(i).gameObject;
-                _camTargetScript.AddTarget(childSquad.transform);
+                AddToTargetGroup (childSquad);
                 ClaimSquad(childSquad, squadBrain);
             }
         }
@@ -107,7 +107,7 @@ public class SquadManager : MonoBehaviour
         SquadBrain matchingSquad;
         //Tell Horde Info to update it's count
         brainInterface.UpdateTypeCount(childBrain.squadType, childBrain.amountPerGroup);
-        if (HasSquadWithElement(childBrain.squadType, out matchingSquad))
+        if ((HasSquadWithElement(childBrain.squadType, out matchingSquad)) && matchingSquad.GetInstanceID() != childBrain.GetInstanceID())
         {
             MergeSquads(matchingSquad, childBrain);
             return;
@@ -217,9 +217,9 @@ public class SquadManager : MonoBehaviour
         Destroy(brainToDestroy.gameObject);
     }
 
-    private void AddToTargetGroup(GameObject squad)
+    private void AddToTargetGroup(GameObject squad, float targetRadius = 1f)
     {
-        _camTargetScript.AddTarget(squad.transform);
+        _camTargetScript.AddTarget(squad.transform, targetRadius);
     }
 
 
