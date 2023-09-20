@@ -43,6 +43,7 @@ public class SquadManager : MonoBehaviour
         _squadIDGiver = 0;
 
         _camTargetScript = _targetGroup.GetComponent<CinemachineTargeting>();
+        AddToTargetGroup(gameObject);
 
         StartCoroutine(SetupChildren());
         

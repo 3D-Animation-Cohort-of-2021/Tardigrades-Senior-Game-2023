@@ -22,7 +22,6 @@ public class CinemachineTargeting : MonoBehaviour
     {
         if (_targetGroup != null)
         {
-            Debug.Log("hello");
             if (_targetGroup.FindMember(target) == -1)
             {
                 _targetGroup.AddMember(target, 0, 10);
