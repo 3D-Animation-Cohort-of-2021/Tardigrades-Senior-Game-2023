@@ -16,7 +16,7 @@ public class SquadBrain : MonoBehaviour
     public float radius;
 
     private Formation formation = Formation.Cluster;
-    private float spacing = 1;
+    private float spacing = 0;
     private List<CustomTransform> formationPositions;
 
     [SerializeField] private List<TardigradeBase> myTards;
