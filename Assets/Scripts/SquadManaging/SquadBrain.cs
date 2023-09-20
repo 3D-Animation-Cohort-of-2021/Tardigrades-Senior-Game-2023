@@ -45,7 +45,7 @@ public class SquadBrain : MonoBehaviour
     {
         if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= radius))
         {
-            navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.position - transform.parent.position), radius * 0.95f));
+            navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.parent.position - transform.position), radius * 0.95f));
         }
 
         if (transform.parent != null && Vector3.Distance(transform.position, transform.parent.position) <= radius)

@@ -1598,7 +1598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e900dbdd326297449fa92779bba94b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _individualMemberRadius: 2.5
   targetEase: 0.15
 --- !u!1 &616417943
 GameObject:
@@ -3638,43 +3637,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
+      propertyPath: m_XDamping
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
+        type: 3}
       propertyPath: m_YDamping
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
-      propertyPath: m_MaxDollyIn
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
-        type: 3}
-      propertyPath: m_MaxDollyOut
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
-        type: 3}
-      propertyPath: m_CameraDistance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
-        type: 3}
-      propertyPath: m_MaximumDistance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
-        type: 3}
-      propertyPath: m_MinimumDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
-        type: 3}
-      propertyPath: m_GroupFramingSize
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
-        type: 3}
-      propertyPath: m_LookaheadIgnoreY
-      value: 0
+      propertyPath: m_ZDamping
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6242376882441438672, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
@@ -5631,15 +5605,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 370013580, guid: c53f21846782f2b4d9f7df5653908d27, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673060, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: targetGroup
-      value: 
-      objectReference: {fileID: 587701093}
     - target: {fileID: 4049278343048673060, guid: c53f21846782f2b4d9f7df5653908d27,
         type: 3}
       propertyPath: _targetGroup
@@ -5654,21 +5619,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673063, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673063, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673063, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4049278343048673063, guid: c53f21846782f2b4d9f7df5653908d27,
         type: 3}
@@ -5719,21 +5669,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673063, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673070, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673070, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: m_BaseOffset
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c53f21846782f2b4d9f7df5653908d27, type: 3}
