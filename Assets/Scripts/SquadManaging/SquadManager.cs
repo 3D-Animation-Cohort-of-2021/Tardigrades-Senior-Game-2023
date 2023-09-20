@@ -107,10 +107,17 @@ public class SquadManager : MonoBehaviour
         SquadBrain matchingSquad;
         //Tell Horde Info to update it's count
         brainInterface.UpdateTypeCount(childBrain.squadType, childBrain.amountPerGroup);
-        if ((HasSquadWithElement(childBrain.squadType, out matchingSquad)) && matchingSquad.GetInstanceID() != childBrain.GetInstanceID())
+        if ((HasSquadWithElement(childBrain.squadType, out matchingSquad)))
         {
-            MergeSquads(matchingSquad, childBrain);
-            return;
+            if(matchingSquad.GetInstanceID() != childBrain.GetInstanceID())
+            {
+                MergeSquads(matchingSquad, childBrain);
+                return;
+            }
+            else
+            {
+                return;
+            }
         }
 
         if (childBrain.squadType != Elem.Neutral)
