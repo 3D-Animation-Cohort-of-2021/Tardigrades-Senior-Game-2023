@@ -19,8 +19,8 @@ public class SquadManager : MonoBehaviour
     public int _squadIDGiver;
     public float _radius;
     private UI_Brain_Interface brainInterface;
-    
-    private CinemachineTargetGroup _cTgroup;
+
+    private CinemachineTargeting _camTargetScript;
     public GameObject _targetGroup;
     //public Slider squadSlider;
     
@@ -42,7 +42,7 @@ public class SquadManager : MonoBehaviour
 
         _squadIDGiver = 0;
 
-        //_cTgroup = _targetGroup.GetComponent<CinemachineTargetGroup>();
+        _camTargetScript = _targetGroup.GetComponent<CinemachineTargeting>();
 
         StartCoroutine(SetupChildren());
         
@@ -75,6 +75,7 @@ public class SquadManager : MonoBehaviour
             if (transform.GetChild(i).TryGetComponent<SquadBrain>(out squadBrain))
             {
                 GameObject childSquad = transform.GetChild(i).gameObject;
+                _camTargetScript.AddTarget(childSquad.transform);
                 ClaimSquad(childSquad, squadBrain);
             }
         }
@@ -217,7 +218,7 @@ public class SquadManager : MonoBehaviour
 
     private void AddToTargetGroup(GameObject squad)
     {
-        //cTgroup.AddMember(squad.transform, 1, 1);
+        _camTargetScript.AddTarget(squad.transform);
     }
 
 

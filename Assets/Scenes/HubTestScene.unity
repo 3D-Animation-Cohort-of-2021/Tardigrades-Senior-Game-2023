@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -471,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &96780457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1579,6 +1579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587701095}
   - component: {fileID: 587701094}
+  - component: {fileID: 587701096}
   m_Layer: 0
   m_Name: CineWill
   m_TagString: Untagged
@@ -1620,6 +1621,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &587701096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587701093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e900dbdd326297449fa92779bba94b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetEase: 0.15
 --- !u!1 &616417943
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,7 +3547,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 49.78507
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3559,7 +3573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335042695}
   m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: 0, y: 28.79078, z: -10.260609}
+  m_LocalPosition: {x: 0, y: 38.187702, z: -13.680809}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3698,7 +3712,7 @@ PrefabInstance:
     - target: {fileID: 6242376882441438672, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6242376882441438674, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
@@ -5096,18 +5110,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4049278341136790934}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1916601013 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4049278343048673060, guid: c53f21846782f2b4d9f7df5653908d27,
-    type: 3}
-  m_PrefabInstance: {fileID: 4049278341136790934}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a17bbedaef6ee4098ffdd2a2133e11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1956134843
 GameObject:
   m_ObjectHideFlags: 0
@@ -5596,59 +5598,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4049278343048673060, guid: c53f21846782f2b4d9f7df5653908d27,
         type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673060, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673060, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
       propertyPath: targetGroup
       value: 
       objectReference: {fileID: 587701093}
     - target: {fileID: 4049278343048673060, guid: c53f21846782f2b4d9f7df5653908d27,
         type: 3}
-      propertyPath: healthBarCanvas
+      propertyPath: _targetGroup
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673061, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: secondaryAbilityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673061, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: secondaryAbilityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673061, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: secondaryAbilityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1916601013}
-    - target: {fileID: 4049278343048673061, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: secondaryAbilityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673061, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: secondaryAbilityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SquadUseSecondaryAbility
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673061, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: secondaryAbilityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SquadManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049278343048673061, guid: c53f21846782f2b4d9f7df5653908d27,
-        type: 3}
-      propertyPath: secondaryAbilityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 587701093}
     - target: {fileID: 4049278343048673062, guid: c53f21846782f2b4d9f7df5653908d27,
         type: 3}
       propertyPath: m_Name
