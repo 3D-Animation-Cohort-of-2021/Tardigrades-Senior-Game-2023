@@ -19,8 +19,8 @@ public class SquadManager : MonoBehaviour
     public int _squadIDGiver;
     public float _radius;
     private UI_Brain_Interface brainInterface;
-    
-    private CinemachineTargetGroup _cTgroup;
+
+    private CinemachineTargeting _camTargetScript;
     public GameObject _targetGroup;
     //public Slider squadSlider;
     
@@ -42,7 +42,8 @@ public class SquadManager : MonoBehaviour
 
         _squadIDGiver = 0;
 
-        //_cTgroup = _targetGroup.GetComponent<CinemachineTargetGroup>();
+        _camTargetScript = _targetGroup.GetComponent<CinemachineTargeting>();
+        AddToTargetGroup(gameObject, 2.5f);
 
         StartCoroutine(SetupChildren());
         
@@ -75,6 +76,7 @@ public class SquadManager : MonoBehaviour
             if (transform.GetChild(i).TryGetComponent<SquadBrain>(out squadBrain))
             {
                 GameObject childSquad = transform.GetChild(i).gameObject;
+                AddToTargetGroup (childSquad);
                 ClaimSquad(childSquad, squadBrain);
             }
         }
@@ -105,10 +107,17 @@ public class SquadManager : MonoBehaviour
         SquadBrain matchingSquad;
         //Tell Horde Info to update it's count
         brainInterface.UpdateTypeCount(childBrain.squadType, childBrain.amountPerGroup);
-        if (HasSquadWithElement(childBrain.squadType, out matchingSquad))
+        if ((HasSquadWithElement(childBrain.squadType, out matchingSquad)))
         {
-            MergeSquads(matchingSquad, childBrain);
-            return;
+            if(matchingSquad.GetInstanceID() != childBrain.GetInstanceID())
+            {
+                MergeSquads(matchingSquad, childBrain);
+                return;
+            }
+            else
+            {
+                return;
+            }
         }
 
         if (childBrain.squadType != Elem.Neutral)
@@ -215,9 +224,9 @@ public class SquadManager : MonoBehaviour
         Destroy(brainToDestroy.gameObject);
     }
 
-    private void AddToTargetGroup(GameObject squad)
+    private void AddToTargetGroup(GameObject squad, float targetRadius = 1f)
     {
-        //cTgroup.AddMember(squad.transform, 1, 1);
+        _camTargetScript.AddTarget(squad.transform, targetRadius);
     }
 
 
