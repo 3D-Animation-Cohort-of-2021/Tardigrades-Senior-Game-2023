@@ -119,6 +119,9 @@
         },
         {
             "m_Id": "73cde60589c447348626a17a7f92d94b"
+        },
+        {
+            "m_Id": "814ea7a3849f440f947e97dfcdeb1020"
         }
     ],
     "m_GroupDatas": [],
@@ -2157,6 +2160,55 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
+    "m_ObjectId": "814ea7a3849f440f947e97dfcdeb1020",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "CellShaderSub",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -1827.9998779296875,
+            "y": -1209.9998779296875,
+            "width": 208.0,
+            "height": 277.99993896484377
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "c3e632c5374442a6b44cfca3c5cfc4d0"
+        },
+        {
+            "m_Id": "b4c0f0f03b894803a2177a5aef3a9c48"
+        },
+        {
+            "m_Id": "b91e486e8ba340059c1568303e682634"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedSubGraph": "{\n    \"subGraph\": {\n        \"fileID\": -5475051401550479605,\n        \"guid\": \"c1de7c2d455ddd9438a9f47c5816de46\",\n        \"type\": 3\n    }\n}",
+    "m_PropertyGuids": [
+        "e39c669e-b2d1-4f74-b1ac-183c80ab1d9c",
+        "b386e2af-4492-45fe-abd9-1a34bcbff6a8"
+    ],
+    "m_PropertyIds": [
+        216912766,
+        1788133418
+    ],
+    "m_Dropdowns": [],
+    "m_DropdownSelectedEntries": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "8a0afab7cc7d4cdfb7bd52ff070f127c",
     "m_Id": 0,
@@ -2705,6 +2757,56 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+    "m_ObjectId": "b4c0f0f03b894803a2177a5aef3a9c48",
+    "m_Id": 1788133418,
+    "m_DisplayName": "Color",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "_Color",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.05271267890930176,
+        "y": 1.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+    "m_ObjectId": "b91e486e8ba340059c1568303e682634",
+    "m_Id": 1,
+    "m_DisplayName": "Color",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Color",
+    "m_StageCapability": 2,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.BlockNode",
     "m_ObjectId": "bc4ea5d4cf484eaba5e6c1cf5836e6fa",
     "m_Group": {
@@ -2800,6 +2902,24 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "SurfaceDescription.Smoothness"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Texture2DInputMaterialSlot",
+    "m_ObjectId": "c3e632c5374442a6b44cfca3c5cfc4d0",
+    "m_Id": 216912766,
+    "m_DisplayName": "Input Texture",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "_Input_Texture",
+    "m_StageCapability": 3,
+    "m_BareResource": false,
+    "m_Texture": {
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"1816087ffe0ae1e4bb4fedd8a72e163c\",\"type\":3}}",
+        "m_Guid": ""
+    },
+    "m_DefaultType": 0
 }
 
 {
@@ -3242,10 +3362,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -755.0,
-            "y": 311.0,
+            "x": -763.0000610351563,
+            "y": 391.0000305175781,
             "width": 183.0,
-            "height": 251.0
+            "height": 251.00003051757813
         }
     },
     "m_Slots": [
