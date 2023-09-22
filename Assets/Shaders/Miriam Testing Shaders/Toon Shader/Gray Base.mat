@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StylizedWater
-  m_Shader: {fileID: -6465566751694194690, guid: 152fd5acd87ba4748a133938261969bd,
+  m_Name: Gray Base
+  m_Shader: {fileID: -6465566751694194690, guid: b0761cb571f5e104190a9f4f1659d14b,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -23,6 +23,10 @@ Material:
     m_TexEnvs:
     - _BaseMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseTexture:
+        m_Texture: {fileID: 2800000, guid: 97e12442eab04c546a03b6f1bdda30f9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -61,6 +65,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RampTexture:
+        m_Texture: {fileID: 2800000, guid: b57d40508a83a7441bb055a85a2916b4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -90,10 +98,6 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FoamCutOff: 0.7
-    - _FoamScale: 73.4
-    - _FoamSpeed: 0.45
-    - _Foam_Amount: 0.4
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -103,27 +107,20 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RefractionScale: 2
-    - _RefractionSpeed: 1.02
-    - _RefractionStrength: 4
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _WaterDepth: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DeepWater: {r: 0, g: 0.39866447, b: 1, a: 0.79607844}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 0.7529412}
-    - _ShallowWater: {r: 0.1976148, g: 0.8584906, b: 0.83822787, a: 0.6901961}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &8949025443683795096
+--- !u!114 &1238101780821164762
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
