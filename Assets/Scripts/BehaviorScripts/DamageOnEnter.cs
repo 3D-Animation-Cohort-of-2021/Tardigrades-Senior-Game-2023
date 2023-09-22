@@ -18,7 +18,7 @@ public class DamageOnEnter : MonoBehaviour
                 }
                 else
                 {
-                    newDmg = _damage * 0.1f;
+                    newDmg = _damage * 20f;
                 }
             }
             otherObj.Damage(newDmg, Elem.Fire);
