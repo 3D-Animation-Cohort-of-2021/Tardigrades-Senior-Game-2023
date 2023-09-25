@@ -111,6 +111,8 @@ public class SquadManager : MonoBehaviour
             if(matchingSquad.GetInstanceID() != childBrain.GetInstanceID())
             {
                 _gameActionElemental.RaiseAction(childBrain.squadType, childBrain.GetTards().Count);
+                SubscribeToPigDestroyEvent(childBrain);
+
                 MergeSquads(matchingSquad, childBrain);
                 return;
             }
@@ -150,6 +152,23 @@ public class SquadManager : MonoBehaviour
         SetActiveSquad();
 
         _gameActionElemental.RaiseAction(childBrain.squadType, childBrain.GetTards().Count);
+        SubscribeToPigDestroyEvent(childBrain);
+    }
+
+    private void SubscribeToPigDestroyEvent(SquadBrain squadBrain)
+    {
+        List<TardigradeBase> subSquad = squadBrain.GetTards();
+
+        foreach(TardigradeBase tardigrade in subSquad)
+        {
+            tardigrade.OnDestroy += CountTardigradeDeath;
+        }
+    }
+
+    private void CountTardigradeDeath(TardigradeBase tardigrade)
+    {
+        _gameActionElemental.RaiseAction(tardigrade.GetElementType(), -1);
+        tardigrade.OnDestroy -= CountTardigradeDeath;
     }
 
     private bool HasSquadWithElement(Elem elementType, out SquadBrain matchingSquad)

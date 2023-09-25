@@ -224,11 +224,14 @@ public class SquadBrain : MonoBehaviour
     public void RemoveFromSquad(TardigradeBase oldTard)
     {
         int index = myTards.IndexOf(oldTard);
-        myTards.RemoveAt(index);
-        formationPositions.RemoveAt(index);
-        oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
+        if (index < myTards.Count && index >= 0)
+        {
+            myTards.RemoveAt(index);
+            formationPositions.RemoveAt(index);
+            oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
 
             UpdateFormation(formation, true);
+        }
     }
 
 
