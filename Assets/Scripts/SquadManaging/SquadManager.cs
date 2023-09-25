@@ -41,8 +41,11 @@ public class SquadManager : MonoBehaviour
 
         _squadIDGiver = 0;
 
-        _camTargetScript = _targetGroup.GetComponent<CinemachineTargeting>();
-        AddToTargetGroup(gameObject, 2.5f);
+        if (_targetGroup != null) 
+        { 
+            _camTargetScript = _targetGroup.GetComponent<CinemachineTargeting>();
+            AddToTargetGroup(gameObject, 2.5f);
+        }
 
         StartCoroutine(SetupChildren());
         
@@ -247,7 +250,10 @@ public class SquadManager : MonoBehaviour
 
     private void AddToTargetGroup(GameObject squad, float targetRadius = 1f)
     {
-        _camTargetScript.AddTarget(squad.transform, targetRadius);
+        if (_camTargetScript != null)
+        {
+            _camTargetScript.AddTarget(squad.transform, targetRadius);
+        }
     }
 
 

@@ -9,6 +9,9 @@ public class GameActionElemental : ScriptableObject
 
     public void RaiseAction(Elem type, int num = 1)
     {
-        raise.Invoke(type, num);
+        if (raise != null)
+        {
+            raise.Invoke(type, num);
+        }
     }
 }
