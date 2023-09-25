@@ -7,7 +7,7 @@ public class GameActionElemental : ScriptableObject
 {
     public UnityAction<Elem, int> raise;
 
-    public void RaiseAction(Elem type, int num)
+    public void RaiseAction(Elem type, int num = 1)
     {
         raise.Invoke(type, num);
     }

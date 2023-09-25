@@ -1071,6 +1071,7 @@ GameObject:
   - component: {fileID: 38622731026976794}
   - component: {fileID: 38622729851195666}
   - component: {fileID: 38622729851195667}
+  - component: {fileID: 2136334149}
   m_Layer: 5
   m_Name: MasterCanvas_Gameplay1.0
   m_TagString: Untagged
@@ -1214,6 +1215,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2136334149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622731026976793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c957cc4ffb94c0d41aef4efa9f848e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _brain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
+  _gameActionElemental: {fileID: 11400000, guid: 9edf9843ad2dcf84790e81f54f467e9c,
+    type: 2}
 --- !u!1 &38622731275820508
 GameObject:
   m_ObjectHideFlags: 0

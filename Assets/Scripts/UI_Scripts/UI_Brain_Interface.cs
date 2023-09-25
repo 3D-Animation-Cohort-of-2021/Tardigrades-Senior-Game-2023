@@ -5,35 +5,23 @@ using UnityEngine;
 
 public class UI_Brain_Interface : MonoBehaviour
 {
-    [SerializeField]private Horde_Info brain;
+    [SerializeField]private Horde_Info _brain;
+    public GameActionElemental _gameActionElemental;
 
-    public void UpdateNeutral(int num)
+    private void Awake()
     {
-        brain.ChangeNormalCount(num);
-    }
-    
-    public void UpdateFire(int num)
-    {
-        brain.ChangeFireValue(num);
-    }
+        _gameActionElemental.raise += UpdateTypeCount;
 
-    public void UpdateWater(int num)
-    {
-        brain.ChangeWaterCount(num);
-    }
-
-    public void UpdateStone(int num)
-    {
-        brain.ChangeWaterCount(num);
+        resetHordeToZero();
     }
 
     public void UpdateTypeCount(Elem type, int num)
     {
-        brain.ChangeTypeCount(type, num);
+        _brain.ChangeTypeCount(type, num);
     }
 
     public void resetHordeToZero()
     {
-        brain.ResetToZero();
+        _brain.ResetToZero();
     }
 }

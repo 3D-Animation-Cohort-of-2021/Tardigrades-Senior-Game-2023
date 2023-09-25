@@ -18,7 +18,7 @@ public class SquadManager : MonoBehaviour
 
     public int _squadIDGiver;
     public float _radius;
-    private UI_Brain_Interface brainInterface;
+    public GameActionElemental _gameActionElemental;
 
     private CinemachineTargeting _camTargetScript;
     public GameObject _targetGroup;
@@ -31,8 +31,7 @@ public class SquadManager : MonoBehaviour
 
     private void Awake()
     {
-        brainInterface = FindObjectOfType<UI_Brain_Interface>();
-        brainInterface.resetHordeToZero();
+        
         //Nate's plugin to the UI
     }
 
@@ -106,11 +105,12 @@ public class SquadManager : MonoBehaviour
         squad.layer = LayerMask.NameToLayer("Center");
         SquadBrain matchingSquad;
         //Tell Horde Info to update it's count
-        brainInterface.UpdateTypeCount(childBrain.squadType, childBrain.amountPerGroup);
+        
         if ((HasSquadWithElement(childBrain.squadType, out matchingSquad)))
         {
             if(matchingSquad.GetInstanceID() != childBrain.GetInstanceID())
             {
+                _gameActionElemental.RaiseAction(childBrain.squadType, childBrain.GetTards().Count);
                 MergeSquads(matchingSquad, childBrain);
                 return;
             }
@@ -148,6 +148,8 @@ public class SquadManager : MonoBehaviour
 
         childBrain.WakeUp();
         SetActiveSquad();
+
+        _gameActionElemental.RaiseAction(childBrain.squadType, childBrain.GetTards().Count);
     }
 
     private bool HasSquadWithElement(Elem elementType, out SquadBrain matchingSquad)
@@ -291,6 +293,8 @@ public class SquadManager : MonoBehaviour
         else
         {
             Mutate(closestTard);
+            _gameActionElemental.RaiseAction(_activeSquad.squadType, 1);
+            _gameActionElemental.RaiseAction(_neutralSquad.squadType, -1);
         }
             
     }
@@ -364,7 +368,7 @@ public class SquadManager : MonoBehaviour
             SquadBrain sBrain = child.gameObject.GetComponent<SquadBrain>();
             if (sBrain != null)
             {
-                brainInterface.UpdateTypeCount(sBrain.squadType, sBrain.amountPerGroup);
+                _gameActionElemental.RaiseAction(sBrain.squadType, sBrain.GetTards().Count);
             }
             else
                 Debug.Log("Child is not a Squad Brain");
