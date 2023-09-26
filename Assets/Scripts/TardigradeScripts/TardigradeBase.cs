@@ -319,6 +319,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase._type = element;
         tardigradeBase._tardigradeMaterial = _tardigradeMaterial;
         tardigradeBase.UpdateAppearance();
+        tardigradeBase.OnDestroy = OnDestroy;
 
         return tardigradeBase;
         
