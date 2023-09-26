@@ -181,7 +181,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void Death()
     {
+        if (deathEvent != null)
+        { 
         deathEvent.Invoke(_type, -1);
+        }
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
         if(IceCoroutine != null) StopCoroutine(IceCoroutine);

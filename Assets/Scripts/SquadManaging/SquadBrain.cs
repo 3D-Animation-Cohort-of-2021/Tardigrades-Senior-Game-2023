@@ -45,7 +45,7 @@ public class SquadBrain : MonoBehaviour
     {
         if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= radius))
         {
-            navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.position - transform.parent.position), radius * 0.95f));
+            navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.parent.position - transform.position), radius * 0.95f));
         }
 
         if (transform.parent != null && Vector3.Distance(transform.position, transform.parent.position) <= radius)
@@ -224,11 +224,14 @@ public class SquadBrain : MonoBehaviour
     public void RemoveFromSquad(TardigradeBase oldTard)
     {
         int index = myTards.IndexOf(oldTard);
-        myTards.RemoveAt(index);
-        formationPositions.RemoveAt(index);
-        oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
+        if (index < myTards.Count && index >= 0)
+        {
+            myTards.RemoveAt(index);
+            formationPositions.RemoveAt(index);
+            oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
 
             UpdateFormation(formation, true);
+        }
     }
 
 
