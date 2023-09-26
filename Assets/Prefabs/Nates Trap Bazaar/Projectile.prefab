@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 111834899508150317}
   - component: {fileID: 5688192924842829881}
   - component: {fileID: 56885208752004439}
-  - component: {fileID: 1059404251564984066}
   - component: {fileID: 1751216956970134896}
-  - component: {fileID: -2747445487591502075}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -100,21 +98,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1059404251564984066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77681492383204256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fdcbfddf05f4493182430e487c59166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  damage: 0
-  interval: 0
 --- !u!114 &1751216956970134896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,20 +112,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   lifeSpan: 3
---- !u!114 &-2747445487591502075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77681492383204256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da5bb855dec51b40bbaa6d17ca7852c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireMat: {fileID: 2100000, guid: a45512dbd4ba8c141bcce8651de36553, type: 2}
-  waterMat: {fileID: 2100000, guid: f95c82a0ed0888641b3080123fc262e3, type: 2}
-  rockMat: {fileID: 2100000, guid: 1c0b88940dd645f4093a7f86acbcc287, type: 2}
-  neutralMat: {fileID: 2100000, guid: 7427ea3a56254984fb1d0eed55ce4347, type: 2}
-  unassignedMat: {fileID: 2100000, guid: 016c6c8b69d69404984e8bd65fe1c1cc, type: 2}

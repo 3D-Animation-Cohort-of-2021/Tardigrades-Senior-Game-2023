@@ -1,11 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed, lifeSpan;
+    public UnityEvent lifeCycleEvent;
     private Coroutine lifeRoutine;
     private void Start()
     {
@@ -20,6 +20,6 @@ public class Projectile : MonoBehaviour
     private IEnumerator lifeCycle()
     {
         yield return new WaitForSeconds(lifeSpan);
-        Destroy(gameObject);
+        lifeCycleEvent.Invoke();
     }
 }
