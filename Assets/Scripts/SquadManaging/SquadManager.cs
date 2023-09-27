@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,9 @@ public class SquadManager : MonoBehaviour
 
     public int _squadIDGiver;
     public float _radius;
-    
-    
-    private CinemachineTargetGroup _cTgroup;
+    public GameActionElemental _gameActionElemental;
+
+    private CinemachineTargeting _camTargetScript;
     public GameObject _targetGroup;
     //public Slider squadSlider;
     
@@ -28,17 +29,29 @@ public class SquadManager : MonoBehaviour
     
     private Canvas _healthBarCanvas;
 
+    private void Awake()
+    {
+        
+        //Nate's plugin to the UI
+    }
+
     private void Start()
     {
         _squads = new List<Squad>();
 
         _squadIDGiver = 0;
 
-        //_cTgroup = _targetGroup.GetComponent<CinemachineTargetGroup>();
+        if (_targetGroup != null) 
+        { 
+            _camTargetScript = _targetGroup.GetComponent<CinemachineTargeting>();
+            AddToTargetGroup(gameObject, 2.5f);
+        }
 
         StartCoroutine(SetupChildren());
         
         SetUpCanvas();
+        
+        InitializeUI();
     }
 
     /// <summary>
@@ -65,6 +78,7 @@ public class SquadManager : MonoBehaviour
             if (transform.GetChild(i).TryGetComponent<SquadBrain>(out squadBrain))
             {
                 GameObject childSquad = transform.GetChild(i).gameObject;
+                AddToTargetGroup (childSquad);
                 ClaimSquad(childSquad, squadBrain);
             }
         }
@@ -93,11 +107,22 @@ public class SquadManager : MonoBehaviour
 
         squad.layer = LayerMask.NameToLayer("Center");
         SquadBrain matchingSquad;
-
-        if (HasSquadWithElement(childBrain.squadType, out matchingSquad))
+        //Tell Horde Info to update it's count
+        
+        if ((HasSquadWithElement(childBrain.squadType, out matchingSquad)))
         {
-            MergeSquads(matchingSquad, childBrain);
-            return;
+            if(matchingSquad.GetInstanceID() != childBrain.GetInstanceID())
+            {
+                _gameActionElemental.RaiseAction(childBrain.squadType, childBrain.GetTards().Count);
+                SubscribeToPigDestroyEvent(childBrain);
+
+                MergeSquads(matchingSquad, childBrain);
+                return;
+            }
+            else
+            {
+                return;
+            }
         }
 
         if (childBrain.squadType != Elem.Neutral)
@@ -128,6 +153,25 @@ public class SquadManager : MonoBehaviour
 
         childBrain.WakeUp();
         SetActiveSquad();
+
+        _gameActionElemental.RaiseAction(childBrain.squadType, childBrain.GetTards().Count);
+        SubscribeToPigDestroyEvent(childBrain);
+    }
+
+    private void SubscribeToPigDestroyEvent(SquadBrain squadBrain)
+    {
+        List<TardigradeBase> subSquad = squadBrain.GetTards();
+
+        foreach(TardigradeBase tardigrade in subSquad)
+        {
+            tardigrade.OnDestroy += CountTardigradeDeath;
+        }
+    }
+
+    private void CountTardigradeDeath(TardigradeBase tardigrade)
+    {
+        _gameActionElemental.RaiseAction(tardigrade.GetElementType(), -1);
+        tardigrade.OnDestroy -= CountTardigradeDeath;
     }
 
     private bool HasSquadWithElement(Elem elementType, out SquadBrain matchingSquad)
@@ -204,9 +248,12 @@ public class SquadManager : MonoBehaviour
         Destroy(brainToDestroy.gameObject);
     }
 
-    private void AddToTargetGroup(GameObject squad)
+    private void AddToTargetGroup(GameObject squad, float targetRadius = 1f)
     {
-        //cTgroup.AddMember(squad.transform, 1, 1);
+        if (_camTargetScript != null)
+        {
+            _camTargetScript.AddTarget(squad.transform, targetRadius);
+        }
     }
 
 
@@ -271,6 +318,8 @@ public class SquadManager : MonoBehaviour
         else
         {
             Mutate(closestTard);
+            _gameActionElemental.RaiseAction(_activeSquad.squadType, 1);
+            _gameActionElemental.RaiseAction(_neutralSquad.squadType, -1);
         }
             
     }
@@ -334,6 +383,20 @@ public class SquadManager : MonoBehaviour
         if (_activeSquad != null)
         {
             _activeSquad.UpdateSpacing(spacing);
+        }
+    }
+
+    private void InitializeUI()
+    {
+        foreach (Transform child in gameObject.transform)
+        {
+            SquadBrain sBrain = child.gameObject.GetComponent<SquadBrain>();
+            if (sBrain != null)
+            {
+                _gameActionElemental.RaiseAction(sBrain.squadType, sBrain.GetTards().Count);
+            }
+            else
+                Debug.Log("Child is not a Squad Brain");
         }
     }
 

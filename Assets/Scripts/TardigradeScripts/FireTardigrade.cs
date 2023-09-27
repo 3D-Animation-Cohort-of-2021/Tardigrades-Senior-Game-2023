@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class FireTardigrade : TardigradeBase
 {
-
     protected void Start()
     {
         _primary.cooldown = 3;
@@ -24,4 +23,5 @@ public class FireTardigrade : TardigradeBase
         explosion._damage = _damage;
         SetStatus(Status.Burning, 3f);
     }
+    
 }

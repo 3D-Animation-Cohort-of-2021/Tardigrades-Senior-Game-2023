@@ -16,7 +16,7 @@ public class SquadBrain : MonoBehaviour
     public float radius;
 
     private Formation formation = Formation.Cluster;
-    private float spacing = 1;
+    private float spacing = 0;
     private List<CustomTransform> formationPositions;
 
     [SerializeField] private List<TardigradeBase> myTards;
@@ -45,7 +45,7 @@ public class SquadBrain : MonoBehaviour
     {
         if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= radius))
         {
-            navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.position - transform.parent.position), radius * 0.95f));
+            navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.parent.position - transform.position), radius * 0.95f));
         }
 
         if (transform.parent != null && Vector3.Distance(transform.position, transform.parent.position) <= radius)
@@ -108,7 +108,6 @@ public class SquadBrain : MonoBehaviour
             StopCoroutine(activeSquad);
             activeSquad = null;
         }
-
         if (movementVector.squadNumber == brainNumber && squadType != Elem.Neutral)
         {
             activeSquad = StartCoroutine(ActiveSquad());
@@ -126,6 +125,7 @@ public class SquadBrain : MonoBehaviour
                 ChangeHighlight(tard, false);
             }
         }
+        
     }
 
     IEnumerator ActiveSquad()
@@ -146,7 +146,6 @@ public class SquadBrain : MonoBehaviour
         if (gameObject.layer != LayerMask.NameToLayer("Squad") && other.gameObject.layer == LayerMask.NameToLayer("Squad"))
         {
             SquadManager parentManager = GetComponentInParent<SquadManager>();
-
             if (parentManager != null)
             {
                 parentManager.ReceiveSquadFromChild(other);
@@ -217,7 +216,6 @@ public class SquadBrain : MonoBehaviour
         myTards.Add(newTard);
         newTard._mySquad = this;
         newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
-
         UpdateFormation(formation, true);
     }
     /// <summary>
@@ -226,11 +224,14 @@ public class SquadBrain : MonoBehaviour
     public void RemoveFromSquad(TardigradeBase oldTard)
     {
         int index = myTards.IndexOf(oldTard);
-        myTards.RemoveAt(index);
-        formationPositions.RemoveAt(index);
-        oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
+        if (index < myTards.Count && index >= 0)
+        {
+            myTards.RemoveAt(index);
+            formationPositions.RemoveAt(index);
+            oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
 
             UpdateFormation(formation, true);
+        }
     }
 
 

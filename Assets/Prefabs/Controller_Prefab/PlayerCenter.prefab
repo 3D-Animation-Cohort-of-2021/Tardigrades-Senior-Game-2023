@@ -117,8 +117,8 @@ Transform:
   m_GameObject: {fileID: 4049278343048673062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 370013583}
   m_Father: {fileID: 0}
@@ -322,6 +322,8 @@ MonoBehaviour:
   _squadPrefab: {fileID: 0}
   _squadIDGiver: 0
   _radius: 0
+  _gameActionElemental: {fileID: 11400000, guid: 9edf9843ad2dcf84790e81f54f467e9c,
+    type: 2}
   _targetGroup: {fileID: 0}
 --- !u!195 &4049278343048673070
 NavMeshAgent:
@@ -332,7 +334,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4049278343048673062}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.005
+  m_Radius: 0.05
   m_Speed: 0
   m_Acceleration: 20
   avoidancePriority: 0

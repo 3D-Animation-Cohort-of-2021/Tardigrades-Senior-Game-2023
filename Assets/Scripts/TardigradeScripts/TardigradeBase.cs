@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.VFX;
 
 [RequireComponent(typeof(FollowPointBehaviour))]
@@ -22,6 +24,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private GameObject _iceShardsForDeath;
     private Renderer[] _renderers;
     private Animator[] _animators;
+    public UnityEvent<Elem, int> deathEvent;
 
     protected FollowPointBehaviour _followBehavior;
     protected VisualEffect _healEffect;
@@ -238,8 +241,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Removes tard from any lists, stops coroutines, then destroys this tard.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public void Death()
+    public virtual void Death()
     {
+        if (deathEvent != null)
+        { 
+        deathEvent.Invoke(_type, -1);
+        }
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
         if(IceCoroutine != null) StopCoroutine(IceCoroutine);
@@ -379,9 +386,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase._waterAccessory = _waterAccessory;
         tardigradeBase._earthAccessory = _earthAccessory;
         tardigradeBase.UpdateAppearance();
+        tardigradeBase.OnDestroy = OnDestroy;
 
         return tardigradeBase;
         
     }
+    
 }
 
