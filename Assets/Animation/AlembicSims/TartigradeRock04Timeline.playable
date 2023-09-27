@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1009025354321041670
+--- !u!114 &-2264334606696246815
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24,10 +24,10 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0.95
-    m_Asset: {fileID: 805065709046577832}
+    m_Asset: {fileID: 1101547362811529670}
     m_Duration: 4.05
     m_TimeScale: 1
-    m_ParentTrack: {fileID: -1009025354321041670}
+    m_ParentTrack: {fileID: -2264334606696246815}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0
-    m_DisplayName: TartigradeRock00
+    m_DisplayName: TartigradeRock04
   m_Markers:
     m_Objects: []
 --- !u!114 &11400000
@@ -102,18 +102,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: TartigradeRock00Timeline
+  m_Name: TartigradeRock04Timeline
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
-  - {fileID: -1009025354321041670}
+  - {fileID: -2264334606696246815}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
   m_DurationMode: 0
   m_MarkerTrack: {fileID: 0}
---- !u!114 &805065709046577832
+--- !u!114 &1101547362811529670
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,5 +126,5 @@ MonoBehaviour:
   m_Name: AlembicShotAsset
   m_EditorClassIdentifier: 
   streamPlayer:
-    exposedName: 651e98a7f65f9df4eb2d1ab2627ff046
+    exposedName: 45f1f0483eb3dbf4ba022cf47ad7dd77
     defaultValue: {fileID: 0}
