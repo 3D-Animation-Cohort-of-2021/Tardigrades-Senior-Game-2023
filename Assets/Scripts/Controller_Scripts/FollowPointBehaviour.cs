@@ -15,7 +15,7 @@ public class FollowPointBehaviour : MonoBehaviour {
     }
 
     private void Start() {
-        _navMeshAgent.speed = 20f;
+        _navMeshAgent.speed = (_navMeshAgent.speed == 0) ? _navMeshAgent.speed : 10;
         //Warp to closest navmesh position if needed
         //NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1.0f, 1);
         //_navMeshAgent.Warp(hit.position);

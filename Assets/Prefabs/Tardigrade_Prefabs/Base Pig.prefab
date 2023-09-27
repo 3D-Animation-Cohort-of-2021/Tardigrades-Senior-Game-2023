@@ -4489,7 +4489,7 @@ Transform:
   m_GameObject: {fileID: 6569193638812886307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.246911, y: 0.10000038, z: 0.78021145}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8969568901008425925}
@@ -4566,6 +4566,9 @@ MonoBehaviour:
   _tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf,
     type: 2}
   _abilityPrefab: {fileID: 0}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _fireAccessory: {fileID: 8847803118915077991}
   _waterAccessory: {fileID: 2358404373426619399}
   _earthAccessory: {fileID: 7478824364313617510}

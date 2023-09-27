@@ -21,7 +21,7 @@ public class DamageOnEnter : MonoBehaviour
                 }
                 else
                 {
-                    newDmg = _damage * 20f;
+                    newDmg = 0f;
                 }
                 tard.SetStatus((Status)_damageType, _effectDuration);
             }
