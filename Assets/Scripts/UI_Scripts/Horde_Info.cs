@@ -7,27 +7,6 @@ public class Horde_Info : ScriptableObject
   [SerializeField] private int numFire, numStone, numWater, numNormal;
   public float normalCD, fireCD, stoneCD, waterCD;
   public GameAction callUpdateText;
-  
-  public void ChangeNormalCount(int val)
-  {
-    numNormal += val;
-    callUpdateText.raise();
-  }
-  public void ChangeFireValue(int val)
-  {
-    numFire += val;
-    callUpdateText.raise();
-  }
-  public void ChangeStoneCount(int val)
-  {
-    numStone += val;
-    callUpdateText.raise();
-  }
-  public void ChangeWaterCount(int val)
-  {
-    numWater += val;
-    callUpdateText.raise();
-  }
 
   public void ResetToZero()
   {
