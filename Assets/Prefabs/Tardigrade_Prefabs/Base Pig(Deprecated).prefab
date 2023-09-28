@@ -48,7 +48,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5221344193439535509}
-  m_Mesh: {fileID: 9059924821408363663, guid: 0778b14a1a3dc46d8ba7ab868eeed8bc, type: 3}
+  m_Mesh: {fileID: 2540817853737639666, guid: 20a835681d1e0bb4f9462dd70c5be356, type: 3}
 --- !u!23 &5221344193439535511
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -119,12 +119,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 10
+  _maxHealth: 0
   _type: 0
   _mySquad: {fileID: 0}
   _tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf,
     type: 2}
   _abilityPrefab: {fileID: 0}
-  _statusEffect: 0
+  _fireAccessory: {fileID: 0}
+  _waterAccessory: {fileID: 0}
+  _earthAccessory: {fileID: 0}
 --- !u!195 &7534826290414997728
 NavMeshAgent:
   m_ObjectHideFlags: 0
