@@ -16,7 +16,7 @@ public class SquadBrain : MonoBehaviour
     public float radius;
 
     private Formation formation = Formation.Cluster;
-    private float spacing = 1;
+    private float spacing = 0;
     private List<CustomTransform> formationPositions;
 
     [SerializeField] private List<TardigradeBase> myTards;
@@ -108,7 +108,6 @@ public class SquadBrain : MonoBehaviour
             StopCoroutine(activeSquad);
             activeSquad = null;
         }
-
         if (movementVector.squadNumber == brainNumber && squadType != Elem.Neutral)
         {
             activeSquad = StartCoroutine(ActiveSquad());
@@ -126,6 +125,7 @@ public class SquadBrain : MonoBehaviour
                 ChangeHighlight(tard, false);
             }
         }
+        
     }
 
     IEnumerator ActiveSquad()
@@ -146,7 +146,6 @@ public class SquadBrain : MonoBehaviour
         if (gameObject.layer != LayerMask.NameToLayer("Squad") && other.gameObject.layer == LayerMask.NameToLayer("Squad"))
         {
             SquadManager parentManager = GetComponentInParent<SquadManager>();
-
             if (parentManager != null)
             {
                 parentManager.ReceiveSquadFromChild(other);
@@ -217,7 +216,6 @@ public class SquadBrain : MonoBehaviour
         myTards.Add(newTard);
         newTard._mySquad = this;
         newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
-
         UpdateFormation(formation, true);
     }
     /// <summary>
@@ -240,24 +238,7 @@ public class SquadBrain : MonoBehaviour
     /// <param name="shouldHighlight">Should the tardigrade be highlighted or unhighighted</param>
     public void ChangeHighlight(TardigradeBase tard, bool shouldHighlight)
     {
-        float thickness = 0f;
-
-        if (shouldHighlight)
-        {
-            thickness = 0.1f;
-        }
-
-        if (tard.TryGetComponent<Renderer>(out Renderer renderer))
-        {
-            Material[] mats = renderer.materials;
-            foreach (Material mat in mats)
-            {
-                if (mat.name =="HighlightMat (Instance)")
-                {
-                    mat.SetFloat("_Highlight_Thickness", thickness);
-                }
-            }
-        }
+        tard.ChangeTardigradeHighlight(shouldHighlight);
     }
 
     public void TardsUsePrimaryAbility()

@@ -1,0 +1,91 @@
+READ ME!!!!!!
+
+This is instructions for how to use the TileMap Template & the TileMap brush.
+Please note: These instructions are ONLY for creating a Grey-Boxed enviornment to feed into our houdini tool. 
+DO NOT USE THIS FOR ANY OTHER LEVEL EDITING.
+
+
+------------------------------------------------
+|            Creating A New Scene              |------------------------------------------------------------
+------------------------------------------------
+
+	- Select & Copy (Ctrl D) the scene labeled: 'BlankTileMapTemplate' 
+		-This is located under Assets>Scenes
+
+	- Rename 'BlankTileMapTemplate1' with the following naming structure
+		Format:   [Biome]-[GreyBoxedFeature]-TileMap
+		Example1: GrassLands-Cliff-TileMap
+		Example2: Glacier-Cave-TileMap
+
+	- Move your TileMap to the corresponding biome folder located under Assets>Scenes
+
+
+------------------------------------------------
+|             Setting Up A New Map             |------------------------------------------------------------
+------------------------------------------------
+
+	- Make sure you have the 'Tile Palette' window located somewhere in your Unity Workspace
+	- If you do not have the 'Tile Palette' window:
+		- Navigate up to your menu bar and click on 'Window'
+		- Scroll down the Window drop menu and hover your cursor on '2D'
+		- Click on 'Tile Palette' 
+
+		/* If nothing pops up, you most likely already have the 'Tile Palette' window open.
+		   Its probably just hiding behind another window tab, like the '(i) Inspector' */
+
+	-In the 'Tile Palette' window, near the bottom, there is a drop down menu with the following options
+		
+		|--------------------|
+		|   Default Brush    |
+		|   Game Object Brush|
+		|   Group Brush      |
+		|   Line Brush       |
+		|   Random Brush     |
+		| * Prefab Brush     | We'll want to select the 'Prefab Brush'
+		|--------------------| Afterwards, we shouldn't be touching this selection
+	
+	- At the top of the'Tile Palette' window, click on the paint brush icon. 
+	- Decide whether you'll be painting with a macro brush or detail brush
+	- In your scene 'Hierarchy', locate the corresponding Pallet. 
+	- You will see a child under each Pallet labeled 'PaintLayer1'. This is what we want to paint on.
+	
+	- DO NOT PAINT ON THE PALLET PARENT.
+	
+	/* Note: The Directional Light is located super far away. DO NOT MOVE IT CLOSER TO THE ORIGIN
+           This will cause problems with the paint brush. */
+	
+	- Paint to your hearts content
+	- The eraser brush does not work. You will need to manually select tiles you want to delete.
+
+
+------------------------------------------------
+|        Exporting Your Map for Houdini        |------------------------------------------------------------
+------------------------------------------------
+ 
+	- Once you're done painting. Select BOTH Pallets with CTRL L-Click.
+	- DO NOT SELECT THESE WITH SHIFT CLICK! This will select all children of the upper pallet.
+	- DO NOT SELECT ANY CHILDREN OF THE PALLETS!
+	- Navigate to the menu bar and click 'GameObject'
+	- Click on 'Export To FBX'
+	
+	- In the 'Export Options' window, fill out and select the following.
+		
+		Export Name: this should follow a similar format to what you named your scene
+			~ [Biome]-[GreyBoxedFeature]-GreyBox
+		Export path should be 'Assets/Scenes/Unity_to_Houdini_FBX_Mesh
+		
+		Transfer Animation should be non-selectable.
+		
+		Options V
+		Export Format: ---------------- ASCII
+		Include: -------------- Model(s) Only
+		LOD Level: --------------- All Levels
+		Object(s) Position: -- World Absolute
+		Animated Skinned Mesh: ---- Unchecked
+		Compatible Naming: ---------- Checked
+		Export Unrendered: ---------- Checked
+		Preserve Import Settings: - Unchecked
+
+	- Export
+	- Either Send Dane the FBX via Discord, or Push your branch to Dev and notify Dane.
+	- Thanks for reading me! :)

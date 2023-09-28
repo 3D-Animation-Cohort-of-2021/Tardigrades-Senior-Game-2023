@@ -15,6 +15,8 @@ public class WaterTardigrade : TardigradeBase
     {
         _primary.cooldown = 4;
         _secondary.cooldown = 2;
+        _shieldableTards = new List<TardigradeBase>();
+        _inRangeObstacles = new List<Obstacle>();
     }
 
     public override void PrimaryAbility()
@@ -46,13 +48,22 @@ public class WaterTardigrade : TardigradeBase
     
     public override void SecondaryAbility()
     {
-        if (!_secondary.activatable) return;
+        if (!_secondary.activatable)
+        {
+            return;
+        }
+
         base.SecondaryAbility();
+
         foreach (TardigradeBase tard in _shieldableTards)
         {
-            if(tard == null) continue;
+            if (tard == null)
+            {
+                continue;
+            }
             tard.Heal(2.5f);
         }
         Heal(2.5f);
     }
+    
 }

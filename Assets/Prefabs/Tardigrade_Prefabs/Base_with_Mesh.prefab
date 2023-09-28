@@ -4080,7 +4080,7 @@ GameObject:
   - component: {fileID: 6279638715569234747}
   - component: {fileID: 2774545213762514888}
   - component: {fileID: 1035520035375288247}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base_with_Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4184,11 +4184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff165fea31e64aba92316f4ec207379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  type: 0
-  mySquad: {fileID: 0}
-  tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf, type: 2}
-  abilityPrefab: {fileID: 0}
+  _health: 0
+  _type: 0
+  _mySquad: {fileID: 0}
+  _tardigradeMaterial: {fileID: 0}
+  _abilityPrefab: {fileID: 0}
+  _statusEffect: 0
 --- !u!54 &1035520035375288247
 Rigidbody:
   m_ObjectHideFlags: 0
