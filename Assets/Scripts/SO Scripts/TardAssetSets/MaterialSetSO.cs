@@ -7,7 +7,6 @@ public class MaterialSetSO : ScriptableObject
 {
     public Elem type;
     public Material material;
-    public Mesh mesh;
     public GameObject activeAbilityEffect;
     public GameObject childObject;
 }

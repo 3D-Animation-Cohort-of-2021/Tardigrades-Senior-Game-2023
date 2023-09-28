@@ -13,7 +13,7 @@ public class StatusReactionBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.TryGetComponent<TardigradeBase>(out TardigradeBase tardigradeBase) && tardigradeBase._statusEffect == reactiveEffect)
+        if(collision.gameObject.TryGetComponent<TardigradeBase>(out TardigradeBase tardigradeBase) && tardigradeBase.GetStatus() == reactiveEffect)
         {
             EffectReaction.Invoke();
         }

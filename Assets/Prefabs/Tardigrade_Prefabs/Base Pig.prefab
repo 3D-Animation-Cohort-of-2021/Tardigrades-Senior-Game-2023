@@ -1584,7 +1584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3804709989083569707
 Transform:
   m_ObjectHideFlags: 0
@@ -1620,7 +1620,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7427ea3a56254984fb1d0eed55ce4347, type: 2}
+  - {fileID: 2100000, guid: 62dc1b42a5ddddb459d842d83395c203, type: 2}
   - {fileID: 2100000, guid: 6f3d44b7c4ae448cc90d36bb4f74956c, type: 2}
   - {fileID: 2100000, guid: 3b7c78f4a0a217f4ea037760bb49303a, type: 2}
   m_StaticBatchInfo:
@@ -3049,6 +3049,8 @@ GameObject:
   m_Component:
   - component: {fileID: 847032068664793639}
   - component: {fileID: 8834670652758147193}
+  - component: {fileID: 2474823990326806230}
+  - component: {fileID: 428503567338453920}
   m_Layer: 0
   m_Name: Tar_base_geo
   m_TagString: Untagged
@@ -3157,6 +3159,89 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0030685067, y: 0.695511, z: 0.26670223}
     m_Extent: {x: 1.0031424, y: 0.87803686, z: 1.4727664}
   m_DirtyAABB: 0
+--- !u!73398921 &2474823990326806230
+VFXRenderer:
+  serializedVersion: 1
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4440070169846152580}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!2083052967 &428503567338453920
+VisualEffect:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4440070169846152580}
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: 90390acea85c7e043be8725a4580abcb, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array:
+      - m_Value: 2
+        m_Name: Scale
+        m_Overridden: 1
+      - m_Value: 0.5
+        m_Name: Delay
+        m_Overridden: 1
+    m_Vector2f:
+      m_Array: []
+    m_Vector3f:
+      m_Array: []
+    m_Vector4f:
+      m_Array: []
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array: []
+    m_Bool:
+      m_Array: []
 --- !u!1 &4467261660078697237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4474,7 +4559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff165fea31e64aba92316f4ec207379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
+  _health: 1
+  _maxHealth: 10
   _type: 0
   _mySquad: {fileID: 0}
   _tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf,
@@ -4482,20 +4568,10 @@ MonoBehaviour:
   _abilityPrefab: {fileID: 0}
   deathEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: e5142cef9a1ce84479f0069df6cb5bcc, type: 2}
-        m_TargetAssemblyTypeName: GameActionElemental, Assembly-CSharp
-        m_MethodName: RaiseAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _statusEffect: 3
+      m_Calls: []
+  _fireAccessory: {fileID: 8847803118915077991}
+  _waterAccessory: {fileID: 2358404373426619399}
+  _earthAccessory: {fileID: 7478824364313617510}
 --- !u!114 &6335191518240494144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4518,10 +4594,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 5
+  m_Speed: 10
   m_Acceleration: 20
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -5020,7 +5096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2454232135577280845
 Transform:
   m_ObjectHideFlags: 0
@@ -5056,7 +5132,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7427ea3a56254984fb1d0eed55ce4347, type: 2}
+  - {fileID: 2100000, guid: 762332dfeabfe2743bd9c94a918bcc3a, type: 2}
   - {fileID: 2100000, guid: 6f3d44b7c4ae448cc90d36bb4f74956c, type: 2}
   - {fileID: 2100000, guid: 3b7c78f4a0a217f4ea037760bb49303a, type: 2}
   m_StaticBatchInfo:
@@ -5700,7 +5776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6305651660844898607
 Transform:
   m_ObjectHideFlags: 0
@@ -5736,7 +5812,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7427ea3a56254984fb1d0eed55ce4347, type: 2}
+  - {fileID: 2100000, guid: 45c01438e143c764cb6607637b34a34c, type: 2}
   - {fileID: 2100000, guid: 6f3d44b7c4ae448cc90d36bb4f74956c, type: 2}
   - {fileID: 2100000, guid: 3b7c78f4a0a217f4ea037760bb49303a, type: 2}
   m_StaticBatchInfo:
