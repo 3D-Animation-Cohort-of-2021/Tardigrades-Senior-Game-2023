@@ -17,7 +17,8 @@ public class SquadManager : MonoBehaviour
     public static List<Squad> _squads = new List<Squad>();
 
     public int _squadIDGiver;
-    public float _radius;
+    public float _squadRadius = 1f;
+    public float _centerRadius = 2.5f;
     public GameActionElemental _gameActionElemental;
 
     private CinemachineTargeting _camTargetScript;
@@ -44,7 +45,7 @@ public class SquadManager : MonoBehaviour
         if (_targetGroup != null) 
         { 
             _camTargetScript = _targetGroup.GetComponent<CinemachineTargeting>();
-            AddToTargetGroup(gameObject, 2.5f);
+            AddToTargetGroup(gameObject, _centerRadius);
         }
 
         StartCoroutine(SetupChildren());
@@ -78,7 +79,7 @@ public class SquadManager : MonoBehaviour
             if (transform.GetChild(i).TryGetComponent<SquadBrain>(out squadBrain))
             {
                 GameObject childSquad = transform.GetChild(i).gameObject;
-                AddToTargetGroup (childSquad);
+                AddToTargetGroup (childSquad, _squadRadius);
                 ClaimSquad(childSquad, squadBrain);
             }
         }
