@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370013580}
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53,8 +53,8 @@ MonoBehaviour:
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
   m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0.5}
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Offset: {x: 0, y: 0, z: 2.5}
+  m_Size: {x: 1, y: 1, z: 5}
   m_FadeFactor: 1
 --- !u!95 &1717108961
 Animator:
@@ -262,7 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _squadPrefab: {fileID: 0}
   _squadIDGiver: 0
-  _radius: 0
+  _squadRadius: 1
+  _centerRadius: 2.5
   _gameActionElemental: {fileID: 11400000, guid: 9edf9843ad2dcf84790e81f54f467e9c,
     type: 2}
   _targetGroup: {fileID: 0}

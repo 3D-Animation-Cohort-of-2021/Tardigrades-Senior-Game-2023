@@ -54,7 +54,6 @@ public IEnumerator VisualCoolDown()
     while (currentCDTime < thisElemCD)
     {
         currentCDTime += .1f;
-        Debug.Log(currentCDTime);
         fillImage.fillAmount = Mathf.Lerp(0f, 1, currentCDTime / thisElemCD);
         yield return wfs;
     }
