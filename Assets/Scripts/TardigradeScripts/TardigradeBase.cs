@@ -46,6 +46,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public GameObject _waterAccessory;
     public GameObject _earthAccessory;
 
+    public VisualEffectAsset _burningAsset;
+    public VisualEffectAsset _wetAsset;
+    public VisualEffectAsset _muddyAsset;
+
     private WaitForSeconds _loopDelay;
 
 
