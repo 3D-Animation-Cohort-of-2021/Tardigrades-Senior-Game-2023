@@ -23,7 +23,8 @@ public class PlayerView : MonoBehaviour
     {
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
-        viewMeshFilter.mesh = viewMesh;
+        if (viewMesh != null)
+            viewMeshFilter.mesh = viewMesh;
     }
 
     private void LateUpdate()
