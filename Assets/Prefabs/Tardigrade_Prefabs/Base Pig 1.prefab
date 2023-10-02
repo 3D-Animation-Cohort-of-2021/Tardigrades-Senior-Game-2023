@@ -783,6 +783,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3483349943474065242}
+  - component: {fileID: 8237996732408648060}
+  - component: {fileID: 8594644056886927006}
+  - component: {fileID: 115471360373520691}
   m_Layer: 0
   m_Name: Geo
   m_TagString: Untagged
@@ -807,6 +810,103 @@ Transform:
   m_Father: {fileID: 5792093542801407897}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8237996732408648060
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903280960663148091}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5bd761d93cca0cc4d8a427a67119022e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!2083052967 &8594644056886927006
+VisualEffect:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903280960663148091}
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: 90390acea85c7e043be8725a4580abcb, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array: []
+    m_Vector2f:
+      m_Array: []
+    m_Vector3f:
+      m_Array: []
+    m_Vector4f:
+      m_Array: []
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array: []
+    m_Bool:
+      m_Array: []
+--- !u!73398921 &115471360373520691
+VFXRenderer:
+  serializedVersion: 1
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903280960663148091}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &2235070761282504336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,12 +2617,13 @@ MonoBehaviour:
   _maxHealth: 10
   _type: 0
   _mySquad: {fileID: 0}
-  _tardigradeMaterial: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf,
-    type: 2}
+  _tardigradeSets: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf, type: 2}
   _abilityPrefab: {fileID: 0}
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
+  _healVisualEffect: {fileID: 8594644056886927006}
+  _statusVisualEffect: {fileID: 7030273919986279141}
   _fireAccessory: {fileID: 3163506159901124857}
   _waterAccessory: {fileID: 3163506159901124857}
   _earthAccessory: {fileID: 3163506159901124857}
@@ -2614,9 +2715,9 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6569193638812886307}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: dca88a699136c8f4f9606b5d82c2053d, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 1
+  m_Asset: {fileID: 8926484042661614526, guid: a152597287b0a344f8b2a8579e85f345, type: 3}
+  m_InitialEventName: 
+  m_InitialEventNameOverriden: 0
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_ResourceVersion: 1
@@ -2644,9 +2745,10 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 9099614158475453544}
+      - m_Value: {fileID: 9059924821408363663, guid: d5d71b651b5e8f8408370a98d4ff51f8,
+          type: 3}
         m_Name: Mesh
-        m_Overridden: 1
+        m_Overridden: 0
     m_Bool:
       m_Array: []
 --- !u!1 &6614392644670579543
