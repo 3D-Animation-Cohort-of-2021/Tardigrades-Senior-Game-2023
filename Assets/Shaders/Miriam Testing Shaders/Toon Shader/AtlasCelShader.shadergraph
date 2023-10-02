@@ -4,9 +4,6 @@
     "m_ObjectId": "143db8df1e3b482ba32dbe65fc403ec7",
     "m_Properties": [
         {
-            "m_Id": "fcfd490ef63942509767ac409e620a01"
-        },
-        {
             "m_Id": "d4415863dc1b4a6a9dbb7b1270b2251b"
         }
     ],
@@ -41,9 +38,6 @@
         },
         {
             "m_Id": "63f411ab4a60406a95c73b1a6402cb75"
-        },
-        {
-            "m_Id": "ab51f90959584eaba01d237e2f04c053"
         },
         {
             "m_Id": "3f2f0e7725d64b96b4e598007910d9e3"
@@ -175,20 +169,6 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "e15cc0eb6037439581a5918a39aea47f"
-                },
-                "m_SlotId": 1
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "ab51f90959584eaba01d237e2f04c053"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "63f411ab4a60406a95c73b1a6402cb75"
                 },
                 "m_SlotId": 1
             }
@@ -522,7 +502,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"2af0a35c11be36b4c82d5ff1f84a3e95\",\"type\":3}}",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -878,8 +858,8 @@
     "m_ObjectId": "5c90939808464cba8eb4a00ce12716dc",
     "m_Title": "Ramp",
     "m_Position": {
-        "x": 1008.0,
-        "y": -498.0
+        "x": 1034.4000244140625,
+        "y": -498.39996337890627
     }
 }
 
@@ -904,9 +884,6 @@
     "m_ObjectId": "615c04a6f7384648a468da9ce0dea916",
     "m_Name": "",
     "m_ChildObjectList": [
-        {
-            "m_Id": "fcfd490ef63942509767ac409e620a01"
-        },
         {
             "m_Id": "d4415863dc1b4a6a9dbb7b1270b2251b"
         }
@@ -1213,19 +1190,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
-    "m_ObjectId": "81fdff0a0f9f4734a5cca4add20a06be",
-    "m_Id": 0,
-    "m_DisplayName": "RampTexture",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Out",
-    "m_StageCapability": 3,
-    "m_BareResource": false
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "85f7459b874c444eb1955916867c5586",
     "m_Group": {
@@ -1368,41 +1332,6 @@
     "m_Position": {
         "x": -654.0000610351563,
         "y": 76.0
-    }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
-    "m_ObjectId": "ab51f90959584eaba01d237e2f04c053",
-    "m_Group": {
-        "m_Id": "5c90939808464cba8eb4a00ce12716dc"
-    },
-    "m_Name": "Property",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": 1060.0,
-            "y": -439.0000305175781,
-            "width": 154.0001220703125,
-            "height": 34.00006103515625
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "81fdff0a0f9f4734a5cca4add20a06be"
-        }
-    ],
-    "synonyms": [],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_Property": {
-        "m_Id": "fcfd490ef63942509767ac409e620a01"
     }
 }
 
@@ -1955,34 +1884,5 @@
         "e32": 0.0,
         "e33": 1.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
-    "m_ObjectId": "fcfd490ef63942509767ac409e620a01",
-    "m_Guid": {
-        "m_GuidSerialized": "818a552c-b048-46e6-bd7b-fbc5ab802dd2"
-    },
-    "m_Name": "RampTexture",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "RampTexture",
-    "m_DefaultReferenceName": "_RampTexture",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 2,
-    "m_Hidden": false,
-    "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"7efd531fbbdd207499c8bc20393a1a55\",\"type\":3}}",
-        "m_Guid": ""
-    },
-    "isMainTexture": false,
-    "useTilingAndOffset": false,
-    "m_Modifiable": true,
-    "m_DefaultType": 2
 }
 
