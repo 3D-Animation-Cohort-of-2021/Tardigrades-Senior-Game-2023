@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class StoneTardigrade : TardigradeBase
 {
-
+    [SerializeField] private GameAction deathCall;
     protected override void ReactToStrong()
    {
       base.ReactToStrong();
@@ -36,4 +36,5 @@ public class StoneTardigrade : TardigradeBase
         Instantiate(_abilityPrefab, transform.position + transform.forward, stoneRotation);
         transform.rotation = tardRotation;
    }
+   
 }
