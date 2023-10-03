@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 4049278343048673070}
   - component: {fileID: 4049278343048673071}
   - component: {fileID: 4049278343048673068}
-  - component: {fileID: 1916601018}
   m_Layer: 7
   m_Name: PlayerCenter
   m_TagString: Untagged
@@ -318,24 +317,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1916601018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4049278343048673062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54184eeb85e61434e996b4e96d2b5f14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewRadus: 10
-  viewAngle: 361
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  meshRes: 0.5
-  edgeResolve: 5
-  edgeDstTreshold: 0.5
-  viewMeshFilter: {fileID: 0}
