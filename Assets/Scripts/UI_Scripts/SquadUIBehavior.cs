@@ -7,62 +7,101 @@ using UnityEngine.UI;
 
 public class SquadUIBehavior : MonoBehaviour
 {
-[SerializeField] private TextMeshProUGUI unitCounter;
-[SerializeField] private Horde_Info brain;
-public Elem elemType;
-public float thisElemCD;
-public Image fillImage, abilityReadyImage;
-private WaitForSeconds wfs;
-private Coroutine currentRoutine;
+    [SerializeField] private TextMeshProUGUI unitCounter;
+    [SerializeField] private Horde_Info brain;
+    public Elem elemType;
+    public float thisElemCD, thisElemSecondCD;
+    public Image fillImage, abilityReadyImage;
+    public Image[] secondaryGlows;
+    private WaitForSeconds wfs, wfss;
+    private Coroutine currentRoutine;
+    private int _secondaryState;
+    private Color tempColor;
 
 
-private void Awake()
-{
-    wfs = new WaitForSeconds(.1f);
-    SetCD();
-}
-
-private void Start()
-{
-    UpdateCount();
-}
-
-public void UpdateCount()
-{
-    unitCounter.text = brain.GetTypeCount(elemType).ToString();
-}
-
-public void SetCD()
-{
-    thisElemCD = brain.GetCD(elemType);
-}
-
-public void StartVisualCD()
-{
-    if (currentRoutine != null)
+    private void Awake()
     {
-        StopCoroutine(currentRoutine);
+        SetCD();
+        wfs = new WaitForSeconds(.1f);
+        wfss = new WaitForSeconds(thisElemSecondCD);
     }
-    currentRoutine = StartCoroutine(VisualCoolDown());
-}
 
-public IEnumerator VisualCoolDown()
-{
-    float currentCDTime = 0;
-    fillImage.fillAmount = 0;
-    SetAbilityReady(false);
-    while (currentCDTime < thisElemCD)
+    private void Start()
     {
-        currentCDTime += .1f;
-        fillImage.fillAmount = Mathf.Lerp(0f, 1, currentCDTime / thisElemCD);
-        yield return wfs;
+        UpdateCount();
+        SetSecondaryState(1);
     }
-    fillImage.fillAmount = 1;
-    SetAbilityReady(true);
-}
 
-private void SetAbilityReady(bool status)
-{
-    abilityReadyImage.enabled = status;
-}
+    public void UpdateCount()
+    {
+        unitCounter.text = brain.GetTypeCount(elemType).ToString();
+    }
+
+    public void SetCD()
+    {
+        thisElemCD = brain.GetCD(elemType);
+        thisElemSecondCD = brain.GetToggleCD(elemType);
+    }
+
+    public void StartVisualCD()
+    {
+        if (currentRoutine != null)
+        {
+            StopCoroutine(currentRoutine);
+        }
+        currentRoutine = StartCoroutine(VisualCoolDown());
+    }
+
+    public IEnumerator VisualCoolDown()
+    {
+        float currentCDTime = 0;
+        fillImage.fillAmount = 0;
+        SetAbilityReady(false);
+        while (currentCDTime < thisElemCD)
+        {
+            currentCDTime += .1f;
+            fillImage.fillAmount = Mathf.Lerp(0f, 1, currentCDTime / thisElemCD);
+            yield return wfs;
+        }
+        fillImage.fillAmount = 1;
+        SetAbilityReady(true);
+    }
+
+    public IEnumerator SecondaryCooldown()
+    {
+        yield return wfss;
+        SetSecondaryState(1);
+    }
+
+    public void ToggleSecondary()
+    {
+        switch (_secondaryState)
+        {
+            case 1:
+                SetSecondaryState(2);
+                break;
+            case 2:
+                SetSecondaryState(0);
+                StartCoroutine(SecondaryCooldown());
+                break;
+            default:
+                return;
+        }
+    }
+
+    private void SetAbilityReady(bool status)
+    {
+        abilityReadyImage.enabled = status;
+    }
+
+    private void SetSecondaryState(int state)//0=off, 1 = ready, 2=active
+    {
+        foreach(Image image in secondaryGlows)
+        {
+            tempColor = image.color;
+            tempColor.a = (.5f * (float) state);
+            image.color = tempColor;
+        }
+        _secondaryState = state;
+    }
 }
