@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "MaterialList", menuName = "ScriptableObjects/MaterialLists/MaterialList", order = 0)]
-public class MaterialListSO : ScriptableObject
+public class TardigradeListSO : ScriptableObject
 {
-    public MaterialSetSO[] materials;
+    public TardigradeSetSO[] materials;
 
-    public MaterialSetSO GetMaterialSetByType(Elem type)
+    public TardigradeSetSO GetMaterialSetByType(Elem type)
     {
         for(int i = 0; i < materials.Length; i++)
         {
