@@ -104,10 +104,14 @@ MonoBehaviour:
   movementVector: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
   piggyPrefab: {fileID: 6569193638812886307, guid: b313ded538967c447b49460bee8c64b3,
     type: 3}
-  amountPerGroup: 5
+  amountPerGroup: 1
   brainNumber: -1
   squadType: 0
   radius: 10
+  activateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  abilityCall: {fileID: 11400000, guid: 223643d87d18d404fa094f58036179ae, type: 2}
   myTards: []
   healthBarCanvas: {fileID: 0}
 --- !u!114 &-8681732589859106084

@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "MaterialSet", menuName = "ScriptableObjects/MaterialLists/MaterialSet", order = 0)]
-public class MaterialSetSO : ScriptableObject
+public class TardigradeSetSO : ScriptableObject
 {
     public Elem type;
-    public Material material;
-    public GameObject activeAbilityEffect;
-    public GameObject childObject;
+    public Material _material;
+    public GameObject _activeAbilityEffect;
+    public GameObject _abilityChildObject;
+
+    public GameObject _conversionEffect;
+
+
+
 }

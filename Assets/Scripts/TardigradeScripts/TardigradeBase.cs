@@ -19,7 +19,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
     public SquadBrain _mySquad;
 
-    [SerializeField]protected MaterialListSO _tardigradeMaterial;
+    [SerializeField]protected TardigradeListSO _tardigradeSets;
+    [SerializeField] protected Horde_Info hordeInfo;
     public GameObject _abilityPrefab;
     private GameObject _iceShardsForDeath;
     private Renderer[] _renderers;
@@ -27,7 +28,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public UnityEvent<Elem, int> deathEvent;
 
     protected FollowPointBehaviour _followBehavior;
-    protected VisualEffect _healEffect;
+    public VisualEffect _healVisualEffect;
+    public VisualEffect _statusVisualEffect;
 
     protected float _damage = 1;
 
@@ -46,6 +48,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public GameObject _waterAccessory;
     public GameObject _earthAccessory;
 
+    public VisualEffectAsset _burningAsset;
+    public VisualEffectAsset _wetAsset;
+    public VisualEffectAsset _muddyAsset;
+
     private WaitForSeconds _loopDelay;
 
 
@@ -55,18 +61,20 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _primary = gameObject.AddComponent<Ability>();
         _secondary = gameObject.AddComponent<ToggleAbility>();
 
-        _healEffect = GetComponentInChildren<VisualEffect>();
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
         _animators = GetComponentsInChildren<Animator>();
 
         _loopDelay = new WaitForSeconds(_secondary.loopDelayTime);
 
-        _statusEffect = Status.None;
+        if (_statusVisualEffect != null)
+        {
+            SetStatus(Status.None);
+        }
 
         if(_type == Elem.Neutral && _earthAccessory != null)
         {
-            UpdateAppearance();
+            UpdateTardigrade();
         }
     }
 
@@ -75,9 +83,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     /// <param name="statusEffect">status effect</param>
     /// /// <param name="effectTime">time until effect is removed</param>
-    public void SetStatus(Status statusEffect, float effectTime)
+    public void SetStatus(Status statusEffect, float effectTime = 0)
     {
-        if(_statusEffect != statusEffect)
+        
+        if(_statusEffect != statusEffect && _secondary.activatable && _statusEffect != Status.None)
         {
             if (_secondary.ToggleStatus())
             {
@@ -86,12 +95,38 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
 
         _statusEffect = statusEffect;
-        if(StatusRoutine != null)
+
+        switch (_statusEffect)
         {
-            StopCoroutine(StatusRoutine);
+            case Status.None:
+                _statusVisualEffect.Stop();
+                _statusVisualEffect.visualEffectAsset = null;
+                break;
+            case Status.Wet: 
+                _statusVisualEffect.visualEffectAsset = _wetAsset;
+                break;
+            case Status.Burning:
+                _statusVisualEffect.visualEffectAsset = _burningAsset;
+                break;
+            case Status.Muddy:
+                _statusVisualEffect.visualEffectAsset = _muddyAsset;
+                break;
         }
 
-        StatusRoutine = StartCoroutine(RemoveStatus(effectTime));
+        if (_statusEffect != Status.None)
+        {
+            _statusVisualEffect.Play();
+        }
+
+        if (effectTime > 0)
+        {
+            if (StatusRoutine != null)
+            {
+                StopCoroutine(StatusRoutine);
+            }
+
+            StatusRoutine = StartCoroutine(RemoveStatus(effectTime));
+        }
     }
 
     /// <summary>
@@ -101,7 +136,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private IEnumerator RemoveStatus(float effectTime)
     {
         yield return new WaitForSeconds(effectTime);
-        _statusEffect = Status.None;
+        SetStatus(Status.None);
     }
 
     public Status GetStatus()
@@ -165,29 +200,33 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         //Debug.Log(gameObject + "is resistant to that damage");
     }
     
-    private void UpdateAppearance()
+    private void UpdateTardigrade()
     {
-        MaterialSetSO materialSetSO = _tardigradeMaterial.GetMaterialSetByType(_type);
+        TardigradeSetSO tardigradeSetSO = _tardigradeSets.GetMaterialSetByType(_type);
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
 
         _fireAccessory.SetActive(_type == Elem.Fire);
         _waterAccessory.SetActive(_type == Elem.Water);
         _earthAccessory.SetActive(_type == Elem.Stone);
+        
+        _primary.cooldown = hordeInfo.GetCD(_type);
+        _secondary.cooldown = hordeInfo.GetToggleCD(_type);
+
 
         for (int i = 0; i < renderers.Length; i++)
         {
             if (renderers[i].gameObject.name.Contains("base"))
             {
-                renderers[i].material = materialSetSO.material;
+                renderers[i].material = tardigradeSetSO._material;
                 break;
             }
         }
         
-        _abilityPrefab = materialSetSO.activeAbilityEffect;
+        _abilityPrefab = tardigradeSetSO._activeAbilityEffect;
 
-        if (materialSetSO.childObject != null)
+        if (tardigradeSetSO._abilityChildObject != null)
         {
-            Instantiate(materialSetSO.childObject, transform);
+            Instantiate(tardigradeSetSO._abilityChildObject, transform);
         }
     }
     
@@ -213,10 +252,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         if (_secondary.FlipToggle())
         {
             SecondaryRoutine = StartCoroutine(SecondaryLoop());
-            _statusEffect = (Status)((int)_type);
+            SetStatus((Status)((int)_type));
         }
         else if (SecondaryRoutine != null)
         {
+            SetStatus(Status.None);
             StopCoroutine(SecondaryRoutine);
         }
     }
@@ -303,7 +343,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             thickness = 0.05f;
         }
 
-        if (_renderers.Length == 0)
+        if (_renderers == null || _renderers.Length == 0)
         {
             return;
         }
@@ -330,7 +370,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         //if (_health < _maxHealth)
             _health += healthGain;
-            _healEffect.Play();
+            _healVisualEffect.Play();
             if (_health > _maxHealth)
             {
                 _health = _maxHealth;
@@ -380,13 +420,28 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
         tardigradeBase._health = _health;
         tardigradeBase._maxHealth = _maxHealth;
+
         tardigradeBase._type = element;
-        tardigradeBase._tardigradeMaterial = _tardigradeMaterial;
+        tardigradeBase._tardigradeSets = _tardigradeSets;
+
         tardigradeBase._fireAccessory = _fireAccessory;
         tardigradeBase._waterAccessory = _waterAccessory;
         tardigradeBase._earthAccessory = _earthAccessory;
-        tardigradeBase.UpdateAppearance();
+
         tardigradeBase.OnDestroy = OnDestroy;
+
+        tardigradeBase._burningAsset = _burningAsset;
+        tardigradeBase._wetAsset = _wetAsset;
+        tardigradeBase._muddyAsset = _muddyAsset;
+
+        tardigradeBase._statusVisualEffect = _statusVisualEffect;
+        tardigradeBase._healVisualEffect = _healVisualEffect;
+        tardigradeBase._primary = _primary;
+        tardigradeBase._secondary = _secondary;
+        tardigradeBase.hordeInfo = hordeInfo;
+
+        tardigradeBase.UpdateTardigrade();
+
 
         return tardigradeBase;
         

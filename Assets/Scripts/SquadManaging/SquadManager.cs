@@ -97,6 +97,7 @@ public class SquadManager : MonoBehaviour
         SquadBrain squadBrain;
         if (collidedObject.CompareTag("SQUAD") && collidedObject.TryGetComponent<SquadBrain>(out squadBrain))
         {
+            collidedObject.GetComponent<SquadBrain>().activateEvent.Invoke();
             ClaimSquad(collidedObject, squadBrain);
         }
     }
@@ -105,7 +106,6 @@ public class SquadManager : MonoBehaviour
 
     private void ClaimSquad(GameObject squad, SquadBrain childBrain)
     {
-
         squad.layer = LayerMask.NameToLayer("Center");
         SquadBrain matchingSquad;
         //Tell Horde Info to update it's count
@@ -125,7 +125,6 @@ public class SquadManager : MonoBehaviour
                 return;
             }
         }
-
         if (childBrain.squadType != Elem.Neutral)
         {
             _squads.Add(new Squad() { SquadName = $"Squad {_squads.Count}", SquadID = _squadIDGiver, SquadObj = childBrain });
