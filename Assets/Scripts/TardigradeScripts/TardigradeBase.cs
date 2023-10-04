@@ -20,6 +20,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public SquadBrain _mySquad;
 
     [SerializeField]protected TardigradeListSO _tardigradeSets;
+    [SerializeField] protected Horde_Info hordeInfo;
     public GameObject _abilityPrefab;
     private GameObject _iceShardsForDeath;
     private Renderer[] _renderers;
@@ -207,9 +208,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _fireAccessory.SetActive(_type == Elem.Fire);
         _waterAccessory.SetActive(_type == Elem.Water);
         _earthAccessory.SetActive(_type == Elem.Stone);
-
-        _primary.cooldown = tardigradeSetSO._primaryCooldown;
-        _secondary.cooldown = tardigradeSetSO._secondaryCooldown;
+        
+        _primary.cooldown = hordeInfo.GetCD(_type);
+        _secondary.cooldown = hordeInfo.GetToggleCD(_type);
 
 
         for (int i = 0; i < renderers.Length; i++)
@@ -437,6 +438,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase._healVisualEffect = _healVisualEffect;
         tardigradeBase._primary = _primary;
         tardigradeBase._secondary = _secondary;
+        tardigradeBase.hordeInfo = hordeInfo;
 
         tardigradeBase.UpdateTardigrade();
 

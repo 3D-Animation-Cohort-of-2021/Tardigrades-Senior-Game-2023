@@ -6,6 +6,7 @@ using UnityEngine;
 public class Call : MonoBehaviour
 {
     public List<Raise> raiseListenObj;
+    public List<GameAction> raiseGaameActionListenObj;
 
     public UnityEvent onRaiseEvent;
     private void Start()
@@ -18,6 +19,15 @@ public class Call : MonoBehaviour
             }
             
         }
+        if (raiseGaameActionListenObj != null)
+        {
+            for (int i = 0; i < raiseGaameActionListenObj.Count; i++)
+            {
+                raiseGaameActionListenObj[i].raise+= Raise;
+            }
+            
+        }
+        
         
     }
     public void Raise()

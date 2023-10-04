@@ -12,8 +12,6 @@ public class TardigradeSetSO : ScriptableObject
 
     public GameObject _conversionEffect;
 
-    public float _primaryCooldown;
-    public float _secondaryCooldown;
 
 
 }
