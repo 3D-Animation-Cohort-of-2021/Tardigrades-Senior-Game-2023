@@ -21,7 +21,7 @@ public class FollowPointBehaviour : MonoBehaviour {
         //_navMeshAgent.Warp(hit.position);
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if (pointObject != null)
         {
             Vector3 destination = pointObject.Position;
