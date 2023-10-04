@@ -24,6 +24,7 @@ public class HordeMovement : MonoBehaviour
     private void Awake()
     {
         _hordeAgent = GetComponent<NavMeshAgent>();
+        _hordeAgent.speed = 0;
         _cam = Camera.main;
         checkDestination = new NavMeshHit();
     }
