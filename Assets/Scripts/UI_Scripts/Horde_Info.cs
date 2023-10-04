@@ -5,7 +5,7 @@ using UnityEngine;
 public class Horde_Info : ScriptableObject
 {
   [SerializeField] private int numFire, numStone, numWater, numNormal;
-  public float normalCD, fireCD, stoneCD, waterCD;
+  public float normalCD, normalToggleCD, fireCD, fireToggleCD, stoneCD, stoneToggleCD, waterCD, waterToggleCD;
   public GameAction callUpdateText;
 
   public void ResetToZero()
@@ -70,6 +70,22 @@ public class Horde_Info : ScriptableObject
         return stoneCD;
       case Elem.Water:
         return waterCD;
+      default:
+        return 0;
+    }
+  }
+  public float GetToggleCD(Elem element)
+  {
+    switch (element)
+    {
+      case Elem.Neutral:
+        return normalToggleCD;
+      case Elem.Fire:
+        return fireToggleCD;
+      case Elem.Stone:
+        return stoneToggleCD;
+      case Elem.Water:
+        return waterToggleCD;
       default:
         return 0;
     }

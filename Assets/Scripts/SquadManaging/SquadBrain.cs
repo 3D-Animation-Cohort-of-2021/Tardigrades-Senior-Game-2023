@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class SquadBrain : MonoBehaviour
@@ -14,6 +15,7 @@ public class SquadBrain : MonoBehaviour
     public int brainNumber = -1;
     public Elem squadType;
     public float radius;
+    public UnityEvent activateEvent;
 
     private Formation formation = Formation.Cluster;
     private float spacing = 0;
