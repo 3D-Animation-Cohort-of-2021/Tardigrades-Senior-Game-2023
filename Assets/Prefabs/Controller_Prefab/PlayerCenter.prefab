@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 4049278343048673070}
   - component: {fileID: 4049278343048673071}
   - component: {fileID: 4049278343048673068}
+  - component: {fileID: 2851732291334148821}
   m_Layer: 7
   m_Name: PlayerCenter
   m_TagString: Untagged
@@ -141,7 +142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugInput: {fileID: 11400000, guid: 938d6a0ddab19b8498cdd706b56e240f, type: 2}
   SquadsMoveCommands: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
-  method: 2
   squadChangeNext:
     m_PersistentCalls:
       m_Calls:
@@ -247,6 +247,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  movementCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2851732291334148821}
+        m_TargetAssemblyTypeName: HordeMovement, Assembly-CSharp
+        m_MethodName: MoveHoard
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  rotationCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2851732291334148821}
+        m_TargetAssemblyTypeName: HordeMovement, Assembly-CSharp
+        m_MethodName: Rotate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4049278343048673060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +308,7 @@ NavMeshAgent:
   m_Radius: 0.05
   m_Speed: 0
   m_Acceleration: 20
-  avoidancePriority: 0
+  avoidancePriority: 90
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
@@ -317,3 +347,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2851732291334148821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049278343048673062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db8309fa4b152144b192541205a79fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hordeSpeed: 5
+  _leapMethod: 2
