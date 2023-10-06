@@ -15,10 +15,8 @@ public class WaterTardigrade : TardigradeBase
     private Coroutine _healCoroutine;
 
 
-    protected void Start()
+    protected void Awake()
     {
-        _primary.cooldown = 4;
-        _secondary.cooldown = 0;
         _shieldableTards = new List<TardigradeBase>();
         _inRangeObstacles = new List<Obstacle>();
     }

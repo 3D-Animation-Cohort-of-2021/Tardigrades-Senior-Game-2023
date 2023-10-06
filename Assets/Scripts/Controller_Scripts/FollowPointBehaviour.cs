@@ -15,13 +15,13 @@ public class FollowPointBehaviour : MonoBehaviour {
     }
 
     private void Start() {
-        _navMeshAgent.speed = (_navMeshAgent.speed == 0) ? _navMeshAgent.speed : 10;
+        _navMeshAgent.speed = (_navMeshAgent.speed == 0) ? 5 : _navMeshAgent.speed;
         //Warp to closest navmesh position if needed
         //NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1.0f, 1);
         //_navMeshAgent.Warp(hit.position);
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if (pointObject != null)
         {
             Vector3 destination = pointObject.Position;

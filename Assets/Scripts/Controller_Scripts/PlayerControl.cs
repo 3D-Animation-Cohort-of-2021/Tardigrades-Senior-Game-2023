@@ -17,16 +17,14 @@ public enum OffMeshLinkMoveMethod
 public class PlayerControl : MonoBehaviour
 {
     public DebugInputSO debugInput;
-    private NavMeshAgent navMeshAgent;
-    private Vector3 leftStickMovement, triggerRotation, rightStickMovement;
-    private Camera cam;
+    private Vector3 triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
-    public OffMeshLinkMoveMethod method = OffMeshLinkMoveMethod.Parabola;
 
     private Coroutine offMeshPathInstance = null;
     public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent, secondaryAbilityEvent;
     public UnityEvent<int> updateFormation;
     public UnityEvent<float> updateSpacing;
+    public UnityEvent<InputAction.CallbackContext> movementCallback, rotationCallback;
 
     void Awake()
     {
@@ -41,8 +39,6 @@ public class PlayerControl : MonoBehaviour
 
         SquadsMoveCommands.SetSquadNumber(0);
         SquadsMoveCommands.SetSquadTotal(0);
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        cam = Camera.main;
         
     }
 
@@ -58,90 +54,6 @@ public class PlayerControl : MonoBehaviour
                 method.Invoke(this, new object[] { context });
             }
         }
-    }
-
-    IEnumerator TraverseOffMeshLink()
-    {
-        if (navMeshAgent.isOnOffMeshLink)
-        {
-            if (method == OffMeshLinkMoveMethod.NormalSpeed)
-                yield return StartCoroutine(NormalSpeed());
-            else if (method == OffMeshLinkMoveMethod.Parabola)
-                yield return StartCoroutine(Parabola(0.5f));
-            navMeshAgent.CompleteOffMeshLink();
-        }
-        yield return null;
-
-        GetComponent<SquadManager>().TeleportSquadsToCenter(navMeshAgent.baseOffset);
-        Coroutine temp = offMeshPathInstance;
-        offMeshPathInstance = null;
-        StopCoroutine(temp);
-    }
-
-    IEnumerator NormalSpeed()
-    {
-        OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
-        Vector3 endPos = data.endPos + Vector3.up * navMeshAgent.baseOffset;
-        while (navMeshAgent.transform.position != endPos)
-        {
-            navMeshAgent.Move(Vector3.Lerp(transform.position, endPos, 10 * Time.deltaTime) - transform.position);
-            yield return null;
-        }
-    }
-
-    IEnumerator Parabola(float duration)
-    {
-        OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
-        Vector3 startPos = navMeshAgent.transform.position;
-        Vector3 endPos = data.endPos + Vector3.up * navMeshAgent.baseOffset;
-        float height = Vector3.Distance(startPos, endPos);
-        float normalizedTime = 0.0f;
-        while (normalizedTime < 1.0f)
-        {
-            float yOffset = height * 4.0f * (normalizedTime - normalizedTime * normalizedTime);
-            navMeshAgent.Move((Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up) - transform.position);
-            normalizedTime += Time.deltaTime / duration;
-            yield return null;
-        }
-    }
-
-    public void FixedUpdate()
-    {
-        Vector3 moveVector = leftStickMovement;
-
-        //MoveHoard
-
-        NavMeshHit checkDestination = new NavMeshHit();
-        checkDestination.normal = Vector3.down;
-        
-        if(!navMeshAgent.isOnOffMeshLink)
-        {
-
-            if (NavMesh.SamplePosition(transform.position + moveVector, out checkDestination, 1f, NavMesh.AllAreas))
-            {
-                navMeshAgent.SetDestination(checkDestination.position);
-            }
-            else if (NavMesh.SamplePosition(transform.position + moveVector, out checkDestination, 10f, NavMesh.AllAreas))
-            {
-                navMeshAgent.SetDestination(checkDestination.position);
-            }
-            else
-            {
-                navMeshAgent.SetDestination(transform.position + moveVector);
-
-            }
-
-            navMeshAgent.Move(leftStickMovement * Time.deltaTime * 10);
-        }
-        else if(offMeshPathInstance == null)
-        {
-            offMeshPathInstance = StartCoroutine(TraverseOffMeshLink());
-        }
-
-        //MoveSquad
-
-        //RotateSquad
-        transform.Rotate(triggerRotation * (Time.deltaTime * 50));
     }
 
 
@@ -165,41 +77,9 @@ public class PlayerControl : MonoBehaviour
 
     public void MoveHoard(InputAction.CallbackContext context)
     {
-        if (context.control.parent.name == "Mouse")
-        {
-            MoveHoardMouse(context);
-        }
-        else
-        {
-            leftStickMovement.x = context.ReadValue<Vector2>().x;
-            leftStickMovement.z = context.ReadValue<Vector2>().y;
-        }
+        movementCallback.Invoke(context);
     }
 
-    private void MoveHoardMouse(InputAction.CallbackContext context)
-    {
-        if(cam == null)
-        {
-            cam = Camera.main;
-        }
-
-        Vector2 centerScreen = cam.WorldToScreenPoint(transform.position);
-
-        Vector2 offsetFromCenter = context.ReadValue<Vector2>() - centerScreen;
-
-        if (Mathf.Abs(offsetFromCenter.x) > 50 || Mathf.Abs(offsetFromCenter.y) > 50)
-        {
-            Vector2 normalizedOffset = offsetFromCenter.normalized;
-
-            leftStickMovement.x = normalizedOffset.x;
-            leftStickMovement.z = normalizedOffset.y;
-        }
-        else
-        {
-            leftStickMovement.x = 0;
-            leftStickMovement.z = 0;
-        }
-    }
 
     public void PreviousSquad(InputAction.CallbackContext context)
     {
@@ -235,27 +115,9 @@ public class PlayerControl : MonoBehaviour
         SquadsMoveCommands.vectorThree = rightStickMovement;
 
     }
-    public void RotateClockwise(InputAction.CallbackContext context)
+    public void Rotate(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            triggerRotation.y = context.ReadValue<float>();
-        }
-        if (context.canceled)
-        {
-            triggerRotation.y = 0;
-        }
-    }
-    public void RotateCounterClockwise(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            triggerRotation.y = context.ReadValue<float>()*-1;
-        }
-        if (context.canceled)
-        {
-            triggerRotation.y = 0;
-        }
+        rotationCallback.Invoke(context);
     }
     
     public void MutateSquad(InputAction.CallbackContext context)
