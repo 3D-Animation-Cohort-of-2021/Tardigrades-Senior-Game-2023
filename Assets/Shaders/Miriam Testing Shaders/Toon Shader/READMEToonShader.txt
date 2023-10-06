@@ -8,7 +8,7 @@ Checking If the Renderer is Working Correctly With Your Work
 There will be separate materials for each texture atlas and texture brush and each will have an "render objects" override
 on the URP High Fidelity Renderer. if you need to check if something is renderering right, you can:
 
-    1. Go to the renderer and find the toon option you want to check.
+    1. Search for the "URP High Fidelity Renderer" and find the toon option you want to check.
     2. Click the "layer mask" to see what layers this toon will show up on.
     3. Change your asset to one of the layers that the toon covers.
     
