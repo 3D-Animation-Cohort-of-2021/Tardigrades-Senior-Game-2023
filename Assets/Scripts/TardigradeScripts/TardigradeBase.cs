@@ -14,6 +14,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 {
     public float _health;
     public float _maxHealth;
+    public HealthDisplay collar;
 
     [SerializeField]protected Elem _type;
 
@@ -66,7 +67,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _animators = GetComponentsInChildren<Animator>();
 
         _loopDelay = new WaitForSeconds(_secondary.loopDelayTime);
-
         if (_statusVisualEffect != null)
         {
             SetStatus(Status.None);
@@ -76,6 +76,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             UpdateTardigrade();
         }
+    }
+
+    private void Start()
+    {
+        _health = _maxHealth;
     }
 
     /// <summary>
@@ -172,6 +177,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             }
         }
         _health -= finalDmg;
+        collar.UpdateColor(_health, _maxHealth);
 
         if (_health <= 0)
         {
@@ -375,6 +381,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             {
                 _health = _maxHealth;
             }
+            collar.UpdateColor(_health,_maxHealth);
         //}
     }
 
@@ -439,6 +446,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase._primary = _primary;
         tardigradeBase._secondary = _secondary;
         tardigradeBase.hordeInfo = hordeInfo;
+        tardigradeBase.collar = collar;
 
         tardigradeBase.UpdateTardigrade();
 

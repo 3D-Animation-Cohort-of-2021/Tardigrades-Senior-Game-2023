@@ -19,7 +19,7 @@ public class Obstacle : MonoBehaviour, IDamageable
 
     protected void ChangeHealth(float amount)
     {
-        _currentHealth = Mathf.Clamp(_currentHealth + amount, -1, _totalHealth);
+        _currentHealth += amount;
 
         if (_currentHealth <= 0)
         {
@@ -40,6 +40,7 @@ public class Obstacle : MonoBehaviour, IDamageable
 
     public virtual void Damage(float dmgNum, Elem dmgType)
     {
-        
+        ChangeHealth(dmgNum*-1);
+        Debug.Log(dmgNum+" damage taken");
     }
 }
