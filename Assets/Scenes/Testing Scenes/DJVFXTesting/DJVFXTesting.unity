@@ -1034,6 +1034,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1931540578}
+  - {fileID: 9181884723651889209}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1085,6 +1086,7 @@ MonoBehaviour:
   bloodSplatter: {fileID: 4493792519630887279, guid: a3ed0f7ac3d99814db8f26dc591692f1,
     type: 3}
   run: 0
+  testDirection: {x: 0, y: 0, z: 0}
 --- !u!136 &1248202722
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1546,6 +1548,96 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f22aa98342f7124eac1c11e7eae8471, type: 3}
+--- !u!1001 &7404533969771355858
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1248202718}
+    m_Modifications:
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.044999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5925
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10142857
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865196, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: scale
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865196, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: sizeRange
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865196, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: dripInterval
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850605509989865197, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+        type: 3}
+      propertyPath: m_Name
+      value: Mud Spawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4301b9cac1b2b164f8cda33090e3dfdb, type: 3}
+--- !u!4 &9181884723651889209 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1850605509989865195, guid: 4301b9cac1b2b164f8cda33090e3dfdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7404533969771355858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9181884724577885078
 PrefabInstance:
   m_ObjectHideFlags: 0

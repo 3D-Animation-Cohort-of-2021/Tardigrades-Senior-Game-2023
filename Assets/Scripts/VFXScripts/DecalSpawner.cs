@@ -2,16 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class PuddleMaker : DecalBehaviours
+public class DecalSpawner : DecalBehaviours
 {
     public float dripInterval = 0.5f;
     public float scale = 0.5f;
     public float sizeRange = 0.5f;
-    public float spawnRange = 0.5f;
+    
     public Material[] puddleList;
     public DecalProjector projectorPrefab;
 
     private float depth = 0.2f;
+    private float spawnRange = 0.5f;
     
     
 
