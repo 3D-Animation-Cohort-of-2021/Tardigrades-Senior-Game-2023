@@ -2723,10 +2723,11 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
+  _highlightSize: 0.874
   _healVisualEffect: {fileID: 8594644056886927006}
   _statusVisualEffect: {fileID: 7030273919986279141}
-  _fireAccessory: {fileID: 3163506159901124857}
-  _waterAccessory: {fileID: 3163506159901124857}
+  _fireAccessory: {fileID: 0}
+  _waterAccessory: {fileID: 0}
   _earthAccessory: {fileID: 3163506159901124857}
   _burningAsset: {fileID: 8926484042661614526, guid: 8980d6c249475334eaf7b2e96338f5aa,
     type: 3}
@@ -2756,11 +2757,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 10
-  m_Acceleration: 20
+  m_Speed: 7.5
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 0.1
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

@@ -10,7 +10,7 @@ public class SquadBrain : MonoBehaviour
     public SO_SquadData movementVector;
     public GameObject piggyPrefab;
     public int amountPerGroup;
-    private NavMeshAgent navMeshAgent;
+    private NavMeshAgent _navMeshAgent;
     private WaitForFixedUpdate wffu;
     public int brainNumber = -1;
     public Elem squadType;
@@ -30,7 +30,7 @@ public class SquadBrain : MonoBehaviour
 
     private void Awake()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
         formationPositions = new List<CustomTransform>();
     }
 
@@ -38,7 +38,7 @@ public class SquadBrain : MonoBehaviour
     {
         //thisSquadIsActive = false;
 
-        navMeshAgent.speed = 10f;
+        _navMeshAgent.speed = (_navMeshAgent.speed == 0) ? 2.5f : _navMeshAgent.speed;
         Populate(amountPerGroup);
         cam = Camera.main;
     }
@@ -47,12 +47,12 @@ public class SquadBrain : MonoBehaviour
     {
         if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= radius))
         {
-            navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.parent.position - transform.position), radius * 0.95f));
+            _navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.parent.position - transform.position), radius * 0.95f));
         }
 
         if (transform.parent != null && Vector3.Distance(transform.position, transform.parent.position) <= radius)
         {
-            navMeshAgent.ResetPath();
+            _navMeshAgent.ResetPath();
         }
     }
 
@@ -136,7 +136,7 @@ public class SquadBrain : MonoBehaviour
         {
             if (movementVector != null)
             {
-                navMeshAgent.Move(movementVector.vectorThree * Time.deltaTime * 10);
+                _navMeshAgent.Move(movementVector.vectorThree * Time.deltaTime * _navMeshAgent.speed);
 
             }
             yield return wffu;
@@ -189,7 +189,7 @@ public class SquadBrain : MonoBehaviour
 
     public void TeleportSquad(Vector3 dest)
     {
-        navMeshAgent.Warp(dest + Vector3.up * navMeshAgent.baseOffset);
+        _navMeshAgent.Warp(dest + Vector3.up * _navMeshAgent.baseOffset);
     }
 
     private Vector3 RandomPointInRadius(float clusterRadius)

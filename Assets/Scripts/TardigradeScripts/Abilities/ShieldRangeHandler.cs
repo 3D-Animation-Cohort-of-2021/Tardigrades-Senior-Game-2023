@@ -55,7 +55,7 @@ public class ShieldRangeHandler : MonoBehaviour
     public void RemoveObstacle(Obstacle obstacleToRemove)
     {
         _obstacleList.Remove(obstacleToRemove);
-
+        UpdateObstacleList();
     }
     
     public void RemoveTard(TardigradeBase newTard)

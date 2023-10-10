@@ -22,11 +22,16 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
     [SerializeField]protected TardigradeListSO _tardigradeSets;
     [SerializeField] protected Horde_Info hordeInfo;
+
     public GameObject _abilityPrefab;
     private GameObject _iceShardsForDeath;
     private Renderer[] _renderers;
     private Animator[] _animators;
+
     public UnityEvent<Elem, int> deathEvent;
+
+    [Range(0.1f, 2f)]
+    public float _highlightSize;
 
     protected FollowPointBehaviour _followBehavior;
     public VisualEffect _healVisualEffect;
@@ -57,10 +62,13 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        _primary = gameObject.AddComponent<Ability>();
-        _secondary = gameObject.AddComponent<ToggleAbility>();
+        if (_type == Elem.Neutral)
+        {
+            _primary = gameObject.AddComponent<Ability>();
+            _secondary = gameObject.AddComponent<ToggleAbility>();
+        }
 
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
@@ -72,10 +80,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             SetStatus(Status.None);
         }
 
-        if(_type == Elem.Neutral && _earthAccessory != null)
+
+        if (_type == Elem.Neutral && _earthAccessory != null)
         {
             UpdateTardigrade();
         }
+
     }
 
     private void Start()
@@ -209,21 +219,21 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private void UpdateTardigrade()
     {
         TardigradeSetSO tardigradeSetSO = _tardigradeSets.GetMaterialSetByType(_type);
-        Renderer[] renderers = GetComponentsInChildren<Renderer>();
 
-        _fireAccessory.SetActive(_type == Elem.Fire);
-        _waterAccessory.SetActive(_type == Elem.Water);
+        
+        //_fireAccessory.SetActive(_type == Elem.Fire);
+        //_waterAccessory.SetActive(_type == Elem.Water);
         _earthAccessory.SetActive(_type == Elem.Stone);
         
         _primary.cooldown = hordeInfo.GetCD(_type);
         _secondary.cooldown = hordeInfo.GetToggleCD(_type);
 
 
-        for (int i = 0; i < renderers.Length; i++)
+        for (int i = 0; i < _renderers.Length; i++)
         {
-            if (renderers[i].gameObject.name.Contains("base"))
+            if (_renderers[i].gameObject.name.Contains("base"))
             {
-                renderers[i].material = tardigradeSetSO._material;
+                _renderers[i].material = tardigradeSetSO._material;
                 break;
             }
         }
@@ -295,7 +305,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
-        if(IceCoroutine != null) StopCoroutine(IceCoroutine);
+
+        if (IceCoroutine != null)
+        {
+            StopCoroutine(IceCoroutine);
+        }
+
         Destroy(gameObject);
     }
     
@@ -320,20 +335,33 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private IEnumerator ActivateIceShield(float iceDuration, GameObject iceShards)
     {
         _iceShardsForDeath = iceShards;
-        if (_animators[1] != null)
+
+        Animator iceAnimator = null;
+
+        for(int i = 0; i < _animators.Length; i++)
         {
-            if (_animators[1].GetBool("IceShield"))
+            if (_animators[i].runtimeAnimatorController.name == "PiglettController")
+            {
+                iceAnimator = _animators[i];
+                break;
+            }
+        }
+
+
+        if (iceAnimator != null)
+        {
+            if (iceAnimator.GetBool("IceShield"))
             {
                 yield break;
             }
 
-            _animators[1].SetBool("IceShield", true);
+            iceAnimator.SetBool("IceShield", true);
 
             yield return new WaitForSeconds(iceDuration);
 
-            if (_animators[1])
+            if (iceAnimator)
             {
-                _animators[1].SetBool("IceShield", false);
+                iceAnimator.SetBool("IceShield", false);
                 Instantiate(iceShards, transform);
             }
         }
@@ -346,7 +374,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
         if (shouldHighlight)
         {
-            thickness = 0.05f;
+            thickness = 0.1f * _highlightSize;
         }
 
         if (_renderers == null || _renderers.Length == 0)
@@ -359,7 +387,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             Material[] mats = _renderers[i].materials;
             foreach (Material mat in mats)
             {
-                if (mat.name == "HighlightMat (Instance)")
+                if (mat.name.Contains("Highlight"))
                 {
                     mat.SetFloat("_Highlight_Thickness", thickness);
                 }
@@ -427,6 +455,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
         tardigradeBase._health = _health;
         tardigradeBase._maxHealth = _maxHealth;
+        tardigradeBase._highlightSize = _highlightSize;
 
         tardigradeBase._type = element;
         tardigradeBase._tardigradeSets = _tardigradeSets;

@@ -111,7 +111,6 @@ MonoBehaviour:
   activateEvent:
     m_PersistentCalls:
       m_Calls: []
-  abilityCall: {fileID: 11400000, guid: 223643d87d18d404fa094f58036179ae, type: 2}
   myTards: []
   healthBarCanvas: {fileID: 0}
 --- !u!114 &-8681732589859106084
@@ -129,6 +128,7 @@ MonoBehaviour:
   raiseListenObj:
   - {fileID: 11400000, guid: 47a682018b09d19428e23d7c73b62faf, type: 2}
   - {fileID: 11400000, guid: d1eb20ad5a1978e4f8688861928f00f2, type: 2}
+  raiseGaameActionListenObj: []
   onRaiseEvent:
     m_PersistentCalls:
       m_Calls:
@@ -167,9 +167,9 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.05
-  m_Speed: 5
+  m_Speed: 2.5
   m_Acceleration: 20
-  avoidancePriority: 0
+  avoidancePriority: 90
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
