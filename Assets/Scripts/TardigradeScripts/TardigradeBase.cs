@@ -61,10 +61,13 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        _primary = gameObject.AddComponent<Ability>();
-        _secondary = gameObject.AddComponent<ToggleAbility>();
+        if (_type == Elem.Neutral)
+        {
+            _primary = gameObject.AddComponent<Ability>();
+            _secondary = gameObject.AddComponent<ToggleAbility>();
+        }
 
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
@@ -210,7 +213,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private void UpdateTardigrade()
     {
         TardigradeSetSO tardigradeSetSO = _tardigradeSets.GetMaterialSetByType(_type);
-        Renderer[] renderers = GetComponentsInChildren<Renderer>();
 
         
         //_fireAccessory.SetActive(_type == Elem.Fire);
@@ -221,11 +223,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _secondary.cooldown = hordeInfo.GetToggleCD(_type);
 
 
-        for (int i = 0; i < renderers.Length; i++)
+        for (int i = 0; i < _renderers.Length; i++)
         {
-            if (renderers[i].gameObject.name.Contains("base"))
+            if (_renderers[i].gameObject.name.Contains("base"))
             {
-                renderers[i].material = tardigradeSetSO._material;
+                _renderers[i].material = tardigradeSetSO._material;
                 break;
             }
         }
@@ -328,21 +330,32 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         _iceShardsForDeath = iceShards;
 
+        Animator iceAnimator = null;
 
-        if (_animators[1] != null)
+        for(int i = 0; i < _animators.Length; i++)
         {
-            if (_animators[1].GetBool("IceShield"))
+            if (_animators[i].runtimeAnimatorController.name == "PiglettController")
+            {
+                iceAnimator = _animators[i];
+                break;
+            }
+        }
+
+
+        if (iceAnimator != null)
+        {
+            if (iceAnimator.GetBool("IceShield"))
             {
                 yield break;
             }
 
-            _animators[1].SetBool("IceShield", true);
+            iceAnimator.SetBool("IceShield", true);
 
             yield return new WaitForSeconds(iceDuration);
 
-            if (_animators[1])
+            if (iceAnimator)
             {
-                _animators[1].SetBool("IceShield", false);
+                iceAnimator.SetBool("IceShield", false);
                 Instantiate(iceShards, transform);
             }
         }
