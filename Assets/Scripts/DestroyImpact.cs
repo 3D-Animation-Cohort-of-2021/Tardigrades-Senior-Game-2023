@@ -1,16 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DestroyImpact : MonoBehaviour
 {
-    public LayerMask collisionLayer;
+    public LayerMask groundLayer;
+    public LayerMask tardigradesLayer;
+
+    public UnityEvent onGroundCollison;
+    public UnityEvent onTardigradeCollison;
     private void OnCollisionEnter(Collision collision)
     {
-        if ((collisionLayer) != 0)
+        if (groundLayer != 0)
         {
-            // Destroy the object when it collides with the specified layer
-            Destroy(gameObject);
+            onGroundCollison.Invoke();
+            Debug.Log("ground");
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(tardigradesLayer != 0)
+        {
+            Debug.Log("tartigrade");
+            onTardigradeCollison.Invoke();
+        }
+    }
+
+    public void delete()
+    {
+        Destroy(this.gameObject);
     }
 }
