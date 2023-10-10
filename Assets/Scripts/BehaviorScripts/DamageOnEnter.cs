@@ -23,6 +23,7 @@ public class DamageOnEnter : MonoBehaviour
                 {
                     newDmg = 0f;
                 }
+
                 tard.SetStatus((Status)_damageType, _effectDuration);
             }
             otherObj.Damage(newDmg, _damageType);

@@ -99,8 +99,10 @@ MonoBehaviour:
   brain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
   elemType: 0
   thisElemCD: 0
+  thisElemSecondCD: 0
   fillImage: {fileID: 38622731436251014}
   abilityReadyImage: {fileID: 38622730966579423}
+  secondaryGlows: []
 --- !u!114 &38622729769100089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,8 +1019,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 6}
-  m_SizeDelta: {x: 100, y: 95}
+  m_AnchoredPosition: {x: 7, y: 3}
+  m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &38622730966579360
 CanvasRenderer:
@@ -1041,14 +1043,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.63529414, g: 0.6392157, b: 0.63529414, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2de7f347389d5c14bba7ea14957d130e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1094,7 +1096,7 @@ RectTransform:
   m_Children:
   - {fileID: 38622730907109515}
   - {fileID: 7868571894311990013}
-  - {fileID: 8732314665914541600}
+  - {fileID: 8272343619059904872}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1232,6 +1234,10 @@ MonoBehaviour:
   _brain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
   _gameActionElemental: {fileID: 11400000, guid: 9edf9843ad2dcf84790e81f54f467e9c,
     type: 2}
+  normalUI: {fileID: 38622729769100088}
+  fireUi: {fileID: 275203619108510502}
+  stoneUI: {fileID: 1305273710149558663}
+  waterUI: {fileID: 6207295881509660521}
 --- !u!1 &38622731275820508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,74 +2455,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1963417680112501073
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8732314665914541600}
-  - component: {fileID: 2320791314427973497}
-  - component: {fileID: 335789019003954374}
-  m_Layer: 0
-  m_Name: UIEventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8732314665914541600
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963417680112501073}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960, y: -540, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 38622731026976797}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2320791314427973497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963417680112501073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!114 &335789019003954374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963417680112501073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!1 &2227238006174871900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2531,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2438748607298421971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8272343619059904872}
+  m_Layer: 0
+  m_Name: Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8272343619059904872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438748607298421971}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -896.68744, y: -133.3699, z: 4.873327}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 38622731026976797}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3348509875148984934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,6 +2710,7 @@ GameObject:
   - component: {fileID: 6207295881509660521}
   - component: {fileID: 239648419995308270}
   - component: {fileID: 1265339255358106584}
+  - component: {fileID: 1551238196214465248}
   m_Layer: 5
   m_Name: Water Counter
   m_TagString: Untagged
@@ -2793,8 +2763,12 @@ MonoBehaviour:
   brain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
   elemType: 2
   thisElemCD: 0
+  thisElemSecondCD: 0
   fillImage: {fileID: 3352486018074896477}
   abilityReadyImage: {fileID: 1464885721795704352}
+  secondaryGlows:
+  - {fileID: 3194331263599360994}
+  - {fileID: 8055357456484744927}
 --- !u!114 &239648419995308270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2842,6 +2816,34 @@ MonoBehaviour:
       - m_Target: {fileID: 6207295881509660521}
         m_TargetAssemblyTypeName: SquadUIBehavior, Assembly-CSharp
         m_MethodName: StartVisualCD
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1551238196214465248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624653392016130782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad865b83ec0b4793815e272e85671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: b5c677cec5a6aac45b5d902004501a86, type: 2}
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6207295881509660521}
+        m_TargetAssemblyTypeName: SquadUIBehavior, Assembly-CSharp
+        m_MethodName: ToggleSecondary
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3619,7 +3621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.78961587, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.78961587, b: 0, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4646,7 +4648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6396781, b: 0.3915094, a: 1}
+  m_Color: {r: 1, g: 0.6396781, b: 0.3915094, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5948,6 +5950,7 @@ GameObject:
   - component: {fileID: 275203619108510502}
   - component: {fileID: 8440032638666978742}
   - component: {fileID: 3786589387089722710}
+  - component: {fileID: 4592874610464444974}
   m_Layer: 5
   m_Name: Fire Counter
   m_TagString: Untagged
@@ -6000,8 +6003,12 @@ MonoBehaviour:
   brain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
   elemType: 1
   thisElemCD: 0
+  thisElemSecondCD: 0
   fillImage: {fileID: 8861496656335432500}
   abilityReadyImage: {fileID: 1245424014295299670}
+  secondaryGlows:
+  - {fileID: 7596785431691467171}
+  - {fileID: 818942832295687857}
 --- !u!114 &8440032638666978742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6058,6 +6065,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4592874610464444974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191577401980693354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad865b83ec0b4793815e272e85671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: ac201f194ba257b418abf6294c6a5a75, type: 2}
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 275203619108510502}
+        m_TargetAssemblyTypeName: SquadUIBehavior, Assembly-CSharp
+        m_MethodName: ToggleSecondary
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8352735802819870547
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,6 +6105,7 @@ GameObject:
   - component: {fileID: 1305273710149558663}
   - component: {fileID: 1182125047295165751}
   - component: {fileID: 6775625361610700214}
+  - component: {fileID: 8671825493047999075}
   m_Layer: 5
   m_Name: Stone Counter
   m_TagString: Untagged
@@ -6122,8 +6158,12 @@ MonoBehaviour:
   brain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
   elemType: 3
   thisElemCD: 0
+  thisElemSecondCD: 0
   fillImage: {fileID: 6165956863411384291}
   abilityReadyImage: {fileID: 5169463588225283095}
+  secondaryGlows:
+  - {fileID: 868730814606659045}
+  - {fileID: 9213587442809123255}
 --- !u!114 &1182125047295165751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6171,6 +6211,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1305273710149558663}
         m_TargetAssemblyTypeName: SquadUIBehavior, Assembly-CSharp
         m_MethodName: StartVisualCD
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8671825493047999075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352735802819870547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad865b83ec0b4793815e272e85671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: 04f4ca69b5ff8664a8078a523ee3af1d, type: 2}
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1305273710149558663}
+        m_TargetAssemblyTypeName: SquadUIBehavior, Assembly-CSharp
+        m_MethodName: ToggleSecondary
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

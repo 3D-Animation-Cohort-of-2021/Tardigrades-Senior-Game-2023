@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class StoneTardigrade : TardigradeBase
 {
+
     [SerializeField] private GameAction deathCall;
     protected override void ReactToStrong()
    {

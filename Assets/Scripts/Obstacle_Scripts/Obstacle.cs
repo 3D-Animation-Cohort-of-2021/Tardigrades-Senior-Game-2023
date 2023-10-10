@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class Obstacle : MonoBehaviour, IDamageable
 {
     public float _totalHealth, _currentHealth;
-
+    public Elem _obstacleElement;
     public event System.Action<Obstacle> OnDestroy;
 
     public UnityEvent _destroyEvent;
@@ -40,6 +40,7 @@ public class Obstacle : MonoBehaviour, IDamageable
 
     public virtual void Damage(float dmgNum, Elem dmgType)
     {
-        
+        float adjustedDamage = EffectiveTable.CalculateEffectiveDMG(_obstacleElement, dmgType, dmgNum);
+        ChangeHealth(adjustedDamage * -1);
     }
 }

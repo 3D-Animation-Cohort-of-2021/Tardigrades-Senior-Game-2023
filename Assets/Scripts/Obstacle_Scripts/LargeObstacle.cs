@@ -8,7 +8,7 @@ using static Unity.VisualScripting.Dependencies.Sqlite.SQLite3;
 public class LargeObstacle : Obstacle
 {
     private bool _weakened;
-    public Elem _obstacleElement;
+    
 
     public UnityEvent weakenEvent, unWeakenEvent;
     new void Awake()

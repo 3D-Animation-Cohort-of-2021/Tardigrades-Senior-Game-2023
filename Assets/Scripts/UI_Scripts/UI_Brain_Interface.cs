@@ -7,6 +7,7 @@ public class UI_Brain_Interface : MonoBehaviour
 {
     [SerializeField]private Horde_Info _brain;
     public GameActionElemental _gameActionElemental;
+    public SquadUIBehavior normalUI, fireUi, stoneUI, waterUI;
 
     private void Awake()
     {
@@ -23,5 +24,26 @@ public class UI_Brain_Interface : MonoBehaviour
     public void resetHordeToZero()
     {
         _brain.ResetToZero();
+    }
+
+    public void activateAbilityDisplay(Elem type)
+    {
+        switch (type)
+        {
+            case Elem.Neutral:
+                normalUI.StartVisualCD();
+                break;
+            case Elem.Fire:
+                fireUi.StartVisualCD();
+                break;
+            case Elem.Stone:
+                stoneUI.StartVisualCD();
+                break;
+            case Elem.Water:
+                waterUI.StartVisualCD();
+                break;
+            default:
+                return;
+        }
     }
 }
