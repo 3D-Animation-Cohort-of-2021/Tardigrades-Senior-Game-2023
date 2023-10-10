@@ -23,7 +23,10 @@ public class SquishParticleBehaviour : DecalBehaviours
         foreach (ParticleCollisionEvent collision in collisions)
         {
             tempProjector = Instantiate(bloodDropDecal, collision.intersection, transform.rotation);
-            tempProjector.transform.forward = collision.normal;
+            if (collision.normal != Vector3.zero)
+            {
+                tempProjector.transform.forward = collision.normal;
+            }
             RandomRotation(tempProjector);
         }
         

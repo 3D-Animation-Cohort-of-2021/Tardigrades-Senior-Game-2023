@@ -54,7 +54,9 @@ public class SquishVFXBehaviour : DecalBehaviours
         Ray ray = new Ray(randPos, Vector3.down);
         RaycastHit onHit;
         
-        if (Physics.Raycast(ray, out onHit,2f))
+        int layer_mask = LayerMask.GetMask("Terrain", "Default");
+        
+        if (Physics.Raycast(ray, out onHit,2f, layer_mask))
         {
             DecalProjector projectorObject = Instantiate(bloodSplatter);
             projectorObject.transform.position = onHit.point;
