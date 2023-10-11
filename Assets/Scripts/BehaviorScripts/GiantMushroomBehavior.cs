@@ -5,11 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GiantMushroomBehavior : MonoBehaviour
+public class GiantMushroomBehavior : MonoBehaviour, IDamageable
 {
     private float _hitPointsMax, _hitPointsCurrent;
 
-    public UnityEvent destroyEvent, damageEvent;
+    public UnityEvent destroyEvent, damageEvent; 
 
     private Coroutine _invulnerableRoutine;
 
@@ -34,16 +34,16 @@ public class GiantMushroomBehavior : MonoBehaviour
     {
         if (!isVulnerable)
         {
+            damageEvent.Invoke();
             //play invincible effect or animation
-            return;
-        }
-        MakeInvulnerable();
-        //animate
-        //play particles
-        _hitPointsCurrent -= 1;
-        if (_hitPointsCurrent <= 0)
-        {
-            StartCoroutine(DestructionSequence());
+            MakeInvulnerable();
+            //animate
+            //play particles
+            _hitPointsCurrent -= 1;
+            if (_hitPointsCurrent <= 0)
+            {
+                StartCoroutine(DestructionSequence());
+            }
         }
     }
 
@@ -61,7 +61,13 @@ public class GiantMushroomBehavior : MonoBehaviour
 
     private IEnumerator DestructionSequence()
     {
-        yield return new WaitForSeconds(1f);
         // do the stuff when it blows up
+        yield return new WaitForSeconds(1f);
+        destroyEvent.Invoke();
+    }
+
+    public void Damage(float dmgNum, Elem dmgType)
+    {
+        TakeDamage();
     }
 }
