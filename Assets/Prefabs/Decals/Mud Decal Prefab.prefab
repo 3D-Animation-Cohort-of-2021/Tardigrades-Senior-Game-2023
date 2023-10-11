@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1965741224752289660}
   - component: {fileID: 5530790192824399773}
   - component: {fileID: 376142182145870164}
-  m_Layer: 0
-  m_Name: Puddle Decal
+  m_Layer: 14
+  m_Name: Mud Decal Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: c987a79753ff99d44a2d80f29312b0dd, type: 2}
+  m_Material: {fileID: 2100000, guid: e1ab6cedad5ad1d4aba0d90a919f5ca3, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 0.305
   m_StartAngleFade: 180
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}
   m_Size: {x: 3, y: 3, z: 1}
-  m_FadeFactor: 0.5
+  m_FadeFactor: 0.95
 --- !u!114 &5530790192824399773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +69,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6261b4c63370e4dd1905cbc2018711a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 1
+  lifespan: 2
+  isRandom: 1
+  range: 0.2
 --- !u!114 &376142182145870164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,3 +84,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d610a3c59bb3524396d107f3bd913ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDelay: 1
