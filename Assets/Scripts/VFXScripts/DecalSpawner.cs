@@ -2,14 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class PuddleMaker : MonoBehaviour
+public class DecalSpawner : DecalBehaviours
 {
     public float dripInterval = 0.5f;
     public float scale = 0.5f;
     public float sizeRange = 0.5f;
-    public float spawnRange = 0.5f;
+    
     public Material[] puddleList;
     public DecalProjector projectorPrefab;
+
+    private float depth = 0.2f;
+    private float spawnRange = 0.5f;
     
     
 
@@ -43,21 +46,21 @@ public class PuddleMaker : MonoBehaviour
         Ray ray = new Ray(randPos, Vector3.down);
         RaycastHit onHit;
         
-        if (Physics.Raycast(ray, out onHit,2f))
+        int layer_mask = LayerMask.GetMask("Terrain", "Default");
+        
+        if (Physics.Raycast(ray, out onHit,2f, layer_mask))
         {
             DecalProjector projectorObject = Instantiate(projectorPrefab);
             projectorObject.transform.position = onHit.point;
             projectorObject.transform.forward = onHit.normal;
             
-            //Randomly rotates decal
-            float randRot = Random.Range(1, 360);
-            projectorObject.transform.Rotate(Vector3.forward, randRot);
+            RandomRotation(projectorObject);
 
             //Randomly scales object based off of size range
             projectorObject.size *= scale;
             float sizePercent = projectorObject.size.x * sizeRange;
             float randScale = Random.Range(projectorObject.size.x - sizePercent, projectorObject.size.x);
-            projectorObject.size = new Vector3(randScale, randScale, randScale);
+            projectorObject.size = new Vector3(randScale, randScale, depth);
 
             int randIndex = Random.Range(0, puddleList.Length);
             // Creates a new material instance for the Decal Projector.
