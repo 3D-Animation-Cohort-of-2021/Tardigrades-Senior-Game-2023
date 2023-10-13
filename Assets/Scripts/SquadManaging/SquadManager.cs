@@ -399,6 +399,5 @@ public class SquadManager : MonoBehaviour
                 Debug.Log("Child is not a Squad Brain");
         }
     }
-
     
 }
