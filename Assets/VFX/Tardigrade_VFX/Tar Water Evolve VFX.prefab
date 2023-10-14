@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 352904323757110521}
   - component: {fileID: 352904323757110523}
   - component: {fileID: 352904323757110520}
+  - component: {fileID: 5552344764705153460}
   m_Layer: 0
   m_Name: Tar Water Evolve VFX
   m_TagString: Untagged
@@ -51,7 +52,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4813,6 +4814,21 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5552344764705153460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352904323757110518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6261b4c63370e4dd1905cbc2018711a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 3
+  isRandom: 0
+  range: 0
 --- !u!1 &352904323758511062
 GameObject:
   m_ObjectHideFlags: 0
@@ -4864,7 +4880,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9735,7 +9751,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

@@ -179,6 +179,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _primary.cooldown = hordeInfo.GetCD(_type);
         _secondary.cooldown = hordeInfo.GetToggleCD(_type);
 
+        if(tardigradeSetSO._conversionEffect != null)
+        {
+            Instantiate(tardigradeSetSO._conversionEffect, transform.position, transform.rotation);
+        }
+
 
         for (int i = 0; i < _renderers.Length; i++)
         {
