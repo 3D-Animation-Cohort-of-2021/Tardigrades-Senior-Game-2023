@@ -217,7 +217,7 @@ public class SquadBrain : MonoBehaviour
         formationPositions.Add(newTransform);
         myTards.Add(newTard);
         newTard._mySquad = this;
-        newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
+        newTard.GetComponent<FollowPointBehaviour>()._pointObject = newTransform;
         UpdateFormation(formation, true);
     }
     /// <summary>
@@ -230,7 +230,7 @@ public class SquadBrain : MonoBehaviour
         {
             myTards.RemoveAt(index);
             formationPositions.RemoveAt(index);
-            oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
+            oldTard.GetComponent<FollowPointBehaviour>()._pointObject = null;
 
             UpdateFormation(formation, true);
         }

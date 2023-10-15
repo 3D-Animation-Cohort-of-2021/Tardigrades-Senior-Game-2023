@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class FollowPointBehaviour : MonoBehaviour {
-    public CustomTransform pointObject;
+    public CustomTransform _pointObject;
 
     private NavMeshAgent _navMeshAgent;
     private Animator _tarAnimator;
@@ -22,16 +22,16 @@ public class FollowPointBehaviour : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (pointObject != null)
+        if (_pointObject != null)
         {
-            Vector3 destination = pointObject.Position;
+            Vector3 destination = _pointObject.Position;
             
-            if (pointObject.Center !=  null && pointObject.willRotate)
+            if (_pointObject.Center !=  null && _pointObject.willRotate)
             {
                 CalculateAngleFromHordeCenter(out destination);
             }
 
-            _navMeshAgent.destination = destination + pointObject.Parent.position;
+            _navMeshAgent.destination = (destination + _pointObject.Parent.position);
         }
         
         //Walk anim driver
@@ -40,19 +40,19 @@ public class FollowPointBehaviour : MonoBehaviour {
 
     private void CalculateAngleFromHordeCenter(out Vector3 destination)
     {
-        CalculateAngle(out destination, pointObject.Parent.position, pointObject.Center.position);
+        CalculateAngle(out destination, _pointObject.Parent.position, _pointObject.Center.position);
     }
 
     public void CalculateAngleFromSquadCenter(out Vector3 destination)
     {
-        CalculateAngle(out destination, pointObject.Center.position, pointObject.Center.position - pointObject.Position);
+        CalculateAngle(out destination, _pointObject.Center.position, _pointObject.Center.position - _pointObject.Position);
     }
 
     private void CalculateAngle(out Vector3 destination, Vector3 centerPoint, Vector3 directionPoint)
     {
-        destination = pointObject.Position;
+        destination = _pointObject.Position;
 
-        if (pointObject.Center != null)
+        if (_pointObject.Center != null)
         {
             float directionModifier = 1;
 
@@ -67,7 +67,7 @@ public class FollowPointBehaviour : MonoBehaviour {
             Quaternion q = new Quaternion();
 
             q.eulerAngles = new Vector3(0f, Mathf.Rad2Deg * angle, 0f);
-            pointObject.Rotation = q;
+            _pointObject.Rotation = q;
 
             float tempZ = destination.z * Mathf.Cos(angle) - destination.x * Mathf.Sin(angle);
             float tempX = destination.z * Mathf.Sin(angle) + destination.x * Mathf.Cos(angle);
