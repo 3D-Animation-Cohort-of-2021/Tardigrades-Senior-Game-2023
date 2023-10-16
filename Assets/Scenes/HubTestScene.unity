@@ -135,6 +135,11 @@ PrefabInstance:
       propertyPath: squadType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -9008041915360486251, guid: efd5cc798ae454db480a017eb4e4a22d,
+        type: 3}
+      propertyPath: amountPerGroup
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -2031453624998378294, guid: efd5cc798ae454db480a017eb4e4a22d,
         type: 3}
       propertyPath: m_Radius
@@ -4165,6 +4170,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508393733}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1509444594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1509444594, guid: c53f21846782f2b4d9f7df5653908d27,
+    type: 3}
+  m_PrefabInstance: {fileID: 4049278341136790934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1509444597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509444594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4c344698bd30243a65aa527a790060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1555560215
 GameObject:
   m_ObjectHideFlags: 0
@@ -5627,20 +5650,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5038128902184486652, guid: f0a45b3186e5a2e4a8c7bcfe200020ef,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 5038128902184486653, guid: f0a45b3186e5a2e4a8c7bcfe200020ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038128902184486653, guid: f0a45b3186e5a2e4a8c7bcfe200020ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5038128903276594009, guid: f0a45b3186e5a2e4a8c7bcfe200020ef,
         type: 3}
       propertyPath: m_Name
       value: WindTemplate
       objectReference: {fileID: 0}
-    - target: {fileID: 5038128903276594011, guid: f0a45b3186e5a2e4a8c7bcfe200020ef,
-        type: 3}
-      propertyPath: _forceStrength
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5038128903276594012, guid: f0a45b3186e5a2e4a8c7bcfe200020ef,
         type: 3}
       propertyPath: m_RootOrder
       value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038128903276594012, guid: f0a45b3186e5a2e4a8c7bcfe200020ef,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038128903276594012, guid: f0a45b3186e5a2e4a8c7bcfe200020ef,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5038128903276594012, guid: f0a45b3186e5a2e4a8c7bcfe200020ef,
         type: 3}

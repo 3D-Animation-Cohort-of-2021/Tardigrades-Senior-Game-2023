@@ -143,14 +143,19 @@ public class SquadBrain : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void RecieveSquad(Collider other)
+    {
+        SquadClaimTrigger(other);
+    }
+
+    private void SquadClaimTrigger(Collider other)
     {
         if (gameObject.layer != LayerMask.NameToLayer("Squad") && other.gameObject.layer == LayerMask.NameToLayer("Squad"))
         {
             SquadManager parentManager = GetComponentInParent<SquadManager>();
             if (parentManager != null)
             {
-                parentManager.ReceiveSquadFromChild(other);
+                parentManager.ReceiveSquad(other);
             }
         }
     }

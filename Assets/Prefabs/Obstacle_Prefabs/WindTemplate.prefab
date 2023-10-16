@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5038128902458189895}
   - component: {fileID: 5038128902458189894}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Visualizer Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad13f1be547b1242b3a1ea819312ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forceStrength: 0.1
+  _forceStrength: 1
+  _raycastOrigin: {fileID: 5038128902184486653}
 --- !u!65 &5038128903276594010
 BoxCollider:
   m_ObjectHideFlags: 0
