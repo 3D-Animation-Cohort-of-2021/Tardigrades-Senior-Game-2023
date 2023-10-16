@@ -41,7 +41,7 @@ public class SquishVFXBehaviour : DecalBehaviours
             Rigidbody [] bodys = prefab.GetComponentsInChildren<Rigidbody>();
             foreach (Rigidbody body in bodys)
             {
-                body.AddExplosionForce(3f, transform.position, 5f, Random.Range(0,.5f) ,ForceMode.Impulse);
+                body.AddExplosionForce(Random.Range(2f,4f), transform.position, 5f, Random.Range(0,.5f) ,ForceMode.Impulse);
             }
         }
         
