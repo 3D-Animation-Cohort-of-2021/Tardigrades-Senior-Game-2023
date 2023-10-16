@@ -168,6 +168,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(_type, damageType, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMG(_type, damageType);
 
+        if(damageType == Elem.Water && IceCoroutine != null)
+        {
+            return;
+        }
+
         if (modifier == 1.5f)
         {
             ReactToWeak();
@@ -184,6 +189,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
                 finalDmg = 0;
                 _animators[1].SetBool("IceShield", false);
                 Instantiate(_iceShardsForDeath, transform);
+                IceCoroutine = null;
             }
         }
         _health -= finalDmg;

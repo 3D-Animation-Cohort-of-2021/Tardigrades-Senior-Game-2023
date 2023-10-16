@@ -57,8 +57,15 @@ public class ForceApplicator : MonoBehaviour
         RaycastHit hit;
         for (int i = 0; i < _navMeshAgents.Count; i++)
         {
-            if (Physics.Raycast(_raycastOrigin.position, Vector3.MoveTowards(_raycastOrigin.position, _navMeshAgents[i].transform.position, 1f),
-                out hit, Vector3.Distance(transform.position, _navMeshAgents[i].transform.position)))
+            int layerMask = 1 << 11;
+            layerMask = ~layerMask;
+
+            Vector3 start = _raycastOrigin.transform.position;
+            Vector3 end = _navMeshAgents[i].transform.position;
+
+            Debug.DrawRay(start, end - start);
+            if (Physics.Raycast(start, end - start,
+                out hit, Vector3.Distance(end, start) * 2f, layerMask))
             {
                 NavMeshAgent navMeshAgent;
                 if (hit.rigidbody != null && hit.rigidbody.gameObject.TryGetComponent<NavMeshAgent>( out navMeshAgent))
