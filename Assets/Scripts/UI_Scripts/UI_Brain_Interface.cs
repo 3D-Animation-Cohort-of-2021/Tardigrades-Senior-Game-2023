@@ -46,4 +46,24 @@ public class UI_Brain_Interface : MonoBehaviour
                 return;
         }
     }
+    public void activateToggleDisplay(Elem type)
+    {
+        switch (type)
+        {
+            case Elem.Neutral:
+                normalUI.ToggleSecondary();
+                break;
+            case Elem.Fire:
+                fireUi.ToggleSecondary();
+                break;
+            case Elem.Stone:
+                stoneUI.ToggleSecondary();
+                break;
+            case Elem.Water:
+                waterUI.ToggleSecondary();
+                break;
+            default:
+                return;
+        }
+    }
 }
