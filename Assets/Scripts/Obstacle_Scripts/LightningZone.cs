@@ -38,8 +38,8 @@ public class LightningZone : MonoBehaviour
 
         foreach (Collider c in ObjectsInRange)
         {
-            //if (c.GetComponent<TardigradeBase>()) //call method on tardigrade
-                //c.GetComponent<TardigradeBase>().TakeDamage(Elem.Neutral, totalDamage/numT);
+            if (c.GetComponent<TardigradeBase>()) //call method on tardigrade
+                c.GetComponent<TardigradeBase>().Damage(totalDamage/numT, Elem.Neutral);
         }
     }
 
