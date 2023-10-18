@@ -16,7 +16,7 @@ public class DecalSpawner : DecalBehaviours
     
     
 
-    private void Start()
+    private void OnEnable()
     {
         if (dripInterval < 0.1f)
         {
