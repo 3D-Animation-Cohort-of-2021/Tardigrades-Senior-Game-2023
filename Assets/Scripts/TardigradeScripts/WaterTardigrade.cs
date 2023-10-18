@@ -15,8 +15,9 @@ public class WaterTardigrade : TardigradeBase
     private Coroutine _healCoroutine;
 
 
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _shieldableTards = new List<TardigradeBase>();
         _inRangeObstacles = new List<Obstacle>();
     }
