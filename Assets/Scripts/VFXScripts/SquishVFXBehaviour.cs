@@ -9,12 +9,9 @@ public class SquishVFXBehaviour : DecalBehaviours
     public GameObject[] gutsPrefab;
     public ParticleSystem bloodVFX;
     public DecalProjector bloodSplatter;
-    public bool run;
     private int gutsAmount = 3;
     private float projectileHeight = 0.5f;
     private Vector3 defaultDirection = Vector3.up;
-
-    public Vector3 testDirection;
     
     
     private void LaunchGuts(Vector3 direction)
@@ -41,7 +38,7 @@ public class SquishVFXBehaviour : DecalBehaviours
             Rigidbody [] bodys = prefab.GetComponentsInChildren<Rigidbody>();
             foreach (Rigidbody body in bodys)
             {
-                body.AddExplosionForce(3f, transform.position, 5f, Random.Range(0,.5f) ,ForceMode.Impulse);
+                body.AddExplosionForce(Random.Range(2f,4f), transform.position, 5f, Random.Range(0,.5f) ,ForceMode.Impulse);
             }
         }
         
@@ -70,24 +67,19 @@ public class SquishVFXBehaviour : DecalBehaviours
     {
         LaunchGuts(defaultDirection);
         DecalSpawn();
-        ParticleSystem system = Instantiate(bloodVFX, transform.position, transform.rotation);
-        system.transform.forward = defaultDirection;
+        
+        //ParticleSystem system = Instantiate(bloodVFX, transform.position, transform.rotation);
+        bloodVFX.transform.forward = defaultDirection;
+        bloodVFX.Play();
     }
 
     public void Play(Vector3 direction)
     {
         LaunchGuts(direction);
         DecalSpawn();
-        ParticleSystem system = Instantiate(bloodVFX, transform.position, transform.rotation);
-        system.transform.forward = direction;
-    }
-
-    private void Update()
-    {
-        if (run)
-        {
-            Play(testDirection);
-            run = false;
-        }
+        
+        //ParticleSystem system = Instantiate(bloodVFX, transform.position, transform.rotation);
+        bloodVFX.transform.forward = direction;
+        bloodVFX.Play();
     }
 }

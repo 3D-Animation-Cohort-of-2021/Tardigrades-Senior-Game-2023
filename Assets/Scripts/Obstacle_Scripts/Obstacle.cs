@@ -43,4 +43,5 @@ public class Obstacle : MonoBehaviour, IDamageable
         float adjustedDamage = EffectiveTable.CalculateEffectiveDMG(_obstacleElement, dmgType, dmgNum);
         ChangeHealth(adjustedDamage * -1);
     }
+    
 }

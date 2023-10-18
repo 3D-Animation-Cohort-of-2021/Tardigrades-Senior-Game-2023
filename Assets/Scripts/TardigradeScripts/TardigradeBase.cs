@@ -34,8 +34,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public float _highlightSize;
 
     protected FollowPointBehaviour _followBehavior;
+    protected StatusEffectApplicator _statusEffectApplicator;
+
     public VisualEffect _healVisualEffect;
-    public VisualEffect _statusVisualEffect;
 
     protected float _damage = 1;
 
@@ -44,8 +45,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     protected Ability _primary;
     protected ToggleAbility _secondary;
 
-    protected Status _statusEffect;
-
     public Coroutine IceCoroutine;
     public Coroutine StatusRoutine;
     public Coroutine SecondaryRoutine;
@@ -53,10 +52,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public GameObject _fireAccessory;
     public GameObject _waterAccessory;
     public GameObject _earthAccessory;
-
-    public VisualEffectAsset _burningAsset;
-    public VisualEffectAsset _wetAsset;
-    public VisualEffectAsset _muddyAsset;
 
     private WaitForSeconds _loopDelay;
 
@@ -73,9 +68,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
         _animators = GetComponentsInChildren<Animator>();
+        _statusEffectApplicator = GetComponent<StatusEffectApplicator>();
+
 
         _loopDelay = new WaitForSeconds(_secondary.loopDelayTime);
-        if (_statusVisualEffect != null)
+        if (_statusEffectApplicator != null)
         {
             SetStatus(Status.None);
         }
@@ -100,64 +97,18 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// /// <param name="effectTime">time until effect is removed</param>
     public void SetStatus(Status statusEffect, float effectTime = 0)
     {
+        if(_statusEffectApplicator.SetStatus(statusEffect, _secondary, effectTime))
+        {
+            SecondaryAbility();
+        }
         
-        if(_statusEffect != statusEffect && _secondary.activatable && _statusEffect != Status.None)
-        {
-            if (_secondary.ToggleStatus())
-            {
-                SecondaryAbility();
-            }
-        }
-
-        _statusEffect = statusEffect;
-
-        switch (_statusEffect)
-        {
-            case Status.None:
-                _statusVisualEffect.Stop();
-                _statusVisualEffect.visualEffectAsset = null;
-                break;
-            case Status.Wet: 
-                _statusVisualEffect.visualEffectAsset = _wetAsset;
-                break;
-            case Status.Burning:
-                _statusVisualEffect.visualEffectAsset = _burningAsset;
-                break;
-            case Status.Muddy:
-                _statusVisualEffect.visualEffectAsset = _muddyAsset;
-                break;
-        }
-
-        if (_statusEffect != Status.None)
-        {
-            _statusVisualEffect.Play();
-        }
-
-        if (effectTime > 0)
-        {
-            if (StatusRoutine != null)
-            {
-                StopCoroutine(StatusRoutine);
-            }
-
-            StatusRoutine = StartCoroutine(RemoveStatus(effectTime));
-        }
-    }
-
-    /// <summary>
-    /// Purpose: Timer to remove status effect
-    /// </summary>
-    /// /// <param name="effectTime">time until effect is removed</param>
-    private IEnumerator RemoveStatus(float effectTime)
-    {
-        yield return new WaitForSeconds(effectTime);
-        SetStatus(Status.None);
     }
 
     public Status GetStatus()
     {
-        return _statusEffect;
+        return _statusEffectApplicator.GetStatus();
     }
+    
 
     /// <summary>
     ///  Implements the <c>Damage</c> Interface. Finds how much damage should be taken.
@@ -167,6 +118,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(_type, damageType, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMG(_type, damageType);
+
+        if(damageType == Elem.Water && IceCoroutine != null)
+        {
+            return;
+        }
 
         if (modifier == 1.5f)
         {
@@ -184,6 +140,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
                 finalDmg = 0;
                 _animators[1].SetBool("IceShield", false);
                 Instantiate(_iceShardsForDeath, transform);
+                IceCoroutine = null;
             }
         }
         _health -= finalDmg;
@@ -194,7 +151,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             Death();
         }
         
-        print(GetComponent<TardigradeBase>() +" Damage Taken: "+ finalDmg);
+        //print(GetComponent<TardigradeBase>() +" Damage Taken: "+ finalDmg);
     }
     public string GetElementTypeString()
     {
@@ -227,6 +184,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         
         _primary.cooldown = hordeInfo.GetCD(_type);
         _secondary.cooldown = hordeInfo.GetToggleCD(_type);
+
+        if(tardigradeSetSO._conversionEffect != null)
+        {
+            Instantiate(tardigradeSetSO._conversionEffect, transform.position, transform.rotation);
+        }
 
 
         for (int i = 0; i < _renderers.Length; i++)
@@ -465,12 +427,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase._earthAccessory = _earthAccessory;
 
         tardigradeBase.OnDestroy = OnDestroy;
-
-        tardigradeBase._burningAsset = _burningAsset;
-        tardigradeBase._wetAsset = _wetAsset;
-        tardigradeBase._muddyAsset = _muddyAsset;
-
-        tardigradeBase._statusVisualEffect = _statusVisualEffect;
         tardigradeBase._healVisualEffect = _healVisualEffect;
         tardigradeBase._primary = _primary;
         tardigradeBase._secondary = _secondary;
