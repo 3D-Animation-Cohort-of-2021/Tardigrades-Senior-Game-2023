@@ -143,14 +143,19 @@ public class SquadBrain : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void RecieveSquad(Collider other)
+    {
+        SquadClaimTrigger(other);
+    }
+
+    private void SquadClaimTrigger(Collider other)
     {
         if (gameObject.layer != LayerMask.NameToLayer("Squad") && other.gameObject.layer == LayerMask.NameToLayer("Squad"))
         {
             SquadManager parentManager = GetComponentInParent<SquadManager>();
             if (parentManager != null)
             {
-                parentManager.ReceiveSquadFromChild(other);
+                parentManager.ReceiveSquad(other);
             }
         }
     }
@@ -217,7 +222,7 @@ public class SquadBrain : MonoBehaviour
         formationPositions.Add(newTransform);
         myTards.Add(newTard);
         newTard._mySquad = this;
-        newTard.GetComponent<FollowPointBehaviour>().pointObject = newTransform;
+        newTard.GetComponent<FollowPointBehaviour>()._pointObject = newTransform;
         UpdateFormation(formation, true);
     }
     /// <summary>
@@ -230,7 +235,7 @@ public class SquadBrain : MonoBehaviour
         {
             myTards.RemoveAt(index);
             formationPositions.RemoveAt(index);
-            oldTard.GetComponent<FollowPointBehaviour>().pointObject = null;
+            oldTard.GetComponent<FollowPointBehaviour>()._pointObject = null;
 
             UpdateFormation(formation, true);
         }
