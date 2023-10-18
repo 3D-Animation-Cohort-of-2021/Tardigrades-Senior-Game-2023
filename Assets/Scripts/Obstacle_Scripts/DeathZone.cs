@@ -8,9 +8,9 @@ public class DeathZone : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<TardigradeBase>())
+        if (other.TryGetComponent(out TardigradeBase tard))
         {
-            Destroy(other.gameObject);
+            tard.Death();
             Debug.Log("A tardigrade has fallen to it's death");
         }
     }

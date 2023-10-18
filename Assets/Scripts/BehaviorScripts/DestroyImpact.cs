@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,29 +9,44 @@ public class DestroyImpact : MonoBehaviour
 {
     public LayerMask groundLayer;
     public LayerMask tardigradesLayer;
-
+    public float distanceHeightCheck, distanceRadiusDamage;
     public UnityEvent onGroundCollison;
-    public UnityEvent onTardigradeCollison;
-    private void OnCollisionEnter(Collision collision)
+    public GameObject indicatorObjectPrefab;
+    private GameObject indicatorObject;
+    public float damage;
+    public Elem type;
+
+    private void Start()
     {
-        if (groundLayer != 0)
+        Ray ray = new Ray(transform.position, Vector3.down);
+        if (Physics.Raycast(ray, out RaycastHit hit, distanceHeightCheck,groundLayer))
         {
-            onGroundCollison.Invoke();
-            Debug.Log("ground");
+            Debug.Log(hit.collider.gameObject);
+            indicatorObject = Instantiate(indicatorObjectPrefab, hit.point, quaternion.identity);
+        }
+        else
+        {
+            Debug.Log("No Ground Found");
+            Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(tardigradesLayer != 0)
+        Collider[]colsInArea = Physics.OverlapSphere(transform.position, distanceRadiusDamage);
+        foreach (Collider obj in colsInArea)
         {
-            Debug.Log("tartigrade");
-            onTardigradeCollison.Invoke();
+            if(obj.TryGetComponent(out TardigradeBase tard))
+                tard.Damage(damage,type);
         }
+        onGroundCollison.Invoke();
+        Debug.Log("ground");
+        
     }
 
     public void delete()
     {
+        Destroy(indicatorObject);
         Destroy(this.gameObject);
     }
 }

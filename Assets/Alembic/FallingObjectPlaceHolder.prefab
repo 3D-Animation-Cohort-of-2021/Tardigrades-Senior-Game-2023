@@ -133,6 +133,8 @@ MonoBehaviour:
   tardigradesLayer:
     serializedVersion: 2
     m_Bits: 256
+  distanceHeightCheck: 20
+  distanceRadiusDamage: 2
   onGroundCollison:
     m_PersistentCalls:
       m_Calls:
@@ -151,3 +153,7 @@ MonoBehaviour:
   onTardigradeCollison:
     m_PersistentCalls:
       m_Calls: []
+  indicatorObjectPrefab: {fileID: 8940194404333793397, guid: 923a6191fcc6ec140bf3957e20b4c952,
+    type: 3}
+  damage: 10
+  type: 3

@@ -151,7 +151,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             Death();
         }
         
-        print(GetComponent<TardigradeBase>() +" Damage Taken: "+ finalDmg);
+        //print(GetComponent<TardigradeBase>() +" Damage Taken: "+ finalDmg);
     }
     public string GetElementTypeString()
     {
