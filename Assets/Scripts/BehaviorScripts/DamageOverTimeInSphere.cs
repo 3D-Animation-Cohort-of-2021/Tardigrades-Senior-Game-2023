@@ -24,7 +24,6 @@ public class DamageOverTimeInSphere : MonoBehaviour
       sphereCenter = _collider.bounds.center;
       adjustedScale = transform.lossyScale;
       sphereRadius = _collider.radius * Mathf.Max(adjustedScale.x, adjustedScale.y, adjustedScale.z);
-      Debug.Log(sphereRadius);
    }
 
    private void Start()

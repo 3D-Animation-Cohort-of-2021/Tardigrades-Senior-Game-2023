@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public class GiantMushroomBehavior : MonoBehaviour, IDamageable
 {
-    private float _hitPointsMax, _hitPointsCurrent;
+    public float _hitPointsMax, _hitPointsCurrent;
 
     public UnityEvent destroyEvent, damageEvent; 
 
@@ -22,17 +22,18 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     private void Awake()
     {
         _wfs = new WaitForSeconds(invulnerableTime);
+        isVulnerable = true;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _hitPointsCurrent = _hitPointsMax;
     }
 
     public void TakeDamage()
     {
-        if (!isVulnerable)
+        if (isVulnerable)
         {
             damageEvent.Invoke();
             //play invincible effect or animation
@@ -50,6 +51,7 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     private void MakeInvulnerable()
     {
         isVulnerable = false;
+        Debug.Log("Mushroom becomes invulnerable");
         _invulnerableRoutine = StartCoroutine(InvulnerableCooldown());
     }
 
@@ -57,6 +59,7 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     {
         yield return _wfs;
         isVulnerable = true;
+        Debug.Log("Mushroom is vulnerable again");
     }
 
     private IEnumerator DestructionSequence()
@@ -64,6 +67,7 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
         // do the stuff when it blows up
         yield return new WaitForSeconds(1f);
         destroyEvent.Invoke();
+        Debug.Log("Mushroom destroyed");
     }
 
     public void Damage(float dmgNum, Elem dmgType)
