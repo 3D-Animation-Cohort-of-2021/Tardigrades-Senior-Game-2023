@@ -7,10 +7,11 @@ using Cinemachine;
 using Random = UnityEngine.Random;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 //using Random = UnityEngine.Random;
 
-//Made By Parker Bennion
+//Made By Parker Bennion & Marshall Krueger
 public class SquadManager : MonoBehaviour
 {
     public GameObject _squadPrefab;
@@ -48,26 +49,20 @@ public class SquadManager : MonoBehaviour
             AddToTargetGroup(gameObject, _centerRadius);
         }
 
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+
+        foreach (Collider collider in colliders)
+        {
+            if(collider.gameObject == gameObject)
+            {
+                continue;
+            }
+
+        }
+
         StartCoroutine(SetupChildren());
         
-        SetUpCanvas();
-        
         InitializeUI();
-    }
-
-    /// <summary>
-    /// Creates gameobject with canvas for the health bars to be parented to.
-    /// <remarks>Written by DJ</remarks>
-    /// </summary>
-    private void SetUpCanvas()
-    {
-        GameObject emptyGO = new GameObject();
-        emptyGO.name = "HealthBarCanvas";
-        _healthBarCanvas = emptyGO.AddComponent<Canvas>();
-        _healthBarCanvas.renderMode = RenderMode.WorldSpace;
-        emptyGO.AddComponent<CanvasScaler>();
-        emptyGO.AddComponent<GraphicRaycaster>();
-
     }
 
     IEnumerator SetupChildren()
@@ -85,13 +80,14 @@ public class SquadManager : MonoBehaviour
         }
     }
 
-    public void ReceiveSquadFromChild(Collider other)
+    public void ReceiveSquad(Collider other)
     {
-        OnTriggerEnter(other);
+        SquadClaimTrigger(other);
     }
 
     //on tirgger with a squad spawning prefab. add to the squad list and instance a squad.
-    private void OnTriggerEnter(Collider other)
+
+    private void SquadClaimTrigger(Collider other)
     {
         GameObject collidedObject = other.gameObject;
         SquadBrain squadBrain;
