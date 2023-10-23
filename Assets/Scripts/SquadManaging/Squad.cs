@@ -12,6 +12,6 @@ public class Squad
 
     public Elem GetSquadType()
     {
-        return SquadObj.squadType;
+        return SquadObj._squadType;
     }
 }

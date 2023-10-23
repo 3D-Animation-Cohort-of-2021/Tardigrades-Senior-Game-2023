@@ -7,31 +7,45 @@ using Random = UnityEngine.Random;
 
 public class SquadBrain : MonoBehaviour
 {
-    public SO_SquadData movementVector;
-    public GameObject piggyPrefab;
-    public int amountPerGroup;
+    public SO_SquadData _movementVector;
+    public GameObject _piggyPrefab;
+    public int _amountPerGroup;
+
     private NavMeshAgent _navMeshAgent;
-    private WaitForFixedUpdate wffu;
-    public int brainNumber = -1;
-    public Elem squadType;
-    public float radius;
-    public UnityEvent activateEvent;
+    private WaitForFixedUpdate _wffu;
 
-    private Formation formation = Formation.Cluster;
-    private float spacing = 0;
-    private List<CustomTransform> formationPositions;
+    public int _brainNumber = -1;
+    public Elem _squadType;
+    public float _radius;
+    public UnityEvent _activateEvent;
+    protected StatusEffectApplicator _statusEffectApplicator;
 
-    [SerializeField] private List<TardigradeBase> myTards;
+    private Formation _formation = Formation.Cluster;
+    private float _spacing = 0;
+    private List<CustomTransform> _formationPositions;
+
+    protected Ability _primary;
+    protected ToggleAbility _secondary;
+    [SerializeField] protected Horde_Info _hordeInfo;
+
+    [SerializeField] private List<TardigradeBase> _myTards;
 
     private Coroutine activeSquad = null;
 
-    private Camera cam;
-    public Canvas healthBarCanvas;
+    private Camera _cam;
 
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        formationPositions = new List<CustomTransform>();
+        _formationPositions = new List<CustomTransform>();
+
+        _primary = gameObject.AddComponent<Ability>();
+        _secondary = gameObject.AddComponent<ToggleAbility>();
+
+        _primary.cooldown = _hordeInfo.GetCD(_squadType);
+        _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
+
+        _statusEffectApplicator = GetComponent<StatusEffectApplicator>();
     }
 
     void Start()
@@ -39,18 +53,18 @@ public class SquadBrain : MonoBehaviour
         //thisSquadIsActive = false;
 
         _navMeshAgent.speed = (_navMeshAgent.speed == 0) ? 2.5f : _navMeshAgent.speed;
-        Populate(amountPerGroup);
-        cam = Camera.main;
+        Populate(_amountPerGroup);
+        _cam = Camera.main;
     }
 
     private void FixedUpdate()
     {
-        if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= radius))
+        if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= _radius))
         {
-            _navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.parent.position - transform.position), radius * 0.95f));
+            _navMeshAgent.SetDestination(transform.parent.position + Vector3.ClampMagnitude((transform.parent.position - transform.position), _radius * 0.95f));
         }
 
-        if (transform.parent != null && Vector3.Distance(transform.position, transform.parent.position) <= radius)
+        if (transform.parent != null && Vector3.Distance(transform.position, transform.parent.position) <= _radius)
         {
             _navMeshAgent.ResetPath();
         }
@@ -58,16 +72,16 @@ public class SquadBrain : MonoBehaviour
 
     public void WakeUp()
     {
-        brainNumber = SquadManager._squads[SquadManager._squads.Count - 1].SquadID;
+        _brainNumber = SquadManager._squads[SquadManager._squads.Count - 1].SquadID;
 
-        foreach (CustomTransform customTransform in formationPositions)
+        foreach (CustomTransform customTransform in _formationPositions)
         {
             customTransform.Center = transform.parent;
         }
 
-        if (squadType != Elem.Neutral)
+        if (_squadType != Elem.Neutral)
         {
-            movementVector.IncrementSquadTotal();
+            _movementVector.IncrementSquadTotal();
             ActivateSquad();
         }
 
@@ -86,17 +100,17 @@ public class SquadBrain : MonoBehaviour
             activeSquad = null;
         }
 
-        if (movementVector.squadNumber == squadNumber && squadType != Elem.Neutral)
+        if (_movementVector.squadNumber == squadNumber && _squadType != Elem.Neutral)
         {
             activeSquad = StartCoroutine(ActiveSquad());
-            foreach (TardigradeBase tard in myTards)
+            foreach (TardigradeBase tard in _myTards)
             {
                 ChangeHighlight(tard, true);
             }
         }
         else
         {
-            foreach (TardigradeBase tard in myTards)
+            foreach (TardigradeBase tard in _myTards)
             {
                 ChangeHighlight(tard, false);
             }
@@ -110,19 +124,19 @@ public class SquadBrain : MonoBehaviour
             StopCoroutine(activeSquad);
             activeSquad = null;
         }
-        if (movementVector.squadNumber == brainNumber && squadType != Elem.Neutral)
+        if (_movementVector.squadNumber == _brainNumber && _squadType != Elem.Neutral)
         {
             activeSquad = StartCoroutine(ActiveSquad());
 
             //Grabs new selection and Highlights them
-            foreach (TardigradeBase tard in myTards)
+            foreach (TardigradeBase tard in _myTards)
             {
                 ChangeHighlight(tard, true);
             }
         }
         else
         {
-            foreach (TardigradeBase tard in myTards)
+            foreach (TardigradeBase tard in _myTards)
             {
                 ChangeHighlight(tard, false);
             }
@@ -132,14 +146,14 @@ public class SquadBrain : MonoBehaviour
 
     IEnumerator ActiveSquad()
     {
-        while (brainNumber == movementVector.squadNumber)
+        while (_brainNumber == _movementVector.squadNumber)
         {
-            if (movementVector != null)
+            if (_movementVector != null)
             {
-                _navMeshAgent.Move(movementVector.vectorThree * Time.deltaTime * _navMeshAgent.speed);
+                _navMeshAgent.Move(_movementVector.vectorThree * Time.deltaTime * _navMeshAgent.speed);
 
             }
-            yield return wffu;
+            yield return _wffu;
         }
     }
 
@@ -162,20 +176,20 @@ public class SquadBrain : MonoBehaviour
 
     public void Populate(int amountOfTards)
     {
-        if (piggyPrefab != null)
+        if (_piggyPrefab != null)
         {
             for (int i = 0; i < amountOfTards; i++)
             {
 
                 Vector3 newPos = transform.position + RandomPointInRadius(1f);
-                GameObject newPiglet = Instantiate(piggyPrefab, newPos, Quaternion.identity);
+                GameObject newPiglet = Instantiate(_piggyPrefab, newPos, Quaternion.identity);
 
                 TardigradeBase pigBase = newPiglet.GetComponent<TardigradeBase>();
-                TardigradeBase newBase = pigBase.ConvertTardigrade(squadType);
+                TardigradeBase newBase = pigBase.ConvertTardigrade(_squadType);
 
                 if (newBase != null)
                 {
-                    myTards.Remove(pigBase);
+                    _myTards.Remove(pigBase);
             
                     Destroy(pigBase);
 
@@ -219,25 +233,25 @@ public class SquadBrain : MonoBehaviour
             newTransform = new CustomTransform(transform, Vector3.zero, Quaternion.identity, Vector3.one);
         }
 
-        formationPositions.Add(newTransform);
-        myTards.Add(newTard);
+        _formationPositions.Add(newTransform);
+        _myTards.Add(newTard);
         newTard._mySquad = this;
         newTard.GetComponent<FollowPointBehaviour>()._pointObject = newTransform;
-        UpdateFormation(formation, true);
+        UpdateFormation(_formation, true);
     }
     /// <summary>
     /// Removes a tardigrade from this squad
     /// </summary>
     public void RemoveFromSquad(TardigradeBase oldTard)
     {
-        int index = myTards.IndexOf(oldTard);
-        if (index < myTards.Count && index >= 0)
+        int index = _myTards.IndexOf(oldTard);
+        if (index < _myTards.Count && index >= 0)
         {
-            myTards.RemoveAt(index);
-            formationPositions.RemoveAt(index);
+            _myTards.RemoveAt(index);
+            _formationPositions.RemoveAt(index);
             oldTard.GetComponent<FollowPointBehaviour>()._pointObject = null;
 
-            UpdateFormation(formation, true);
+            UpdateFormation(_formation, true);
         }
     }
 
@@ -253,24 +267,46 @@ public class SquadBrain : MonoBehaviour
 
     public void TardsUsePrimaryAbility()
     {
-        //check and track cooldown here
-        foreach (TardigradeBase tard in myTards)
+
+        if (!_primary.activatable)
         {
+            return;
+        }
+
+        //check and track cooldown here
+        foreach (TardigradeBase tard in _myTards)
+        {
+            _primary.Cooldown();
             tard.PrimaryAbility();
         }
     }
     public void TardsUseSecondaryAbility()
     {
-        //check and track cooldown here
-        foreach (TardigradeBase tard in myTards)
+        if (!_secondary.activatable)
         {
-            tard.SecondaryAbility();   
+            return;
+        }
+
+        //check and track cooldown here
+        if (_secondary.ToggleStatus())
+        {
+            foreach (TardigradeBase tard in _myTards)
+            {
+                tard.SecondaryAbility(true);
+            }
+        }
+        else
+        {
+            foreach (TardigradeBase tard in _myTards)
+            {
+                tard.SecondaryAbility(false);
+            }
         }
     }
 
     public List<TardigradeBase> GetTards()
     {
-        return myTards;
+        return _myTards;
     }
 
     public bool IsActive()
@@ -285,22 +321,22 @@ public class SquadBrain : MonoBehaviour
 
     public void UpdateSpacing(float spacingIterator)
     {
-        if(spacing < 3f && spacingIterator > 0)
+        if(_spacing < 3f && spacingIterator > 0)
         {
-            spacing += spacingIterator;
+            _spacing += spacingIterator;
         }
-        else if(spacing > 0 && spacingIterator < 0)
+        else if(_spacing > 0 && spacingIterator < 0)
         {
-            spacing += spacingIterator;
+            _spacing += spacingIterator;
         }
 
-        UpdateFormation(formation, true);
+        UpdateFormation(_formation, true);
     }
 
     public void UpdateFormation(int formationIterator)
     {
-        int currentFormationValue = (int)formation;
-        Formation newFormation = formation;
+        int currentFormationValue = (int)_formation;
+        Formation newFormation = _formation;
         string[] formationStrings = System.Enum.GetNames(typeof(Formation));
 
         if(currentFormationValue == 0 && formationIterator == -1)
@@ -320,16 +356,16 @@ public class SquadBrain : MonoBehaviour
     }
         private void UpdateFormation(Formation newFormation, bool formationOverride)
     {
-        if (!formationOverride && formation == newFormation)
+        if (!formationOverride && _formation == newFormation)
         {
             return;
         }
 
-        formation = newFormation;
+        _formation = newFormation;
 
-        if (myTards != null)
+        if (_myTards != null)
         {
-            switch(formation)
+            switch(_formation)
             {
                 case Formation.Cluster:
                     ClusterFormation();
@@ -349,15 +385,15 @@ public class SquadBrain : MonoBehaviour
 
     private void ClusterFormation()
     {
-        float clusterRadius = Mathf.Log((float)formationPositions.Count, 4);
+        float clusterRadius = Mathf.Log((float)_formationPositions.Count, 4);
         float minSpacing = 1;
-        float fullSpacing = minSpacing + spacing;
+        float fullSpacing = minSpacing + _spacing;
 
-        for (int i = 0; i < formationPositions.Count; i++)
+        for (int i = 0; i < _formationPositions.Count; i++)
         {
 
-            formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing);
-            formationPositions[i].willRotate = false;
+            _formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing);
+            _formationPositions[i].willRotate = false;
         }
     }
 
@@ -365,33 +401,33 @@ public class SquadBrain : MonoBehaviour
     {
         
         float minSpacing = 1;
-        float fullSpacing = minSpacing + spacing;
-        float centeredOffset = (((float)formationPositions.Count - 1) * fullSpacing * 0.5f);
+        float fullSpacing = minSpacing + _spacing;
+        float centeredOffset = (((float)_formationPositions.Count - 1) * fullSpacing * 0.5f);
 
-        for (int i = 0; i < formationPositions.Count; i++)
+        for (int i = 0; i < _formationPositions.Count; i++)
         {
-            formationPositions[i].Position = Vector3.zero;
-            formationPositions[i].Position -= new Vector3(centeredOffset, 0, 0);
-            formationPositions[i].Position += new Vector3((float)i * fullSpacing, 0, 0.5f);
-            formationPositions[i].willRotate = true;
+            _formationPositions[i].Position = Vector3.zero;
+            _formationPositions[i].Position -= new Vector3(centeredOffset, 0, 0);
+            _formationPositions[i].Position += new Vector3((float)i * fullSpacing, 0, 0.5f);
+            _formationPositions[i].willRotate = true;
 
         }
     }
 
     private void CircleFormation()
     {
-        float angleRad = (2 * Mathf.PI) / formationPositions.Count;
+        float angleRad = (2 * Mathf.PI) / _formationPositions.Count;
         float currentAngle = 0;
-        float minSpacing = (float)formationPositions.Count * 0.2f;
-        float fullSpacing = minSpacing + (spacing * 1.5f);
+        float minSpacing = (float)_formationPositions.Count * 0.2f;
+        float fullSpacing = minSpacing + (_spacing * 1.5f);
 
-        for (int i = 0; i < formationPositions.Count; i++)
+        for (int i = 0; i < _formationPositions.Count; i++)
         {
             Vector3 position = new Vector3(Mathf.Cos(currentAngle), 0, Mathf.Sin(currentAngle));
             position *= fullSpacing;
-            formationPositions[i].Position = position;
+            _formationPositions[i].Position = position;
             currentAngle += angleRad;
-            formationPositions[i].willRotate = false;
+            _formationPositions[i].willRotate = false;
         }
     }
 
@@ -399,25 +435,25 @@ public class SquadBrain : MonoBehaviour
     {
         
         float minSpacing = 1;
-        float fullSpacing = minSpacing + spacing;
-        float centeredOffset = ((float)(formationPositions.Count - 1) * fullSpacing * 0.5f);
+        float fullSpacing = minSpacing + _spacing;
+        float centeredOffset = ((float)(_formationPositions.Count - 1) * fullSpacing * 0.5f);
 
-        for (int i = 0; i < formationPositions.Count; i++)
+        for (int i = 0; i < _formationPositions.Count; i++)
         {
             float positionZ = 0f;
-            if(i < formationPositions.Count - 1 - i) 
+            if(i < _formationPositions.Count - 1 - i) 
             { 
                 positionZ = (float)i * fullSpacing;
             }
             else
             {
-                positionZ = (float)(formationPositions.Count - 1 - i) * fullSpacing;
+                positionZ = (float)(_formationPositions.Count - 1 - i) * fullSpacing;
             }
-            formationPositions[i].Position = Vector3.zero;
-            formationPositions[i].Position -= new Vector3(centeredOffset, 0, centeredOffset / 2);
-            formationPositions[i].Position += new Vector3(i * fullSpacing, 0, positionZ);
+            _formationPositions[i].Position = Vector3.zero;
+            _formationPositions[i].Position -= new Vector3(centeredOffset, 0, centeredOffset / 2);
+            _formationPositions[i].Position += new Vector3(i * fullSpacing, 0, positionZ);
 
-            formationPositions[i].willRotate = true;
+            _formationPositions[i].willRotate = true;
         }
     }
 }

@@ -24,10 +24,7 @@ public class WaterTardigrade : TardigradeBase
 
     public override void PrimaryAbility()
     {
-        if (!_primary.activatable)
-        {
-            return;
-        }
+        
 
         base.PrimaryAbility();
 
