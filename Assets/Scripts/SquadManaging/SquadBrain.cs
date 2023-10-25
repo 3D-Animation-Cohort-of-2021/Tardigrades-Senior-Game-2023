@@ -303,6 +303,7 @@ public class SquadBrain : MonoBehaviour
         else
         {
             StopCoroutine(SecondaryLoop());
+            SecondaryAbility = null;
         }
     }
 
