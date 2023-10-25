@@ -34,6 +34,8 @@ public class DamageOverTimeInSphere : MonoBehaviour
    private void IntervalDamage()
    {
       sphereCenter = _collider.bounds.center;
+      adjustedScale = transform.lossyScale;
+      sphereRadius = _collider.radius * Mathf.Max(adjustedScale.x, adjustedScale.y, adjustedScale.z);
       colsInArea = Physics.OverlapSphere(sphereCenter, sphereRadius);
       foreach (Collider obj in colsInArea)
       {
