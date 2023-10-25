@@ -30,6 +30,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
     public UnityEvent<Elem, int> deathEvent;
 
+    private WaitForSeconds _loopDelay;
+
     [Range(0.1f, 2f)]
     public float _highlightSize;
 
