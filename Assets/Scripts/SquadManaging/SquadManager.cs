@@ -21,6 +21,7 @@ public class SquadManager : MonoBehaviour
     public float _squadRadius = 1f;
     public float _centerRadius = 2.5f;
     public GameActionElemental _gameActionElemental;
+    public GameActionElemental _abilityElemental;
 
     private CinemachineTargeting _camTargetScript;
     public GameObject _targetGroup;
@@ -348,6 +349,8 @@ public class SquadManager : MonoBehaviour
             print("Neutrals can't use abilities!");
             return;
         }
+
+        _abilityElemental.RaiseAction(_activeSquad._squadType, 1); // 1 = primary ability
         _activeSquad.TardsUsePrimaryAbility();
     }
     public void SquadUseSecondaryAbility()
@@ -358,6 +361,8 @@ public class SquadManager : MonoBehaviour
             print("Neutrals can't use abilities!");
             return;
         }
+
+        _abilityElemental.RaiseAction(_activeSquad._squadType, 2); // 2 = secondary ability
         _activeSquad.TardsUseSecondaryAbility();
     }
 

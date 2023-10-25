@@ -7,6 +7,7 @@ public class Horde_Info : ScriptableObject
   [SerializeField] private int numFire, numStone, numWater, numNormal;
   public float normalCD, normalToggleCD, fireCD, fireToggleCD, stoneCD, stoneToggleCD, waterCD, waterToggleCD;
   public GameAction callUpdateText;
+  
 
   public void ResetToZero()
   {
@@ -41,7 +42,7 @@ public class Horde_Info : ScriptableObject
     }
   }
 
-  public int GetTypeCount(Elem element)
+    public int GetTypeCount(Elem element)
   {
     switch (element)
     {

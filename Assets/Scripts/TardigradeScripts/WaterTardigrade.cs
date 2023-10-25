@@ -10,9 +10,6 @@ public class WaterTardigrade : TardigradeBase
     private float _healAmount = 2.5f;
     public List<TardigradeBase> _shieldableTards;
     public List<Obstacle> _inRangeObstacles;
-    private WaitForSeconds _loopDelay;
-
-    private Coroutine _healCoroutine;
 
 
     protected override void Awake()

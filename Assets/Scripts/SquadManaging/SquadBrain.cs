@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.Controls;
 using Random = UnityEngine.Random;
 
 public class SquadBrain : MonoBehaviour
@@ -26,6 +27,9 @@ public class SquadBrain : MonoBehaviour
 
     protected Ability _primary;
     protected ToggleAbility _secondary;
+    protected Coroutine SecondaryAbility;
+    private WaitForSeconds _loopDelay;
+
     [SerializeField] protected Horde_Info _hordeInfo;
 
     [SerializeField] private List<TardigradeBase> _myTards;
@@ -44,6 +48,7 @@ public class SquadBrain : MonoBehaviour
 
         _primary.cooldown = _hordeInfo.GetCD(_squadType);
         _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
+        _loopDelay = new WaitForSeconds(1f);
 
         _statusEffectApplicator = GetComponent<StatusEffectApplicator>();
     }
@@ -273,13 +278,15 @@ public class SquadBrain : MonoBehaviour
             return;
         }
 
-        //check and track cooldown here
+
+
         foreach (TardigradeBase tard in _myTards)
         {
             _primary.Cooldown();
             tard.PrimaryAbility();
         }
     }
+
     public void TardsUseSecondaryAbility()
     {
         if (!_secondary.activatable)
@@ -287,21 +294,29 @@ public class SquadBrain : MonoBehaviour
             return;
         }
 
-        //check and track cooldown here
-        if (_secondary.ToggleStatus())
+
+
+        if (_secondary.FlipToggle())
         {
-            foreach (TardigradeBase tard in _myTards)
-            {
-                tard.SecondaryAbility(true);
-            }
+            SecondaryAbility = StartCoroutine(SecondaryLoop());
         }
         else
         {
-            foreach (TardigradeBase tard in _myTards)
-            {
-                tard.SecondaryAbility(false);
-            }
+            StopCoroutine(SecondaryLoop());
         }
+    }
+
+    protected IEnumerator SecondaryLoop()
+    {
+        foreach (TardigradeBase tard in _myTards)
+        {
+            tard.SecondaryAbility();
+        }
+
+        yield return _loopDelay;
+
+        SecondaryAbility = StartCoroutine(SecondaryLoop());
+
     }
 
     public List<TardigradeBase> GetTards()

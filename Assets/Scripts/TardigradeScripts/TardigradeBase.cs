@@ -30,8 +30,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
     public UnityEvent<Elem, int> deathEvent;
 
-    private WaitForSeconds _loopDelay;
-
     [Range(0.1f, 2f)]
     public float _highlightSize;
 
@@ -48,7 +46,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
     public Coroutine IceCoroutine;
     public Coroutine StatusRoutine;
-    public Coroutine SecondaryRoutine;
 
     public GameObject _fireAccessory;
     public GameObject _waterAccessory;
@@ -62,18 +59,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _renderers = GetComponentsInChildren<Renderer>();
         _animators = GetComponentsInChildren<Animator>();
 
-        _loopDelay = new WaitForSeconds(1f);
+        
 
         if (_type == Elem.Neutral && _earthAccessory != null)
         {
+            _health = _maxHealth;
             UpdateTardigrade();
         }
 
-    }
-
-    private void Start()
-    {
-        _health = _maxHealth;
     }
     
 
@@ -186,19 +179,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Is called when ability button is pressed. Should be overloaded in child class to add functionality.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public virtual void SecondaryAbility(bool toggleValue)
-    {
-
-    }
-
-    protected IEnumerator SecondaryLoop()
+    public virtual void SecondaryAbility()
     {
         SecondaryAbilityEffect();
-
-        yield return _loopDelay;
-
-        SecondaryRoutine = StartCoroutine(SecondaryLoop());
-
+        
     }
 
     protected virtual void SecondaryAbilityEffect()
@@ -316,15 +300,25 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Heal(float healthGain)
     {
-        //if (_health < _maxHealth)
+        if (_health < _maxHealth)
+        {
             _health += healthGain;
-            _healVisualEffect.Play();
+
+            if (_healVisualEffect.enabled)
+            {
+                _healVisualEffect.Play();
+            }
+            else
+            {
+                _healVisualEffect.enabled = true;
+            }
+
             if (_health > _maxHealth)
             {
                 _health = _maxHealth;
             }
             collar.UpdateColor(_health,_maxHealth);
-        //}
+        }
     }
 
     /// <summary>
