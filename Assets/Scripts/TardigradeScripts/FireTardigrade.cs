@@ -12,6 +12,8 @@ public class FireTardigrade : TardigradeBase
         {
             return;
         }
+        
+        _tarAnimator.SetTrigger("explode");
 
         base.PrimaryAbility();
         DamageOnEnter explosion = Instantiate(_abilityPrefab, transform.position, Quaternion.identity).GetComponent<DamageOnEnter>();
