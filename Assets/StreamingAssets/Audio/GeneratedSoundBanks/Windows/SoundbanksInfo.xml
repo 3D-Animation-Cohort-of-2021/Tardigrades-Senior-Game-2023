@@ -9,6 +9,32 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{001082B7-DCD8-A55D-4604-CCAC18340772}">
+			<ShortName>General_SB</ShortName>
+			<Path>General_SB.bnk</Path>
+			<Media>
+				<File Id="908863524" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Whistle.wav</ShortName>
+					<CachePath>SFX/UI_Whistle_10C4C929.wem</CachePath>
+				</File>
+				<File Id="990766950" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Pop.wav</ShortName>
+					<CachePath>SFX/UI_Pop_B772AA11.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="3144290703" Name="UI_Pop" DurationType="OneShot" DurationMin="0.10072413" DurationMax="0.10072413">
+					<MediaRefs>
+						<MediaRef Id="990766950"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1577963409" Name="UI_UpWhistle" DurationType="OneShot" DurationMin="1.6197733" DurationMax="1.6197733">
+					<MediaRefs>
+						<MediaRef Id="908863524"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
 		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F52037BB-8670-F240-3E79-CE0DA48055E2}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -154,5 +180,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{91D8A833-6214-9600-5FC0-0B0B4E8649B8}</FileHash>
+	<FileHash>{9F779747-D2B2-5CAA-F41F-B823B3159E9A}</FileHash>
 </SoundBanksInfo>

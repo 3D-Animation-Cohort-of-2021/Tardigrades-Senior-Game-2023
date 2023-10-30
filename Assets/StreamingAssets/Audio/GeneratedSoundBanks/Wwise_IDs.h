@@ -14,11 +14,14 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID GRASSLAND_BG = 1739314252U;
+        static const AkUniqueID UI_POP = 3144290703U;
+        static const AkUniqueID UI_UPWHISTLE = 1577963409U;
     } // namespace EVENTS
 
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID GENERAL_SB = 935286101U;
         static const AkUniqueID TUTORIAL_SB = 2939703473U;
     } // namespace BANKS
 
