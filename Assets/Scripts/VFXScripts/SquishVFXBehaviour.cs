@@ -12,8 +12,17 @@ public class SquishVFXBehaviour : DecalBehaviours
     private int gutsAmount = 3;
     private float projectileHeight = 0.5f;
     private Vector3 defaultDirection = Vector3.up;
-    
-    
+    public bool run;
+
+    private void Update()
+    {
+        if (run)
+        {
+            Play();
+            run = false;
+        }
+    }
+
     private void LaunchGuts(Vector3 direction)
     {
         //gets the direction normalized but we're using our own y so we take it out of the equation;
