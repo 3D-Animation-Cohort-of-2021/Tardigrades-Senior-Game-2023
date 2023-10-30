@@ -28,6 +28,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private Renderer[] _renderers;
     private Animator[] _animators;
 
+    protected Animator _tarAnimator;
+    
+
     public UnityEvent<Elem, int> deathEvent;
 
     [Range(0.1f, 2f)]
@@ -58,6 +61,15 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
         _animators = GetComponentsInChildren<Animator>();
+        _statusEffectApplicator = GetComponent<StatusEffectApplicator>();
+        _tarAnimator = GetComponent<Animator>();
+
+
+        _loopDelay = new WaitForSeconds(_secondary.loopDelayTime);
+        if (_statusEffectApplicator != null)
+        {
+            SetStatus(Status.None);
+        }
 
         
 
@@ -83,6 +95,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             return;
         }
+        
+        _tarAnimator.SetTrigger("flinch");
 
         if (modifier == 1.5f)
         {
@@ -201,6 +215,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         { 
         deathEvent.Invoke(_type, -1);
         }
+        _tarAnimator.SetTrigger("death");
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
 
@@ -339,6 +354,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             return null;
         }
         TardigradeBase tardigradeBase = null;
+        _tarAnimator.SetTrigger("evolve");
         switch (element)
         {
             case Elem.Fire:
