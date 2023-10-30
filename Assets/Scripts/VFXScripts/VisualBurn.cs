@@ -10,7 +10,7 @@ public class VisualBurn : MonoBehaviour
     {
         if (other.TryGetComponent(out TardigradeBase tard))
         {
-            if (tard.GetStatus() == Status.Burning)
+            //if (tard.GetStatus() == Status.Burning)
                 Burn();
         }
     }
