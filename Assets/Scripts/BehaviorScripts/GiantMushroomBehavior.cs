@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 public class GiantMushroomBehavior : MonoBehaviour, IDamageable
 {
@@ -18,6 +19,9 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     private WaitForSeconds _wfs;
 
     public bool isVulnerable;
+
+    public Animator mushroomAnim;
+    public VisualEffect invulnerableEffect;
 
     private void Awake()
     {
@@ -73,5 +77,6 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     public void Damage(float dmgNum, Elem dmgType)
     {
         TakeDamage();
+        mushroomAnim.SetTrigger("TakeHit");
     }
 }
