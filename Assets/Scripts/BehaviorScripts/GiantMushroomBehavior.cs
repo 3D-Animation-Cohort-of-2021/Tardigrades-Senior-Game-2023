@@ -42,8 +42,7 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
             damageEvent.Invoke();
             //play invincible effect or animation
             MakeInvulnerable();
-            //animate
-            //play particles
+            mushroomAnim.SetTrigger("TakeHit");
             _hitPointsCurrent -= 1;
             if (_hitPointsCurrent <= 0)
             {
@@ -55,6 +54,7 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     private void MakeInvulnerable()
     {
         isVulnerable = false;
+        invulnerableEffect.Play();
         Debug.Log("Mushroom becomes invulnerable");
         _invulnerableRoutine = StartCoroutine(InvulnerableCooldown());
     }
@@ -77,6 +77,5 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     public void Damage(float dmgNum, Elem dmgType)
     {
         TakeDamage();
-        mushroomAnim.SetTrigger("TakeHit");
     }
 }
