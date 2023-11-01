@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 public class GiantMushroomBehavior : MonoBehaviour, IDamageable
 {
@@ -18,6 +19,9 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     private WaitForSeconds _wfs;
 
     public bool isVulnerable;
+
+    public Animator mushroomAnim;
+    public VisualEffect invulnerableEffect;
 
     private void Awake()
     {
@@ -38,8 +42,7 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
             damageEvent.Invoke();
             //play invincible effect or animation
             MakeInvulnerable();
-            //animate
-            //play particles
+            mushroomAnim.SetTrigger("TakeHit");
             _hitPointsCurrent -= 1;
             if (_hitPointsCurrent <= 0)
             {
@@ -51,6 +54,7 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     private void MakeInvulnerable()
     {
         isVulnerable = false;
+        invulnerableEffect.Play();
         Debug.Log("Mushroom becomes invulnerable");
         _invulnerableRoutine = StartCoroutine(InvulnerableCooldown());
     }
