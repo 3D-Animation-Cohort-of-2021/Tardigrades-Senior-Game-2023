@@ -34,7 +34,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public float _highlightSize;
 
     protected FollowPointBehaviour _followBehavior;
-    protected StatusEffectApplicator _statusEffectApplicator;
+    
 
     public VisualEffect _healVisualEffect;
 
@@ -42,71 +42,31 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
     public event System.Action<TardigradeBase> OnDestroy;
     
-    protected Ability _primary;
-    protected ToggleAbility _secondary;
+    
 
     public Coroutine IceCoroutine;
     public Coroutine StatusRoutine;
-    public Coroutine SecondaryRoutine;
 
     public GameObject _fireAccessory;
     public GameObject _waterAccessory;
     public GameObject _earthAccessory;
 
-    private WaitForSeconds _loopDelay;
-
 
 
     protected virtual void Awake()
     {
-        if (_type == Elem.Neutral)
-        {
-            _primary = gameObject.AddComponent<Ability>();
-            _secondary = gameObject.AddComponent<ToggleAbility>();
-        }
-
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
         _animators = GetComponentsInChildren<Animator>();
-        _statusEffectApplicator = GetComponent<StatusEffectApplicator>();
 
-
-        _loopDelay = new WaitForSeconds(_secondary.loopDelayTime);
-        if (_statusEffectApplicator != null)
-        {
-            SetStatus(Status.None);
-        }
-
+        
 
         if (_type == Elem.Neutral && _earthAccessory != null)
         {
+            _health = _maxHealth;
             UpdateTardigrade();
         }
 
-    }
-
-    private void Start()
-    {
-        _health = _maxHealth;
-    }
-
-    /// <summary>
-    /// Purpose: Give tardigrade a status effect
-    /// </summary>
-    /// <param name="statusEffect">status effect</param>
-    /// /// <param name="effectTime">time until effect is removed</param>
-    public void SetStatus(Status statusEffect, float effectTime = 0)
-    {
-        if(_statusEffectApplicator.SetStatus(statusEffect, _secondary, effectTime))
-        {
-            SecondaryAbility();
-        }
-        
-    }
-
-    public Status GetStatus()
-    {
-        return _statusEffectApplicator.GetStatus();
     }
     
 
@@ -182,8 +142,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         //_waterAccessory.SetActive(_type == Elem.Water);
         _earthAccessory.SetActive(_type == Elem.Stone);
         
-        _primary.cooldown = hordeInfo.GetCD(_type);
-        _secondary.cooldown = hordeInfo.GetToggleCD(_type);
+        
 
         if(tardigradeSetSO._conversionEffect != null)
         {
@@ -214,7 +173,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void PrimaryAbility()
     {
-        _primary.Cooldown();
+        
     }
     /// <summary>
     ///  Is called when ability button is pressed. Should be overloaded in child class to add functionality.
@@ -222,31 +181,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void SecondaryAbility()
     {
-        if (!_secondary.activatable)
-        {
-            return;
-        }
-
-        if (_secondary.FlipToggle())
-        {
-            SecondaryRoutine = StartCoroutine(SecondaryLoop());
-            SetStatus((Status)((int)_type));
-        }
-        else if (SecondaryRoutine != null)
-        {
-            SetStatus(Status.None);
-            StopCoroutine(SecondaryRoutine);
-        }
-    }
-
-    protected IEnumerator SecondaryLoop()
-    {
         SecondaryAbilityEffect();
-
-        yield return _loopDelay;
-
-        SecondaryRoutine = StartCoroutine(SecondaryLoop());
-
+        
     }
 
     protected virtual void SecondaryAbilityEffect()
@@ -364,15 +300,25 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Heal(float healthGain)
     {
-        //if (_health < _maxHealth)
+        if (_health < _maxHealth)
+        {
             _health += healthGain;
-            _healVisualEffect.Play();
+
+            if (_healVisualEffect.enabled)
+            {
+                _healVisualEffect.Play();
+            }
+            else
+            {
+                _healVisualEffect.enabled = true;
+            }
+
             if (_health > _maxHealth)
             {
                 _health = _maxHealth;
             }
             collar.UpdateColor(_health,_maxHealth);
-        //}
+        }
     }
 
     /// <summary>
@@ -428,8 +374,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
         tardigradeBase.OnDestroy = OnDestroy;
         tardigradeBase._healVisualEffect = _healVisualEffect;
-        tardigradeBase._primary = _primary;
-        tardigradeBase._secondary = _secondary;
         tardigradeBase.hordeInfo = hordeInfo;
         tardigradeBase.collar = collar;
 

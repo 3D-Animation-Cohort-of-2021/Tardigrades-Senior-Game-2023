@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 1509444595}
   - component: {fileID: 1509444596}
   - component: {fileID: 8857068418688486850}
+  - component: {fileID: 1509444597}
   m_Layer: 7
   m_Name: SquadCapture
   m_TagString: Untagged
@@ -123,6 +124,18 @@ SphereCollider:
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8857068418688486850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509444594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4c344698bd30243a65aa527a790060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1509444597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,12 +348,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a17bbedaef6ee4098ffdd2a2133e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _squadPrefab: {fileID: 0}
+  _squadPrefab: {fileID: 35610919964600981, guid: efd5cc798ae454db480a017eb4e4a22d,
+    type: 3}
   _squadIDGiver: 0
   _squadRadius: 1
   _centerRadius: 2.5
   _gameActionElemental: {fileID: 11400000, guid: 9edf9843ad2dcf84790e81f54f467e9c,
     type: 2}
+  _abilityElemental: {fileID: 11400000, guid: 0b772b5c0b9e5e544a5a275c7b7cfa2d, type: 2}
   _targetGroup: {fileID: 0}
 --- !u!195 &4049278343048673070
 NavMeshAgent:
