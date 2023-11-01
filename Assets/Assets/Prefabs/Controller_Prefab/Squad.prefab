@@ -101,18 +101,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7ec4a10e427c94a8e68c22d8eb724e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementVector: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
-  piggyPrefab: {fileID: 6569193638812886307, guid: b313ded538967c447b49460bee8c64b3,
+  _movementVector: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
+  _piggyPrefab: {fileID: 6569193638812886307, guid: b313ded538967c447b49460bee8c64b3,
     type: 3}
-  amountPerGroup: 1
-  brainNumber: -1
-  squadType: 0
-  radius: 10
-  activateEvent:
+  _amountPerGroup: 5
+  _brainNumber: -1
+  _squadType: 0
+  _radius: 5
+  _activateEvent:
     m_PersistentCalls:
       m_Calls: []
-  myTards: []
-  healthBarCanvas: {fileID: 0}
+  _hordeInfo: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
+  _myTards: []
 --- !u!114 &-8681732589859106084
 MonoBehaviour:
   m_ObjectHideFlags: 0
