@@ -15,7 +15,7 @@ public class DestroyImpact : MonoBehaviour
     public GameObject indicatorObjectPrefab;
     private GameObject indicatorObject;
     public VisualEffect splatter;
-    public float damage;
+    public float damage, dropDelay;
     public Elem type;
 
     private void Start()
@@ -25,6 +25,7 @@ public class DestroyImpact : MonoBehaviour
         {
             Debug.Log(hit.collider.gameObject);
             indicatorObject = Instantiate(indicatorObjectPrefab, hit.point, quaternion.identity);
+            StartCoroutine(DropDelay());
         }
         else
         {
@@ -51,5 +52,11 @@ public class DestroyImpact : MonoBehaviour
     {
         Destroy(indicatorObject);
         Destroy(this.gameObject);
+    }
+
+    public IEnumerator DropDelay()
+    {
+        yield return new WaitForSeconds(dropDelay);
+        GetComponent<Rigidbody>().useGravity = true;
     }
 }
