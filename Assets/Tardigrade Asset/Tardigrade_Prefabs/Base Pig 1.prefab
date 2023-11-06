@@ -838,10 +838,10 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903280960663148091}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Asset: {fileID: 8926484042661614526, guid: 90390acea85c7e043be8725a4580abcb, type: 3}
   m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_ResourceVersion: 1
@@ -876,7 +876,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903280960663148091}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2723,18 +2723,11 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
-  _highlightSize: 0.874
+  _highlightSize: 0.3
   _healVisualEffect: {fileID: 8594644056886927006}
-  _statusVisualEffect: {fileID: 7030273919986279141}
   _fireAccessory: {fileID: 0}
   _waterAccessory: {fileID: 0}
   _earthAccessory: {fileID: 3163506159901124857}
-  _burningAsset: {fileID: 8926484042661614526, guid: 8980d6c249475334eaf7b2e96338f5aa,
-    type: 3}
-  _wetAsset: {fileID: 8926484042661614526, guid: a152597287b0a344f8b2a8579e85f345,
-    type: 3}
-  _muddyAsset: {fileID: 8926484042661614526, guid: dca88a699136c8f4f9606b5d82c2053d,
-    type: 3}
 --- !u!114 &6335191518240494144
 MonoBehaviour:
   m_ObjectHideFlags: 0
