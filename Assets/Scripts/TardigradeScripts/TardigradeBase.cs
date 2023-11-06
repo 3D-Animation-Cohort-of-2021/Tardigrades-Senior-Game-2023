@@ -34,7 +34,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public float _highlightSize;
 
     protected FollowPointBehaviour _followBehavior;
-    
+
+    protected Animator _tarAnimator;
 
     public VisualEffect _healVisualEffect;
 
@@ -58,6 +59,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
         _animators = GetComponentsInChildren<Animator>();
+        _tarAnimator = GetComponent<Animator>();
 
         
 
@@ -83,6 +85,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             return;
         }
+        
+       /* _tarAnimator.SetTrigger("flinch");
+        _tarAnimator.ResetTrigger("flinch");*/
+       _tarAnimator.Play("Flinch");
 
         if (modifier == 1.5f)
         {
@@ -201,6 +207,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         { 
         deathEvent.Invoke(_type, -1);
         }
+        
+        _tarAnimator.SetTrigger("death");
+        _tarAnimator.ResetTrigger("death");
+        
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
 
@@ -339,6 +349,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             return null;
         }
         TardigradeBase tardigradeBase = null;
+        
+        _tarAnimator.SetTrigger("evolve");
+        _tarAnimator.ResetTrigger("evolve");
+        _tarAnimator.Play("");
+        
         switch (element)
         {
             case Elem.Fire:

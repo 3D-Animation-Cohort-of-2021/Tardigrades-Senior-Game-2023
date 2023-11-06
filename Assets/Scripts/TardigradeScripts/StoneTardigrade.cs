@@ -33,6 +33,9 @@ public class StoneTardigrade : TardigradeBase
             _followBehavior.CalculateAngleFromSquadCenter(out destination);
         }
 
+        _tarAnimator.SetTrigger("rockWall");
+        _tarAnimator.ResetTrigger("rockWall");
+        
         transform.rotation = _followBehavior._pointObject.Rotation;
         Instantiate(_abilityPrefab, transform.position + transform.forward, stoneRotation);
         transform.rotation = tardRotation;
