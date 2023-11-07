@@ -8,7 +8,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(SphereCollider))]
 public class Pattern_Plate : MonoBehaviour
 {
-    public bool isRunning;
+    public bool isRunning, isCorrect;
     public float checkTickTime;
     private WaitForSeconds wfs;
     public UnityEvent checkEvent, correctPatternEvent, incorrectPatternEvent, finishEvent;
@@ -31,6 +31,7 @@ public class Pattern_Plate : MonoBehaviour
         adjustedScale = transform.lossyScale;
         sphereRadius = _collider.radius * Mathf.Max(adjustedScale.x, adjustedScale.y, adjustedScale.z);
         currentPatternIndex = 0;
+        isCorrect = false;
     }
 
     // Start is called before the first frame update
@@ -55,6 +56,7 @@ public class Pattern_Plate : MonoBehaviour
 
     public void CheckPatterns()
     {
+        isCorrect = true;
         ClearSquadPatterns();
         cols = Physics.OverlapSphere(transform.position, sphereRadius);
         foreach (Collider col in cols)
@@ -70,12 +72,27 @@ public class Pattern_Plate : MonoBehaviour
                 Debug.Log(squadPatterns);
             }
         }
-        if(squadPatterns==firstMatchPattern)
+
+        for (int i = 0; i < 2; i++)
+        {
+            if (squadPatterns[i] != formationList[currentPatternIndex][i])
+            {
+                isCorrect = false;
+            }
+        }
+        if(isCorrect)
         {
             correctPatternEvent.Invoke();
             Debug.Log("FUCK YEA");
-            currentPatternIndex++;
-            //AND if last round, invoke finish event, if not last round, move to next pattern
+            if(currentPatternIndex==2)
+            {
+                finishEvent.Invoke();
+                isRunning = false;
+            }
+            else
+            {
+                currentPatternIndex++;
+            }
         }
         else
         {
@@ -92,5 +109,4 @@ public class Pattern_Plate : MonoBehaviour
             squadPatterns[i] = Formation.Cluster;
         }
     }
-
 }
