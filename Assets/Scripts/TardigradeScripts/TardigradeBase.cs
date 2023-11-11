@@ -70,7 +70,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
 
     }
-    
 
     /// <summary>
     ///  Implements the <c>Damage</c> Interface. Finds how much damage should be taken.
@@ -85,10 +84,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             return;
         }
-        
-       /* _tarAnimator.SetTrigger("flinch");
-        _tarAnimator.ResetTrigger("flinch");*/
-       _tarAnimator.Play("Flinch");
 
         if (modifier == 1.5f)
         {
@@ -132,11 +127,15 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     protected virtual void ReactToWeak()
     {
         //Debug.Log(gameObject + "is weak to that damage");
+        _tarAnimator.SetTrigger("flinch");
+        Debug.Log("damaged");
     }
 
     protected virtual void ReactToStrong()
     {
         //Debug.Log(gameObject + "is resistant to that damage");
+        _tarAnimator.SetTrigger("flinch");
+        Debug.Log("damaged");
     }
     
     private void UpdateTardigrade()
@@ -209,8 +208,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
         
         _tarAnimator.SetTrigger("death");
-        _tarAnimator.ResetTrigger("death");
-        
+
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
 
@@ -349,10 +347,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             return null;
         }
         TardigradeBase tardigradeBase = null;
-        
-        _tarAnimator.SetTrigger("evolve");
-        _tarAnimator.ResetTrigger("evolve");
-        _tarAnimator.Play("");
+
+        //_tarAnimator.SetTrigger("evolve");
         
         switch (element)
         {
@@ -393,7 +389,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase.collar = collar;
 
         tardigradeBase.UpdateTardigrade();
-
 
         return tardigradeBase;
         

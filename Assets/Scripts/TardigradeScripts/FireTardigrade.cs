@@ -13,8 +13,7 @@ public class FireTardigrade : TardigradeBase
         DamageOnEnter explosion = Instantiate(_abilityPrefab, transform.position, Quaternion.identity).GetComponent<DamageOnEnter>();
         explosion._damage = _damage;
         
-        _tarAnimator.SetTrigger("explode");
-        _tarAnimator.ResetTrigger("explode");
+        _tarAnimator.SetTrigger("explode"); ;
     }
     
 }
