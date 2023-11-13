@@ -10,8 +10,8 @@ using UnityEngine.Events;
 public class Pattern_Plate : MonoBehaviour
 {
     public bool isRunning, isCorrect;
-    public float checkTickTime;
-    private WaitForSeconds wfs;
+    public float checkTickTime, checkCooldownTime;
+    private WaitForSeconds wfs, wfc;
     public UnityEvent checkEvent, correctPatternEvent, incorrectPatternEvent, finishEvent;
     private Coroutine currentRoutine;//{fire, water, stone} 
     public Formation[] firstMatchPattern, secondMatchPattern, finalMatchPattern, squadPatterns;
@@ -29,6 +29,7 @@ public class Pattern_Plate : MonoBehaviour
         isRunning = true;
         isChecking = false;
         wfs = new WaitForSeconds(checkTickTime);
+        wfc = new WaitForSeconds(checkCooldownTime);
         _collider = GetComponent<SphereCollider>();
         _collider.isTrigger = true;
         squadPatterns = new Formation[3];
@@ -54,6 +55,7 @@ public class Pattern_Plate : MonoBehaviour
         Debug.Log("Checking patterns");
         checkEvent.Invoke(); //for visuals (light up plate)
         CheckPatterns();
+        yield return wfc;
         isChecking = false;
     }
 
