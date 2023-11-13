@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(Animator))]
 public class Pattern_Plate : MonoBehaviour
 {
     public bool isRunning, isCorrect;
@@ -20,10 +21,13 @@ public class Pattern_Plate : MonoBehaviour
     private float sphereRadius;
     private int currentPatternIndex;
     private SphereCollider _collider;
+    private Animator anim;
+    private bool isChecking;
 
     private void Awake()
     {
         isRunning = true;
+        isChecking = false;
         wfs = new WaitForSeconds(checkTickTime);
         _collider = GetComponent<SphereCollider>();
         _collider.isTrigger = true;
@@ -32,25 +36,25 @@ public class Pattern_Plate : MonoBehaviour
         sphereRadius = _collider.radius * Mathf.Max(adjustedScale.x, adjustedScale.y, adjustedScale.z);
         currentPatternIndex = 0;
         isCorrect = false;
+        anim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         formationList = new Formation[][]{ firstMatchPattern, secondMatchPattern, finalMatchPattern };
-        currentRoutine = StartCoroutine(CheckingRoutine());
     }
 
     // Update is called once per frame
     public IEnumerator CheckingRoutine()
     {
-        while (isRunning)
-        {
-            yield return wfs;
-            Debug.Log("Checking patterns");
-            checkEvent.Invoke(); //for visuals (light up plate)
-            CheckPatterns();
-        }
+        isChecking = true;
+        anim.SetTrigger("StartFill");
+        yield return wfs;
+        Debug.Log("Checking patterns");
+        checkEvent.Invoke(); //for visuals (light up plate)
+        CheckPatterns();
+        isChecking = false;
     }
 
 
@@ -99,7 +103,15 @@ public class Pattern_Plate : MonoBehaviour
             currentPatternIndex = 0;
             incorrectPatternEvent.Invoke();
         }
-        //if not correct, invoke incorrect event and move back to first pattern.
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out SquadManager pc)&&!isChecking)
+        {
+            Debug.Log("Checking...");
+            currentRoutine = StartCoroutine(CheckingRoutine());
+        }
     }
 
     private void ClearSquadPatterns()
