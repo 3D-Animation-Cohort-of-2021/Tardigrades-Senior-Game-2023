@@ -17,6 +17,7 @@ public class SquadUIBehavior : MonoBehaviour
     private Coroutine currentRoutine;
     private int _secondaryState;
     private Color tempColor;
+    private bool PCooldown;
 
 
     private void Awake()
@@ -45,7 +46,7 @@ public class SquadUIBehavior : MonoBehaviour
 
     public void StartVisualCD()
     {
-        if (currentRoutine != null)
+        if (currentRoutine != null&&!PCooldown)
         {
             StopCoroutine(currentRoutine);
         }
@@ -54,6 +55,9 @@ public class SquadUIBehavior : MonoBehaviour
 
     public IEnumerator VisualCoolDown()
     {
+        if (PCooldown)
+            yield break; 
+        PCooldown = true;
         float currentCDTime = 0;
         fillImage.fillAmount = 0;
         SetAbilityReady(false);
@@ -65,6 +69,7 @@ public class SquadUIBehavior : MonoBehaviour
         }
         fillImage.fillAmount = 1;
         SetAbilityReady(true);
+        PCooldown = false;
     }
 
     public IEnumerator SecondaryCooldown()

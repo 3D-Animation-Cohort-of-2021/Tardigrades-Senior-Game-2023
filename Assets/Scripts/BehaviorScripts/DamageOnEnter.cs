@@ -1,32 +1,22 @@
+using System;
 using UnityEngine;
-
+[RequireComponent(typeof(Collider))]
 public class DamageOnEnter : MonoBehaviour
 {
 
     public float _damage;
     public Elem _damageType;
-    public float _effectDuration;
 
-    public LayerMask _mask;
+    private void Awake()
+    {
+        GetComponent<Collider>().isTrigger = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        float newDmg = _damage;
-        if (other.TryGetComponent<IDamageable>(out IDamageable otherObj) /*&& other.gameObject.layer == _mask*/ )
+        if (other.TryGetComponent(out IDamageable otherObj))
         {
-            if(other.TryGetComponent<TardigradeBase>(out TardigradeBase tard))
-            {
-                if (tard.GetElementType() == _damageType)
-                {
-                    newDmg = 0;
-                }
-                else
-                {
-                    newDmg = 0f;
-                }
-
-                //tard.SetStatus((Status)_damageType, _effectDuration);
-            }
-            otherObj.Damage(newDmg, _damageType);
+            otherObj.Damage(_damage, _damageType);
         }
     }
 }
