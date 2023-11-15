@@ -22,6 +22,7 @@ public class ElementalFlameDeposit : MonoBehaviour
         if (other.TryGetComponent(out ElementalFlame flame))
         {
             currentFlames++;
+            Destroy(other.gameObject);
             if(currentFlames>=flameCapacity)
                 fullEvent.Invoke();
             else

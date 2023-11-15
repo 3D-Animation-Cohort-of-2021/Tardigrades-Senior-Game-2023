@@ -12,7 +12,7 @@ public class Pattern_Plate : MonoBehaviour
     public bool isRunning, isCorrect;
     public float checkTickTime, checkCooldownTime;
     private WaitForSeconds wfs, wfc;
-    public UnityEvent checkEvent, correctPatternEvent, incorrectPatternEvent, finishEvent;
+    public UnityEvent checkEvent, correctPatternEvent, correctPatternEvent2, correctPatternEvent3, incorrectPatternEvent, finishEvent;
     private Coroutine currentRoutine;//{fire, water, stone} 
     public Formation[] firstMatchPattern, secondMatchPattern, finalMatchPattern, squadPatterns;
     private Formation[][] formationList;
