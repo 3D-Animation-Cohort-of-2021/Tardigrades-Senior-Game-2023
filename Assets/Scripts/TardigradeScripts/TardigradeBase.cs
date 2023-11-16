@@ -128,14 +128,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         //Debug.Log(gameObject + "is weak to that damage");
         _tarAnimator.SetTrigger("flinch");
-        Debug.Log("damaged");
+        //Debug.Log("damaged");
     }
 
     protected virtual void ReactToStrong()
     {
         //Debug.Log(gameObject + "is resistant to that damage");
         _tarAnimator.SetTrigger("flinch");
-        Debug.Log("damaged");
+        //Debug.Log("damaged");
     }
     
     private void UpdateTardigrade()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class EventBehavior : MonoBehaviour
 {
     public UnityEvent objectEvent;
     public float delay;
-    public bool isDelayed;
+    public bool isDelayed, runOnEnabled;
 
     public void RunEvent()
     {
@@ -19,6 +20,12 @@ public class EventBehavior : MonoBehaviour
         {
             objectEvent.Invoke();
         }
+    }
+
+    private void OnEnable()
+    {
+        if(runOnEnabled)
+            RunEvent();
     }
 
     private IEnumerator Countdown()
