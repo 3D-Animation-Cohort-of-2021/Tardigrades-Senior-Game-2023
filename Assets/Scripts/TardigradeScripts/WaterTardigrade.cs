@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class WaterTardigrade : TardigradeBase
 {
@@ -22,7 +23,7 @@ public class WaterTardigrade : TardigradeBase
     public override void PrimaryAbility()
     {
         
-
+    
         base.PrimaryAbility();
 
         foreach (TardigradeBase tard in _shieldableTards)
@@ -41,6 +42,14 @@ public class WaterTardigrade : TardigradeBase
         }
 
         StartIce(_iceDuration, _abilityPrefab);
+        VisualEffect [] effects = GetComponentsInChildren<VisualEffect>();
+        foreach (VisualEffect effect in effects)
+        {
+            if (effect.visualEffectAsset.name == "ColdSnapVFX")
+            {
+                effect.Play();
+            }
+        }
     }
 
     protected override void SecondaryAbilityEffect()
