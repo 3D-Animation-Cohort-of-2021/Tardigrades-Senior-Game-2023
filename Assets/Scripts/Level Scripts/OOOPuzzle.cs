@@ -74,9 +74,9 @@ public class OOOPuzzle : MonoBehaviour
 
     public void NextRoundSequence(bool reset)
     {
+        StartCoroutine(LoadNextRound());
         if (!reset)
             currentRound++;
-        StartCoroutine(LoadNextRound());
     }
     
 }
