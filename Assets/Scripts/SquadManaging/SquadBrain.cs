@@ -21,7 +21,7 @@ public class SquadBrain : MonoBehaviour
     public UnityEvent _activateEvent;
     protected StatusEffectApplicator _statusEffectApplicator;
 
-    private Formation _formation = Formation.Cluster;
+    public Formation _formation = Formation.Cluster;
     private float _spacing = 0;
     private List<CustomTransform> _formationPositions;
 
@@ -210,7 +210,7 @@ public class SquadBrain : MonoBehaviour
 
 
     }
-
+    
     public void TeleportSquad(Vector3 dest)
     {
         _navMeshAgent.Warp(dest + Vector3.up * _navMeshAgent.baseOffset);

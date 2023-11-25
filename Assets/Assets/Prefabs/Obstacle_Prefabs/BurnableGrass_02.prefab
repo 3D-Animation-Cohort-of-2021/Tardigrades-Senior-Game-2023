@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3766145354393663484}
   - component: {fileID: 3766145354393663427}
   - component: {fileID: 3766145354393663431}
+  - component: {fileID: 2481271234067474519}
   m_Layer: 0
   m_Name: BurnableGrass_02
   m_TagString: Untagged
@@ -231,3 +232,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 475f3a4b70e39904e877477709af6b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  burnEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4068020295407483363, guid: 3addaf6c0b57fc74c8cc9ddef0126fc0,
+          type: 3}
+        m_TargetAssemblyTypeName: EventBehavior, Assembly-CSharp
+        m_MethodName: RunEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2481271234067474519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660816877972815924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36366253597043848a01cb3bc7620069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2760805095522722099, guid: 3addaf6c0b57fc74c8cc9ddef0126fc0,
+          type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 4
+  isDelayed: 1
