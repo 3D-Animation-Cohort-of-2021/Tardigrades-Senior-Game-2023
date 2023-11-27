@@ -23,7 +23,7 @@ public class DamageOverTimeInVolume : MonoBehaviour
       boxHalfExtents = _collider.bounds.extents;
       boxCenter = _collider.bounds.center;
       adjustedScale = transform.lossyScale;
-      boxHalfExtents *= Mathf.Max(adjustedScale.x, adjustedScale.y, adjustedScale.z);
+      Debug.Log(boxHalfExtents);
    }
 
    private void Start()
