@@ -295,15 +295,35 @@ public class SquadBrain : MonoBehaviour
         }
 
 
-
-        if (_secondary.FlipToggle())
+        if (_squadType == Elem.Water)
         {
-            SecondaryAbility = StartCoroutine(SecondaryLoop());
+            if (_secondary.FlipToggle())
+            {
+                SecondaryAbility = StartCoroutine(SecondaryLoop());
+            }
+            else
+            {
+                StopCoroutine(SecondaryLoop());
+                SecondaryAbility = null;
+            }
         }
         else
         {
-            StopCoroutine(SecondaryLoop());
-            SecondaryAbility = null;
+            if (_secondary.FlipToggle())
+            {
+                foreach (TardigradeBase tard in _myTards)
+                {
+                    tard.SecondaryAbility();
+                }
+            }
+            else if(_secondary.ToggleStatus())
+            {
+                _secondary.FlipToggle();
+                foreach (TardigradeBase tard in _myTards)
+                {
+                    tard.SecondaryAbility();
+                }
+            }
         }
     }
 
