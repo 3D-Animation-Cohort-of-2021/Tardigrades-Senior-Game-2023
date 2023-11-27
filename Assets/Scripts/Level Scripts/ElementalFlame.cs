@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(NavMeshAgent))]
@@ -23,7 +24,7 @@ public class ElementalFlame : MonoBehaviour, IDamageable
 
     public Elem flameType;
 
-    public Color[] colors;
+    public VisualEffect thisVfx;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -36,22 +37,6 @@ public class ElementalFlame : MonoBehaviour, IDamageable
         nvmAgent = GetComponent<NavMeshAgent>();
         currentFollowTarget = fallbackFollowTarget;
         isRunning = true;
-        
-        switch (flameType)// set VFX Colors!!!
-        {
-            case Elem.Fire:
-                gameObject.GetComponent<MeshRenderer>().material.color = colors[0];
-                break;
-            case Elem.Water:
-                gameObject.GetComponent<MeshRenderer>().material.color = colors[1];
-                break;
-            case Elem.Stone:
-                gameObject.GetComponent<MeshRenderer>().material.color = colors[2];
-                break;
-            default:
-                gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
-                break;
-        }
     }
 
     private void Start()
