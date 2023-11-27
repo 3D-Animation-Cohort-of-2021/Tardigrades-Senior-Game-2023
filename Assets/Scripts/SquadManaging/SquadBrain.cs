@@ -304,7 +304,7 @@ public class SquadBrain : MonoBehaviour
         }
     }
 
-    public bool GetToggleableStatus()
+    public bool GetToggledStatus()
     {
         return _secondary.ToggleStatus();
     }
