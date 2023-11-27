@@ -393,13 +393,5 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         return tardigradeBase;
         
     }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown("space"))
-        {
-            Damage(1,Elem.Neutral);
-        }
-    }
 }
 
