@@ -19,7 +19,6 @@ public class SquadBrain : MonoBehaviour
     public Elem _squadType;
     public float _radius;
     public UnityEvent _activateEvent;
-    protected StatusEffectApplicator _statusEffectApplicator;
 
     public Formation _formation = Formation.Cluster;
     private float _spacing = 0;
@@ -49,8 +48,6 @@ public class SquadBrain : MonoBehaviour
         _primary.cooldown = _hordeInfo.GetCD(_squadType);
         _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
         _loopDelay = new WaitForSeconds(1f);
-
-        _statusEffectApplicator = GetComponent<StatusEffectApplicator>();
     }
 
     void Start()
@@ -305,6 +302,11 @@ public class SquadBrain : MonoBehaviour
             StopCoroutine(SecondaryLoop());
             SecondaryAbility = null;
         }
+    }
+
+    public bool GetToggleableStatus()
+    {
+        return _secondary.ToggleStatus();
     }
 
     protected IEnumerator SecondaryLoop()

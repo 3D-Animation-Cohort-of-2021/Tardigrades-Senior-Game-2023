@@ -24,16 +24,32 @@ public class ForceApplicator : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         NavMeshAgent selectedNavmeshAgent = other.GetComponentInChildren<NavMeshAgent>();
+        bool pushableNavmesh = false;
 
-        if(selectedNavmeshAgent != null)
+        if (selectedNavmeshAgent != null)
+        {
+            pushableNavmesh = true;
+        }
+
+        if(pushableNavmesh && (!selectedNavmeshAgent.TryGetComponent<StoneTardigrade>(out StoneTardigrade stoneTardigrade) || (stoneTardigrade != null && !stoneTardigrade.diamond))) 
+        {
+            pushableNavmesh = false;
+        }
+        else if (pushableNavmesh && selectedNavmeshAgent.TryGetComponent<SquadBrain>(out SquadBrain squadBrain) && (squadBrain != null && squadBrain._squadType == Elem.Stone && !squadBrain.GetToggleableStatus()))
+        {
+            pushableNavmesh = false;
+        }
+
+        if(pushableNavmesh)
         {
             _navMeshAgents.Add(selectedNavmeshAgent);
+
+            if (pushRoutine == null)
+            {
+                pushRoutine = StartCoroutine(PushCoroutine());
+            }
         }
 
-        if(pushRoutine == null)
-        {
-            pushRoutine = StartCoroutine(PushCoroutine());
-        }
     }
 
     private void OnTriggerExit(Collider other)
