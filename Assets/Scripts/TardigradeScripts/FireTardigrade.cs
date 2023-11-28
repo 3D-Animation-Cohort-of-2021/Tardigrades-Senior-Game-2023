@@ -6,6 +6,8 @@ using UnityEngine;
 public class FireTardigrade : TardigradeBase
 {
 
+    public bool ignited = false;
+
     public override void PrimaryAbility()
     {
 
@@ -15,5 +17,11 @@ public class FireTardigrade : TardigradeBase
         
         _tarAnimator.SetTrigger("explode"); ;
     }
-    
+
+    public override void SecondaryAbility()
+    {
+        base.SecondaryAbility();
+        ignited = !ignited;
+    }
+
 }
