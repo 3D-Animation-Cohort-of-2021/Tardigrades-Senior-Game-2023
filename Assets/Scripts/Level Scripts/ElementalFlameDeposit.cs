@@ -20,8 +20,10 @@ public class ElementalFlameDeposit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ElementalFlame flame))
+        if (other.TryGetComponent(out ElementalFlameCore flameCore))
         {
+            ElementalFlame flame = flameCore.parentFlameObj;
+            Debug.Log("flame acquired");
             flame.ResetToStart();
             if (flame.flameType != currentElem && mustMatchType)
             {
