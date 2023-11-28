@@ -77,6 +77,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Damage(float damageAmount, Elem damageType)
     {
+        Debug.Log("TD");
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(_type, damageType, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMG(_type, damageType);
 
@@ -129,12 +130,13 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     protected virtual void ReactToWeak()
     {
         //Debug.Log(gameObject + "is weak to that damage");
-        //Debug.Log("damaged");
+        _tarAnimator.SetTrigger("flinch");
     }
 
     protected virtual void ReactToStrong()
     {
         //Debug.Log(gameObject + "is resistant to that damage");
+        _tarAnimator.SetTrigger("flinch");
         //Debug.Log("damaged");
     }
     
