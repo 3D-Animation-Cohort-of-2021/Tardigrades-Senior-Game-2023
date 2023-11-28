@@ -77,6 +77,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Damage(float damageAmount, Elem damageType)
     {
+        Debug.Log("TD");
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(_type, damageType, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMG(_type, damageType);
 

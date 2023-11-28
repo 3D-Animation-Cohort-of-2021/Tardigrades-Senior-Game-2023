@@ -6,9 +6,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class ElementalFlameDeposit : MonoBehaviour
 {
-    public UnityEvent depositGrowEvent, fullEvent;
+    public UnityEvent depositGrowEvent, mismatchEvent, fullEvent;
     public Elem currentElem;
     public int flameCapacity, currentFlames;
+    public bool mustMatchType;
     // Start is called before the first frame update
 
     private void Awake()
@@ -21,12 +22,18 @@ public class ElementalFlameDeposit : MonoBehaviour
     {
         if (other.TryGetComponent(out ElementalFlame flame))
         {
+            flame.ResetToStart();
+            if (flame.flameType != currentElem && mustMatchType)
+            {
+                mismatchEvent.Invoke();
+                return;
+            }
             currentFlames++;
-            Destroy(other.gameObject);
             if(currentFlames>=flameCapacity)
                 fullEvent.Invoke();
             else
                 depositGrowEvent.Invoke();
+            
         }
     }
 }
