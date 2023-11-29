@@ -14,10 +14,8 @@ public class ElementalFlameGrabber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Attempting to grab"+other.gameObject);
         if (other.TryGetComponent(out ElementalFlameCore flameCore))
         {
-            Debug.Log("Grabbing Flame");
             flameCore.parentFlameObj.StartFollowing(newTargetObj);
         }
     }
