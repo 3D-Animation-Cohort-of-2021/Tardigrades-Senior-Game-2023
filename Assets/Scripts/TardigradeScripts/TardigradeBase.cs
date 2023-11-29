@@ -77,8 +77,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Damage(float damageAmount, Elem damageType)
     {
+        Debug.Log("TD");
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(_type, damageType, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMG(_type, damageType);
+
+        _tarAnimator.SetTrigger("flinch");
 
         if(damageType == Elem.Water && IceCoroutine != null)
         {
@@ -128,7 +131,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         //Debug.Log(gameObject + "is weak to that damage");
         _tarAnimator.SetTrigger("flinch");
-        //Debug.Log("damaged");
     }
 
     protected virtual void ReactToStrong()
@@ -348,7 +350,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
         TardigradeBase tardigradeBase = null;
 
-        //_tarAnimator.SetTrigger("evolve");
+        _tarAnimator.SetTrigger("evolve");
         
         switch (element)
         {
@@ -393,6 +395,5 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         return tardigradeBase;
         
     }
-    
 }
 

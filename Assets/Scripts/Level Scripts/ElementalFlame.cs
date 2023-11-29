@@ -14,6 +14,7 @@ public class ElementalFlame : MonoBehaviour, IDamageable
     private float sphereRadius;
     private WaitForSeconds wfsd, wfsf;
     public float followTickTime, damageTickTime, damage;
+    public Elem flameType;
     private Collider[] cols;
     public bool isRunning, hasTarget;//has target means it's following a squad
     private NavMeshAgent nvmAgent;
@@ -21,9 +22,8 @@ public class ElementalFlame : MonoBehaviour, IDamageable
     private Coroutine followingTarget, damageRoutine;
     public UnityEvent resetEvent;
 
-    public Elem flameType;
+    
 
-    public Color[] colors;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -36,22 +36,6 @@ public class ElementalFlame : MonoBehaviour, IDamageable
         nvmAgent = GetComponent<NavMeshAgent>();
         currentFollowTarget = fallbackFollowTarget;
         isRunning = true;
-        
-        switch (flameType)// set VFX Colors!!!
-        {
-            case Elem.Fire:
-                gameObject.GetComponent<MeshRenderer>().material.color = colors[0];
-                break;
-            case Elem.Water:
-                gameObject.GetComponent<MeshRenderer>().material.color = colors[1];
-                break;
-            case Elem.Stone:
-                gameObject.GetComponent<MeshRenderer>().material.color = colors[2];
-                break;
-            default:
-                gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
-                break;
-        }
     }
 
     private void Start()
