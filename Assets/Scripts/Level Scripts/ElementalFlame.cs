@@ -68,12 +68,13 @@ public class ElementalFlame : MonoBehaviour, IDamageable
         }
     } public bool isImmune(Elem tardType)
     {
-        return (EffectiveTable.DetermineEffectiveness(tardType, flameType) == Effectiveness.Ineffective);
+        return (EffectiveTable.DetermineEffectiveness(flameType, tardType) == Effectiveness.Ineffective);
     }
 
     public void Damage(float dmgNum, Elem dmgType)
     {
-        if (EffectiveTable.DetermineEffectiveness(flameType, dmgType) == Effectiveness.Reactive)
+        Debug.Log("Flame Damaged");
+        if (EffectiveTable.DetermineEffectiveness(dmgType, flameType) == Effectiveness.Reactive)
             ResetToStart();
     }
 /// <summary>
@@ -104,7 +105,7 @@ public class ElementalFlame : MonoBehaviour, IDamageable
     {
         nvmAgent.enabled = true;
         currentFollowTarget = target;
-        followingTarget ??= StartCoroutine(FollowRoutine());
+        followingTarget = StartCoroutine(FollowRoutine());
         hasTarget = true;
     }
 

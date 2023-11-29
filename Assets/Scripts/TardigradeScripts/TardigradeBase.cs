@@ -77,8 +77,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Damage(float damageAmount, Elem damageType)
     {
-        float finalDmg = EffectiveTable.CalculateEffectiveDMG(_type, damageType, damageAmount);
-        float modifier = EffectiveTable.CalculateEffectiveDMG(_type, damageType);
+        float finalDmg = EffectiveTable.CalculateEffectiveDMG(damageType, _type, damageAmount);
+        float modifier = EffectiveTable.CalculateEffectiveDMGModifier(damageType, _type);
 
         if(damageType == Elem.Water && IceCoroutine != null)
         {
