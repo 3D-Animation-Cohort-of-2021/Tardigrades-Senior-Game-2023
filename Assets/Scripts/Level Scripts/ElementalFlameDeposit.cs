@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.VFX;
+
 [RequireComponent(typeof(Collider))]
 public class ElementalFlameDeposit : MonoBehaviour
 {
     public UnityEvent depositGrowEvent, mismatchEvent, fullEvent;
+    public VisualEffect fullFlame;
     public Elem currentElem;
     public int flameCapacity, currentFlames;
     public bool mustMatchType;
@@ -32,7 +35,11 @@ public class ElementalFlameDeposit : MonoBehaviour
             }
             currentFlames++;
             if(currentFlames>=flameCapacity)
+            {
                 fullEvent.Invoke();
+                if(fullFlame!=null)
+                    fullFlame.Play();
+            }
             else
                 depositGrowEvent.Invoke();
             

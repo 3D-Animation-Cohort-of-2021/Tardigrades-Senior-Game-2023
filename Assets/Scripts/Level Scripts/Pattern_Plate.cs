@@ -90,17 +90,26 @@ public class Pattern_Plate : MonoBehaviour
         {
             correctPatternEvent.Invoke();
             Debug.Log("FUCK YEA");
-            if(currentPatternIndex==2)
+            switch (currentPatternIndex)
             {
-                finishEvent.Invoke();
-                isRunning = false;
-            }
-            else
-            {
-                currentPatternIndex++;
+                case 0:
+                    correctPatternEvent.Invoke();
+                    currentPatternIndex++;
+                    break;
+                case 1:
+                    correctPatternEvent2.Invoke();
+                    currentPatternIndex++;
+                    break;
+                case 2:
+                    correctPatternEvent3.Invoke();
+                    finishEvent.Invoke();
+                    isRunning = false;
+                    break;
+                default:
+                    break;
             }
         }
-        else
+        else//if is not correct
         {
             currentPatternIndex = 0;
             incorrectPatternEvent.Invoke();
