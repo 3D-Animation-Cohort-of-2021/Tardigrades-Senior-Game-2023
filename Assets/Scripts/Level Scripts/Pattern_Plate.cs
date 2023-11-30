@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Animator))]
@@ -13,6 +12,7 @@ public class Pattern_Plate : MonoBehaviour
     public float checkTickTime, checkCooldownTime;
     private WaitForSeconds wfs, wfc;
     public UnityEvent checkEvent, correctPatternEvent, correctPatternEvent2, correctPatternEvent3, incorrectPatternEvent, finishEvent;
+    public VisualEffect correctPulse, incorrectPulse;
     private Coroutine currentRoutine;//{fire, water, stone} 
     public Formation[] firstMatchPattern, secondMatchPattern, finalMatchPattern, squadPatterns;
     private Formation[][] formationList;
@@ -89,6 +89,7 @@ public class Pattern_Plate : MonoBehaviour
         if(isCorrect)
         {
             correctPatternEvent.Invoke();
+            correctPulse.Play();
             Debug.Log("FUCK YEA");
             switch (currentPatternIndex)
             {
@@ -113,6 +114,7 @@ public class Pattern_Plate : MonoBehaviour
         {
             currentPatternIndex = 0;
             incorrectPatternEvent.Invoke();
+            incorrectPulse.Play();
         }
     }
 
