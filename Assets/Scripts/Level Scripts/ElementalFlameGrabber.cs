@@ -16,7 +16,7 @@ public class ElementalFlameGrabber : MonoBehaviour
     {
         if (other.TryGetComponent(out ElementalFlameCore flameCore))
         {
-            flameCore.parentFlameObj.StartFollowing(newTargetObj);
+            flameCore.parentFlameObj.StartLerping(newTargetObj);
         }
     }
 }

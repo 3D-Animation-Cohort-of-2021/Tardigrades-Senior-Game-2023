@@ -19,7 +19,7 @@ public class ElementalFlame : MonoBehaviour, IDamageable
     public bool isRunning, hasTarget;//has target means it's following a squad
     private NavMeshAgent nvmAgent;
     public GameObject currentFollowTarget, fallbackFollowTarget;
-    private Coroutine followingTarget, damageRoutine;
+    private Coroutine followingTarget, lerpingToTarget, damageRoutine;
     public UnityEvent resetEvent;
 
     
@@ -95,6 +95,8 @@ public class ElementalFlame : MonoBehaviour, IDamageable
     {
         if(followingTarget!=null)
             StopCoroutine(followingTarget);
+        if(lerpingToTarget!=null)
+            StopCoroutine(lerpingToTarget);
         currentFollowTarget = fallbackFollowTarget;
         transform.position = fallbackFollowTarget.transform.position;
         nvmAgent.enabled = false;
@@ -115,6 +117,29 @@ public class ElementalFlame : MonoBehaviour, IDamageable
         {
             if(!hasTarget)
                 StartFollowing(brain.gameObject);
+        }
+    }
+
+    public void StartLerping(GameObject obj)
+    {
+        lerpingToTarget = StartCoroutine(LerpToTarget(obj));
+    }
+
+    private IEnumerator LerpToTarget(GameObject newTarget)
+    {
+        if(followingTarget!=null)
+            StopCoroutine(followingTarget);
+        WaitForEndOfFrame wff = new WaitForEndOfFrame();
+        Vector3 startLocation = gameObject.transform.position;
+        Vector3 destination = newTarget.transform.position;
+        nvmAgent.enabled = false;
+        currentFollowTarget = newTarget;
+        float elapsedTime = 0;
+        while (elapsedTime < 2)
+        {
+            gameObject.transform.position = Vector3.Lerp(startLocation, destination, elapsedTime / 2);
+            elapsedTime += Time.deltaTime;
+            yield return wff;
         }
     }
 }
