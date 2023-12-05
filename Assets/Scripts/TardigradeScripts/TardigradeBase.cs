@@ -34,7 +34,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public float _highlightSize;
 
     protected FollowPointBehaviour _followBehavior;
-    
+
+    protected Animator _tarAnimator;
 
     public VisualEffect _healVisualEffect;
 
@@ -58,6 +59,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _followBehavior = GetComponent<FollowPointBehaviour>();
         _renderers = GetComponentsInChildren<Renderer>();
         _animators = GetComponentsInChildren<Animator>();
+        _tarAnimator = GetComponent<Animator>();
 
         
 
@@ -68,7 +70,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
 
     }
-    
 
     /// <summary>
     ///  Implements the <c>Damage</c> Interface. Finds how much damage should be taken.
@@ -76,8 +77,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Damage(float damageAmount, Elem damageType)
     {
+        Debug.Log("TD");
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(_type, damageType, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMG(_type, damageType);
+
+        _tarAnimator.SetTrigger("flinch");
 
         if(damageType == Elem.Water && IceCoroutine != null)
         {
@@ -126,11 +130,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     protected virtual void ReactToWeak()
     {
         //Debug.Log(gameObject + "is weak to that damage");
+        _tarAnimator.SetTrigger("flinch");
     }
 
     protected virtual void ReactToStrong()
     {
         //Debug.Log(gameObject + "is resistant to that damage");
+        _tarAnimator.SetTrigger("flinch");
+        //Debug.Log("damaged");
     }
     
     private void UpdateTardigrade()
@@ -201,6 +208,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         { 
         deathEvent.Invoke(_type, -1);
         }
+        
+        _tarAnimator.SetTrigger("death");
+
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
 
@@ -339,6 +349,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             return null;
         }
         TardigradeBase tardigradeBase = null;
+
+        _tarAnimator.SetTrigger("evolve");
+        
         switch (element)
         {
             case Elem.Fire:
@@ -379,10 +392,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
         tardigradeBase.UpdateTardigrade();
 
-
         return tardigradeBase;
         
     }
-    
 }
 

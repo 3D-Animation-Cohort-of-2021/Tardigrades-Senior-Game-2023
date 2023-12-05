@@ -8,6 +8,7 @@ public class StoneTardigrade : TardigradeBase
 {
 
     [SerializeField] private GameAction deathCall;
+    public bool diamond = false;
     protected override void ReactToStrong()
    {
       base.ReactToStrong();
@@ -33,9 +34,17 @@ public class StoneTardigrade : TardigradeBase
             _followBehavior.CalculateAngleFromSquadCenter(out destination);
         }
 
+        _tarAnimator.SetTrigger("rockWall");
+
         transform.rotation = _followBehavior._pointObject.Rotation;
         Instantiate(_abilityPrefab, transform.position + transform.forward, stoneRotation);
         transform.rotation = tardRotation;
    }
-   
+
+    public override void SecondaryAbility()
+    {
+        base.SecondaryAbility();
+        diamond = !diamond;
+    }
+
 }

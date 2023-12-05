@@ -39,9 +39,9 @@ public class EffectiveTable
     {
         //                   neu   fir   wat   sto
         /*Neu*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Effective, Effectiveness.Effective, Effectiveness.Effective},
-        /*Fir*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Reactive, Effectiveness.Effective, Effectiveness.Ineffective},
-        /*Wat*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Ineffective, Effectiveness.Reactive, Effectiveness.Effective},
-        /*Sto*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Effective, Effectiveness.Ineffective, Effectiveness.Reactive},
+        /*Fir*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Effective, Effectiveness.Reactive, Effectiveness.Ineffective},
+        /*Wat*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Ineffective, Effectiveness.Effective, Effectiveness.Reactive},
+        /*Sto*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Reactive, Effectiveness.Ineffective, Effectiveness.Effective},
     };
 
     /// <summary>

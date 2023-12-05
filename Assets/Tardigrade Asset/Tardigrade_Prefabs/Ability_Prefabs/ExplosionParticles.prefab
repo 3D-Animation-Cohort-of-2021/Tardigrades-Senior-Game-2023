@@ -10003,6 +10003,7 @@ GameObject:
   - component: {fileID: 969197363}
   - component: {fileID: 2821641031228909805}
   - component: {fileID: -556783967488452845}
+  - component: {fileID: -8756507324819260870}
   m_Layer: 0
   m_Name: ExplosionParticles
   m_TagString: Untagged
@@ -14911,10 +14912,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _damageType: 1
-  _effectDuration: 3
-  _mask:
-    serializedVersion: 2
-    m_Bits: 2147483647
 --- !u!54 &-556783967488452845
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14931,3 +14928,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-8756507324819260870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801692649742608567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36366253597043848a01cb3bc7620069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 969197363}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 1
+  isDelayed: 1
+  runOnEnabled: 1
