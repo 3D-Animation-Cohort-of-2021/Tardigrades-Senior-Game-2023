@@ -46,7 +46,7 @@ public class SquadUIBehavior : MonoBehaviour
 
     public void StartVisualCD()
     {
-        if (currentRoutine != null&&!PCooldown)
+        if (currentRoutine != null && !PCooldown)
         {
             StopCoroutine(currentRoutine);
         }
