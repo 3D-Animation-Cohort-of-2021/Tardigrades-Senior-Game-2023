@@ -19,7 +19,6 @@ public class SquadBrain : MonoBehaviour
     public Elem _squadType;
     public float _radius;
     public UnityEvent _activateEvent;
-    protected StatusEffectApplicator _statusEffectApplicator;
 
     public Formation _formation = Formation.Cluster;
     private float _spacing = 0;
@@ -49,8 +48,6 @@ public class SquadBrain : MonoBehaviour
         _primary.cooldown = _hordeInfo.GetCD(_squadType);
         _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
         _loopDelay = new WaitForSeconds(1f);
-
-        _statusEffectApplicator = GetComponent<StatusEffectApplicator>();
     }
 
     void Start()
@@ -295,16 +292,41 @@ public class SquadBrain : MonoBehaviour
         }
 
 
-
-        if (_secondary.FlipToggle())
+        if (_squadType == Elem.Water)
         {
-            SecondaryAbility = StartCoroutine(SecondaryLoop());
+            if (_secondary.FlipToggle())
+            {
+                SecondaryAbility = StartCoroutine(SecondaryLoop());
+            }
+            else
+            {
+                StopCoroutine(SecondaryLoop());
+                SecondaryAbility = null;
+            }
         }
         else
         {
-            StopCoroutine(SecondaryLoop());
-            SecondaryAbility = null;
+            if (_secondary.FlipToggle())
+            {
+                foreach (TardigradeBase tard in _myTards)
+                {
+                    tard.SecondaryAbility();
+                }
+            }
+            else if(_secondary.ToggleStatus())
+            {
+                _secondary.FlipToggle();
+                foreach (TardigradeBase tard in _myTards)
+                {
+                    tard.SecondaryAbility();
+                }
+            }
         }
+    }
+
+    public bool GetToggledStatus()
+    {
+        return _secondary.ToggleStatus();
     }
 
     protected IEnumerator SecondaryLoop()
