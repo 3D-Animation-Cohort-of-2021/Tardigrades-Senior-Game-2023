@@ -30,18 +30,18 @@ public class EffectiveTable
     {
         //                   neu   fir   wat   sto
         /*Neu*/ new float[] {1.0f, 1.5f, 1.5f, 1.5f},
-        /*Fir*/ new float[] {1.0f, 1.0f, 1.5f, 0.5f},
-        /*Wat*/ new float[] {1.0f, 0.5f, 1.0f, 1.5f},
-        /*Sto*/ new float[] {1.0f, 1.5f, 0.5f, 1.0f},
+        /*Fir*/ new float[] {1.0f, 1.0f, 0.5f, 1.5f},
+        /*Wat*/ new float[] {1.0f, 1.5f, 1.0f, 0.5f},
+        /*Sto*/ new float[] {1.0f, 0.5f, 1.5f, 1.0f},
     };
 
     private static Effectiveness[][] _effectivenessTable =
     {
-        //                   neu   fir   wat   sto
+        // /*Attacker*/, Reciever    neu                  fir                      wat                      sto
         /*Neu*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Effective, Effectiveness.Effective, Effectiveness.Effective},
-        /*Fir*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Effective, Effectiveness.Reactive, Effectiveness.Ineffective},
-        /*Wat*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Ineffective, Effectiveness.Effective, Effectiveness.Reactive},
-        /*Sto*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Reactive, Effectiveness.Ineffective, Effectiveness.Effective},
+        /*Fir*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Effective, Effectiveness.Ineffective, Effectiveness.Reactive},
+        /*Wat*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Reactive, Effectiveness.Effective, Effectiveness.Ineffective},
+        /*Sto*/ new Effectiveness[] {Effectiveness.None, Effectiveness.Ineffective, Effectiveness.Reactive, Effectiveness.Effective},
     };
 
     /// <summary>
@@ -50,10 +50,10 @@ public class EffectiveTable
     /// <param name="type">an enum Elem</param>
     /// <param name="dmgType">an enum Elem</param>
     /// <returns>enum of whether element is weak to the specified element</returns>
-    public static Effectiveness DetermineEffectiveness(Elem type, Elem dmgType)
+    public static Effectiveness DetermineEffectiveness(Elem attacker, Elem reciever)
     {
-        int row = (int)type;
-        int col = (int)dmgType;
+        int row = (int)attacker;
+        int col = (int)reciever;
 
         return _effectivenessTable[row][col];
     }
@@ -62,10 +62,10 @@ public class EffectiveTable
     /// Purpose: Calculates the effectiveness modifier
     /// </summary>
     /// /// <returns> The modifier for type taking damage from dmgType</returns>
-    public static float CalculateEffectiveDMG(Elem type, Elem dmgType)
+    public static float CalculateEffectiveDMGModifier(Elem attackType, Elem recieveType)
     {
-        int row = (int)type;
-        int col = (int)dmgType;
+        int row = (int)attackType;
+        int col = (int)recieveType;
 
         return _damageMultiplierTable[row][col];
     }
@@ -74,9 +74,9 @@ public class EffectiveTable
     /// Purpose: Calculates the damage taken based on type effectiveness
     /// </summary>
     /// /// <returns>The calculated damage</returns>
-    public static float CalculateEffectiveDMG(Elem type, Elem dmgType, float dmgNum)
+    public static float CalculateEffectiveDMG(Elem attackType, Elem recieveType, float dmgNum)
     {
-        float modifier = CalculateEffectiveDMG(type, dmgType);
+        float modifier = CalculateEffectiveDMGModifier(attackType, recieveType);
 
         return modifier * dmgNum;
     }

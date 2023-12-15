@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -17,12 +18,14 @@ public class HordeMovement : MonoBehaviour
     private Coroutine offMeshPathInstance = null;
     private Camera _cam;
     private Vector3 _leftStickMovement, _triggerRotation;
+    public bool controlsEnabled;
 
 
 
 
     private void Awake()
     {
+        controlsEnabled = true;
         _hordeAgent = GetComponent<NavMeshAgent>();
         _hordeAgent.speed = 0;
         _cam = Camera.main;
@@ -32,6 +35,8 @@ public class HordeMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if(!controlsEnabled)
+            return;
         Vector3 moveVector = _leftStickMovement;
 
         //MoveHoard
@@ -119,6 +124,19 @@ public class HordeMovement : MonoBehaviour
             _triggerRotation.y = 0;
         }
     }
+/// <summary>
+/// Enable the player's controls after <timeToDelay> seconds
+/// </summary>
+/// <param name="timeToDelay"></delay time before controls are activated>
+    public void EnableControlsAfterDelay(float timeToDelay)
+    {
+        StartCoroutine(SetEnableControls(timeToDelay, true));
+    }
+
+    public void DisableControls(float timeToDelay)
+    {
+        StartCoroutine(SetEnableControls(timeToDelay, false));
+    }
 
 
     IEnumerator TraverseOffMeshLink()
@@ -164,5 +182,11 @@ public class HordeMovement : MonoBehaviour
             normalizedTime += Time.deltaTime / duration;
             yield return null;
         }
+    }
+
+    IEnumerator SetEnableControls(float timeToEnable, bool state)
+    {
+        yield return new WaitForSeconds(timeToEnable);
+        controlsEnabled = state;
     }
 }
