@@ -5,7 +5,6 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.Controls;
 using Random = UnityEngine.Random;
-
 public class SquadBrain : MonoBehaviour
 {
     public SO_SquadData _movementVector;
@@ -37,6 +36,11 @@ public class SquadBrain : MonoBehaviour
 
     private Camera _cam;
 
+    public void setInfo(Elem type, int numUnits)
+    {
+        _squadType = type;
+        _amountPerGroup = numUnits;
+    }
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
