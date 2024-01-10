@@ -30,7 +30,7 @@ public class Elemental_Flame_Manager : MonoBehaviour
 
     public void PlaceFlame(GameObject spawnLocation, ElementalFlame flame)
     { 
-        refFlame = Instantiate(flame, spawnLocation.transform);
+        refFlame = Instantiate(flame, spawnLocation.transform.position, spawnLocation.transform.rotation);
         refFlame.fallbackFollowTarget = spawnLocation;
     }
 

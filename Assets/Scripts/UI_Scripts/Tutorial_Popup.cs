@@ -24,7 +24,8 @@ public class Tutorial_Popup : MonoBehaviour
         if (other.gameObject.GetComponent(typeof(PlayerControl)))
         {
             TutAnim.SetBool("Active", true);
-            postEvent.Post(gameObject);
+            if(postEvent!=null)
+                postEvent.Post(gameObject);
         }
     }
 
