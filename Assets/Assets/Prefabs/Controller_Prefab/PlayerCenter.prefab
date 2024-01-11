@@ -87,6 +87,8 @@ GameObject:
   - component: {fileID: 4049278343048673068}
   - component: {fileID: 2851732291334148821}
   - component: {fileID: 2586100944502646641}
+  - component: {fileID: 6829896659506781379}
+  - component: {fileID: 5477043321045299132}
   m_Layer: 7
   m_Name: PlayerCenter
   m_TagString: Player
@@ -346,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hordeSpeed: 5
   _leapMethod: 2
+  controlsEnabled: 0
 --- !u!114 &2586100944502646641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +361,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4c344698bd30243a65aa527a790060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6829896659506781379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049278343048673062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad865b83ec0b4793815e272e85671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: c26599c1afdb8504a87a97d9ea0ad5dd, type: 2}
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2851732291334148821}
+        m_TargetAssemblyTypeName: HordeMovement, Assembly-CSharp
+        m_MethodName: DisableControls
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5477043321045299132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049278343048673062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad865b83ec0b4793815e272e85671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: 6a71b4a816fe02542898d609e79575ac, type: 2}
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2851732291334148821}
+        m_TargetAssemblyTypeName: HordeMovement, Assembly-CSharp
+        m_MethodName: EnableControlsAfterDelay
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &4331647876777722094
 PrefabInstance:
   m_ObjectHideFlags: 0

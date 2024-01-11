@@ -9,6 +9,7 @@ public class CheckpointLocation : MonoBehaviour
     [SerializeField]private Horde_Info _hordeInfo;
     public GameObject squadPrefab;
     public CheckpointDeployer cpManager;
+    public UnityEvent loadFinishedEvent;
     public GameObject
         normalSquadLoc,
         fireSquadLoc, 
@@ -29,6 +30,7 @@ public class CheckpointLocation : MonoBehaviour
             if(savedNums[i]<=0) continue;
             createSquad(squadLocations[i],savedNums[i], types[i]);
         }
+        loadFinishedEvent.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,8 +49,4 @@ public class CheckpointLocation : MonoBehaviour
         squad.GetComponent<SquadBrain>().setInfo(type,numberOfTards);
     }
 
-    private void Start()
-    {
-        
-    }
 }

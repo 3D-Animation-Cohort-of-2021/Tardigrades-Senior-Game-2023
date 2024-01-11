@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -496,6 +497,20 @@ public class SquadBrain : MonoBehaviour
             _formationPositions[i].Position += new Vector3(i * fullSpacing, 0, positionZ);
 
             _formationPositions[i].willRotate = true;
+        }
+    }
+
+    public void TerminateSquad()
+    { 
+        List<TardigradeBase> refList = new List<TardigradeBase>();
+        foreach (TardigradeBase pig in _myTards)
+        {
+            refList.Add(pig);
+        }
+
+        foreach (TardigradeBase pig in refList)
+        {
+            pig.Death();
         }
     }
 }
