@@ -1,35 +1,43 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Obstacle : Element
+public class Obstacle : MonoBehaviour, IDamageable
 {
-    public float totalHealth, currentHealth;
+    public float _totalHealth, _currentHealth;
+    public Elem _obstacleElement;
+    public event System.Action<Obstacle> OnDestroy;
 
-    public UnityEvent destroyEvent;
+    public UnityEvent _destroyEvent;
     protected void Awake()
     {
-        currentHealth = totalHealth;
+        _currentHealth = _totalHealth;
     }
 
     protected void ChangeHealth(float amount)
     {
-        currentHealth = Mathf.Clamp(currentHealth + amount, -1, totalHealth);
-        if(currentHealth<=0)
+        _currentHealth = Mathf.Clamp(_currentHealth + amount, -1, _totalHealth);
+
+        if (_currentHealth <= 0)
+        {
             ReactAndDestroy();
+        }
     }
     
     protected void ReactAndDestroy()
     {
-        destroyEvent.Invoke();
+        _destroyEvent.Invoke();
     }
 
     public void SelfDestruct()
     {
+        OnDestroy?.Invoke(this);
         Destroy(gameObject);
+    }
+
+    public virtual void Damage(float dmgNum, Elem dmgType)
+    {
+        float adjustedDamage = EffectiveTable.CalculateEffectiveDMG(_obstacleElement, dmgType, dmgNum);
+        ChangeHealth(adjustedDamage * -1);
     }
     
 }

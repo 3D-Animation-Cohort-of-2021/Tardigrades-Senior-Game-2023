@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a69b607594a24245a8b67065e1964f9, type: 3}
+  m_Name: UI Brain
+  m_EditorClassIdentifier: 
+  numFire: 0
+  numStone: 0
+  numWater: 0
+  numNormal: 0
+  normalCD: 1
+  normalToggleCD: 1
+  fireCD: 10
+  fireToggleCD: 2
+  stoneCD: 8
+  stoneToggleCD: 3
+  waterCD: 5
+  waterToggleCD: 6
+  callUpdateText: {fileID: 11400000, guid: d4111673d585aeb4c947071d102f7791, type: 2}

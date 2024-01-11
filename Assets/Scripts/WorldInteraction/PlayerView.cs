@@ -23,7 +23,8 @@ public class PlayerView : MonoBehaviour
     {
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
-        viewMeshFilter.mesh = viewMesh;
+        if (viewMesh != null)
+            viewMeshFilter.mesh = viewMesh;
     }
 
     private void LateUpdate()
@@ -46,7 +47,7 @@ public class PlayerView : MonoBehaviour
             if (i > 0)
             {
                 bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > edgeDstTreshold;
-                if (oldViewCast.hit != newViewCast.hit || oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded) ;
+                if (oldViewCast.hit != newViewCast.hit || oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded)
                 {
                     EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
                     if (edge.pointA != Vector3.zero)

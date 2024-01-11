@@ -49,18 +49,10 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    - m_Name: RotateClockwise
+    - m_Name: Rotate
       m_Type: 0
       m_ExpectedControlType: Axis
       m_Id: a9039dbc-af0a-4dcb-b226-7c5dceed260b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    - m_Name: RotateCounterClockwise
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 62127e4f-1c62-4e89-97cd-b0e775ca5ab5
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -226,22 +218,30 @@ MonoBehaviour:
       m_Groups: 
       m_Action: PreviousSquad
       m_Flags: 0
-    - m_Name: 
-      m_Id: f6b48ab6-3558-4a8c-bb7f-a0e49becf5d1
-      m_Path: <Gamepad>/rightTrigger
+    - m_Name: 1D Axis
+      m_Id: 17f6fdff-f18e-4e01-a0f3-c398284a43b4
+      m_Path: 1DAxis
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: RotateClockwise
-      m_Flags: 0
-    - m_Name: 
-      m_Id: fa4974b1-21fa-49e3-a54f-138c2452b361
+      m_Action: Rotate
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 92ad0a31-3381-4c1f-bd03-eda2718e5505
       m_Path: <Gamepad>/leftTrigger
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: RotateCounterClockwise
-      m_Flags: 0
+      m_Action: Rotate
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 7ad0fc07-37a2-484a-a17a-2549732a9673
+      m_Path: <Gamepad>/rightTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 8
     - m_Name: 
       m_Id: 65edfe45-7e19-4cd8-8dcc-4053aa82beba
       m_Path: <Gamepad>/rightStick
@@ -316,6 +316,14 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 7db32c14-958a-45e7-bb9d-cfd0a724164b
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PrimaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: ed4eb07d-0726-4d9e-bf96-790ac5f2f6b2
       m_Path: <Keyboard>/p
       m_Interactions: 
       m_Processors: 
@@ -396,6 +404,14 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 9d35c22b-0c37-4b01-9a6c-abe812146628
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SecondaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 184b44f9-34af-494a-99bd-2b40403c2c34
       m_Path: <Keyboard>/o
       m_Interactions: 
       m_Processors: 
