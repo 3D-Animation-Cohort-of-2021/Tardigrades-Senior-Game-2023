@@ -9,13 +9,14 @@ public class CheckpointLocation : MonoBehaviour
     [SerializeField]private Horde_Info _hordeInfo;
     public GameObject squadPrefab;
     public CheckpointDeployer cpManager;
-    public UnityEvent loadFinishedEvent;
+    public UnityEvent loadFinishedEvent, updateWorldResetState;
     public GameObject
         normalSquadLoc,
         fireSquadLoc, 
         stoneSquadLoc, 
         waterSquadLoc;
     private GameObject[] squadLocations;
+    private bool isCurrentLocation;
     private void Awake()
     {
         squadLocations = new GameObject[] {normalSquadLoc, fireSquadLoc, stoneSquadLoc, waterSquadLoc};
@@ -37,9 +38,8 @@ public class CheckpointLocation : MonoBehaviour
     {
         if (other.TryGetComponent(out SquadManager player))
         {
-            _hordeInfo.WriteHordeToCheckpoint();
-            cpManager.currentCPLoc = this;
-            Debug.Log("checkpoint set");
+            AssignThisCheckpoint();
+            GetComponent<Collider>().enabled = false;
         }
     }
 
@@ -47,6 +47,14 @@ public class CheckpointLocation : MonoBehaviour
     {
         GameObject squad = Instantiate(squadPrefab, location.transform.position, quaternion.identity);
         squad.GetComponent<SquadBrain>().setInfo(type,numberOfTards);
+    }
+
+    public void AssignThisCheckpoint()
+    {
+        _hordeInfo.WriteHordeToCheckpoint();
+        cpManager.currentCPLoc = this;
+        updateWorldResetState.Invoke();
+        Debug.Log("checkpoint set");
     }
 
 }

@@ -25,13 +25,11 @@ public class DestroyImpact : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit hit, distanceHeightCheck))
         {
-            Debug.Log(hit.collider.gameObject);
             indicatorObject = Instantiate(indicatorObjectPrefab, hit.point, quaternion.identity);
             StartCoroutine(DropDelay());
         }
         else
         {
-            Debug.Log("No Ground Found");
             Destroy(gameObject);
         }
     }
@@ -53,7 +51,6 @@ public class DestroyImpact : MonoBehaviour
         {
             splatter.Play();
         }
-        Debug.Log("ground");
         
     }
 
