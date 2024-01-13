@@ -22,7 +22,7 @@ public class CheckpointDeployer : MonoBehaviour
 
     public void PlayerToCheckpoint()
     {
-        playerCenter.transform.position = currentCPLoc.transform.position;
+        playerCenter.GetComponent<SquadManager>().TeleportHorde(currentCPLoc.GetSquadLocations(), currentCPLoc.transform);
         currentCPLoc.CreateSquads();
 
     }

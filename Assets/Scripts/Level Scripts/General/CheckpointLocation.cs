@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class CheckpointLocation : MonoBehaviour
 {
+    public GameAction saveCall;
     [SerializeField]private Horde_Info _hordeInfo;
     public GameObject squadPrefab;
     public CheckpointDeployer cpManager;
@@ -15,11 +16,11 @@ public class CheckpointLocation : MonoBehaviour
         fireSquadLoc, 
         stoneSquadLoc, 
         waterSquadLoc;
-    private GameObject[] squadLocations;
+    private Transform[] squadLocations;
     private bool isCurrentLocation;
     private void Awake()
     {
-        squadLocations = new GameObject[] {normalSquadLoc, fireSquadLoc, stoneSquadLoc, waterSquadLoc};
+        squadLocations = new Transform[] {normalSquadLoc.transform, fireSquadLoc.transform, stoneSquadLoc.transform, waterSquadLoc.transform};
     }
 
     public void CreateSquads()
@@ -29,7 +30,7 @@ public class CheckpointLocation : MonoBehaviour
         for (int i = 0; i < savedNums.Length; i++)
         {
             if(savedNums[i]<=0) continue;
-            createSquad(squadLocations[i],savedNums[i], types[i]);
+            CreateSquad(squadLocations[i],savedNums[i], types[i]);
         }
         loadFinishedEvent.Invoke();
     }
@@ -39,13 +40,12 @@ public class CheckpointLocation : MonoBehaviour
         if (other.TryGetComponent(out SquadManager player))
         {
             AssignThisCheckpoint();
-            GetComponent<Collider>().enabled = false;
         }
     }
 
-    private void createSquad(GameObject location, int numberOfTards, Elem type)
+    private void CreateSquad(Transform location, int numberOfTards, Elem type)
     {
-        GameObject squad = Instantiate(squadPrefab, location.transform.position, quaternion.identity);
+        GameObject squad = Instantiate(squadPrefab, location.position, quaternion.identity);
         squad.GetComponent<SquadBrain>().setInfo(type,numberOfTards);
     }
 
@@ -55,6 +55,19 @@ public class CheckpointLocation : MonoBehaviour
         cpManager.currentCPLoc = this;
         updateWorldResetState.Invoke();
         Debug.Log("checkpoint set");
+        saveCall.raise();
     }
 
+    public Transform[] GetSquadLocations()
+    {
+        return squadLocations;
+    }
+
+    public void SetActiveCollider()
+    {
+        if (cpManager.currentCPLoc == this)
+            GetComponent<Collider>().enabled = false;
+        else
+            GetComponent<Collider>().enabled = true;
+    }
 }
