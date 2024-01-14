@@ -27,6 +27,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private GameObject _iceShardsForDeath;
     private Renderer[] _renderers;
     private Animator[] _animators;
+    [SerializeField] private GameObject bonesPrefab;
 
     public UnityEvent<Elem, int> deathEvent;
 
@@ -218,6 +219,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             StopCoroutine(IceCoroutine);
         }
 
+        Instantiate(bonesPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
     
