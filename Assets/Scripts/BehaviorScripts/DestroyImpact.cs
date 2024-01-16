@@ -43,6 +43,7 @@ public class DestroyImpact : MonoBehaviour
                 tard.Damage(damage,type);
         }
         onGroundCollison.Invoke();
+        Destroy(indicatorObject);
         if (splatterPrefab != null)
         {
             splatterObject = Instantiate(splatterPrefab, gameObject.transform.position, Quaternion.Euler(new Vector3(270, 0, 0)));
@@ -56,7 +57,6 @@ public class DestroyImpact : MonoBehaviour
 
     public void delete()
     {
-        Destroy(indicatorObject);
         Destroy(this.gameObject);
         // if (splatterPrefab != null)
         // {
