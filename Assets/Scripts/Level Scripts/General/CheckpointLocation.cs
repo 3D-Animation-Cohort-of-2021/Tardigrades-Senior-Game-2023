@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEditor;
 public class CheckpointLocation : MonoBehaviour
 {
     public GameAction saveCall;
@@ -18,9 +19,11 @@ public class CheckpointLocation : MonoBehaviour
         waterSquadLoc;
     private Transform[] squadLocations;
     private bool isCurrentLocation;
+    
     private void Awake()
     {
         squadLocations = new Transform[] {normalSquadLoc.transform, fireSquadLoc.transform, stoneSquadLoc.transform, waterSquadLoc.transform};
+         
     }
 
     public void CreateSquads()
