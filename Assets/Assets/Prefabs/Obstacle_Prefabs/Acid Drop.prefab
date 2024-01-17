@@ -77,17 +77,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1846762067938208552}
         m_TargetAssemblyTypeName: EventBehavior, Assembly-CSharp
         m_MethodName: RunEvent
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   indicatorObjectPrefab: {fileID: 8940194404333793397, guid: 923a6191fcc6ec140bf3957e20b4c952,
     type: 3}
+  splatterPrefab: {fileID: 0}
   splatter: {fileID: 5784694342208504427}
   damage: 5
   dropDelay: 1.5
@@ -275,5 +276,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 3
+  enabledDelay: 0
   isDelayed: 1
+  runOnEnabled: 0

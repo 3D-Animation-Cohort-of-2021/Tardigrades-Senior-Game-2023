@@ -16,7 +16,7 @@ public class SquadManager : MonoBehaviour
 {
     public GameObject _squadPrefab;
     public static List<Squad> _squads = new List<Squad>();
-
+ 
     public int _squadIDGiver;
     public float _squadRadius = 1f;
     public float _centerRadius = 2.5f;
@@ -398,5 +398,44 @@ public class SquadManager : MonoBehaviour
         }
     }
 
-    
+    public void TerminateHorde()
+    {
+        foreach (Squad sq in _squads)
+        {
+            sq.SquadObj.TerminateSquad();
+        }
+        
+    }
+
+    public void TeleportHorde(Transform[] squadPoints, Transform centerPoint)
+    {
+        foreach (Squad sq in _squads)
+        {
+            sq.SquadObj.GetComponent<NavMeshAgent>().enabled=false;
+        }
+        GetComponent<NavMeshAgent>().enabled = false;
+        transform.position = centerPoint.position;
+        foreach (Squad sq in _squads)
+        {
+            switch (sq.GetSquadType())
+            {
+                case Elem.Neutral:
+                    sq.SquadObj.gameObject.transform.position = squadPoints[0].position;
+                    break;
+                case Elem.Fire:
+                    sq.SquadObj.gameObject.transform.position = squadPoints[1].position;
+                    break;
+                case Elem.Stone:
+                    sq.SquadObj.gameObject.transform.position = squadPoints[2].position;
+                    break;
+                case Elem.Water:
+                    sq.SquadObj.gameObject.transform.position = squadPoints[3].position;
+                    break;
+            }
+            sq.SquadObj.GetComponent<NavMeshAgent>().enabled=true;
+        }
+        gameObject.GetComponent<NavMeshAgent>().enabled = true;
+    }
+
+
 }

@@ -4,8 +4,24 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Horde_Info : ScriptableObject
 {
-  [SerializeField] private int numFire, numStone, numWater, numNormal;
-  public float normalCD, normalToggleCD, fireCD, fireToggleCD, stoneCD, stoneToggleCD, waterCD, waterToggleCD;
+  [SerializeField] private int 
+    numFire, 
+    numStone, 
+    numWater, 
+    numNormal, 
+    savedFire, 
+    savedStone, 
+    savedWater, 
+    savedNormal;
+  public float 
+    normalCD, 
+    normalToggleCD, 
+    fireCD, 
+    fireToggleCD, 
+    stoneCD, 
+    stoneToggleCD, 
+    waterCD, 
+    waterToggleCD;
   public GameAction callUpdateText;
   
 
@@ -90,5 +106,18 @@ public class Horde_Info : ScriptableObject
       default:
         return 0;
     }
+  }
+
+  public int[] getSavedSquadNums()
+  {
+    int[] squadCounts = new int[]{savedNormal, savedFire, savedStone, savedWater};
+    return squadCounts;
+  }
+  public void WriteHordeToCheckpoint()
+  {
+    savedFire = numFire;
+    savedStone = numStone;
+    savedWater = numWater;
+    savedNormal = numNormal;
   }
 }

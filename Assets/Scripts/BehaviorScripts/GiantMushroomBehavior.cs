@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.VFX;
 
-public class GiantMushroomBehavior : MonoBehaviour, IDamageable
+public class GiantMushroomBehavior : MonoBehaviour, IDamageable, IReset
 {
     public float _hitPointsMax, _hitPointsCurrent;
 
@@ -21,7 +22,10 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     public bool isVulnerable;
 
     public Animator mushroomAnim;
+    
     public VisualEffect invulnerableEffect;
+    
+    public bool shouldReset { get; set; }
 
     private void Awake()
     {
@@ -33,20 +37,23 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     void Start()
     {
         _hitPointsCurrent = _hitPointsMax;
+        shouldReset = true;
     }
 
     public void TakeDamage()
     {
         if (isVulnerable)
         {
-            damageEvent.Invoke();
-            //play invincible effect or animation
-            MakeInvulnerable();
             mushroomAnim.SetTrigger("TakeHit");
             _hitPointsCurrent -= 1;
             if (_hitPointsCurrent <= 0)
             {
                 StartCoroutine(DestructionSequence());
+            }
+            else
+            {
+                damageEvent.Invoke();
+                MakeInvulnerable();
             }
         }
     }
@@ -77,5 +84,19 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable
     public void Damage(float dmgNum, Elem dmgType)
     {
         TakeDamage();
+    }
+
+    
+
+    public void Reset()
+    {
+        if(shouldReset)
+        {
+            _hitPointsCurrent = _hitPointsMax;
+            invulnerableEffect.Stop();
+            isVulnerable = true;
+            GetComponent<NavMeshObstacle>().enabled = true;
+            GetComponent<Collider>().enabled = true;
+        }
     }
 }
