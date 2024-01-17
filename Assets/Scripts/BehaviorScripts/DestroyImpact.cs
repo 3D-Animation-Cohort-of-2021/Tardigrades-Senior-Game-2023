@@ -13,6 +13,8 @@ public class DestroyImpact : MonoBehaviour
     public float distanceHeightCheck, distanceRadiusDamage;
     public UnityEvent onGroundCollison;
     public GameObject indicatorObjectPrefab;
+    public GameObject splatterPrefab;
+    private GameObject splatterObject;
     private GameObject indicatorObject;
     public VisualEffect splatter;
     public float damage, dropDelay;
@@ -43,7 +45,14 @@ public class DestroyImpact : MonoBehaviour
                 tard.Damage(damage,type);
         }
         onGroundCollison.Invoke();
-        splatter.Play();
+        if (splatterPrefab != null)
+        {
+            splatterObject = Instantiate(splatterPrefab, gameObject.transform.position, Quaternion.Euler(new Vector3(270, 0, 0)));
+        }
+        if (splatter != null)
+        {
+            splatter.Play();
+        }
         Debug.Log("ground");
         
     }
@@ -52,6 +61,10 @@ public class DestroyImpact : MonoBehaviour
     {
         Destroy(indicatorObject);
         Destroy(this.gameObject);
+        // if (splatterPrefab != null)
+        // {
+        //     Destroy(splatterObject);
+        // }
     }
 
     public IEnumerator DropDelay()

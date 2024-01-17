@@ -35,6 +35,7 @@ public class OOOPuzzle : MonoBehaviour
             else 
                 currentSpawnedItems[i] = PlaceItem(i, itemList[(currentRound-1)*2]);//create control items
         }
+        PlaySmoke();
     }
 
     public void ClearTables()
@@ -47,6 +48,7 @@ public class OOOPuzzle : MonoBehaviour
             Instantiate(transitionSmokeFx, thisItem.transform);
             Destroy(thisItem);
         }
+        PlaySmoke();
     }
 
     public void ResetPuzzle()
@@ -65,6 +67,17 @@ public class OOOPuzzle : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         LayoutCurrentRound();
+    }
+
+    private void PlaySmoke()
+    {
+        for (int i = 0; i < spawnLocations.Length; i++)
+        {
+            if (spawnLocations[i].TryGetComponent(out VisualEffect vfxSmoke))
+            {
+                vfxSmoke.Play();
+            }
+        }
     }
 
     private GameObject PlaceItem(int spawnIndex, GameObject obj)
