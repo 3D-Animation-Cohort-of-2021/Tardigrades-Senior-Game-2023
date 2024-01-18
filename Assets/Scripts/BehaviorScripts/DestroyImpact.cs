@@ -13,6 +13,8 @@ public class DestroyImpact : MonoBehaviour
     public float distanceHeightCheck, distanceRadiusDamage;
     public UnityEvent onGroundCollison;
     public GameObject indicatorObjectPrefab;
+    public GameObject splatterPrefab;
+    private GameObject splatterObject;
     private GameObject indicatorObject;
     public VisualEffect splatter;
     public float damage, dropDelay;
@@ -23,13 +25,11 @@ public class DestroyImpact : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit hit, distanceHeightCheck))
         {
-            Debug.Log(hit.collider.gameObject);
             indicatorObject = Instantiate(indicatorObjectPrefab, hit.point, quaternion.identity);
             StartCoroutine(DropDelay());
         }
         else
         {
-            Debug.Log("No Ground Found");
             Destroy(gameObject);
         }
     }
@@ -43,15 +43,25 @@ public class DestroyImpact : MonoBehaviour
                 tard.Damage(damage,type);
         }
         onGroundCollison.Invoke();
-        splatter.Play();
-        Debug.Log("ground");
+        Destroy(indicatorObject);
+        if (splatterPrefab != null)
+        {
+            splatterObject = Instantiate(splatterPrefab, gameObject.transform.position, Quaternion.Euler(new Vector3(270, 0, 0)));
+        }
+        if (splatter != null)
+        {
+            splatter.Play();
+        }
         
     }
 
     public void delete()
     {
-        Destroy(indicatorObject);
         Destroy(this.gameObject);
+        // if (splatterPrefab != null)
+        // {
+        //     Destroy(splatterObject);
+        // }
     }
 
     public IEnumerator DropDelay()

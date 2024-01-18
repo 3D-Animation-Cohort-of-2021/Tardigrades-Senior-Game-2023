@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Animator))]
@@ -13,6 +12,7 @@ public class Pattern_Plate : MonoBehaviour
     public float checkTickTime, checkCooldownTime;
     private WaitForSeconds wfs, wfc;
     public UnityEvent checkEvent, correctPatternEvent, correctPatternEvent2, correctPatternEvent3, incorrectPatternEvent, finishEvent;
+    public VisualEffect correctPulse, incorrectPulse;
     private Coroutine currentRoutine;//{fire, water, stone} 
     public Formation[] firstMatchPattern, secondMatchPattern, finalMatchPattern, squadPatterns;
     private Formation[][] formationList;
@@ -89,21 +89,32 @@ public class Pattern_Plate : MonoBehaviour
         if(isCorrect)
         {
             correctPatternEvent.Invoke();
+            correctPulse.Play();
             Debug.Log("FUCK YEA");
-            if(currentPatternIndex==2)
+            switch (currentPatternIndex)
             {
-                finishEvent.Invoke();
-                isRunning = false;
-            }
-            else
-            {
-                currentPatternIndex++;
+                case 0:
+                    correctPatternEvent.Invoke();
+                    currentPatternIndex++;
+                    break;
+                case 1:
+                    correctPatternEvent2.Invoke();
+                    currentPatternIndex++;
+                    break;
+                case 2:
+                    correctPatternEvent3.Invoke();
+                    finishEvent.Invoke();
+                    isRunning = false;
+                    break;
+                default:
+                    break;
             }
         }
-        else
+        else//if is not correct
         {
             currentPatternIndex = 0;
             incorrectPatternEvent.Invoke();
+            incorrectPulse.Play();
         }
     }
 

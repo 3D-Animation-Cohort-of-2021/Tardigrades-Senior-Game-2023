@@ -7,14 +7,14 @@ using UnityEngine.Events;
 public class EventBehavior : MonoBehaviour
 {
     public UnityEvent objectEvent;
-    public float delay;
+    public float enabledDelay;
     public bool isDelayed, runOnEnabled;
 
-    public void RunEvent()
+    public void RunEvent(float delay)
     {
         if(isDelayed)
         {
-            StartCoroutine(Countdown());
+            StartCoroutine(Countdown(delay));
         }
         else
         {
@@ -25,10 +25,10 @@ public class EventBehavior : MonoBehaviour
     private void OnEnable()
     {
         if(runOnEnabled)
-            RunEvent();
+            RunEvent(enabledDelay);
     }
 
-    private IEnumerator Countdown()
+    private IEnumerator Countdown(float delay)
     {
         yield return new WaitForSeconds(delay);
         objectEvent.Invoke();
