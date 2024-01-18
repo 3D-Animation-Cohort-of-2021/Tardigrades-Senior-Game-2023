@@ -1,28 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 [CreateAssetMenu]
 public class Horde_Info : ScriptableObject
 {
+  [Header("Active")]
+  [SerializeField] private int
+    numFire,
+    numStone,
+    numWater,
+    numNormal;  
+  [Header("Saved")]
   [SerializeField] private int 
-    numFire, 
-    numStone, 
-    numWater, 
-    numNormal, 
     savedFire, 
     savedStone, 
     savedWater, 
     savedNormal;
-  public float 
-    normalCD, 
-    normalToggleCD, 
-    fireCD, 
-    fireToggleCD, 
-    stoneCD, 
-    stoneToggleCD, 
-    waterCD, 
+  [Header("Primary")]
+  public float
+    normalCD,
+    fireCD,
+    stoneCD,
+    waterCD;
+
+  [Header("Secondary")] public float
+    normalToggleCD,
+    fireToggleCD,
+    stoneToggleCD,
     waterToggleCD;
-  public GameAction callUpdateText;
+    
+  public GameAction callUpdateText, hordeIsDeadAction;
   
 
   public void ResetToZero()
@@ -56,6 +64,12 @@ public class Horde_Info : ScriptableObject
         default:
           return;
     }
+
+    if ((numNormal + numFire + numStone + numWater) <= 0)
+    {
+      hordeIsDeadAction.raise();
+    }
+    
   }
 
     public int GetTypeCount(Elem element)
@@ -111,6 +125,12 @@ public class Horde_Info : ScriptableObject
   public int[] getSavedSquadNums()
   {
     int[] squadCounts = new int[]{savedNormal, savedFire, savedStone, savedWater};
+    return squadCounts;
+  }
+
+  public int[] getCurrentSquadNums()
+  {
+    int[] squadCounts = {numNormal, numFire, numStone, numWater};
     return squadCounts;
   }
   public void WriteHordeToCheckpoint()
