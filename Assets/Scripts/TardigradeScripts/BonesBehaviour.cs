@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class BonesBehaviour : MonoBehaviour
 {
+    [SerializeField]private float minLife;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach (MeshRenderer bone in GetComponentsInChildren<MeshRenderer>())
+        {
+            Destroy(bone, Random.Range(minLife,minLife+2));
+        }
+        Destroy(this, minLife + 2);
     }
 }

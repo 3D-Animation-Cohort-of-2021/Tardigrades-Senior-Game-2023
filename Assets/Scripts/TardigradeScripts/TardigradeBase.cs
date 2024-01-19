@@ -202,8 +202,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Removes tard from any lists, stops coroutines, then destroys this tard.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public virtual void Death()
+    public virtual void Death(float deathType = 0)
     {
+        print("Death");
         if (deathEvent != null)
         { 
         deathEvent.Invoke(_type, -1);
@@ -211,6 +212,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         
         _tarAnimator.SetTrigger("death");
 
+        //If tard dies while not in a squad will error out here
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
 
@@ -219,7 +221,18 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             StopCoroutine(IceCoroutine);
         }
 
-        Instantiate(bonesPrefab, transform.position, transform.rotation);
+        //Default Death
+        if (deathType == 0)
+        {
+            Instantiate(bonesPrefab, transform.position, transform.rotation);
+            GetComponent<SquishVFXBehaviour>().Play();
+        }
+        
+        //Toxic Water or Lava death
+        if (deathType == 1)
+        {
+            
+        }
         Destroy(gameObject);
     }
     
