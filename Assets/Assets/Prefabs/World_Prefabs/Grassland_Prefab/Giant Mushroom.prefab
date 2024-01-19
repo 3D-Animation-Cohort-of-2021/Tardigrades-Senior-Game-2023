@@ -599,7 +599,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487760468086334971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.68, y: 2.54, z: 180.54}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -692,6 +692,8 @@ MonoBehaviour:
       m_Calls: []
   invulnerableTime: 5
   isVulnerable: 0
+  mushroomAnim: {fileID: 0}
+  invulnerableEffect: {fileID: 0}
 --- !u!114 &487760468086334962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,6 +735,7 @@ MonoBehaviour:
         m_CallState: 2
   delay: 1
   isDelayed: 0
+  runOnEnabled: 0
 --- !u!208 &7437967714369031083
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -1448,6 +1451,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -2304524984304562542, guid: b56f070e3c6bd524991e479382105d22,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf7587b545134c348bc17333e6111af4, type: 2}
     - target: {fileID: 919132149155446097, guid: b56f070e3c6bd524991e479382105d22,
         type: 3}
       propertyPath: m_Name
