@@ -26,11 +26,13 @@ public class EndBoxBehavior : MonoBehaviour
 
     public void OpenBox()
     {
+        boxAnimator.ResetTrigger("Close");
         boxAnimator.SetTrigger("Open");
     }
 
     public void CloseBox()
     {
+        boxAnimator.ResetTrigger("Open");
         boxAnimator.SetTrigger("Close");
     }
     
