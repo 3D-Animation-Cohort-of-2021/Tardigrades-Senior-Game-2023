@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class DisableAfterTime : MonoBehaviour
 {
     public float timeDelaySaved = 5f;
+    public UnityEvent Eventplay;
     private float timeDelay;
     private void OnEnable()
     {
@@ -22,6 +23,6 @@ public class DisableAfterTime : MonoBehaviour
             yield return null;
         }
         gameObject.SetActive(false);
-        
+        Eventplay.Invoke();
     }
 }
