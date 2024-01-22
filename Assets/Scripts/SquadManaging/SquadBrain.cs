@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.Controls;
 using Random = UnityEngine.Random;
-
 public class SquadBrain : MonoBehaviour
 {
     public SO_SquadData _movementVector;
@@ -37,6 +37,11 @@ public class SquadBrain : MonoBehaviour
 
     private Camera _cam;
 
+    public void setInfo(Elem type, int numUnits)
+    {
+        _squadType = type;
+        _amountPerGroup = numUnits;
+    }
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -492,6 +497,20 @@ public class SquadBrain : MonoBehaviour
             _formationPositions[i].Position += new Vector3(i * fullSpacing, 0, positionZ);
 
             _formationPositions[i].willRotate = true;
+        }
+    }
+
+    public void TerminateSquad()
+    { 
+        List<TardigradeBase> refList = new List<TardigradeBase>();
+        foreach (TardigradeBase pig in _myTards)
+        {
+            refList.Add(pig);
+        }
+
+        foreach (TardigradeBase pig in refList)
+        {
+            pig.Death();
         }
     }
 }
