@@ -228,10 +228,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             GetComponent<SquishVFXBehaviour>().Play();
         }
         
-        //Toxic Water or Lava death
+        //Toxic Water death
         if (deathType == DeathType.Drown)
         {
-            
+            GameObject tempBones = Instantiate(bonesPrefab, transform.position, transform.rotation);
+            tempBones.GetComponent<BonesBehaviour>().FloatBones();
         }
         Destroy(gameObject);
     }

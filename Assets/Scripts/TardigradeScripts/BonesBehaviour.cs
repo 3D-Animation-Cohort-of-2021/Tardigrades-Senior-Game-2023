@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BonesBehaviour : MonoBehaviour
@@ -13,5 +11,14 @@ public class BonesBehaviour : MonoBehaviour
             Destroy(bone, Random.Range(minLife,minLife+2));
         }
         Destroy(this, minLife + 2);
+    }
+
+    public void FloatBones()
+    {
+        foreach (Rigidbody bone in GetComponentsInChildren<Rigidbody>())
+        {
+            bone.useGravity = false;
+            bone.drag = 1;
+        }
     }
 }
