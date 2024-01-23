@@ -28,6 +28,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private GameObject _iceShardsForDeath;
     private Renderer[] _renderers;
     private Animator[] _animators;
+    [SerializeField] private GameObject bonesPrefab;
 
     public UnityEvent<Elem, int> deathEvent;
 
@@ -76,7 +77,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Implements the <c>Damage</c> Interface. Finds how much damage should be taken.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public void Damage(float damageAmount, Elem damageType)
+    public void Damage(float damageAmount, Elem damageType, DeathType deathType = DeathType.Default)
     {
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(damageType, _type, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMGModifier(damageType, _type);
@@ -114,7 +115,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
         if (_health <= 0)
         {
-            Death();
+            Death(deathType);
         }
         
         //print(GetComponent<TardigradeBase>() +" Damage Taken: "+ finalDmg);
@@ -204,8 +205,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Removes tard from any lists, stops coroutines, then destroys this tard.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public virtual void Death()
+    public virtual void Death(DeathType deathType = DeathType.Default)
     {
+        print("Death");
         if (deathEvent != null)
         { 
         deathEvent.Invoke(_type, -1);
@@ -213,6 +215,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         
         _tarAnimator.SetTrigger("death");
 
+        //If tard dies while not in a squad will error out here
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
 
@@ -221,6 +224,19 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             StopCoroutine(IceCoroutine);
         }
 
+        //Default Death
+        if (deathType == DeathType.Default)
+        {
+            Instantiate(bonesPrefab, transform.position, transform.rotation);
+            GetComponent<SquishVFXBehaviour>().Play();
+        }
+        
+        //Toxic Water death
+        if (deathType == DeathType.Drown)
+        {
+            GameObject tempBones = Instantiate(bonesPrefab, transform.position, transform.rotation);
+            tempBones.GetComponent<BonesBehaviour>().FloatBones();
+        }
         Destroy(gameObject);
     }
     

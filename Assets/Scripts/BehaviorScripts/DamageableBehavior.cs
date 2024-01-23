@@ -7,15 +7,13 @@ public class DamageableBehavior : MonoBehaviour, IDamageable
 {
     public UnityEvent damageEvent;
     public bool oneTimeDamage, alreadyDamaged;
-    public Elem requiredType;
-    public bool mustMatchType;
-    public void Damage(float dmgNum, Elem dmgType)
+
+    public void Damage(float dmgNum, Elem dmgType, DeathType deathType = default)
     {
         Debug.Log("ouch");
-        if((oneTimeDamage && alreadyDamaged)||(mustMatchType&&dmgType!=requiredType))
+        if(oneTimeDamage&&alreadyDamaged)
             return;
         damageEvent.Invoke();
-        Debug.Log(gameObject+" took "+ dmgType+" damage");
         alreadyDamaged = true;
     }
 }
