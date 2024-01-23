@@ -10,6 +10,7 @@ public class DamageOnStart : MonoBehaviour
    private float range;
    public float damage;
    public Elem type;
+   public DeathType tardDeathType;
    private void Awake()
    {
       thisCollider = GetComponent<Collider>();
@@ -28,7 +29,7 @@ public class DamageOnStart : MonoBehaviour
       {
          if (c.TryGetComponent(out IDamageable id))
          {
-            id.Damage(damage,type);
+            id.Damage(damage,type, tardDeathType);
          }
       }
    }

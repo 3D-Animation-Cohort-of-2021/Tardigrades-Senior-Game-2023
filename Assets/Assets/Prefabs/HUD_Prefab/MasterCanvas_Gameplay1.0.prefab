@@ -23,7 +23,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38622729763212190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 38622729769100088}
   - component: {fileID: 38622729769100089}
   - component: {fileID: 5510787885050960723}
+  - component: {fileID: 3343207367750871868}
   m_Layer: 5
   m_Name: Normal Counter
   m_TagString: Untagged
@@ -103,6 +104,7 @@ MonoBehaviour:
   fillImage: {fileID: 38622731436251014}
   abilityReadyImage: {fileID: 38622730966579423}
   secondaryGlows: []
+  thisAnim: {fileID: 3343207367750871868}
 --- !u!114 &38622729769100089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +161,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &3343207367750871868
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622729769100086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dad3e65aeb71a174fb16249f2cfaafe9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &38622729782984612
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +944,7 @@ RectTransform:
   - {fileID: 38622729763212191}
   - {fileID: 2678722751204895620}
   - {fileID: 718141392193065574}
+  - {fileID: 7868571894311990013}
   m_Father: {fileID: 38622731026976797}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1080,6 +1103,7 @@ GameObject:
   - component: {fileID: 38622729851195667}
   - component: {fileID: 2136334149}
   - component: {fileID: 950207664237687444}
+  - component: {fileID: 5046729813597002232}
   m_Layer: 5
   m_Name: MasterCanvas_Gameplay1.0
   m_TagString: Untagged
@@ -1100,7 +1124,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 38622730907109515}
-  - {fileID: 7868571894311990013}
   - {fileID: 773080811582517000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1248,6 +1271,45 @@ MonoBehaviour:
   respondEvent:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 11400000, guid: c26599c1afdb8504a87a97d9ea0ad5dd, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: RaiseAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5046729813597002232}
+        m_TargetAssemblyTypeName: EventBehavior, Assembly-CSharp
+        m_MethodName: RunEvent
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5046729813597002232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622731026976793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36366253597043848a01cb3bc7620069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectEvent:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 38622729851195666}
         m_TargetAssemblyTypeName: PauseBehavior, Assembly-CSharp
         m_MethodName: SetTimeActive
@@ -1272,6 +1334,9 @@ MonoBehaviour:
           m_StringArgument: GameOver
           m_BoolArgument: 0
         m_CallState: 2
+  enabledDelay: 0
+  isDelayed: 1
+  runOnEnabled: 0
 --- !u!1 &38622731275820508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1651,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38622731441701347}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.72597, y: 0.72597, z: 0.72597}
   m_ConstrainProportionsScale: 0
@@ -4463,6 +4528,7 @@ GameObject:
   - component: {fileID: 239648419995308270}
   - component: {fileID: 1265339255358106584}
   - component: {fileID: 1551238196214465248}
+  - component: {fileID: 9181171629412232144}
   m_Layer: 5
   m_Name: Water Counter
   m_TagString: Untagged
@@ -4521,6 +4587,7 @@ MonoBehaviour:
   secondaryGlows:
   - {fileID: 3194331263599360994}
   - {fileID: 8055357456484744927}
+  thisAnim: {fileID: 9181171629412232144}
 --- !u!114 &239648419995308270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4605,6 +4672,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &9181171629412232144
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624653392016130782}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dad3e65aeb71a174fb16249f2cfaafe9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &3687165122833405528
 GameObject:
   m_ObjectHideFlags: 0
@@ -5865,7 +5952,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4999632683796187948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5878,8 +5965,8 @@ RectTransform:
   - {fileID: 3985913858134253899}
   - {fileID: 38622729974866673}
   - {fileID: 7055871987376519537}
-  m_Father: {fileID: 38622731026976797}
-  m_RootOrder: 1
+  m_Father: {fileID: 38622730907109515}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8853,7 +8940,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 38622731026976797}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9391,6 +9478,7 @@ GameObject:
   - component: {fileID: 8440032638666978742}
   - component: {fileID: 3786589387089722710}
   - component: {fileID: 4592874610464444974}
+  - component: {fileID: 7280043836701608490}
   m_Layer: 5
   m_Name: Fire Counter
   m_TagString: Untagged
@@ -9449,6 +9537,7 @@ MonoBehaviour:
   secondaryGlows:
   - {fileID: 7596785431691467171}
   - {fileID: 818942832295687857}
+  thisAnim: {fileID: 7280043836701608490}
 --- !u!114 &8440032638666978742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9533,6 +9622,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &7280043836701608490
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191577401980693354}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dad3e65aeb71a174fb16249f2cfaafe9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8197192583232235740
 GameObject:
   m_ObjectHideFlags: 0
@@ -9660,6 +9769,7 @@ GameObject:
   - component: {fileID: 1182125047295165751}
   - component: {fileID: 6775625361610700214}
   - component: {fileID: 8671825493047999075}
+  - component: {fileID: 6742901699569745154}
   m_Layer: 5
   m_Name: Stone Counter
   m_TagString: Untagged
@@ -9718,6 +9828,7 @@ MonoBehaviour:
   secondaryGlows:
   - {fileID: 868730814606659045}
   - {fileID: 9213587442809123255}
+  thisAnim: {fileID: 6742901699569745154}
 --- !u!114 &1182125047295165751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9802,6 +9913,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &6742901699569745154
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352735802819870547}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dad3e65aeb71a174fb16249f2cfaafe9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8372542312695984176
 GameObject:
   m_ObjectHideFlags: 0
