@@ -22,7 +22,8 @@ public class WaterTardigrade : TardigradeBase
 
     public override void PrimaryAbility()
     {
-        
+        DamageOnEnter explosion = Instantiate(_abilityPrefab, transform.position, Quaternion.identity).GetComponent<DamageOnEnter>();
+        explosion._damage = _damage;
     
         base.PrimaryAbility();
 

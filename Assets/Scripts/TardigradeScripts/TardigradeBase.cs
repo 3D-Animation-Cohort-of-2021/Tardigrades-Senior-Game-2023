@@ -79,13 +79,13 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(damageType, _type, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMGModifier(damageType, _type);
-
-        _tarAnimator.SetTrigger("flinch");
-
         if(damageType == Elem.Water && IceCoroutine != null)
         {
             return;
         }
+        _tarAnimator.SetTrigger("flinch");
+
+        
 
         if (modifier == 1.5f)
         {

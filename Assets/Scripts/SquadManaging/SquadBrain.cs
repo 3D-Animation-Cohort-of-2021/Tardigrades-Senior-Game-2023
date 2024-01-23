@@ -41,6 +41,7 @@ public class SquadBrain : MonoBehaviour
     {
         _squadType = type;
         _amountPerGroup = numUnits;
+        Initialize();
     }
     private void Awake()
     {
@@ -49,10 +50,7 @@ public class SquadBrain : MonoBehaviour
 
         _primary = gameObject.AddComponent<Ability>();
         _secondary = gameObject.AddComponent<ToggleAbility>();
-
-        _primary.cooldown = _hordeInfo.GetCD(_squadType);
-        _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
-        _loopDelay = new WaitForSeconds(1f);
+        Initialize();
     }
 
     void Start()
@@ -64,6 +62,12 @@ public class SquadBrain : MonoBehaviour
         _cam = Camera.main;
     }
 
+    public void Initialize()
+    {
+        _primary.cooldown = _hordeInfo.GetCD(_squadType);
+        _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
+        _loopDelay = new WaitForSeconds(1f);
+    }
     private void FixedUpdate()
     {
         if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= _radius))
