@@ -36,13 +36,7 @@ public class SquadBrain : MonoBehaviour
     private Coroutine activeSquad = null;
 
     private Camera _cam;
-
-    public void setInfo(Elem type, int numUnits)
-    {
-        _squadType = type;
-        _amountPerGroup = numUnits;
-        Initialize();
-    }
+    
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -61,7 +55,12 @@ public class SquadBrain : MonoBehaviour
         Populate(_amountPerGroup);
         _cam = Camera.main;
     }
-
+    public void setInfo(Elem type, int numUnits)
+    {
+        _squadType = type;
+        _amountPerGroup = numUnits;
+        Initialize();
+    }
     public void Initialize()
     {
         _primary.cooldown = _hordeInfo.GetCD(_squadType);

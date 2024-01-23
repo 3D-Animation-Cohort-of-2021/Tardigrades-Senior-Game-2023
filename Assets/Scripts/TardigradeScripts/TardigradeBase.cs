@@ -15,6 +15,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public float _health;
     public float _maxHealth;
     public HealthDisplay collar;
+    public GameObject damageEffectObj;
 
     [SerializeField]protected Elem _type;
 
@@ -83,6 +84,8 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             return;
         }
+        damageEffectObj.GetComponent<VisualEffect>().Play();
+        Debug.Log(damageEffectObj);
         _tarAnimator.SetTrigger("flinch");
 
         
@@ -388,6 +391,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase._healVisualEffect = _healVisualEffect;
         tardigradeBase.hordeInfo = hordeInfo;
         tardigradeBase.collar = collar;
+        tardigradeBase.damageEffectObj = damageEffectObj;
 
         tardigradeBase.UpdateTardigrade();
 

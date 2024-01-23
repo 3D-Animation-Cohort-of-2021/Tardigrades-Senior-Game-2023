@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Ability : MonoBehaviour
 {
-    public float cooldown = 3f;
+    public float cooldown = 1f;
     public bool activatable = true;
 
     /// <summary>
