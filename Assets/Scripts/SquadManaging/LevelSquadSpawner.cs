@@ -49,5 +49,6 @@ public class LevelSquadSpawner : MonoBehaviour, IReset
     {
         spawnedSquad = Instantiate(squadPrefab, gameObject.transform.position, gameObject.transform.rotation);
         spawnedSquad.GetComponent<SquadBrain>().setInfo(elementType, numTards);
+
     }
 }
