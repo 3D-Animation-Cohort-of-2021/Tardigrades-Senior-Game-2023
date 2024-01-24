@@ -15,6 +15,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public float _health;
     public float _maxHealth;
     public HealthDisplay collar;
+    public GameObject damageEffectObj;
 
     [SerializeField]protected Elem _type;
 
@@ -80,13 +81,15 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(damageType, _type, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMGModifier(damageType, _type);
-
-        _tarAnimator.SetTrigger("flinch");
-
         if(damageType == Elem.Water && IceCoroutine != null)
         {
             return;
         }
+        damageEffectObj.GetComponent<VisualEffect>().Play();
+        Debug.Log(damageEffectObj);
+        _tarAnimator.SetTrigger("flinch");
+
+        
 
         if (modifier == 1.5f)
         {
@@ -404,6 +407,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase._healVisualEffect = _healVisualEffect;
         tardigradeBase.hordeInfo = hordeInfo;
         tardigradeBase.collar = collar;
+        tardigradeBase.damageEffectObj = damageEffectObj;
 
         tardigradeBase.UpdateTardigrade();
 

@@ -36,12 +36,7 @@ public class SquadBrain : MonoBehaviour
     private Coroutine activeSquad = null;
 
     private Camera _cam;
-
-    public void setInfo(Elem type, int numUnits)
-    {
-        _squadType = type;
-        _amountPerGroup = numUnits;
-    }
+    
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -49,10 +44,7 @@ public class SquadBrain : MonoBehaviour
 
         _primary = gameObject.AddComponent<Ability>();
         _secondary = gameObject.AddComponent<ToggleAbility>();
-
-        _primary.cooldown = _hordeInfo.GetCD(_squadType);
-        _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
-        _loopDelay = new WaitForSeconds(1f);
+        Initialize();
     }
 
     void Start()
@@ -63,7 +55,18 @@ public class SquadBrain : MonoBehaviour
         Populate(_amountPerGroup);
         _cam = Camera.main;
     }
-
+    public void setInfo(Elem type, int numUnits)
+    {
+        _squadType = type;
+        _amountPerGroup = numUnits;
+        Initialize();
+    }
+    public void Initialize()
+    {
+        _primary.cooldown = _hordeInfo.GetCD(_squadType);
+        _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
+        _loopDelay = new WaitForSeconds(1f);
+    }
     private void FixedUpdate()
     {
         if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= _radius))
