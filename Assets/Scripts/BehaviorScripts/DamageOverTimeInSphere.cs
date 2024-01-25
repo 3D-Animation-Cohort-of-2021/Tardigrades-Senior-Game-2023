@@ -10,7 +10,8 @@ public class DamageOverTimeInSphere : MonoBehaviour
    public float damageIntervalTime, damagePerTick;
    private WaitForSeconds wfs;
    private Coroutine activeRoutine;
-   public Elem type;
+   public Elem dmgType;
+   public DeathType deathType;
    public bool isRunning;
    private Vector3 sphereCenter, adjustedScale;
    private float sphereRadius;
@@ -40,7 +41,7 @@ public class DamageOverTimeInSphere : MonoBehaviour
       foreach (Collider obj in colsInArea)
       {
          if(obj.TryGetComponent(out TardigradeBase tard))
-            tard.Damage(damagePerTick,type);
+            tard.Damage(damagePerTick,dmgType,deathType);
       }
    }
 

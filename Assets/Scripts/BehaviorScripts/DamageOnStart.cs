@@ -18,12 +18,16 @@ public class DamageOnStart : MonoBehaviour
 
    private void Start()
    {
+      Damage();
+   }
+
+   public void Damage()
+   {
       Collider[] ObjectsInRange = Physics.OverlapSphere(gameObject.transform.position, range);
       foreach (Collider c in ObjectsInRange)
       {
-         if (c.TryGetComponent<Obstacle>(out var id))
+         if (c.TryGetComponent(out IDamageable id))
          {
-            Debug.Log(id);
             id.Damage(damage,type);
          }
       }
