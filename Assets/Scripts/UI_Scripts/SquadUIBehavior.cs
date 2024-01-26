@@ -40,8 +40,8 @@ public class SquadUIBehavior : MonoBehaviour
 
     public void SetCD()
     {
-        thisElemCD = brain.GetCD(elemType);
-        thisElemSecondCD = brain.GetToggleCD(elemType);
+        thisElemCD = brain.GetCD(elemType)-.5f;
+        thisElemSecondCD = brain.GetToggleCD(elemType)-.5f;
     }
 
     public void StartVisualCD()

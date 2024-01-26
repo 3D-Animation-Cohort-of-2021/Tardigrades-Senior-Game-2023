@@ -56,7 +56,7 @@ public class SquishVFXBehaviour : DecalBehaviours
     private void DecalSpawn()
     {
         //spawn ray a random distance from center
-        Vector3 randPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Vector3 randPos = new Vector3(transform.position.x, transform.position.y+.2f, transform.position.z);
         Ray ray = new Ray(randPos, Vector3.down);
         RaycastHit onHit;
         
@@ -77,9 +77,9 @@ public class SquishVFXBehaviour : DecalBehaviours
         LaunchGuts(defaultDirection);
         DecalSpawn();
         
-        //ParticleSystem system = Instantiate(bloodVFX, transform.position, transform.rotation);
-        bloodVFX.transform.forward = defaultDirection;
-        bloodVFX.Play();
+        ParticleSystem system = Instantiate(bloodVFX, transform.position+ new Vector3(0,.2f,0), transform.rotation);
+        system.transform.forward = defaultDirection;
+        system.Play(); 
     }
 
     public void Play(Vector3 direction)
