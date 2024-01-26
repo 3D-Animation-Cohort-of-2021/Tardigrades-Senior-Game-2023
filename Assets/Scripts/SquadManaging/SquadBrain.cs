@@ -308,7 +308,7 @@ public class SquadBrain : MonoBehaviour
             }
             else
             {
-                StopCoroutine(SecondaryLoop());
+                StopCoroutine(SecondaryAbility);
                 SecondaryAbility = null;
             }
         }
@@ -321,9 +321,8 @@ public class SquadBrain : MonoBehaviour
                     tard.SecondaryAbility();
                 }
             }
-            else if(_secondary.ToggleStatus())
+            else 
             {
-                _secondary.FlipToggle();
                 foreach (TardigradeBase tard in _myTards)
                 {
                     tard.SecondaryAbility();

@@ -43,7 +43,6 @@ public class StoneTardigrade : TardigradeBase
 
     public override void SecondaryAbility()
     {
-        base.SecondaryAbility();
         diamond = !diamond;
     }
 

@@ -78,7 +78,7 @@ public class ForceApplicator : MonoBehaviour
                 out hit, Vector3.Distance(end, start) * 2f, layerMask))
             {
                 NavMeshAgent navMeshAgent;
-                if (hit.rigidbody != null && hit.rigidbody.gameObject.TryGetComponent<NavMeshAgent>( out navMeshAgent))
+                if (hit.rigidbody != null && hit.rigidbody.gameObject.TryGetComponent<NavMeshAgent>( out navMeshAgent) && navMeshAgent == _pushableAgents[i])
                 {
                     _pushableAgents[i].Move(transform.TransformDirection(_forceDirection * Time.deltaTime));
                 }
@@ -101,7 +101,7 @@ public class ForceApplicator : MonoBehaviour
             pushableNavmesh = true;
         }
 
-        if (pushableNavmesh && (selectedNavmeshAgent.TryGetComponent<StoneTardigrade>(out StoneTardigrade stoneTardigrade) && !stoneTardigrade.diamond))
+        if (pushableNavmesh && (selectedNavmeshAgent.TryGetComponent<StoneTardigrade>(out StoneTardigrade stoneTardigrade) && stoneTardigrade.diamond))
         {
             pushableNavmesh = false;
         }
