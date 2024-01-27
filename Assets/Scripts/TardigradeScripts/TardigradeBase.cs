@@ -408,6 +408,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase.hordeInfo = hordeInfo;
         tardigradeBase.collar = collar;
         tardigradeBase.damageEffectObj = damageEffectObj;
+        tardigradeBase.bonesPrefab = bonesPrefab;
 
         tardigradeBase.UpdateTardigrade();
 
