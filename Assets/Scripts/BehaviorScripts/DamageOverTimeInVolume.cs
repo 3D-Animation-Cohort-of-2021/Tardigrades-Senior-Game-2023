@@ -38,6 +38,7 @@ public class DamageOverTimeInVolume : MonoBehaviour
       {
          if(obj.TryGetComponent(out TardigradeBase tard))
             tard.Damage(damagePerTick,type);
+            Debug.Log("ouch");
       }
    }
 

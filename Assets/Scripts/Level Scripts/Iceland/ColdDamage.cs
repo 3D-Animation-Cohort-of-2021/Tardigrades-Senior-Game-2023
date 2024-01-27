@@ -1,17 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class ColdDamage : MonoBehaviour, IDamageable
+public class ColdDamage : MonoBehaviour
 {
     private float damageInterval = 1f;
     private bool isRunning;
     private WaitForSeconds wfs;
-
-    public void Damage(float dmgNum, Elem dmgType)
-    {
-      
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         StartDamageRoutine();
@@ -48,7 +43,7 @@ public class ColdDamage : MonoBehaviour, IDamageable
     {
         while (isRunning)
         {
-            Damage(1,Elem.Water);
+            
             yield return wfs;
         }
     }
