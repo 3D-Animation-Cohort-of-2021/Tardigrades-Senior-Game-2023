@@ -16,8 +16,10 @@ public class SquadUIBehavior : MonoBehaviour
     private WaitForSeconds wfs, wfss;
     private Coroutine currentRoutine;
     private int _secondaryState;
+    private int currentAmt;
     private Color tempColor;
     private bool PCooldown;
+    public Animator thisAnim;
 
 
     private void Awake()
@@ -30,18 +32,24 @@ public class SquadUIBehavior : MonoBehaviour
     private void Start()
     {
         UpdateCount();
+        currentAmt = brain.GetTypeCount(elemType);
         SetSecondaryState(1);
     }
 
     public void UpdateCount()
     {
+        if(brain.GetTypeCount(elemType)==currentAmt)
+            return;
         unitCounter.text = brain.GetTypeCount(elemType).ToString();
+        //animate
+        currentAmt = brain.GetTypeCount(elemType);
+        thisAnim.SetTrigger("Flash");
     }
 
     public void SetCD()
     {
-        thisElemCD = brain.GetCD(elemType);
-        thisElemSecondCD = brain.GetToggleCD(elemType);
+        thisElemCD = brain.GetCD(elemType)-.5f;
+        thisElemSecondCD = brain.GetToggleCD(elemType)-.5f;
     }
 
     public void StartVisualCD()

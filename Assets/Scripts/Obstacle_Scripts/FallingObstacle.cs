@@ -13,11 +13,12 @@ public class FallingObstacle : MonoBehaviour
     public int positiveRange = 6;
     
     private bool isLooping = true;
+    private Coroutine activeRoutine;
     
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(dropObject());
+        activeRoutine = StartCoroutine(dropObject());
     }
 
     IEnumerator dropObject()
@@ -34,5 +35,15 @@ public class FallingObstacle : MonoBehaviour
     public void StopLoop()
     {
         isLooping = false;
+    }
+
+    public void StopDropping()
+    {
+        StopCoroutine(activeRoutine);
+    }
+
+    public void StartDropping()
+    {
+        activeRoutine = StartCoroutine(dropObject());
     }
 }

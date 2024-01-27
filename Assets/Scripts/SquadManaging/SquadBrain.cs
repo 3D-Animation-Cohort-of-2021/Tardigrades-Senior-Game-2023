@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.Controls;
 using Random = UnityEngine.Random;
-
 public class SquadBrain : MonoBehaviour
 {
     public SO_SquadData _movementVector;
@@ -36,7 +36,7 @@ public class SquadBrain : MonoBehaviour
     private Coroutine activeSquad = null;
 
     private Camera _cam;
-
+    
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -44,10 +44,7 @@ public class SquadBrain : MonoBehaviour
 
         _primary = gameObject.AddComponent<Ability>();
         _secondary = gameObject.AddComponent<ToggleAbility>();
-
-        _primary.cooldown = _hordeInfo.GetCD(_squadType);
-        _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
-        _loopDelay = new WaitForSeconds(1f);
+        Initialize();
     }
 
     void Start()
@@ -58,7 +55,18 @@ public class SquadBrain : MonoBehaviour
         Populate(_amountPerGroup);
         _cam = Camera.main;
     }
-
+    public void setInfo(Elem type, int numUnits)
+    {
+        _squadType = type;
+        _amountPerGroup = numUnits;
+        Initialize();
+    }
+    public void Initialize()
+    {
+        _primary.cooldown = _hordeInfo.GetCD(_squadType);
+        _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
+        _loopDelay = new WaitForSeconds(1f);
+    }
     private void FixedUpdate()
     {
         if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= _radius))
@@ -492,6 +500,20 @@ public class SquadBrain : MonoBehaviour
             _formationPositions[i].Position += new Vector3(i * fullSpacing, 0, positionZ);
 
             _formationPositions[i].willRotate = true;
+        }
+    }
+
+    public void TerminateSquad()
+    { 
+        List<TardigradeBase> refList = new List<TardigradeBase>();
+        foreach (TardigradeBase pig in _myTards)
+        {
+            refList.Add(pig);
+        }
+
+        foreach (TardigradeBase pig in refList)
+        {
+            pig.Death();
         }
     }
 }

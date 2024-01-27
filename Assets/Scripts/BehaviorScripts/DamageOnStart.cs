@@ -10,6 +10,7 @@ public class DamageOnStart : MonoBehaviour
    private float range;
    public float damage;
    public Elem type;
+   public DeathType tardDeathType;
    private void Awake()
    {
       thisCollider = GetComponent<Collider>();
@@ -18,13 +19,17 @@ public class DamageOnStart : MonoBehaviour
 
    private void Start()
    {
+      Damage();
+   }
+
+   public void Damage()
+   {
       Collider[] ObjectsInRange = Physics.OverlapSphere(gameObject.transform.position, range);
       foreach (Collider c in ObjectsInRange)
       {
-         if (c.TryGetComponent<Obstacle>(out var id))
+         if (c.TryGetComponent(out IDamageable id))
          {
-            Debug.Log(id);
-            id.Damage(damage,type);
+            id.Damage(damage,type, tardDeathType);
          }
       }
    }
