@@ -2,52 +2,58 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 //Created by: Ethan Ware
 //Purpose: This script is for controlling the Level box
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Animator))]
 public class EndBoxBehavior : MonoBehaviour
 {
+    public UnityEvent spawnEvent, endEvent, controlsEnableEvent;
     public Boolean isEnd;
     public GameAction endLevel;
-    private Collider endVolume;
+    public GameObject rallyPoint;
     private Animator boxAnimator;
-    void Start()
+
+    private void Awake()
     {
-        endVolume = GetComponent<Collider>();
-        boxAnimator = GetComponent<Animator>();
-        
         if (isEnd)
         {
-            endVolume.enabled = true;
-            OpenBox();
+            GetComponent<Animator>().SetTrigger("Open");
+            //do end things
+        }
+        else
+        {
+            //do start things
         }
     }
 
-    public void OpenBox()
+    private void Start()
     {
-        boxAnimator.ResetTrigger("Close");
-        boxAnimator.SetTrigger("Open");
+        
     }
 
-    public void CloseBox()
+    public void SpawnEvent()
     {
-        boxAnimator.ResetTrigger("Open");
-        boxAnimator.SetTrigger("Close");
-    }
-    
-    /// <summary>
-    /// Purpose: signal the level to end and close the box once tardigrades have entered the volume
-    /// </summary>
-    /// <param name="other"></param>
-    public void OnTriggerEnter(Collider other)
-    {
-        CloseBox();
-        endLevel.raise.Invoke();
+        spawnEvent.Invoke();
     }
 
-    public void LevelStart()
+    public void DespawnEvent()
     {
-        OpenBox();
+        endEvent.Invoke();
+    }
+
+    public void EnablePlayerControls()
+    {
+        controlsEnableEvent.Invoke();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out PlayerControl PC))
+        {
+            //tell horde to move to rally point
+        }
     }
 }
