@@ -71,7 +71,7 @@ public class ElementalFlame : MonoBehaviour, IDamageable
         return (EffectiveTable.DetermineEffectiveness(flameType, tardType) == Effectiveness.Ineffective);
     }
 
-    public void Damage(float dmgNum, Elem dmgType)
+    public void Damage(float dmgNum, Elem dmgType, DeathType deathType = DeathType.Default)
     {
         Debug.Log("Flame Damaged");
         if (EffectiveTable.DetermineEffectiveness(dmgType, flameType) == Effectiveness.Reactive)

@@ -12,6 +12,7 @@ public class DamageOverTimeInVolume : MonoBehaviour
    private Coroutine activeRoutine;
    public Elem type;
    public bool isRunning;
+   public DeathType tardDeathType;
    private Vector3 boxCenter, boxHalfExtents, adjustedScale;
    private Collider[] colsInArea;
    private void Awake()
@@ -23,7 +24,6 @@ public class DamageOverTimeInVolume : MonoBehaviour
       boxHalfExtents = _collider.bounds.extents;
       boxCenter = _collider.bounds.center;
       adjustedScale = transform.lossyScale;
-      Debug.Log(boxHalfExtents);
    }
 
    private void Start()
@@ -38,7 +38,7 @@ public class DamageOverTimeInVolume : MonoBehaviour
       foreach (Collider obj in colsInArea)
       {
          if(obj.TryGetComponent(out TardigradeBase tard))
-            tard.Damage(damagePerTick,type);
+            tard.Damage(damagePerTick,type, tardDeathType);
       }
    }
 
