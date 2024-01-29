@@ -6,6 +6,7 @@ public class DamageOnEnter : MonoBehaviour
 
     public float _damage;
     public Elem _damageType;
+    public DeathType tardDeathType;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class DamageOnEnter : MonoBehaviour
     {
         if (other.TryGetComponent(out IDamageable otherObj))
         {
-            otherObj.Damage(_damage, _damageType);
+            otherObj.Damage(_damage, _damageType, tardDeathType);
         }
     }
 }

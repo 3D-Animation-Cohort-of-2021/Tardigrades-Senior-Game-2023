@@ -18,7 +18,7 @@ public class BonesBehaviour : MonoBehaviour
         foreach (Rigidbody bone in GetComponentsInChildren<Rigidbody>())
         {
             bone.useGravity = false;
-            bone.drag = 1;
+            bone.drag = 1.2f;
         }
     }
 }
