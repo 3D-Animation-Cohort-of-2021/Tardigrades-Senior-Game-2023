@@ -513,8 +513,9 @@ public class SquadBrain : MonoBehaviour
 
         foreach (TardigradeBase pig in refList)
         {
-            pig.Death();
+            pig.Death(DeathType.None);
         }
+        Destroy(gameObject);
     }
 }
 
