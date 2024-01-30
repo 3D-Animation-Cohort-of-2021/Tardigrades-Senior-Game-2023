@@ -398,11 +398,11 @@ public class SquadManager : MonoBehaviour
         }
     }
 
-    public void TerminateHorde()
+    public void TerminateHorde(DeathType deathType)
     {
         foreach (Squad sq in _squads)
         {
-            sq.SquadObj.TerminateSquad();
+            sq.SquadObj.TerminateSquad(deathType);
         }
         
     }
@@ -435,6 +435,15 @@ public class SquadManager : MonoBehaviour
             sq.SquadObj.GetComponent<NavMeshAgent>().enabled=true;
         }
         gameObject.GetComponent<NavMeshAgent>().enabled = true;
+    }
+
+    public void RallyAtPoint(Vector3 rallyPoint)
+    {
+        //gameObject.transform.position = rallyPoint;
+        foreach (Squad grp in _squads)
+        {
+            grp.SquadObj.gameObject.transform.position = rallyPoint;
+        }
     }
 
 

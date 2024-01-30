@@ -10,11 +10,13 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Animator))]
 public class EndBoxBehavior : MonoBehaviour
 {
-    public UnityEvent spawnEvent, endEvent, controlsEnableEvent;
+    public UnityEvent spawnEvent, finishEvent, controlsEnableEvent;
     public Boolean isEnd;
     public GameAction endLevel;
     public GameObject rallyPoint;
     private Animator boxAnimator;
+    private GameObject playerCenter;
+    public Horde_Info hordeBrain;
 
     private void Awake()
     {
@@ -26,12 +28,13 @@ public class EndBoxBehavior : MonoBehaviour
         else
         {
             //do start things
+            hordeBrain.gameRunning = true;
         }
     }
 
-    private void Start()
+    public void MarkLevelComplete()
     {
-        
+        endLevel.raise();
     }
 
     public void SpawnEvent()
@@ -41,7 +44,7 @@ public class EndBoxBehavior : MonoBehaviour
 
     public void DespawnEvent()
     {
-        endEvent.Invoke();
+        finishEvent.Invoke();
     }
 
     public void EnablePlayerControls()
@@ -49,11 +52,22 @@ public class EndBoxBehavior : MonoBehaviour
         controlsEnableEvent.Invoke();
     }
 
+    public void TerminatePlayerHorde()
+    {
+        if(playerCenter==null)
+            return;
+        playerCenter.GetComponent<SquadManager>().TerminateHorde(DeathType.None);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out PlayerControl PC))
+        if(!isEnd)
+            return;
+        if (other.TryGetComponent(out SquadManager sM))
         {
-            //tell horde to move to rally point
+            playerCenter = sM.gameObject;
+            finishEvent.Invoke();
+            sM.RallyAtPoint(rallyPoint.transform.position);
         }
     }
 }
