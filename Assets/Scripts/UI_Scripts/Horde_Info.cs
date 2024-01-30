@@ -32,7 +32,7 @@ public class Horde_Info : ScriptableObject
   
     
   public GameAction callUpdateText, hordeIsDeadAction;
-  public bool gameRunning;
+  public bool gameRunning, canFail;
 
 
   public void SetPlayActiveState(bool gameState)
@@ -71,11 +71,14 @@ public class Horde_Info : ScriptableObject
           return;
     }
 
-    if ((numNormal + numFire + numStone + numWater) <= 0 && gameRunning)
+    if ((numNormal + numFire + numStone + numWater) <= 0 && gameRunning && canFail)
     {
       hordeIsDeadAction.raise();
     }
-    
+
+    if (val > 0)
+      canFail = true;
+
   }
 
     public int GetTypeCount(Elem element)

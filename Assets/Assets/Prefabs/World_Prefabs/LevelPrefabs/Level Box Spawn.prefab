@@ -1614,10 +1614,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  endOfSequenceEvent:
+    m_PersistentCalls:
+      m_Calls: []
   isEnd: 0
   endLevel: {fileID: 11400000, guid: b195b3ae8eee91f4db2bd436739c4af7, type: 2}
   rallyPoint: {fileID: 8192830056405021714}
-  hordeBrain: {fileID: 0}
+  hordeBrain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
+  currentLevel: {fileID: 0}
+  nextLevel: {fileID: 0}
 --- !u!65 &4517000501568733030
 BoxCollider:
   m_ObjectHideFlags: 0

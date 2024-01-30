@@ -15,6 +15,7 @@ using Unity.VisualScripting;
 public class SquadManager : MonoBehaviour
 {
     public GameObject _squadPrefab;
+    public Horde_Info hordeBrain;
     public static List<Squad> _squads = new List<Squad>();
  
     public int _squadIDGiver;
@@ -32,11 +33,6 @@ public class SquadManager : MonoBehaviour
     
     private Canvas _healthBarCanvas;
 
-    private void Awake()
-    {
-        
-        //Nate's plugin to the UI
-    }
 
     private void Start()
     {
@@ -341,6 +337,7 @@ public class SquadManager : MonoBehaviour
 
     }
 
+    
     public void SquadUsePrimaryAbility()
     {
         SetActiveSquad();
@@ -398,11 +395,12 @@ public class SquadManager : MonoBehaviour
         }
     }
 
-    public void TerminateHorde(DeathType deathType)
+    public void TerminateHorde()
     {
+        hordeBrain.canFail = false;
         foreach (Squad sq in _squads)
         {
-            sq.SquadObj.TerminateSquad(deathType);
+            sq.SquadObj.TerminateSquad();
         }
         
     }
@@ -411,28 +409,33 @@ public class SquadManager : MonoBehaviour
     {
         foreach (Squad sq in _squads)
         {
-            sq.SquadObj.GetComponent<NavMeshAgent>().enabled=false;
+            if(sq.SquadObj!=null)
+                sq.SquadObj.GetComponent<NavMeshAgent>().enabled=false;
         }
         GetComponent<NavMeshAgent>().enabled = false;
         transform.position = centerPoint.position;
         foreach (Squad sq in _squads)
         {
-            switch (sq.GetSquadType())
+            if (sq.SquadObj!=null)
             {
-                case Elem.Neutral:
-                    sq.SquadObj.gameObject.transform.position = squadPoints[0].position;
-                    break;
-                case Elem.Fire:
-                    sq.SquadObj.gameObject.transform.position = squadPoints[1].position;
-                    break;
-                case Elem.Stone:
-                    sq.SquadObj.gameObject.transform.position = squadPoints[2].position;
-                    break;
-                case Elem.Water:
-                    sq.SquadObj.gameObject.transform.position = squadPoints[3].position;
-                    break;
+                switch (sq.GetSquadType())
+                {
+                    case Elem.Neutral:
+                        sq.SquadObj.gameObject.transform.position = squadPoints[0].position;
+                        break;
+                    case Elem.Fire:
+                        sq.SquadObj.gameObject.transform.position = squadPoints[1].position;
+                        break;
+                    case Elem.Stone:
+                        sq.SquadObj.gameObject.transform.position = squadPoints[2].position;
+                        break;
+                    case Elem.Water:
+                        sq.SquadObj.gameObject.transform.position = squadPoints[3].position;
+                        break;
+                }
+                sq.SquadObj.GetComponent<NavMeshAgent>().enabled=true;
             }
-            sq.SquadObj.GetComponent<NavMeshAgent>().enabled=true;
+            
         }
         gameObject.GetComponent<NavMeshAgent>().enabled = true;
     }

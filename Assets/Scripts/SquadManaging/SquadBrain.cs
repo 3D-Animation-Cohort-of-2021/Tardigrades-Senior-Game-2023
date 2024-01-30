@@ -503,7 +503,7 @@ public class SquadBrain : MonoBehaviour
         }
     }
 
-    public void TerminateSquad(DeathType deathType)
+    public void TerminateSquad()
     { 
         List<TardigradeBase> refList = new List<TardigradeBase>();
         foreach (TardigradeBase pig in _myTards)
@@ -513,7 +513,7 @@ public class SquadBrain : MonoBehaviour
 
         foreach (TardigradeBase pig in refList)
         {
-            pig.Death(deathType);
+            pig.Death(DeathType.None);
         }
     }
 }

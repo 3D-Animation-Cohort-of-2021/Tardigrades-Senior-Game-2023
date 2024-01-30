@@ -1199,7 +1199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2561704254570019707}
-  m_LocalRotation: {x: -0, y: 0.3176171, z: -0, w: 0.9482191}
+  m_LocalRotation: {x: 0, y: 0.31761912, z: 0, w: 0.9482184}
   m_LocalPosition: {x: 269.8, y: -0.09, z: 156.85}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
@@ -1288,10 +1288,13 @@ MonoBehaviour:
   controlsEnableEvent:
     m_PersistentCalls:
       m_Calls: []
+  endOfSequenceEvent:
+    m_PersistentCalls:
+      m_Calls: []
   isEnd: 1
   endLevel: {fileID: 11400000, guid: b195b3ae8eee91f4db2bd436739c4af7, type: 2}
   rallyPoint: {fileID: 8036169641195391268}
-  hordeBrain: {fileID: 0}
+  hordeBrain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
 --- !u!65 &2349592814604714576
 BoxCollider:
   m_ObjectHideFlags: 0
