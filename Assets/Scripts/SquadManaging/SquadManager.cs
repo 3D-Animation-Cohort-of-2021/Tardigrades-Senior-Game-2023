@@ -402,6 +402,7 @@ public class SquadManager : MonoBehaviour
         {
             sq.SquadObj.TerminateSquad();
         }
+        _squads.Clear();
         
     }
 

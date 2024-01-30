@@ -515,6 +515,7 @@ public class SquadBrain : MonoBehaviour
         {
             pig.Death(DeathType.None);
         }
+        Destroy(gameObject);
     }
 }
 
