@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelSquadSpawner : MonoBehaviour, IReset
 {
     public bool squadAcquired;
+    public bool spawnOnStart;
     public GameObject squadPrefab;
     public Elem elementType;
     public int numTards;
@@ -15,7 +16,10 @@ public class LevelSquadSpawner : MonoBehaviour, IReset
     private void Start()
     {
         shouldReset = false;
-        CreateSquadFromTemplate();
+        if(spawnOnStart)
+        {
+            CreateSquadFromTemplate();
+        }
     }
 
     public void Reset()

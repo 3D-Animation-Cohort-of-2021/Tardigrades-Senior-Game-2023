@@ -36,12 +36,7 @@ public class SquadBrain : MonoBehaviour
     private Coroutine activeSquad = null;
 
     private Camera _cam;
-
-    public void setInfo(Elem type, int numUnits)
-    {
-        _squadType = type;
-        _amountPerGroup = numUnits;
-    }
+    
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -49,10 +44,7 @@ public class SquadBrain : MonoBehaviour
 
         _primary = gameObject.AddComponent<Ability>();
         _secondary = gameObject.AddComponent<ToggleAbility>();
-
-        _primary.cooldown = _hordeInfo.GetCD(_squadType);
-        _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
-        _loopDelay = new WaitForSeconds(1f);
+        Initialize();
     }
 
     void Start()
@@ -63,7 +55,18 @@ public class SquadBrain : MonoBehaviour
         Populate(_amountPerGroup);
         _cam = Camera.main;
     }
-
+    public void setInfo(Elem type, int numUnits)
+    {
+        _squadType = type;
+        _amountPerGroup = numUnits;
+        Initialize();
+    }
+    public void Initialize()
+    {
+        _primary.cooldown = _hordeInfo.GetCD(_squadType);
+        _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
+        _loopDelay = new WaitForSeconds(1f);
+    }
     private void FixedUpdate()
     {
         if (transform.parent != null && (Vector3.Distance(transform.position, transform.parent.position) >= _radius))
@@ -272,28 +275,30 @@ public class SquadBrain : MonoBehaviour
         tard.ChangeTardigradeHighlight(shouldHighlight);
     }
 
-    public void TardsUsePrimaryAbility()
+    public bool TardsUsePrimaryAbility()
     {
 
         if (!_primary.activatable)
         {
-            return;
+            return false;
         }
 
 
+        _primary.Cooldown();
 
         foreach (TardigradeBase tard in _myTards)
         {
-            _primary.Cooldown();
             tard.PrimaryAbility();
         }
+
+        return true;
     }
 
-    public void TardsUseSecondaryAbility()
+    public bool TardsUseSecondaryAbility()
     {
         if (!_secondary.activatable)
         {
-            return;
+            return false;
         }
 
 
@@ -327,6 +332,8 @@ public class SquadBrain : MonoBehaviour
                 }
             }
         }
+
+        return true;
     }
 
     public bool GetToggledStatus()
@@ -510,8 +517,9 @@ public class SquadBrain : MonoBehaviour
 
         foreach (TardigradeBase pig in refList)
         {
-            pig.Death();
+            pig.Death(DeathType.None);
         }
+        Destroy(gameObject);
     }
 }
 

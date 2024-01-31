@@ -65,7 +65,7 @@ public class LargeObstacle : Obstacle
         unWeakenEvent.Invoke();
     }
 
-    public override void Damage(float dmgNum, Elem dmgType)
+    public override void Damage(float dmgNum, Elem dmgType, DeathType deathType = DeathType.Default)
     {
         Effectiveness effectiveness = EffectiveTable.DetermineEffectiveness(_obstacleElement, dmgType);
 

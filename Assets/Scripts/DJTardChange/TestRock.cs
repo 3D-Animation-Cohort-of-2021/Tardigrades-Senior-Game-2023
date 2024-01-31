@@ -13,7 +13,7 @@ public class TestRock : MonoBehaviour, IDamageable
         type = Elem.Stone;
     }
 
-    public void Damage(float dmgNum, Elem dmgType)
+    public void Damage(float dmgNum, Elem dmgType, DeathType deathType = DeathType.Default)
     {
         health -= EffectiveTable.CalculateEffectiveDMG(type, dmgType, dmgNum);
         if(health<=0) Destroy(gameObject);

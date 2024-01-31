@@ -6,6 +6,13 @@ public enum Elem
     Water,
     Stone
 }
+public enum DeathType
+{
+    Default,
+    Drown,
+    Lava,
+    None
+}
 
 public enum Effectiveness
 {
@@ -17,7 +24,6 @@ public enum Effectiveness
 
 public enum Status
 {
-
     None,
     Burning,
     Wet,

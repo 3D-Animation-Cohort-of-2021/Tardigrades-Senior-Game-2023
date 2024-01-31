@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Ability : MonoBehaviour
 {
-    public float cooldown = 0f;
+    public float cooldown = 1f;
     public bool activatable = true;
 
     /// <summary>
@@ -22,6 +22,7 @@ public class Ability : MonoBehaviour
     {
         activatable = false;
         yield return new WaitForSeconds(cooldown);
+        Debug.Log("ability ready to use");
         activatable = true;
     }
 }

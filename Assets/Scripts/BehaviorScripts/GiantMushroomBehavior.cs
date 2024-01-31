@@ -81,7 +81,7 @@ public class GiantMushroomBehavior : MonoBehaviour, IDamageable, IReset
         Debug.Log("Mushroom destroyed");
     }
 
-    public void Damage(float dmgNum, Elem dmgType)
+    public void Damage(float dmgNum, Elem dmgType, DeathType deathType = DeathType.Default)
     {
         TakeDamage();
     }

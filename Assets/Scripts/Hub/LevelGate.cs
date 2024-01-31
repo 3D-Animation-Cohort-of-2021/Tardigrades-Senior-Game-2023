@@ -1,53 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelGate : MonoBehaviour
 {
-    public bool entered = false;
+    [SerializeField]
+    private string _sceneName;
 
-    public bool inLevel = false;
+    [SerializeField]
+    private LevelData _levelData;
 
-    public GameObject levelObject;
+    private void Start()
+    {
+        
+        if(_levelData != null && _levelData.levelUnlocked)
+        {
+            SetupGate();
+        }
+    }
+
+    private void SetupGate()
+    {
+        Collider collider = GetComponent<Collider>();
+
+        if (_levelData.levelUnlocked)
+        {
+            collider.isTrigger = true;
+        }
+        else
+        {
+            collider.isTrigger = false;
+        }
+    }
 
 
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag != "SQUAD" && other.gameObject.layer == LayerMask.NameToLayer("Center"))
+        
+        if(other.tag == "Player" && other.gameObject.layer == LayerMask.NameToLayer("Center") && _levelData.levelUnlocked)
         {
-           entered = true;
+           LoadScene();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "SQUAD" && other.gameObject.layer == LayerMask.NameToLayer("Center"))
-        {
-            entered = false;
-
-            Vector3 direction = other.transform.position - transform.position;
-
-            float distance = direction.magnitude;
-
-            Vector3 normalizedDirection = direction / distance;
-
-            if (transform.InverseTransformDirection(normalizedDirection).z > 0)
-            {
-                inLevel = true;
-            }
-            else if (transform.InverseTransformDirection(normalizedDirection).z < 0)
-            {
-                inLevel = false;
-            }
-
-            SetlevelVisibility();
-        }
     }
 
-    private void SetlevelVisibility()
+    private void LoadScene()
     {
-        levelObject.SetActive(inLevel);
+        SceneManager.LoadScene(_sceneName);
     }
 
 }
