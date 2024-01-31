@@ -275,28 +275,30 @@ public class SquadBrain : MonoBehaviour
         tard.ChangeTardigradeHighlight(shouldHighlight);
     }
 
-    public void TardsUsePrimaryAbility()
+    public bool TardsUsePrimaryAbility()
     {
 
         if (!_primary.activatable)
         {
-            return;
+            return false;
         }
 
 
+        _primary.Cooldown();
 
         foreach (TardigradeBase tard in _myTards)
         {
-            _primary.Cooldown();
             tard.PrimaryAbility();
         }
+
+        return true;
     }
 
-    public void TardsUseSecondaryAbility()
+    public bool TardsUseSecondaryAbility()
     {
         if (!_secondary.activatable)
         {
-            return;
+            return false;
         }
 
 
@@ -330,6 +332,8 @@ public class SquadBrain : MonoBehaviour
                 }
             }
         }
+
+        return true;
     }
 
     public bool GetToggledStatus()

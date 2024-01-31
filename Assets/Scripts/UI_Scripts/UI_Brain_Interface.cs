@@ -81,4 +81,10 @@ public class UI_Brain_Interface : MonoBehaviour
                 return;
         }
     }
+
+    private void OnDestroy()
+    {
+        _gameActionElemental.raise -= UpdateTypeCount;
+        _abilityElemental.raise -= AbilityHandler;
+    }
 }
