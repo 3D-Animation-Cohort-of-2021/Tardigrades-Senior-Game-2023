@@ -6,23 +6,44 @@ using UnityEngine;
 public class CrackedIceBehaviour : MonoBehaviour
 {
     private Animator aniController;
-    private ParticleSystem system;
+    [SerializeField]private ParticleSystem mainSystem;
+    [SerializeField]private ParticleSystem subSystem;
+    private float time = 0;
+    private bool isReady = true;
+    private float cooldown = 1.5f;
     private void Start()
     {
         aniController = GetComponent<Animator>();
-        system = GetComponent<ParticleSystem>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<TardigradeBase>( out TardigradeBase tard))
+        if (other.TryGetComponent<TardigradeBase>( out TardigradeBase tard) && isReady)
         {
+            //Final Break
             if (aniController.GetCurrentAnimatorStateInfo(0).IsName("IceCracking3"))
             {
-                Destroy(this.gameObject);
+                subSystem.Play(false);
+                //Destroy(this.gameObject);
             }
-            system.Play();
-            aniController.SetTrigger("CrackTrigger");
+            //Cracks
+            else
+            {
+                mainSystem.Play(false);
+                aniController.SetTrigger("CrackTrigger");
+            }
+
+            time = 0;
+            isReady = false;
+        }
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+        if (time >= cooldown)
+        {
+            isReady = true;
         }
     }
 }

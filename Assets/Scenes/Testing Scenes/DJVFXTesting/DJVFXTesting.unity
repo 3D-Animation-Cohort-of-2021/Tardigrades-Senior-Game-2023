@@ -15473,7 +15473,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
@@ -19434,6 +19434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d525d0c0793304046aa0e2ba76c05056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainSystem: {fileID: 1913948315}
+  subSystem: {fileID: 1721208761}
 --- !u!1001 &1999235419
 PrefabInstance:
   m_ObjectHideFlags: 0
