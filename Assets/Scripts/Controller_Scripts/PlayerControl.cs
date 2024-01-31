@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     public DebugInputSO debugInput;
     private Vector3 triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
+    public bool controlsEnabled;
 
     private Coroutine offMeshPathInstance = null;
     public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent, secondaryAbilityEvent;
@@ -35,11 +36,17 @@ public class PlayerControl : MonoBehaviour
             debugInput.map.actions[i].canceled += InputReceived;
 
             debugInput.map.actions[i].Enable();
+            controlsEnabled = true;
         }
 
         SquadsMoveCommands.SetSquadNumber(0);
         SquadsMoveCommands.SetSquadTotal(0);
         
+    }
+
+    public void SetControlsActive(bool state)
+    {
+        controlsEnabled = state;
     }
 
     public void InputReceived(InputAction.CallbackContext context)
@@ -83,7 +90,7 @@ public class PlayerControl : MonoBehaviour
 
     public void PreviousSquad(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && controlsEnabled)
         {
             SquadsMoveCommands.SubtractSquadNumber();
         }
@@ -96,9 +103,8 @@ public class PlayerControl : MonoBehaviour
     }
     public void NextSquad(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && controlsEnabled)
         {
-            
             SquadsMoveCommands.AddSquadNumber();
         }
 
@@ -109,6 +115,7 @@ public class PlayerControl : MonoBehaviour
     }
     public void MoveSquad(InputAction.CallbackContext context)
     {
+        if (!controlsEnabled) return;
         rightStickMovement.x = context.ReadValue<Vector2>().x;
         rightStickMovement.z = context.ReadValue<Vector2>().y;
 
@@ -117,12 +124,13 @@ public class PlayerControl : MonoBehaviour
     }
     public void Rotate(InputAction.CallbackContext context)
     {
-        rotationCallback.Invoke(context);
+        if (controlsEnabled)
+            rotationCallback.Invoke(context);
     }
     
     public void MutateSquad(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && controlsEnabled)
         {
             mutateEvent.Invoke();
         }
@@ -130,7 +138,7 @@ public class PlayerControl : MonoBehaviour
 
     public void PrimaryAbility(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && controlsEnabled)
         {
             primaryAbilityEvent.Invoke();
         }
@@ -138,7 +146,7 @@ public class PlayerControl : MonoBehaviour
     
     public void SecondaryAbility(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && controlsEnabled)
         {
             secondaryAbilityEvent.Invoke();
         }
@@ -146,7 +154,7 @@ public class PlayerControl : MonoBehaviour
 
     public void PrevFormation(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && controlsEnabled)
         {
             updateFormation.Invoke(-1);
         }
@@ -154,7 +162,7 @@ public class PlayerControl : MonoBehaviour
 
     public void NextFormation(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && controlsEnabled)
         {
             updateFormation.Invoke(1);
         }
@@ -162,7 +170,7 @@ public class PlayerControl : MonoBehaviour
 
     public void IncreaseSpacing(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && controlsEnabled)
         {
             updateSpacing.Invoke(0.5f);
         }
@@ -170,7 +178,7 @@ public class PlayerControl : MonoBehaviour
 
     public void DecreaseSpacing(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && controlsEnabled)
         {
             updateSpacing.Invoke(-0.5f);
         }
