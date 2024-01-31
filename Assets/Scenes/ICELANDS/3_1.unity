@@ -1429,6 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36330486d7d34354db8d008b4a6b7793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tardDeathType: 0
 --- !u!135 &926172098
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3040,6 +3041,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onAwakeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1134518756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4049278343048673063, guid: c53f21846782f2b4d9f7df5653908d27,
@@ -3826,6 +3830,7 @@ MonoBehaviour:
   damagePerTick: 1
   type: 2
   isRunning: 0
+  tardDeathType: 0
 --- !u!1001 &1404394245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4954,7 +4959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1962598168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4987,6 +4992,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onAwakeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!135 &1962598169
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5080,9 +5088,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTriggerEnter:
     m_PersistentCalls:
-      m_Calls: []
-  onTriggerExit:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: dcab72b6d397e9b4fb5105cd9515f08c, type: 2}
         m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
@@ -5096,6 +5101,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
   onTriggerStay:
     m_PersistentCalls:
       m_Calls: []
