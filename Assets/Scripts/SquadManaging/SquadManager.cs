@@ -347,8 +347,11 @@ public class SquadManager : MonoBehaviour
             return;
         }
 
-        _abilityElemental.RaiseAction(_activeSquad._squadType, 1); // 1 = primary ability
-        _activeSquad.TardsUsePrimaryAbility();
+        if (_activeSquad.TardsUsePrimaryAbility())
+        {
+            _abilityElemental.RaiseAction(_activeSquad._squadType, 1); // 1 = primary ability
+        }
+        
     }
     public void SquadUseSecondaryAbility()
     {
@@ -358,9 +361,10 @@ public class SquadManager : MonoBehaviour
             print("Neutrals can't use abilities!");
             return;
         }
-
-        _abilityElemental.RaiseAction(_activeSquad._squadType, 2); // 2 = secondary ability
-        _activeSquad.TardsUseSecondaryAbility();
+        if (_activeSquad.TardsUseSecondaryAbility())
+        {
+            _abilityElemental.RaiseAction(_activeSquad._squadType, 2); // 2 = secondary ability
+        }
     }
 
     public void UpdateActiveFormation(int formationIterator)
