@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a69b607594a24245a8b67065e1964f9, type: 3}
   m_Name: HordeInfoObj
   m_EditorClassIdentifier: 
-  numFire: 0
+  numFire: 5
   numStone: 0
-  numWater: 5
-  numNormal: 0
-  savedFire: 0
+  numWater: 0
+  numNormal: 5
+  savedFire: 5
   savedStone: 0
   savedWater: 0
-  savedNormal: 0
+  savedNormal: 5
   normalCD: 1
   fireCD: 4
   stoneCD: 8
@@ -30,3 +30,5 @@ MonoBehaviour:
   waterToggleCD: 6
   callUpdateText: {fileID: 11400000, guid: d4111673d585aeb4c947071d102f7791, type: 2}
   hordeIsDeadAction: {fileID: 11400000, guid: 97cc7e41a39b8f14aab07abfd02a597f, type: 2}
+  gameRunning: 1
+  canFail: 1

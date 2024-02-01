@@ -11,6 +11,7 @@ public enum DeathType
     Default,
     Drown,
     Lava,
+    None
 }
 
 public enum Effectiveness
