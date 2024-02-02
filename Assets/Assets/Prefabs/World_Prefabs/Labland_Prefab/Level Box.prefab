@@ -416,6 +416,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1705486050199985652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7755595540515104300}
+  m_Layer: 0
+  m_Name: Rally Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7755595540515104300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705486050199985652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.07, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5831035541139223825}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2082185726975888159
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +563,7 @@ Transform:
   - {fileID: 3683960670515092790}
   m_Father: {fileID: 148971374292951094}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -87, y: 0, z: 0}
 --- !u!33 &1370943575026028718
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1797,7 +1828,7 @@ Transform:
   - {fileID: 8528405801415586494}
   m_Father: {fileID: 148971374292951094}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 85, y: 0, z: 0}
 --- !u!33 &3467659357764243623
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2135,7 +2166,7 @@ Transform:
   - {fileID: 7986757726797113736}
   m_Father: {fileID: 148971374292951094}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -87}
 --- !u!33 &1228781100534196914
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2280,6 +2311,7 @@ GameObject:
   - component: {fileID: 5831035541139223825}
   - component: {fileID: 6602329017141407652}
   - component: {fileID: 5888978222693331137}
+  - component: {fileID: 6392368221649114752}
   m_Layer: 0
   m_Name: Level Box
   m_TagString: Untagged
@@ -2296,12 +2328,13 @@ Transform:
   m_GameObject: {fileID: 6602329017141407659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4114367127499169535}
   - {fileID: 3288436124691642622}
   - {fileID: 8138952953882010198}
+  - {fileID: 7755595540515104300}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2337,8 +2370,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cba97786fd866a458c8aa0d7bf0a37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  endEvent:
+    m_PersistentCalls:
+      m_Calls: []
   isEnd: 0
-  endVolume: {fileID: 0}
+  endLevel: {fileID: 11400000, guid: b195b3ae8eee91f4db2bd436739c4af7, type: 2}
+  rallyPoint: {fileID: 1705486050199985652}
+--- !u!65 &6392368221649114752
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602329017141407659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 6, z: 15}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &6606532457725124670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2705,7 +2758,7 @@ Transform:
   - {fileID: 7198272854781021554}
   m_Father: {fileID: 148971374292951094}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 87}
 --- !u!33 &4087468651979780387
 MeshFilter:
   m_ObjectHideFlags: 0
