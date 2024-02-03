@@ -225,17 +225,20 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         }
 
         //Default Death
-        if (deathType == DeathType.Default)
+        switch (deathType)
         {
-            Instantiate(bonesPrefab, transform.position, transform.rotation);
-            GetComponent<SquishVFXBehaviour>().Play();
-        }
-        
-        //Toxic Water death
-        if (deathType == DeathType.Drown)
-        {
-            GameObject tempBones = Instantiate(bonesPrefab, transform.position, transform.rotation);
-            tempBones.GetComponent<BonesBehaviour>().FloatBones();
+            case DeathType.Default:
+                Instantiate(bonesPrefab, transform.position, transform.rotation);
+                GetComponent<SquishVFXBehaviour>().Play();
+                break;
+            case DeathType.Drown:
+                GameObject tempBones = Instantiate(bonesPrefab, transform.position, transform.rotation);
+                tempBones.GetComponent<BonesBehaviour>().FloatBones();
+                break;
+            case DeathType.Lava:
+                break;
+            case DeathType.None:
+                break;
         }
         Destroy(gameObject);
     }
@@ -408,6 +411,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase.hordeInfo = hordeInfo;
         tardigradeBase.collar = collar;
         tardigradeBase.damageEffectObj = damageEffectObj;
+        tardigradeBase.bonesPrefab = bonesPrefab;
 
         tardigradeBase.UpdateTardigrade();
 

@@ -29,10 +29,16 @@ public class Horde_Info : ScriptableObject
     fireToggleCD,
     stoneToggleCD,
     waterToggleCD;
+  
     
   public GameAction callUpdateText, hordeIsDeadAction;
-  
+  public bool gameRunning, canFail;
 
+
+  public void SetPlayActiveState(bool gameState)
+  {
+    gameRunning = gameState;
+  }
   public void ResetToZero()
   {
     numFire = 0;
@@ -65,11 +71,14 @@ public class Horde_Info : ScriptableObject
           return;
     }
 
-    if ((numNormal + numFire + numStone + numWater) <= 0)
+    if ((numNormal + numFire + numStone + numWater) <= 0 && gameRunning && canFail)
     {
       hordeIsDeadAction.raise();
     }
-    
+
+    if (val > 0)
+      canFail = true;
+
   }
 
     public int GetTypeCount(Elem element)
