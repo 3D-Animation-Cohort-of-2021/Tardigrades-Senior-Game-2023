@@ -14,14 +14,13 @@ public class ThermalVentBehaviour : MonoBehaviour, IDamageable
     }
 
 
-    public void Damage(float dmgNum, Elem dmgType)
+    public void Damage(float dmgNum, Elem dmgType, DeathType deathType = default)
     {
         if (EffectiveTable.DetermineEffectiveness(dmgType, flameType) == Effectiveness.Reactive)
         {
-           Debug.Log("Warm Up Tardigrades");
+            Debug.Log("Warm Up Tardigrades");
             onDamage.Invoke();
         }
-        
     }
 }
 

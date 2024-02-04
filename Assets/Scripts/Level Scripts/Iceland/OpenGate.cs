@@ -14,11 +14,11 @@ public class OpenGate : MonoBehaviour, IDamageable
     }
 
 
-    public void Damage(float dmgNum = 1f, Elem dmgType = Elem.Stone)
+    public void Damage(float dmgNum = 1f, Elem dmgType = Elem.Stone, DeathType deathType = default)
     {
        onDamage.Invoke();
     }
-   
+
 }
 
 
