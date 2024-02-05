@@ -13,6 +13,7 @@ public class ThermalVentBehaviour : MonoBehaviour, IDamageable
         onAwake.Invoke();
     }
 
+
     public void Damage(float dmgNum, Elem dmgType, DeathType deathType = default)
     {
         if (EffectiveTable.DetermineEffectiveness(dmgType, flameType) == Effectiveness.Reactive)
