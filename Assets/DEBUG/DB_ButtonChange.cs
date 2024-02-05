@@ -257,19 +257,19 @@ public class DB_ButtonChange : MonoBehaviour
                 if (uiCanvas.enabled == false)
                 {
                     uiCanvas.enabled = true;
-                    Debug.Log("made true");
+                    //Debug.Log("made true");
                 }
                 else
                 {
                     uiCanvas.enabled = false;
-                    Debug.Log("made False");
+                    //Debug.Log("made False");
                 }
             }
         }
     }
     public void RightJoyFunction(InputAction.CallbackContext context)
     {
-        Debug.Log(context);
+        //Debug.Log(context);
         if (debugActive)
         {
             if (context.started)
