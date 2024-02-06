@@ -30,5 +30,11 @@ public class SceneManagerUI : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("Closing Application");
+        Application.Quit();
+    }
     
 }
