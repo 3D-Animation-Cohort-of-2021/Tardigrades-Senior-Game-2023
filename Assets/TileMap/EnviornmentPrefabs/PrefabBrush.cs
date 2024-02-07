@@ -1,3 +1,4 @@
+#if (UNITY_EDITOR)
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,7 +6,7 @@ using UnityEditor;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
-#if UNITY_EDITOR
+
 
 [CreateAssetMenu(fileName = "Prefab Brush", menuName = "Brushes/Prefab brush")]
 [CustomGridBrush(false, true, false, "Prefab Brush")]
