@@ -319,6 +319,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 135
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &89570879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1606317955409540710, guid: b97217a2b82936f4aa836ed599c9ffde,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115262855275662908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &89570881
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89570879}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2, y: 5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 2, y: 5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &141775081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5469,6 +5491,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe44f67936dd5aa448eace131b37c28d, type: 3}
+--- !u!1 &2013664268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4813497904479975922, guid: b97217a2b82936f4aa836ed599c9ffde,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115262855275662908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &2013664270
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013664268}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2, y: 5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -2, y: 5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2038170697
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,6 +6918,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2697084453377706567, guid: fd57aab01baec2044a9dcf1e6bfbbd69,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5831035541139223825, guid: fd57aab01baec2044a9dcf1e6bfbbd69,
         type: 3}
       propertyPath: m_RootOrder
@@ -7030,6 +7079,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sandstone Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 947269879850593721, guid: b97217a2b82936f4aa836ed599c9ffde,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201354106492071324, guid: b97217a2b82936f4aa836ed599c9ffde,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301481575314812685, guid: b97217a2b82936f4aa836ed599c9ffde,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860334693757719529, guid: b97217a2b82936f4aa836ed599c9ffde,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510149427125833856, guid: b97217a2b82936f4aa836ed599c9ffde,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735470580287285197, guid: b97217a2b82936f4aa836ed599c9ffde,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97217a2b82936f4aa836ed599c9ffde, type: 3}
@@ -7514,6 +7593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burned Log 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5616760460315710249, guid: 5ba0caa5b31c5bd4086845eabda64821,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5792359357843274025, guid: 5ba0caa5b31c5bd4086845eabda64821,
         type: 3}
@@ -8042,6 +8126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burned Log 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603454851904064145, guid: e643a09b23cfe8240a369630f6ed6d1a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e643a09b23cfe8240a369630f6ed6d1a, type: 3}
@@ -8965,6 +9054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burned Log 1 (Obstacle)
+      objectReference: {fileID: 0}
+    - target: {fileID: 616037544205035009, guid: 270b68542ae424841973811927a6df07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8705590868186257459, guid: 270b68542ae424841973811927a6df07,
         type: 3}
@@ -9966,6 +10060,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burned Log 2 (Obstacle)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440324689892036388, guid: 4b96ff5b66ab9024c97146b9bd0c39e1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b96ff5b66ab9024c97146b9bd0c39e1, type: 3}
