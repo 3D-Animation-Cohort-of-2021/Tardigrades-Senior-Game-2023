@@ -6,7 +6,6 @@ public class ThermalVentBehaviour : MonoBehaviour, IDamageable
 {
     public UnityEvent onAwake, onDamage;
     private IDamageable _damageableImplementation;
-    public Elem flameType;
 
     public void Awake()
     {
@@ -16,7 +15,7 @@ public class ThermalVentBehaviour : MonoBehaviour, IDamageable
 
     public void Damage(float dmgNum, Elem dmgType, DeathType deathType = default)
     {
-        if (EffectiveTable.DetermineEffectiveness(dmgType, flameType) == Effectiveness.Reactive)
+        if (dmgType == Elem.Fire)
         {
             Debug.Log("Warm Up Tardigrades");
             onDamage.Invoke();
