@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Animator))]
-public class Pattern_Plate : MonoBehaviour
+public class Pattern_Plate : MonoBehaviour, IReset
 {
     public bool isRunning, isCorrect;
     public float checkTickTime, checkCooldownTime;
@@ -23,6 +23,8 @@ public class Pattern_Plate : MonoBehaviour
     private SphereCollider _collider;
     private Animator anim;
     private bool isChecking;
+    
+    public bool shouldReset { get; set; }
 
     private void Awake()
     {
@@ -38,6 +40,7 @@ public class Pattern_Plate : MonoBehaviour
         currentPatternIndex = 0;
         isCorrect = false;
         anim = GetComponent<Animator>();
+        shouldReset = true;
     }
 
     // Start is called before the first frame update
@@ -132,6 +135,21 @@ public class Pattern_Plate : MonoBehaviour
         for (int i = 0; i < squadPatterns.Length; i++)
         {
             squadPatterns[i] = Formation.Cluster;
+        }
+    }
+
+    public void Reset()
+    {
+        if(shouldReset)
+        {
+            Debug.Log(gameObject+" has reset");
+            if(currentRoutine!=null) 
+                StopCoroutine(currentRoutine);
+            incorrectPatternEvent.Invoke();
+            currentPatternIndex = 0;
+            isCorrect = false;
+            isChecking = false;
+            isRunning = true;
         }
     }
 }

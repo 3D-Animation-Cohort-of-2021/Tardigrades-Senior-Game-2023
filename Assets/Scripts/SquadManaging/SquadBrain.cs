@@ -275,28 +275,30 @@ public class SquadBrain : MonoBehaviour
         tard.ChangeTardigradeHighlight(shouldHighlight);
     }
 
-    public void TardsUsePrimaryAbility()
+    public bool TardsUsePrimaryAbility()
     {
 
         if (!_primary.activatable)
         {
-            return;
+            return false;
         }
 
 
+        _primary.Cooldown();
 
         foreach (TardigradeBase tard in _myTards)
         {
-            _primary.Cooldown();
             tard.PrimaryAbility();
         }
+
+        return true;
     }
 
-    public void TardsUseSecondaryAbility()
+    public bool TardsUseSecondaryAbility()
     {
         if (!_secondary.activatable)
         {
-            return;
+            return false;
         }
 
 
@@ -308,7 +310,7 @@ public class SquadBrain : MonoBehaviour
             }
             else
             {
-                StopCoroutine(SecondaryLoop());
+                StopCoroutine(SecondaryAbility);
                 SecondaryAbility = null;
             }
         }
@@ -321,15 +323,16 @@ public class SquadBrain : MonoBehaviour
                     tard.SecondaryAbility();
                 }
             }
-            else if(_secondary.ToggleStatus())
+            else 
             {
-                _secondary.FlipToggle();
                 foreach (TardigradeBase tard in _myTards)
                 {
                     tard.SecondaryAbility();
                 }
             }
         }
+
+        return true;
     }
 
     public bool GetToggledStatus()
@@ -513,8 +516,9 @@ public class SquadBrain : MonoBehaviour
 
         foreach (TardigradeBase pig in refList)
         {
-            pig.Death();
+            pig.Death(DeathType.None);
         }
+        Destroy(gameObject);
     }
 }
 

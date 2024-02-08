@@ -101,7 +101,7 @@ public class ForceApplicator : MonoBehaviour
             pushableNavmesh = true;
         }
 
-        if (pushableNavmesh && (selectedNavmeshAgent.TryGetComponent<StoneTardigrade>(out StoneTardigrade stoneTardigrade) && !stoneTardigrade.diamond))
+        if (pushableNavmesh && (selectedNavmeshAgent.TryGetComponent<StoneTardigrade>(out StoneTardigrade stoneTardigrade) && stoneTardigrade.diamond))
         {
             pushableNavmesh = false;
         }
