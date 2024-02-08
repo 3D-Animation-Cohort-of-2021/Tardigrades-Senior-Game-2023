@@ -59,7 +59,6 @@ public class WaterTardigrade : TardigradeBase
 
     protected override void SecondaryAbilityEffect()
     {
-        Debug.Log("Healing...");
         foreach (TardigradeBase tard in _shieldableTards)
         {
             if (tard == null)
