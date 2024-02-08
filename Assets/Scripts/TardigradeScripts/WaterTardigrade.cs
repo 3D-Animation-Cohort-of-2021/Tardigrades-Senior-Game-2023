@@ -34,15 +34,19 @@ public class WaterTardigrade : TardigradeBase
                 continue;
             }
 
-            tard.StartIce(_iceDuration, _abilityPrefab);
+            if (tard.IceCoroutine == null)
+            {
+                tard.StartIce(_iceDuration, _abilityPrefab);
+            }
         }
+        StartIce(_iceDuration, _abilityPrefab);
 
         foreach(Obstacle obstacle in _inRangeObstacles)
         {
             obstacle.Damage(_damage, _type);
         }
 
-        StartIce(_iceDuration, _abilityPrefab);
+        
         VisualEffect [] effects = GetComponentsInChildren<VisualEffect>();
         foreach (VisualEffect effect in effects)
         {

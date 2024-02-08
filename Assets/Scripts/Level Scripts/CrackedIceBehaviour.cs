@@ -1,16 +1,21 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(ParticleSystem))]
+[RequireComponent(typeof(NavMeshObstacle))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(DeathZone))]
 public class CrackedIceBehaviour : MonoBehaviour
 {
     private Animator aniController;
     [SerializeField]private ParticleSystem mainSystem;
     [SerializeField]private ParticleSystem subSystem;
+    [SerializeField]private GameObject crackPrefab;
     private float time = 0;
     private bool isReady = true;
-    private float cooldown = 1.5f;
+    private float cooldown = 1f;
     private void Start()
     {
         aniController = GetComponent<Animator>();
@@ -24,7 +29,11 @@ public class CrackedIceBehaviour : MonoBehaviour
             if (aniController.GetCurrentAnimatorStateInfo(0).IsName("IceCracking3"))
             {
                 subSystem.Play(false);
-                //Destroy(this.gameObject);
+                GetComponent<DeathZone>().enabled = true;
+                GetComponent<NavMeshObstacle>().enabled = true;
+                GetComponent<MeshRenderer>().enabled = false;
+                //Instantiate(crackPrefab, transform.position, transform.rotation);
+                crackPrefab.GetComponent<DecalProjector>().enabled = true;
             }
             //Cracks
             else
