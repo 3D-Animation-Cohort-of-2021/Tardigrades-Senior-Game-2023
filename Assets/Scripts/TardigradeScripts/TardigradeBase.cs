@@ -286,7 +286,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
             yield return new WaitForSeconds(iceDuration);
 
-            if (iceAnimator)
+            if (iceAnimator.GetBool("IceShield"))
             {
                 iceAnimator.SetBool("IceShield", false);
                 Instantiate(iceShards, transform);
@@ -356,7 +356,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void StartIce(float iceDuration, GameObject iceShards)
     {
-        IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
+        if (IceCoroutine == null)
+        {
+            IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
+        }
     }
 
 
