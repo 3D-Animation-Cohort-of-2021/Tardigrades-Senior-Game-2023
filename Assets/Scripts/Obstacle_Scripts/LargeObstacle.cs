@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static Unity.VisualScripting.Dependencies.Sqlite.SQLite3;
+//using static Unity.VisualScripting.Dependencies.Sqlite.SQLite3;
 
 public class LargeObstacle : Obstacle
 {
