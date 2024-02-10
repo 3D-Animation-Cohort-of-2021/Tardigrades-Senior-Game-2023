@@ -16,7 +16,7 @@ public class CounterBehaviour : MonoBehaviour
       minCount = 0;
       gameActionObj.raise += IncreaseCounter;
   }
-
+  
   public void IncreaseCounter()
   {
       minCount++;
