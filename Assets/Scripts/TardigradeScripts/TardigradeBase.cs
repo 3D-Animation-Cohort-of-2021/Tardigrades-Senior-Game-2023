@@ -86,7 +86,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             return;
         }
         damageEffectObj.GetComponent<VisualEffect>().Play();
-        Debug.Log(damageEffectObj);
         _tarAnimator.SetTrigger("flinch");
 
         
@@ -207,7 +206,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void Death(DeathType deathType = DeathType.Default)
     {
-        print("Death");
         if (deathEvent != null)
         { 
         deathEvent.Invoke(_type, -1);
@@ -288,7 +286,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
             yield return new WaitForSeconds(iceDuration);
 
-            if (iceAnimator)
+            if (iceAnimator.GetBool("IceShield"))
             {
                 iceAnimator.SetBool("IceShield", false);
                 Instantiate(iceShards, transform);
@@ -358,7 +356,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void StartIce(float iceDuration, GameObject iceShards)
     {
-        IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
+        if (IceCoroutine == null)
+        {
+            IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
+        }
     }
 
 
