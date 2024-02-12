@@ -19,11 +19,17 @@ public class CheckpointLocation : MonoBehaviour
         waterSquadLoc;
     private Transform[] squadLocations;
     private bool isCurrentLocation;
-    
+    public UnityEvent activateEvent, deactivateEvent;
+
     private void Awake()
     {
         squadLocations = new Transform[] {normalSquadLoc.transform, fireSquadLoc.transform, stoneSquadLoc.transform, waterSquadLoc.transform};
-         
+    }
+
+    private void Start()
+    {
+        if(cpManager.currentCPLoc==this)
+            activateEvent.Invoke();
     }
 
     public void CreateSquads()
@@ -57,6 +63,7 @@ public class CheckpointLocation : MonoBehaviour
         _hordeInfo.WriteHordeToCheckpoint();
         cpManager.currentCPLoc = this;
         updateWorldResetState.Invoke();
+        activateEvent.Invoke();
         Debug.Log("checkpoint set");
         saveCall.raise();
     }
@@ -71,6 +78,11 @@ public class CheckpointLocation : MonoBehaviour
         if (cpManager.currentCPLoc == this)
             GetComponent<Collider>().enabled = false;
         else
+        {
             GetComponent<Collider>().enabled = true;
+            deactivateEvent.Invoke();
+        }
     }
+
+   
 }
