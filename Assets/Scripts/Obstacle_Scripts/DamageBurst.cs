@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class DamageBurst : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class DamageBurst : MonoBehaviour
 
     private IEnumerator DamagePeriod()
     {
+        yield return new WaitForSeconds(Random.Range(.5f, 2f));
         beginDamageDisplayEvent.Invoke();
         Debug.Log("getReady");
         yield return wfDamage;
