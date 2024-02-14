@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class OOOPuzzle : MonoBehaviour
 {
     public GameObject[] spawnLocations, currentSpawnedItems, itemList;//[yes,no,yes,no,yes,no]
+    public GameObject exampleSpawn, currentExample;
     public int currentRound;
     public GameObject transitionSmokeFx;
     public UnityEvent correctRoundEvent, puzzleFinishedEvent, resetEvent;
@@ -35,6 +36,7 @@ public class OOOPuzzle : MonoBehaviour
             else 
                 currentSpawnedItems[i] = PlaceItem(i, itemList[(currentRound-1)*2]);//create control items
         }
+        currentExample = Instantiate(itemList[(currentRound-1)*2], exampleSpawn.transform.position, exampleSpawn.transform.rotation);
         PlaySmoke();
     }
 
