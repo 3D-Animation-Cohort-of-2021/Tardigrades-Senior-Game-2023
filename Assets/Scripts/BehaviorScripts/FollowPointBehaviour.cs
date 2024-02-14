@@ -37,15 +37,6 @@ public class FollowPointBehaviour : MonoBehaviour {
             {
                 _navMeshAgent.destination = (destination + _pointObject.Parent.position);
             }
-
-            if (_navMeshAgent.remainingDistance > 0 && _navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance * 1.5f && _navMeshAgent.acceleration == _normalAccel)
-            {
-                _navMeshAgent.acceleration = 1;
-            }
-            else if (_navMeshAgent.acceleration != _normalAccel)
-            {
-                _navMeshAgent.acceleration = _normalAccel;
-            }
         }
         
         //Walk anim driver
