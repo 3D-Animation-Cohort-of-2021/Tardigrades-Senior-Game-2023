@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class FireTardigrade : TardigradeBase
 {
@@ -22,6 +23,27 @@ public class FireTardigrade : TardigradeBase
     {
         base.SecondaryAbility();
         ignited = !ignited;
+        VisualEffect[] effects = GetComponentsInChildren<VisualEffect>();
+        if (ignited)
+        {
+            foreach (VisualEffect effect in effects)
+            {
+                if (effect.visualEffectAsset.name == "FireTardBurn")
+                {
+                    effect.Play();
+                }
+            }
+        }
+        else
+        {
+            foreach (VisualEffect effect in effects)
+            {
+                if (effect.visualEffectAsset.name == "FireTardBurn")
+                {
+                    effect.Stop();
+                }
+            }
+        }
     }
 
 }
