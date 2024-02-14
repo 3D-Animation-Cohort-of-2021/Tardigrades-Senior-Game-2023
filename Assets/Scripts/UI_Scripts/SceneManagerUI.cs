@@ -11,6 +11,11 @@ public class SceneManagerUI : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void SetSelectedSimName(string val)
     {
         loadSimName = val;
@@ -20,6 +25,16 @@ public class SceneManagerUI : MonoBehaviour
     {
         SceneManager.LoadScene(loadSimName);
     }
-    
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Closing Application");
+        Application.Quit();
+    }
     
 }

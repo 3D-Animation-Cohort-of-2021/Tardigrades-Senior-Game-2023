@@ -462,11 +462,23 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 30
+        m_Name: Speed
+        m_Overridden: 1
+      - m_Value: 8
+        m_Name: Wind Density
+        m_Overridden: 0
+      - m_Value: 8
+        m_Name: Volume Size
+        m_Overridden: 0
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 1, y: 0, z: 0}
+        m_Name: Direction
+        m_Overridden: 0
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -2098,7 +2110,7 @@ PrefabInstance:
     - target: {fileID: -8208897409068077503, guid: 422588748b9513f44bad3263c6fe49b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.262434
+      value: -0.131217
       objectReference: {fileID: 0}
     - target: {fileID: -8208897409068077503, guid: 422588748b9513f44bad3263c6fe49b7,
         type: 3}
@@ -2138,7 +2150,7 @@ PrefabInstance:
     - target: {fileID: 6696577124727783935, guid: 422588748b9513f44bad3263c6fe49b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.262434
+      value: 0.131217
       objectReference: {fileID: 0}
     - target: {fileID: 6696577124727783935, guid: 422588748b9513f44bad3263c6fe49b7,
         type: 3}

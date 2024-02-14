@@ -12,7 +12,7 @@ public class LevelSquadSpawner : MonoBehaviour, IReset
     public int numTards;
     private GameObject spawnedSquad;
     public bool shouldReset { get; set; }
-
+    public bool isSpawn;
     private void Start()
     {
         shouldReset = false;
@@ -24,6 +24,8 @@ public class LevelSquadSpawner : MonoBehaviour, IReset
 
     public void Reset()
     {
+        if(isSpawn)
+            return;
         if (shouldReset)
         {
             CreateSquadFromTemplate();
@@ -43,6 +45,7 @@ public class LevelSquadSpawner : MonoBehaviour, IReset
 
     public void RespondToCpSave()
     {
+        
         if (squadAcquired)
         {
             shouldReset = false;

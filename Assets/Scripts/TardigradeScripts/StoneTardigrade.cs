@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using Random = UnityEngine.Random;
 
 public class StoneTardigrade : TardigradeBase
@@ -9,6 +10,7 @@ public class StoneTardigrade : TardigradeBase
 
     [SerializeField] private GameAction deathCall;
     public bool diamond = false;
+
     protected override void ReactToStrong()
    {
       base.ReactToStrong();
@@ -44,6 +46,28 @@ public class StoneTardigrade : TardigradeBase
     public override void SecondaryAbility()
     {
         diamond = !diamond;
+
+        VisualEffect[] effects = GetComponentsInChildren<VisualEffect>();
+        if (diamond)
+        {
+            foreach (VisualEffect effect in effects)
+            {
+                if (effect.visualEffectAsset.name == "HeavyTardFX")
+                {
+                    effect.Play();
+                }
+            }
+        }
+        else
+        {
+            foreach (VisualEffect effect in effects)
+            {
+                if (effect.visualEffectAsset.name == "HeavyTardFX")
+                {
+                    effect.Stop();
+                }
+            }
+        }
     }
 
 }
