@@ -33,7 +33,7 @@ public class HordeMovement : MonoBehaviour
     }
 
 
-    public void FixedUpdate()
+    public void Update()
     {
         if(!controlsEnabled)
             return;
