@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8824678116188330380}
   - component: {fileID: 3137745679349079096}
   - component: {fileID: 4999619101853694495}
+  - component: {fileID: -6362426269124386049}
+  - component: {fileID: 6503597588947558900}
   m_Layer: 18
   m_Name: TestBullet
   m_TagString: Untagged
@@ -127,3 +129,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-6362426269124386049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485574029886408287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6503597588947558900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485574029886408287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bdaa9d63d09994c9674209a7fd42b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageIntervalTime: 0
+  damagePerTick: 4
+  type: 2
+  isRunning: 0
+  tardDeathType: 0
