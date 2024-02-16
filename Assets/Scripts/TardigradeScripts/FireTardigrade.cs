@@ -9,6 +9,20 @@ public class FireTardigrade : TardigradeBase
 
     public bool ignited = false;
 
+    protected override void UpdateTardigrade()
+    {
+        base.UpdateTardigrade();
+
+        VisualEffect[] effects = GetComponentsInChildren<VisualEffect>();
+        foreach (VisualEffect effect in effects)
+        {
+            if (effect.visualEffectAsset.name == "FireTardBurn")
+            {
+                _abilityEffect = effect;
+            }
+        }
+    }
+
     public override void PrimaryAbility()
     {
 
@@ -23,26 +37,14 @@ public class FireTardigrade : TardigradeBase
     {
         base.SecondaryAbility();
         ignited = !ignited;
-        VisualEffect[] effects = GetComponentsInChildren<VisualEffect>();
+
         if (ignited)
-        {
-            foreach (VisualEffect effect in effects)
-            {
-                if (effect.visualEffectAsset.name == "FireTardBurn")
-                {
-                    effect.Play();
-                }
-            }
+        {     
+            _abilityEffect.Play();
         }
         else
         {
-            foreach (VisualEffect effect in effects)
-            {
-                if (effect.visualEffectAsset.name == "FireTardBurn")
-                {
-                    effect.Stop();
-                }
-            }
+            _abilityEffect.Stop();
         }
     }
 
