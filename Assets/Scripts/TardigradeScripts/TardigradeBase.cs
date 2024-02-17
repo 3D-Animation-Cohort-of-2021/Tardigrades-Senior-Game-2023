@@ -42,6 +42,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public VisualEffect _healVisualEffect;
 
     protected float _damage = 1;
+    protected VisualEffect _abilityEffect;
 
     public event System.Action<TardigradeBase> OnDestroy;
     
@@ -142,7 +143,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         //Debug.Log("damaged");
     }
     
-    private void UpdateTardigrade()
+    protected virtual void UpdateTardigrade()
     {
         TardigradeSetSO tardigradeSetSO = _tardigradeSets.GetMaterialSetByType(_type);
 

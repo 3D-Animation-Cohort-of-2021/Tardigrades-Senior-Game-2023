@@ -11,6 +11,21 @@ public class StoneTardigrade : TardigradeBase
     [SerializeField] private GameAction deathCall;
     public bool diamond = false;
 
+    protected override void UpdateTardigrade()
+    {
+        base.UpdateTardigrade();
+
+        VisualEffect[] effects = GetComponentsInChildren<VisualEffect>();
+            
+        foreach (VisualEffect effect in effects)
+        {
+            if (effect.visualEffectAsset.name == "HeavyTardFX")
+            {
+                _abilityEffect = effect;
+            }
+        }
+    }
+
     protected override void ReactToStrong()
    {
       base.ReactToStrong();
@@ -47,26 +62,13 @@ public class StoneTardigrade : TardigradeBase
     {
         diamond = !diamond;
 
-        VisualEffect[] effects = GetComponentsInChildren<VisualEffect>();
         if (diamond)
         {
-            foreach (VisualEffect effect in effects)
-            {
-                if (effect.visualEffectAsset.name == "HeavyTardFX")
-                {
-                    effect.Play();
-                }
-            }
+            _abilityEffect.Play();
         }
         else
         {
-            foreach (VisualEffect effect in effects)
-            {
-                if (effect.visualEffectAsset.name == "HeavyTardFX")
-                {
-                    effect.Stop();
-                }
-            }
+            _abilityEffect.Stop();
         }
     }
 
