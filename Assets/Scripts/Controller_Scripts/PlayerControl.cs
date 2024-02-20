@@ -3,6 +3,8 @@ using System.Reflection;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+
 //Made By Parker Bennion
 
 public enum OffMeshLinkMoveMethod
@@ -18,6 +20,8 @@ public class PlayerControl : MonoBehaviour
     private Vector3 triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
     public bool controlsEnabled;
+    public Button pause, play;
+    private bool isPause;
 
     private Coroutine offMeshPathInstance = null;
     public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent, secondaryAbilityEvent;
@@ -179,6 +183,23 @@ public class PlayerControl : MonoBehaviour
         if (context.started && controlsEnabled)
         {
             updateSpacing.Invoke(-0.5f);
+        }
+    }
+    public void PauseGame(InputAction.CallbackContext context)
+    {
+        if (context.started && controlsEnabled)
+        {
+            if (isPause != true)
+            {
+                play.onClick.Invoke();
+                isPause = true;
+            }
+            else
+            {
+                pause.onClick.Invoke();
+                isPause = false;
+            }
+            
         }
     }
 

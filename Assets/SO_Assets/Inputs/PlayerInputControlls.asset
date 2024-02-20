@@ -121,6 +121,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: PauseGame
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: fc7d23d4-f62c-48a4-9562-3a2f94fdf214
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: cf394f6b-5afd-4d44-b5b3-f95939e3cacc
@@ -323,14 +331,6 @@ MonoBehaviour:
       m_Action: PrimaryAbility
       m_Flags: 0
     - m_Name: 
-      m_Id: ed4eb07d-0726-4d9e-bf96-790ac5f2f6b2
-      m_Path: <Keyboard>/p
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: PrimaryAbility
-      m_Flags: 0
-    - m_Name: 
       m_Id: 56de5b8b-c85a-4777-8f3b-e096e48a78a6
       m_Path: <Gamepad>/dpad/up
       m_Interactions: 
@@ -417,4 +417,20 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: SecondaryAbility
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 3f6ee119-6efa-4ae3-adef-0e744eaf5234
+      m_Path: <Gamepad>/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PauseGame
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 86b5ad38-7530-46ed-b9b5-af5b9c18df9b
+      m_Path: <Keyboard>/p
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PauseGame
       m_Flags: 0
