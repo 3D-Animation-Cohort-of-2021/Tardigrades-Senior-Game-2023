@@ -74,6 +74,7 @@ public class LabBoxBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        boxAvailable = levelData.levelUnlocked;
         if(!isEnd||!boxAvailable)
             return;
         if (other.TryGetComponent(out SquadManager sM))
