@@ -20,6 +20,20 @@ public class WaterTardigrade : TardigradeBase
         _inRangeObstacles = new List<Obstacle>();
     }
 
+    protected override void UpdateTardigrade()
+    {
+        base.UpdateTardigrade();
+
+        VisualEffect[] effects = GetComponentsInChildren<VisualEffect>();
+        foreach (VisualEffect effect in effects)
+        {
+            if (effect.visualEffectAsset.name == "ColdSnapVFX")
+            {
+                _abilityEffect = effect;
+            }
+        }
+    }
+
     public override void PrimaryAbility()
     {
         DamageOnEnter explosion = Instantiate(_abilityPrefab, transform.position, Quaternion.identity).GetComponent<DamageOnEnter>();
@@ -47,14 +61,7 @@ public class WaterTardigrade : TardigradeBase
         }
 
         
-        VisualEffect [] effects = GetComponentsInChildren<VisualEffect>();
-        foreach (VisualEffect effect in effects)
-        {
-            if (effect.visualEffectAsset.name == "ColdSnapVFX")
-            {
-                effect.Play();
-            }
-        }
+        _abilityEffect.Play();
     }
 
     protected override void SecondaryAbilityEffect()
