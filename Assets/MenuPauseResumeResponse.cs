@@ -14,6 +14,11 @@ public class MenuPauseResumeResponse : MonoBehaviour
       isPaused = false;
    }
 
+   public void SetPauseStatus(bool state)
+   {
+      isPaused = state;
+   }
+
    public void RespondToCall()
    {
       if(isPaused)
