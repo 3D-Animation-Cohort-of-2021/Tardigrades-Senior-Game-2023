@@ -33,7 +33,7 @@ public class CrackedIceBehaviour : MonoBehaviour
                 GetComponent<NavMeshObstacle>().enabled = true;
                 GetComponent<MeshRenderer>().enabled = false;
                 //Instantiate(crackPrefab, transform.position, transform.rotation);
-                crackPrefab.GetComponent<DecalProjector>().enabled = true;
+                Instantiate(crackPrefab, transform.position, transform.rotation);
             }
             //Cracks
             else
