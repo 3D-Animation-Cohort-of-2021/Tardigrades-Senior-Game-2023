@@ -28,7 +28,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private GameObject _iceShardsForDeath;
     private Renderer[] _renderers;
     private Animator[] _animators;
+    
     [SerializeField] private GameObject bonesPrefab;
+    [SerializeField] private GameObject burningBodyPrefab;
 
     public UnityEvent<Elem, int> deathEvent;
 
@@ -222,9 +224,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             StopCoroutine(IceCoroutine);
         }
 
-        //Default Death
+        
         switch (deathType)
         {
+            //Default Death
             case DeathType.Default:
                 Instantiate(bonesPrefab, transform.position, transform.rotation);
                 GetComponent<SquishVFXBehaviour>().Play();
@@ -234,6 +237,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
                 tempBones.GetComponent<BonesBehaviour>().FloatBones();
                 break;
             case DeathType.Lava:
+                break;
+            case DeathType.Burning:
+                GameObject tempBody = Instantiate(burningBodyPrefab, transform.position, transform.rotation);
+                tempBody.GetComponent<DeadBodyConversion>().Convert(_type);
                 break;
             case DeathType.None:
                 break;
@@ -413,6 +420,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase.collar = collar;
         tardigradeBase.damageEffectObj = damageEffectObj;
         tardigradeBase.bonesPrefab = bonesPrefab;
+        tardigradeBase.burningBodyPrefab = burningBodyPrefab;
 
         tardigradeBase.UpdateTardigrade();
 
