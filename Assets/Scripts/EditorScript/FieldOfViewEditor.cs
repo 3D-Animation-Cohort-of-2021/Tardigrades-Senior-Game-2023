@@ -1,6 +1,4 @@
-/*using System;
-using System.Collections;
-using System.Collections.Generic;
+#if (UNITY_EDITOR)
 using UnityEngine;
 using UnityEditor;
 
@@ -18,4 +16,5 @@ public class FieldOfViewEditor : Editor
         Handles.DrawLine(pv.transform.position, pv.transform.position + viewAngleA * pv.viewRadus);
         Handles.DrawLine(pv.transform.position, pv.transform.position + viewAngleB * pv.viewRadus);
     }
-}*/
+}
+#endif

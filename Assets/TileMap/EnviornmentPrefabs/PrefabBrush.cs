@@ -1,15 +1,18 @@
-/*using System.Collections;
+#if (UNITY_EDITOR)
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
+
+
 [CreateAssetMenu(fileName = "Prefab Brush", menuName = "Brushes/Prefab brush")]
 [CustomGridBrush(false, true, false, "Prefab Brush")]
 public class PrefabBrush : GameObjectBrush
 {
-/*    public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
+    public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
     {
         if (brushTarget.layer == 31)
         {
@@ -39,4 +42,5 @@ public class PrefabBrush : GameObjectBrush
         return null;
     }
     
-}*/
+}
+#endif
