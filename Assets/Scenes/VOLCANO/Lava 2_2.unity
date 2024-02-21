@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9319,16 +9319,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
-        type: 3}
-      propertyPath: m_AdjustmentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242376881376348169, guid: 9397620236e57c74bbedb64b4f11129f,
-        type: 3}
-      propertyPath: m_CameraDistance
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 6242376882441438672, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
       propertyPath: m_Name
@@ -9342,17 +9332,17 @@ PrefabInstance:
     - target: {fileID: 6242376882441438674, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -62.44
+      value: 0.17871664
       objectReference: {fileID: 0}
     - target: {fileID: 6242376882441438674, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 51.5
+      value: 15.625389
       objectReference: {fileID: 0}
     - target: {fileID: 6242376882441438674, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 41.79
+      value: -5.1733336
       objectReference: {fileID: 0}
     - target: {fileID: 6242376882441438674, guid: 9397620236e57c74bbedb64b4f11129f,
         type: 3}
@@ -9393,12 +9383,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242376882441438675, guid: 9397620236e57c74bbedb64b4f11129f,
-        type: 3}
-      propertyPath: m_Priority
-      value: 5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 479144326}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9397620236e57c74bbedb64b4f11129f, type: 3}
 --- !u!4 &297277135 stripped
