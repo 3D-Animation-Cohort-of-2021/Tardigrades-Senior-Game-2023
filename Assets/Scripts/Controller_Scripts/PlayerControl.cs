@@ -20,7 +20,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 triggerRotation, rightStickMovement;
     public SO_SquadData SquadsMoveCommands;
     public bool controlsEnabled;
-    public Button pause, play;
+    public GameAction pauseResumeAction;
     private bool isPause;
 
     private Coroutine offMeshPathInstance = null;
@@ -189,17 +189,8 @@ public class PlayerControl : MonoBehaviour
     {
         if (context.started && controlsEnabled)
         {
-            if (isPause != true)
-            {
-                play.onClick.Invoke();
-                isPause = true;
-            }
-            else
-            {
-                pause.onClick.Invoke();
-                isPause = false;
-            }
-            
+            pauseResumeAction.raise();
+
         }
     }
 
