@@ -18,7 +18,7 @@ public class SquadManager : MonoBehaviour
     public Horde_Info hordeBrain;
     public static List<Squad> _squads = new List<Squad>();
  
-    public int _squadIDGiver;
+    public static int _squadIDGiver;
     public float _squadRadius = 1f;
     public float _centerRadius = 2.5f;
     public GameActionElemental _gameActionElemental;
@@ -451,6 +451,32 @@ public class SquadManager : MonoBehaviour
         foreach (Squad grp in _squads)
         {
             grp.SquadObj.gameObject.transform.position = rallyPoint;
+        }
+    }
+
+    public static void RemoveSquad(int brainID)
+    {
+        bool squadRemoved = false;
+        for(int i = 0; i < _squads.Count; i++)
+        {
+            if (_squads[i].SquadID == brainID)
+            {
+                _squads.RemoveAt(i);
+                squadRemoved = true;
+                _squadIDGiver--;
+                break;
+            }
+        }
+
+        if (squadRemoved)
+        {
+            for (int i = 0; i < _squads.Count; i++)
+            {
+                _squads[i].SquadID = i;
+                _squads[i].SquadObj._brainNumber = i;
+
+                _squads[i].SquadObj.ActivateSquad();
+            }
         }
     }
 

@@ -263,6 +263,16 @@ public class SquadBrain : MonoBehaviour
 
             UpdateFormation(_formation, true);
         }
+
+        if(_myTards.Count <= 0)
+        {
+            SquadManager.RemoveSquad(_brainNumber);
+            if(_brainNumber >= 0 && _squadType != Elem.Neutral) { 
+                _movementVector.DecrementSquadTotal();
+                _movementVector.SetSquadNumber(0);
+            }
+            Destroy(gameObject);
+        }
     }
 
 
