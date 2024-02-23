@@ -401,12 +401,18 @@ public class SquadManager : MonoBehaviour
 
     public void TerminateHorde()
     {
+        Squad[] tempArray = new Squad[_squads.Count];
+        for (int i = 0; i < tempArray.Length; i++)
+        {
+            tempArray[i] = _squads[i];
+        }
         hordeBrain.canFail = false;
-        foreach (Squad sq in _squads)
+        foreach (Squad sq in tempArray)
         {
             sq.SquadObj.TerminateSquad();
         }
-        _squads.Clear();
+        if(_squads.Count!=0)
+            _squads.Clear();
         
     }
 

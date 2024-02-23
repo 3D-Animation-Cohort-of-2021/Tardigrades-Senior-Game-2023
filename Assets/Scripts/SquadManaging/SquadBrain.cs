@@ -134,7 +134,7 @@ public class SquadBrain : MonoBehaviour
             StopCoroutine(activeSquad);
             activeSquad = null;
         }
-        if (_movementVector.squadNumber == _brainNumber && _squadType != Elem.Neutral)
+        if (_movementVector.squadNumber == _brainNumber /*&& _squadType != Elem.Neutral*/)
         {
             activeSquad = StartCoroutine(ActiveSquad());
 
