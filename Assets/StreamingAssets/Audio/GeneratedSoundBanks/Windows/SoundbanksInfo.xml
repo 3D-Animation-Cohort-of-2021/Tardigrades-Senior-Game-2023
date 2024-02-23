@@ -9,20 +9,30 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{D0F5D444-387E-8D72-AF17-621E07018167}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{18E8FE6D-ED11-241F-ED49-932E085B47D2}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
+				<File Id="539989011" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER.wav</ShortName>
+					<Path>Media/539989011.wem</Path>
+					<CachePath>SFX/ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER_748CB298.wem</CachePath>
+				</File>
 				<File Id="908863524" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Whistle.wav</ShortName>
-					<CachePath>SFX/UI_Whistle_10C4C929.wem</CachePath>
+					<CachePath>SFX/UI_Whistle_2CE66A1E.wem</CachePath>
 				</File>
 				<File Id="990766950" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Pop.wav</ShortName>
-					<CachePath>SFX/UI_Pop_C707F2AD.wem</CachePath>
+					<CachePath>SFX/UI_Pop_BA88432A.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
+				<Event Id="946441836" Name="LoopingMusicTEMP" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="539989011"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3144290703" Name="UI_Pop" DurationType="OneShot" DurationMin="0.10072413" DurationMax="0.10072413">
 					<MediaRefs>
 						<MediaRef Id="990766950"/>
@@ -162,13 +172,13 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="2939703473" Type="User" Language="SFX" Hash="{0561B738-703A-681C-5DDA-905B59487637}">
+		<SoundBank Id="2939703473" Type="User" Language="SFX" Hash="{E8947C4D-E4F0-A4FD-53C4-FC1168CA3038}">
 			<ShortName>Tutorial_SB</ShortName>
 			<Path>Tutorial_SB.bnk</Path>
 			<Media>
 				<File Id="16240011" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AMB_Nature_Forest_Trail_Quiet_02.wav</ShortName>
-					<CachePath>SFX/AMB_Nature_Forest_Trail_Quiet_02_10C4C929.wem</CachePath>
+					<CachePath>SFX/AMB_Nature_Forest_Trail_Quiet_02_2CE66A1E.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -180,5 +190,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{481362E6-F23E-F907-E77D-3593499D96CF}</FileHash>
+	<FileHash>{A9974A8A-2900-A9E9-3E58-E009F36F76B4}</FileHash>
 </SoundBanksInfo>

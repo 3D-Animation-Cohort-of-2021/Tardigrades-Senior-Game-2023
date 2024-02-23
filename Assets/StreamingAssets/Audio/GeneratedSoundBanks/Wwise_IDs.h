@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID GRASSLAND_BG = 1739314252U;
+        static const AkUniqueID LOOPINGMUSICTEMP = 946441836U;
         static const AkUniqueID UI_POP = 3144290703U;
         static const AkUniqueID UI_UPWHISTLE = 1577963409U;
     } // namespace EVENTS
