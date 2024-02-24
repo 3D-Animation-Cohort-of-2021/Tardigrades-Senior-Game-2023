@@ -246,7 +246,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
                 break;
             case DeathType.Freeze:
                 GameObject tempIceBody = Instantiate(frozenBodyPrefab, transform.position, transform.rotation);
-                //tempIceBody.GetComponent<DeadBodyConversion>().ConvertFreezingBody(_type);
+                tempIceBody.GetComponent<DeadBodyConversion>().ConvertFreezingBody(_type);
                 break;
             case DeathType.None:
                 break;
