@@ -31,6 +31,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     
     [SerializeField] private GameObject bonesPrefab;
     [SerializeField] private GameObject burningBodyPrefab;
+    [SerializeField] private GameObject frozenBodyPrefab;
 
     public UnityEvent<Elem, int> deathEvent;
 
@@ -239,9 +240,13 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
                 break;
             case DeathType.Lava:
                 break;
-            case DeathType.Burning:
-                GameObject tempBody = Instantiate(burningBodyPrefab, transform.position, transform.rotation);
-                tempBody.GetComponent<DeadBodyConversion>().Convert(_type);
+            case DeathType.Burn:
+                GameObject tempBurnBody = Instantiate(burningBodyPrefab, transform.position, transform.rotation);
+                tempBurnBody.GetComponent<DeadBodyConversion>().ConvertBurningBody(_type);
+                break;
+            case DeathType.Freeze:
+                GameObject tempIceBody = Instantiate(frozenBodyPrefab, transform.position, transform.rotation);
+                //tempIceBody.GetComponent<DeadBodyConversion>().ConvertFreezingBody(_type);
                 break;
             case DeathType.None:
                 break;
@@ -422,6 +427,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase.damageEffectObj = damageEffectObj;
         tardigradeBase.bonesPrefab = bonesPrefab;
         tardigradeBase.burningBodyPrefab = burningBodyPrefab;
+        tardigradeBase.frozenBodyPrefab = frozenBodyPrefab;
 
         tardigradeBase.UpdateTardigrade();
 
