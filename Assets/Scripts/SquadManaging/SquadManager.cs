@@ -401,8 +401,13 @@ public class SquadManager : MonoBehaviour
 
     public void TerminateHorde()
     {
+        Squad[] tempArray = new Squad[_squads.Count];
+        for (int i = 0; i < tempArray.Length; i++)
+        {
+            tempArray[i] = _squads[i];
+        }
         hordeBrain.canFail = false;
-        foreach (Squad sq in _squads)
+        foreach (Squad sq in tempArray)
         {
             sq.SquadObj.TerminateSquad();
         }
@@ -410,7 +415,6 @@ public class SquadManager : MonoBehaviour
             _squads.Clear();
 
         _squadIDGiver = 0;
-
     }
 
     public void TeleportHorde(Transform[] squadPoints, Transform centerPoint)
