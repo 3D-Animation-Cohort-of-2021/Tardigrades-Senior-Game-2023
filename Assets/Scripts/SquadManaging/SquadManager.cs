@@ -413,7 +413,7 @@ public class SquadManager : MonoBehaviour
         }
         if(_squads.Count!=0)
             _squads.Clear();
-        
+        _squadIDGiver = 0;
     }
 
     public void TeleportHorde(Transform[] squadPoints, Transform centerPoint)
