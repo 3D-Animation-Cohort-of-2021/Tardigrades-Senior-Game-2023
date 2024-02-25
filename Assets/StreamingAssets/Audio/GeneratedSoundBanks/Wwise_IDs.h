@@ -19,6 +19,13 @@ namespace AK
         static const AkUniqueID UI_UPWHISTLE = 1577963409U;
     } // namespace EVENTS
 
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID MASTERVOLUMERTPC = 2706739992U;
+        static const AkUniqueID MUSICVOLUMERTPC = 438351637U;
+        static const AkUniqueID SFXVOLUMERTPC = 3729481997U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
@@ -28,7 +35,9 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID ENVIRONMENT = 1229948536U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MUSIC = 3991942870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES

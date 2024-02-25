@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{18E8FE6D-ED11-241F-ED49-932E085B47D2}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{CAC64BEC-8935-92DA-C6B7-D45438A61AAE}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -45,7 +45,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{FFB23A50-B074-B8DE-C65B-C57741E56F37}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{0DEB3FC8-518A-D414-768F-2086844A01FD}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -55,8 +55,15 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="1229948536" Name="Environment"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
+				<Bus Id="3991942870" Name="Music"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="438351637" Name="MusicVolumeRTPC"/>
+				<GameParameter Id="2706739992" Name="MasterVolumeRTPC"/>
+				<GameParameter Id="3729481997" Name="SFXVolumeRTPC"/>
+			</GameParameters>
 			<AcousticTextures>
 				<AcousticTexture Id="504532776" Name="Brick">
 					<Properties>
@@ -190,5 +197,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{77F3E501-D8F2-81E3-0E96-0C180CE75B52}</FileHash>
+	<FileHash>{3660BB28-5C5B-F30C-81B9-B5E98517855D}</FileHash>
 </SoundBanksInfo>
