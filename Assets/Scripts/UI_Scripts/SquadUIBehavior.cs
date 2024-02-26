@@ -20,6 +20,8 @@ public class SquadUIBehavior : MonoBehaviour
     private Color tempColor;
     private bool PCooldown;
     public Animator thisAnim;
+    [Range(0f,1f)]
+    public float secondaryAlphaReady, secondaryAlphaActive;
 
 
     private void Awake()
@@ -112,7 +114,14 @@ public class SquadUIBehavior : MonoBehaviour
         foreach(Image image in secondaryGlows)
         {
             tempColor = image.color;
-            tempColor.a = (.5f * (float) state);
+            if(state==0)
+                tempColor.a = 0;
+            if(state==1)
+                tempColor.a =secondaryAlphaReady;
+            if (state == 2)
+                tempColor.a = secondaryAlphaActive;
+            if (image.TryGetComponent(out RotateImage RI))
+                RI.rotationSpeed = 60*state;
             image.color = tempColor;
         }
         _secondaryState = state;
