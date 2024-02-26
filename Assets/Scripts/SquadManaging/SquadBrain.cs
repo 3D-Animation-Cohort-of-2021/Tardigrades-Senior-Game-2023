@@ -134,7 +134,7 @@ public class SquadBrain : MonoBehaviour
             StopCoroutine(activeSquad);
             activeSquad = null;
         }
-        if (_movementVector.squadNumber == _brainNumber && _squadType != Elem.Neutral)
+        if (_movementVector.squadNumber == _brainNumber /*&& _squadType != Elem.Neutral*/)
         {
             activeSquad = StartCoroutine(ActiveSquad());
 
@@ -262,6 +262,16 @@ public class SquadBrain : MonoBehaviour
             oldTard.GetComponent<FollowPointBehaviour>()._pointObject = null;
 
             UpdateFormation(_formation, true);
+        }
+
+        if(_myTards.Count <= 0)
+        {
+            SquadManager.RemoveSquad(_brainNumber);
+            if(_brainNumber >= 0 && _squadType != Elem.Neutral) { 
+                _movementVector.DecrementSquadTotal();
+                _movementVector.SetSquadNumber(0);
+            }
+            Destroy(gameObject);
         }
     }
 
@@ -518,7 +528,6 @@ public class SquadBrain : MonoBehaviour
         {
             pig.Death(DeathType.None);
         }
-        Destroy(gameObject);
     }
 }
 
