@@ -16,6 +16,7 @@ public class DB_ButtonChange : MonoBehaviour
     public Image xSprite, ySprite, bSprite, aSprite, dUpSprite,dLeftSprite,dRightSprite,dDownSprite,rBSprite,lBSprite,startSprite,selectSprite,rTSprite,lTSprite,lJSprite,rJSprite;
     public bool debugActive = true;
     public TextMeshProUGUI leftVert, leftHoro, rightVert, rightHoro, leftTriggerText, rightTriggerText;
+    public Canvas uiCanvas;
     private void Awake()
     {
         _gamepad = InputSystem.GetDevice<Gamepad>();
@@ -253,12 +254,22 @@ public class DB_ButtonChange : MonoBehaviour
             if (context.canceled)
             {
                 selectSprite.color = Color.white;
+                if (uiCanvas.enabled == false)
+                {
+                    uiCanvas.enabled = true;
+                    //Debug.Log("made true");
+                }
+                else
+                {
+                    uiCanvas.enabled = false;
+                    //Debug.Log("made False");
+                }
             }
         }
     }
     public void RightJoyFunction(InputAction.CallbackContext context)
     {
-        Debug.Log(context);
+        //Debug.Log(context);
         if (debugActive)
         {
             if (context.started)

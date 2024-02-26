@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 6829896659506781379}
   - component: {fileID: 5477043321045299132}
   - component: {fileID: 2349814568004373303}
+  - component: {fileID: 3668086500487563187}
   m_Layer: 7
   m_Name: PlayerCenter
   m_TagString: Player
@@ -116,6 +117,7 @@ MonoBehaviour:
   debugInput: {fileID: 11400000, guid: 938d6a0ddab19b8498cdd706b56e240f, type: 2}
   SquadsMoveCommands: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
   controlsEnabled: 0
+  pauseResumeAction: {fileID: 11400000, guid: 36750052b550c04428a424bd5e70abe7, type: 2}
   squadChangeNext:
     m_PersistentCalls:
       m_Calls:
@@ -266,7 +268,6 @@ MonoBehaviour:
   _squadPrefab: {fileID: 35610919964600981, guid: efd5cc798ae454db480a017eb4e4a22d,
     type: 3}
   hordeBrain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
-  _squadIDGiver: 0
   _squadRadius: 1
   _centerRadius: 2.5
   _gameActionElemental: {fileID: 11400000, guid: 9edf9843ad2dcf84790e81f54f467e9c,
@@ -483,6 +484,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3668086500487563187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049278343048673062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad865b83ec0b4793815e272e85671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: c96bca74d14c7c34a8d43188d8c703ea, type: 2}
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4331647876777722094
 PrefabInstance:
   m_ObjectHideFlags: 0

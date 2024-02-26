@@ -8,8 +8,8 @@ public class TestTurret : MonoBehaviour
     [SerializeField] private float fireDelay = 1;
     [SerializeField] private float bulletSpeed = 20f;
     private bool isPaused = false;
-    
-    
+
+
     void Start()
     {
         StartCoroutine(Shoot(new WaitForSeconds(fireDelay)));
