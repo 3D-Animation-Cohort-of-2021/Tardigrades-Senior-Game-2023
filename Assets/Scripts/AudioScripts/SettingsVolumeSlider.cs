@@ -13,7 +13,8 @@ namespace AudioScripts
         public void SetVolume(string audioBus)
         {
             float sliderValue = thisSlider.value;
-
+            
+            // check for bus name, set in inspector
             if (audioBus == "Master")
             {
                 masterVolume = thisSlider.value;

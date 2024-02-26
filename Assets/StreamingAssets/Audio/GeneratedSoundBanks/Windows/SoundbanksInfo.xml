@@ -9,22 +9,30 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{CAC64BEC-8935-92DA-C6B7-D45438A61AAE}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{68764816-6F65-35BB-9E8A-52B5C4C1EDA8}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
+				<File Id="502393985" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_PressPause.wav</ShortName>
+					<CachePath>SFX/UI_PressPause_2CE66A1E.wem</CachePath>
+				</File>
 				<File Id="539989011" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER.wav</ShortName>
 					<Path>Media/539989011.wem</Path>
 					<CachePath>SFX/ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER_748CB298.wem</CachePath>
 				</File>
-				<File Id="908863524" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>UI_Whistle.wav</ShortName>
-					<CachePath>SFX/UI_Whistle_2CE66A1E.wem</CachePath>
+				<File Id="619333482" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_ButtonPress.wav</ShortName>
+					<CachePath>SFX/UI_ButtonPress_D55EF1C3.wem</CachePath>
 				</File>
-				<File Id="990766950" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>UI_Pop.wav</ShortName>
-					<CachePath>SFX/UI_Pop_BA88432A.wem</CachePath>
+				<File Id="737277535" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Unpause.wav</ShortName>
+					<CachePath>SFX/UI_Unpause_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="939970532" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_PressQuit.wav</ShortName>
+					<CachePath>SFX/UI_PressQuit_2CE66A1E.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -33,19 +41,29 @@
 						<MediaRef Id="539989011"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3144290703" Name="UI_Pop" DurationType="OneShot" DurationMin="0.10072413" DurationMax="0.10072413">
+				<Event Id="3824618851" Name="UI_PressButton" DurationType="OneShot" DurationMin="0.05478338" DurationMax="0.05478338">
 					<MediaRefs>
-						<MediaRef Id="990766950"/>
+						<MediaRef Id="619333482"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1577963409" Name="UI_UpWhistle" DurationType="OneShot" DurationMin="1.6197733" DurationMax="1.6197733">
+				<Event Id="3368070439" Name="UI_PressPause" DurationType="OneShot" DurationMin="0.1985625" DurationMax="0.1985625">
 					<MediaRefs>
-						<MediaRef Id="908863524"/>
+						<MediaRef Id="502393985"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2691814938" Name="UI_PressQuit" DurationType="OneShot" DurationMin="0.5685625" DurationMax="0.5685625">
+					<MediaRefs>
+						<MediaRef Id="939970532"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3153585820" Name="UI_PressUnpause" DurationType="OneShot" DurationMin="0.18765625" DurationMax="0.18765625">
+					<MediaRefs>
+						<MediaRef Id="737277535"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{A7D61193-56AF-078F-7816-AFA40DB6465E}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{425793FF-63A3-F80D-AD44-54C54F5499CF}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -197,5 +215,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{F5001F62-5585-2AA0-4B6D-C9BDC04D4223}</FileHash>
+	<FileHash>{54494C71-D310-63E6-619E-4FDFF2EA498E}</FileHash>
 </SoundBanksInfo>

@@ -15,8 +15,10 @@ namespace AK
     {
         static const AkUniqueID GRASSLAND_BG = 1739314252U;
         static const AkUniqueID LOOPINGMUSICTEMP = 946441836U;
-        static const AkUniqueID UI_POP = 3144290703U;
-        static const AkUniqueID UI_UPWHISTLE = 1577963409U;
+        static const AkUniqueID UI_PRESSBUTTON = 3824618851U;
+        static const AkUniqueID UI_PRESSPAUSE = 3368070439U;
+        static const AkUniqueID UI_PRESSQUIT = 2691814938U;
+        static const AkUniqueID UI_PRESSUNPAUSE = 3153585820U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
