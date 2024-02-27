@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 38622729974866676}
   - component: {fileID: 38622729974866675}
   - component: {fileID: 38622729974866674}
+  - component: {fileID: 3369556806989594488}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -709,6 +710,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 3369556806989594488}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &3369556806989594488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622729974866672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 996bbebd9e64731468cb40ea370e7762,
+      type: 2}
 --- !u!1 &38622730105695819
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +832,7 @@ GameObject:
   - component: {fileID: 38622730146144194}
   - component: {fileID: 38622730146144193}
   - component: {fileID: 38622730146144192}
+  - component: {fileID: 4619415278363819762}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -935,6 +966,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4619415278363819762}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4619415278363819762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622730146144254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &38622730322401628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1143,7 @@ GameObject:
   - component: {fileID: 38622730528760827}
   - component: {fileID: 38622730528760826}
   - component: {fileID: 38622730528760825}
+  - component: {fileID: 5682078875674734591}
   m_Layer: 5
   m_Name: BackToPause
   m_TagString: Untagged
@@ -1216,6 +1277,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5682078875674734591}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5682078875674734591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622730528760823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &38622730907109514
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,6 +2843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 321166442162307537}
   - component: {fileID: 7318802417545235568}
+  - component: {fileID: 2074296533911623728}
   m_Layer: 5
   m_Name: Volume Music Slider
   m_TagString: Untagged
@@ -2830,10 +2921,38 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.8
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2074296533911623728}
+        m_TargetAssemblyTypeName: AudioScripts.SettingsVolumeSlider, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Music
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2074296533911623728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185413972294904517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcc63f42117c144db20bed1823304a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSlider: {fileID: 7318802417545235568}
+  masterVolume: 0
+  musicVolume: 0.8
+  sfxVolume: 0
 --- !u!1 &306764912439254694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +3897,7 @@ GameObject:
   - component: {fileID: 4542313009243404043}
   - component: {fileID: 6379227534128655896}
   - component: {fileID: 4221864891332613494}
+  - component: {fileID: 6404903545787372861}
   m_Layer: 5
   m_Name: Abort Button
   m_TagString: Untagged
@@ -3912,6 +4032,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6404903545787372861}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6404903545787372861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674986405180577760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &686842962845170316
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,6 +5283,7 @@ GameObject:
   - component: {fileID: 646191354140136659}
   - component: {fileID: 2644758049098644855}
   - component: {fileID: 6124703749246976732}
+  - component: {fileID: 2343951908185637649}
   m_Layer: 5
   m_Name: Abort Button
   m_TagString: Untagged
@@ -5268,6 +5418,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2343951908185637649}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2343951908185637649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912751712061657627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &2019926416532617442
 GameObject:
   m_ObjectHideFlags: 0
@@ -7514,6 +7693,7 @@ GameObject:
   - component: {fileID: 4311382021308847647}
   - component: {fileID: 8524903947461100532}
   - component: {fileID: 4548715592788844334}
+  - component: {fileID: 1133699329972064628}
   m_Layer: 5
   m_Name: Reset Checkpoint Button
   m_TagString: Untagged
@@ -7685,6 +7865,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1133699329972064628}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1133699329972064628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272418565452672267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &4327650485176381340
 GameObject:
   m_ObjectHideFlags: 0
@@ -7788,6 +7997,7 @@ GameObject:
   - component: {fileID: 6252817732141211189}
   - component: {fileID: 6456605376775375140}
   - component: {fileID: 6121919389049944674}
+  - component: {fileID: 6096305972756358842}
   m_Layer: 5
   m_Name: Abort Button
   m_TagString: Untagged
@@ -7922,6 +8132,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6096305972756358842}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6096305972756358842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4419515771266848635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &4498793974435913862
 GameObject:
   m_ObjectHideFlags: 0
@@ -9035,6 +9274,7 @@ GameObject:
   - component: {fileID: 5893093921263857453}
   - component: {fileID: 4805354399075282969}
   - component: {fileID: 3074211790742033002}
+  - component: {fileID: 6542318724780718300}
   m_Layer: 5
   m_Name: Back To Lab Button
   m_TagString: Untagged
@@ -9170,6 +9410,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6542318724780718300}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3074211790742033002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9200,6 +9452,23 @@ MonoBehaviour:
   enabledDelay: 0
   isDelayed: 1
   runOnEnabled: 0
+--- !u!114 &6542318724780718300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5511914130843065031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &5526395134540516505
 GameObject:
   m_ObjectHideFlags: 0
@@ -9213,6 +9482,7 @@ GameObject:
   - component: {fileID: 5374560728614824085}
   - component: {fileID: 5316847298600625664}
   - component: {fileID: 514437247}
+  - component: {fileID: 3526798237199268211}
   m_Layer: 5
   m_Name: Restart Level Button
   m_TagString: Untagged
@@ -9395,6 +9665,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3526798237199268211}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &514437247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9425,6 +9707,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &3526798237199268211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526395134540516505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &5649332885632556477
 GameObject:
   m_ObjectHideFlags: 0
@@ -9599,7 +9898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1080}
+  m_AnchoredPosition: {x: -2, y: -1080}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9000887400834373983
@@ -10361,6 +10660,7 @@ GameObject:
   - component: {fileID: 4763061811931757299}
   - component: {fileID: 3671027053593158802}
   - component: {fileID: 5623498068977789602}
+  - component: {fileID: 8308363369300630508}
   m_Layer: 5
   m_Name: Confirm Button
   m_TagString: Untagged
@@ -10507,6 +10807,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 8308363369300630508}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &5623498068977789602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10549,6 +10861,23 @@ MonoBehaviour:
   enabledDelay: 0
   isDelayed: 1
   runOnEnabled: 0
+--- !u!114 &8308363369300630508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6011818031602576939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 30c86a6519b4da844b627b9a36567534,
+      type: 2}
 --- !u!1 &6037751248166867770
 GameObject:
   m_ObjectHideFlags: 0
@@ -10559,6 +10888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1512741862422339449}
   - component: {fileID: 177748851851091796}
+  - component: {fileID: 3405855327950335927}
   m_Layer: 5
   m_Name: Volume SFX Slider
   m_TagString: Untagged
@@ -10636,10 +10966,38 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.8
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3405855327950335927}
+        m_TargetAssemblyTypeName: AudioScripts.SettingsVolumeSlider, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SFX
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3405855327950335927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037751248166867770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcc63f42117c144db20bed1823304a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSlider: {fileID: 177748851851091796}
+  masterVolume: 0
+  musicVolume: 0
+  sfxVolume: 0.8
 --- !u!1 &6057134017766594250
 GameObject:
   m_ObjectHideFlags: 0
@@ -10864,6 +11222,7 @@ GameObject:
   - component: {fileID: 4503154795618743093}
   - component: {fileID: 5633979310502049382}
   - component: {fileID: 9067908088336596670}
+  - component: {fileID: 2194700566610507760}
   m_Layer: 5
   m_Name: Resume Button
   m_TagString: Untagged
@@ -11045,6 +11404,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2194700566610507760}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2194700566610507760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262353747594741718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8e7746ffe2b87854ab33635ee1374a6b,
+      type: 2}
 --- !u!1 &6356151467256784761
 GameObject:
   m_ObjectHideFlags: 0
@@ -12308,6 +12696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891794314935795322}
   - component: {fileID: 5298581142612707140}
+  - component: {fileID: 7305413180977084461}
   m_Layer: 5
   m_Name: Volume MASTER Slider
   m_TagString: Untagged
@@ -12385,10 +12774,38 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.8
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7305413180977084461}
+        m_TargetAssemblyTypeName: AudioScripts.SettingsVolumeSlider, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Master
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7305413180977084461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7338372375662450932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcc63f42117c144db20bed1823304a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSlider: {fileID: 5298581142612707140}
+  masterVolume: 0.8
+  musicVolume: 0
+  sfxVolume: 0
 --- !u!1 &7495606057498112026
 GameObject:
   m_ObjectHideFlags: 0
@@ -12401,6 +12818,7 @@ GameObject:
   - component: {fileID: 7493692278590422441}
   - component: {fileID: 7828820509453757613}
   - component: {fileID: 6065575573972363904}
+  - component: {fileID: 5786602139548205093}
   m_Layer: 5
   m_Name: Reset Level Button
   m_TagString: Untagged
@@ -12511,7 +12929,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7828820509453757613}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5786602139548205093}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5786602139548205093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495606057498112026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &7507627978572987435
 GameObject:
   m_ObjectHideFlags: 0
@@ -14430,6 +14877,7 @@ GameObject:
   - component: {fileID: 6163384153887977149}
   - component: {fileID: 6965448717916800290}
   - component: {fileID: 4958617022508921737}
+  - component: {fileID: 4235701817613281096}
   m_Layer: 5
   m_Name: Go to Lab Button
   m_TagString: Untagged
@@ -14600,6 +15048,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4235701817613281096}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4235701817613281096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614546865415796114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &8717663269592192608
 GameObject:
   m_ObjectHideFlags: 0
