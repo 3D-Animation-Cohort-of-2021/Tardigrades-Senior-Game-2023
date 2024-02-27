@@ -720,6 +720,8 @@ GameObject:
   - component: {fileID: 38622730105695820}
   - component: {fileID: 38622730105695822}
   - component: {fileID: 38622730105695821}
+  - component: {fileID: 2495080345190259661}
+  - component: {fileID: 8127548397268848873}
   m_Layer: 5
   m_Name: Settings Panel
   m_TagString: Untagged
@@ -741,9 +743,9 @@ RectTransform:
   m_Children:
   - {fileID: 38622730528760824}
   - {fileID: 38622730322401629}
+  - {fileID: 4460809805986108175}
   - {fileID: 7633593158024919994}
   - {fileID: 5169115682739657861}
-  - {fileID: 4460809805986108175}
   m_Father: {fileID: 7868571894311990013}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -790,6 +792,64 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2495080345190259661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622730105695819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f1d15fe06f2fa4f90ad5853bb42c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 5298581142612707140}
+  fx: {fileID: 177748851851091796}
+  music: {fileID: 7318802417545235568}
+  setPrefs: {fileID: 11400000, guid: f193f9e69c031254594a6d6c48381320, type: 2}
+--- !u!114 &8127548397268848873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622730105695819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b2083ae881ab644b0eca1914d6d765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  awakeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2495080345190259661}
+        m_TargetAssemblyTypeName: volumeSliderInterface, Assembly-CSharp
+        m_MethodName: LoadFromPrefs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  collisionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  enableEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &38622730146144254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,7 +2524,7 @@ RectTransform:
   - {fileID: 147688622172295498}
   - {fileID: 1512741862422339449}
   m_Father: {fileID: 38622730105695820}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2832,10 +2892,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.12345
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f193f9e69c031254594a6d6c48381320, type: 2}
+        m_TargetAssemblyTypeName: SettingsSaver, Assembly-CSharp
+        m_MethodName: UpdateMusicVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7318802417545235568}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &306764912439254694
 GameObject:
   m_ObjectHideFlags: 0
@@ -8103,7 +8175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4379957557691802985
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10633,7 +10705,7 @@ RectTransform:
   - {fileID: 245832412540722639}
   - {fileID: 8891794314935795322}
   m_Father: {fileID: 38622730105695820}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11253,10 +11325,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.12345
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f193f9e69c031254594a6d6c48381320, type: 2}
+        m_TargetAssemblyTypeName: SettingsSaver, Assembly-CSharp
+        m_MethodName: UpdateFXVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 177748851851091796}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6057134017766594250
 GameObject:
   m_ObjectHideFlags: 0
@@ -13310,10 +13394,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.12345
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f193f9e69c031254594a6d6c48381320, type: 2}
+        m_TargetAssemblyTypeName: SettingsSaver, Assembly-CSharp
+        m_MethodName: UpdateMasterVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5298581142612707140}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7495606057498112026
 GameObject:
   m_ObjectHideFlags: 0
@@ -14592,7 +14688,7 @@ RectTransform:
   - {fileID: 3548171694571056333}
   - {fileID: 321166442162307537}
   m_Father: {fileID: 38622730105695820}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
