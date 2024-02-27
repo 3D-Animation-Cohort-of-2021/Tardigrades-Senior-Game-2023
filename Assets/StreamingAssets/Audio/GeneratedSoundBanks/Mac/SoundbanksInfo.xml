@@ -9,33 +9,79 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{D0F5D444-387E-8D72-AF17-621E07018167}">
-			<ShortName>General_SB</ShortName>
-			<Path>General_SB.bnk</Path>
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{E1A38036-5D44-8762-F93D-134456FA731F}">
+			<ShortName>Level_1_1_Wasteland_SB</ShortName>
+			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
-				<File Id="908863524" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>UI_Whistle.wav</ShortName>
-					<CachePath>SFX/UI_Whistle_10C4C929.wem</CachePath>
-				</File>
-				<File Id="990766950" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>UI_Pop.wav</ShortName>
-					<CachePath>SFX/UI_Pop_C707F2AD.wem</CachePath>
+				<File Id="112289461" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW.wav</ShortName>
+					<Path>Media/112289461.wem</Path>
+					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_C1ECC5D1.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3144290703" Name="UI_Pop" DurationType="OneShot" DurationMin="0.10072413" DurationMax="0.10072413">
+				<Event Id="3149538809" Name="Play_ForestAmbience" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="990766950"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="1577963409" Name="UI_UpWhistle" DurationType="OneShot" DurationMin="1.6197733" DurationMax="1.6197733">
-					<MediaRefs>
-						<MediaRef Id="908863524"/>
+						<MediaRef Id="112289461"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{FFB23A50-B074-B8DE-C65B-C57741E56F37}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{68764816-6F65-35BB-9E8A-52B5C4C1EDA8}">
+			<ShortName>General_SB</ShortName>
+			<Path>General_SB.bnk</Path>
+			<Media>
+				<File Id="502393985" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_PressPause.wav</ShortName>
+					<CachePath>SFX/UI_PressPause_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="539989011" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER.wav</ShortName>
+					<Path>Media/539989011.wem</Path>
+					<CachePath>SFX/ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER_748CB298.wem</CachePath>
+				</File>
+				<File Id="619333482" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_ButtonPress.wav</ShortName>
+					<CachePath>SFX/UI_ButtonPress_D55EF1C3.wem</CachePath>
+				</File>
+				<File Id="737277535" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Unpause.wav</ShortName>
+					<CachePath>SFX/UI_Unpause_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="939970532" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_PressQuit.wav</ShortName>
+					<CachePath>SFX/UI_PressQuit_2CE66A1E.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="946441836" Name="LoopingMusicTEMP" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="539989011"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3824618851" Name="UI_PressButton" DurationType="OneShot" DurationMin="0.05478338" DurationMax="0.05478338">
+					<MediaRefs>
+						<MediaRef Id="619333482"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3368070439" Name="UI_PressPause" DurationType="OneShot" DurationMin="0.1985625" DurationMax="0.1985625">
+					<MediaRefs>
+						<MediaRef Id="502393985"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2691814938" Name="UI_PressQuit" DurationType="OneShot" DurationMin="0.5685625" DurationMax="0.5685625">
+					<MediaRefs>
+						<MediaRef Id="939970532"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3153585820" Name="UI_PressUnpause" DurationType="OneShot" DurationMin="0.18765625" DurationMax="0.18765625">
+					<MediaRefs>
+						<MediaRef Id="737277535"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{67B8798A-4454-C32F-C716-C49BC05BB87A}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -45,8 +91,15 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="1229948536" Name="Environment"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
+				<Bus Id="3991942870" Name="Music"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="438351637" Name="MusicVolumeRTPC"/>
+				<GameParameter Id="2706739992" Name="MasterVolumeRTPC"/>
+				<GameParameter Id="3729481997" Name="SFXVolumeRTPC"/>
+			</GameParameters>
 			<AcousticTextures>
 				<AcousticTexture Id="504532776" Name="Brick">
 					<Properties>
@@ -162,23 +215,18 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="2939703473" Type="User" Language="SFX" Hash="{0561B738-703A-681C-5DDA-905B59487637}">
-			<ShortName>Tutorial_SB</ShortName>
-			<Path>Tutorial_SB.bnk</Path>
-			<Media>
-				<File Id="16240011" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>AMB_Nature_Forest_Trail_Quiet_02.wav</ShortName>
-					<CachePath>SFX/AMB_Nature_Forest_Trail_Quiet_02_10C4C929.wem</CachePath>
-				</File>
-			</Media>
-			<Events>
-				<Event Id="1739314252" Name="Grassland_BG" DurationType="OneShot" DurationMin="290.25" DurationMax="290.25">
-					<MediaRefs>
-						<MediaRef Id="16240011"/>
-					</MediaRefs>
-				</Event>
-			</Events>
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{436EA355-757C-B16C-EBA3-373C98998197}">
+			<ShortName>Level_0_1_Tutorial_SB</ShortName>
+			<Path>Level_0_1_Tutorial_SB.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2561270309" Type="User" Language="SFX" Hash="{6F7A75F3-B52F-C06D-E3B1-3DF4093D1CE9}">
+			<ShortName>Level_2_1_Lava_SB</ShortName>
+			<Path>Level_2_1_Lava_SB.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{F3E43F7F-5713-B4B6-D93D-7ABD488D9120}">
+			<ShortName>Level_1_2_Beach_SB</ShortName>
+			<Path>Level_1_2_Beach_SB.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{07D14492-57E6-0C43-505E-D21A9D94C649}</FileHash>
+	<FileHash>{8D6F0D87-B611-F934-5DED-F21A23CDFCF9}</FileHash>
 </SoundBanksInfo>
