@@ -657,12 +657,21 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Navigate"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""64836241-aa16-4ffb-a041-07e51db872e9"",
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""Button"",
+                    ""id"": ""67f65425-2f1c-4604-8825-6e7db3d8ebb1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -874,6 +883,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b0f3f79-733d-4fe8-b241-5edbe85774b6"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -905,6 +925,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_MenuActions_B = m_MenuActions.FindAction("B", throwIfNotFound: true);
         m_MenuActions_X = m_MenuActions.FindAction("X", throwIfNotFound: true);
         m_MenuActions_Navigate = m_MenuActions.FindAction("Navigate", throwIfNotFound: true);
+        m_MenuActions_Point = m_MenuActions.FindAction("Point", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1122,6 +1143,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_MenuActions_B;
     private readonly InputAction m_MenuActions_X;
     private readonly InputAction m_MenuActions_Navigate;
+    private readonly InputAction m_MenuActions_Point;
     public struct MenuActionsActions
     {
         private @Inputs m_Wrapper;
@@ -1131,6 +1153,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @B => m_Wrapper.m_MenuActions_B;
         public InputAction @X => m_Wrapper.m_MenuActions_X;
         public InputAction @Navigate => m_Wrapper.m_MenuActions_Navigate;
+        public InputAction @Point => m_Wrapper.m_MenuActions_Point;
         public InputActionMap Get() { return m_Wrapper.m_MenuActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1155,6 +1178,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Navigate.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnNavigate;
                 @Navigate.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnNavigate;
                 @Navigate.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnNavigate;
+                @Point.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnPoint;
+                @Point.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnPoint;
+                @Point.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnPoint;
             }
             m_Wrapper.m_MenuActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -1174,6 +1200,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Navigate.started += instance.OnNavigate;
                 @Navigate.performed += instance.OnNavigate;
                 @Navigate.canceled += instance.OnNavigate;
+                @Point.started += instance.OnPoint;
+                @Point.performed += instance.OnPoint;
+                @Point.canceled += instance.OnPoint;
             }
         }
     }
@@ -1204,5 +1233,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnB(InputAction.CallbackContext context);
         void OnX(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
     }
 }
