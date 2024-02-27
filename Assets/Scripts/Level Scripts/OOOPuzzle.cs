@@ -50,6 +50,7 @@ public class OOOPuzzle : MonoBehaviour
             Instantiate(transitionSmokeFx, thisItem.transform);
             Destroy(thisItem);
         }
+        Destroy(currentExample);
         PlaySmoke();
     }
 
@@ -79,6 +80,11 @@ public class OOOPuzzle : MonoBehaviour
             {
                 vfxSmoke.Play();
             }
+        }
+
+        if (exampleSpawn.TryGetComponent(out VisualEffect exampleSmoke))
+        {
+            exampleSmoke.Play();
         }
     }
 
