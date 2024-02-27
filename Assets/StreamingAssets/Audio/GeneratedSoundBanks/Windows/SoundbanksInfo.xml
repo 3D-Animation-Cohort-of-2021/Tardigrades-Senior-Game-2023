@@ -9,6 +9,24 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{E1A38036-5D44-8762-F93D-134456FA731F}">
+			<ShortName>Level_1_1_Wasteland_SB</ShortName>
+			<Path>Level_1_1_Wasteland_SB.bnk</Path>
+			<Media>
+				<File Id="112289461" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW.wav</ShortName>
+					<Path>Media/112289461.wem</Path>
+					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_C1ECC5D1.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="3149538809" Name="Play_ForestAmbience" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="112289461"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
 		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{68764816-6F65-35BB-9E8A-52B5C4C1EDA8}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
@@ -197,23 +215,18 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="2939703473" Type="User" Language="SFX" Hash="{E8947C4D-E4F0-A4FD-53C4-FC1168CA3038}">
-			<ShortName>Tutorial_SB</ShortName>
-			<Path>Tutorial_SB.bnk</Path>
-			<Media>
-				<File Id="16240011" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>AMB_Nature_Forest_Trail_Quiet_02.wav</ShortName>
-					<CachePath>SFX/AMB_Nature_Forest_Trail_Quiet_02_2CE66A1E.wem</CachePath>
-				</File>
-			</Media>
-			<Events>
-				<Event Id="1739314252" Name="Grassland_BG" DurationType="OneShot" DurationMin="290.25" DurationMax="290.25">
-					<MediaRefs>
-						<MediaRef Id="16240011"/>
-					</MediaRefs>
-				</Event>
-			</Events>
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{436EA355-757C-B16C-EBA3-373C98998197}">
+			<ShortName>Level_0_1_Tutorial_SB</ShortName>
+			<Path>Level_0_1_Tutorial_SB.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2561270309" Type="User" Language="SFX" Hash="{6F7A75F3-B52F-C06D-E3B1-3DF4093D1CE9}">
+			<ShortName>Level_2_1_Lava_SB</ShortName>
+			<Path>Level_2_1_Lava_SB.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{F3E43F7F-5713-B4B6-D93D-7ABD488D9120}">
+			<ShortName>Level_1_2_Beach_SB</ShortName>
+			<Path>Level_1_2_Beach_SB.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{54494C71-D310-63E6-619E-4FDFF2EA498E}</FileHash>
+	<FileHash>{0994568B-85B7-5F30-F911-8664BC26D729}</FileHash>
 </SoundBanksInfo>
