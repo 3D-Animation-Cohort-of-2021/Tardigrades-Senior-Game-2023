@@ -9,33 +9,61 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{D0F5D444-387E-8D72-AF17-621E07018167}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{68764816-6F65-35BB-9E8A-52B5C4C1EDA8}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
-				<File Id="908863524" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>UI_Whistle.wav</ShortName>
-					<CachePath>SFX/UI_Whistle_10C4C929.wem</CachePath>
+				<File Id="502393985" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_PressPause.wav</ShortName>
+					<CachePath>SFX/UI_PressPause_2CE66A1E.wem</CachePath>
 				</File>
-				<File Id="990766950" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>UI_Pop.wav</ShortName>
-					<CachePath>SFX/UI_Pop_C707F2AD.wem</CachePath>
+				<File Id="539989011" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER.wav</ShortName>
+					<Path>Media/539989011.wem</Path>
+					<CachePath>SFX/ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER_748CB298.wem</CachePath>
+				</File>
+				<File Id="619333482" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_ButtonPress.wav</ShortName>
+					<CachePath>SFX/UI_ButtonPress_D55EF1C3.wem</CachePath>
+				</File>
+				<File Id="737277535" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Unpause.wav</ShortName>
+					<CachePath>SFX/UI_Unpause_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="939970532" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_PressQuit.wav</ShortName>
+					<CachePath>SFX/UI_PressQuit_2CE66A1E.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3144290703" Name="UI_Pop" DurationType="OneShot" DurationMin="0.10072413" DurationMax="0.10072413">
+				<Event Id="946441836" Name="LoopingMusicTEMP" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="990766950"/>
+						<MediaRef Id="539989011"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1577963409" Name="UI_UpWhistle" DurationType="OneShot" DurationMin="1.6197733" DurationMax="1.6197733">
+				<Event Id="3824618851" Name="UI_PressButton" DurationType="OneShot" DurationMin="0.05478338" DurationMax="0.05478338">
 					<MediaRefs>
-						<MediaRef Id="908863524"/>
+						<MediaRef Id="619333482"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3368070439" Name="UI_PressPause" DurationType="OneShot" DurationMin="0.1985625" DurationMax="0.1985625">
+					<MediaRefs>
+						<MediaRef Id="502393985"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2691814938" Name="UI_PressQuit" DurationType="OneShot" DurationMin="0.5685625" DurationMax="0.5685625">
+					<MediaRefs>
+						<MediaRef Id="939970532"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3153585820" Name="UI_PressUnpause" DurationType="OneShot" DurationMin="0.18765625" DurationMax="0.18765625">
+					<MediaRefs>
+						<MediaRef Id="737277535"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{FFB23A50-B074-B8DE-C65B-C57741E56F37}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{67B8798A-4454-C32F-C716-C49BC05BB87A}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -45,8 +73,15 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="1229948536" Name="Environment"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
+				<Bus Id="3991942870" Name="Music"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="438351637" Name="MusicVolumeRTPC"/>
+				<GameParameter Id="2706739992" Name="MasterVolumeRTPC"/>
+				<GameParameter Id="3729481997" Name="SFXVolumeRTPC"/>
+			</GameParameters>
 			<AcousticTextures>
 				<AcousticTexture Id="504532776" Name="Brick">
 					<Properties>
@@ -162,13 +197,13 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="2939703473" Type="User" Language="SFX" Hash="{0561B738-703A-681C-5DDA-905B59487637}">
+		<SoundBank Id="2939703473" Type="User" Language="SFX" Hash="{E8947C4D-E4F0-A4FD-53C4-FC1168CA3038}">
 			<ShortName>Tutorial_SB</ShortName>
 			<Path>Tutorial_SB.bnk</Path>
 			<Media>
 				<File Id="16240011" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AMB_Nature_Forest_Trail_Quiet_02.wav</ShortName>
-					<CachePath>SFX/AMB_Nature_Forest_Trail_Quiet_02_10C4C929.wem</CachePath>
+					<CachePath>SFX/AMB_Nature_Forest_Trail_Quiet_02_2CE66A1E.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -180,5 +215,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{07D14492-57E6-0C43-505E-D21A9D94C649}</FileHash>
+	<FileHash>{EF0997B2-C99B-6C48-7D2A-96AD163CC8E1}</FileHash>
 </SoundBanksInfo>

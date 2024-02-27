@@ -303,8 +303,25 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 384067b6fb799a4882804132ceaf0b79
     GuidInternal: 
-    m_lastTime: -8585029312697599736
+    m_lastTime: -8584926746208118899
     List:
+    - name: Environment
+      guid: 75f206d1a25ccb49953125b363fa7c56
+      id: 1229948536
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 384067b6fb799a4882804132ceaf0b79
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Environment
+        ObjectType: 2
+        guid: 75f206d1a25ccb49953125b363fa7c56
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environment
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -319,6 +336,23 @@ MonoBehaviour:
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+    - name: Music
+      guid: 2a2331cf0104bc46b2d8f1a83f78862d
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 384067b6fb799a4882804132ceaf0b79
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Music
+        ObjectType: 2
+        guid: 2a2331cf0104bc46b2d8f1a83f78862d
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Music
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -331,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8585029312697559734
+    m_lastTime: -8584926758022071496
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -373,7 +407,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8585029312697484645
+    m_lastTime: -8584926759007797509
     List:
     - name: Grassland_BG
       guid: 94bc0a3dd1341f47ac5a7f3a7e5358f9
@@ -392,9 +426,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 290.25
       minDuration: 290.25
-    - name: UI_Pop
-      guid: cec0278cedef7241aaa7c209a26f362e
-      id: 3144290703
+    - name: LoopingMusicTEMP
+      guid: 1b3d07de0d4d704fad01e77cc691b093
+      id: 946441836
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -402,16 +436,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 2c5444863974a2409959f332a77548bb
-      - ElementName: UI_Pop
+      - ElementName: LoopingMusicTEMP
         ObjectType: 3
-        guid: cec0278cedef7241aaa7c209a26f362e
-      Path: Events\Default Work Unit\UI_Pop
+        guid: 1b3d07de0d4d704fad01e77cc691b093
+      Path: Events\Default Work Unit\LoopingMusicTEMP
       maxAttenuation: 0
-      maxDuration: 0.10072413
-      minDuration: 0.10072413
-    - name: UI_UpWhistle
-      guid: cbad5eeb9896584e8269579763eefea8
-      id: 1577963409
+      maxDuration: -1
+      minDuration: -1
+    - name: UI
+      guid: 40e7fbb5752c0842b836892c3cb19c94
+      id: 1551306167
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -419,13 +453,93 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 2c5444863974a2409959f332a77548bb
-      - ElementName: UI_UpWhistle
-        ObjectType: 3
-        guid: cbad5eeb9896584e8269579763eefea8
-      Path: Events\Default Work Unit\UI_UpWhistle
+      - ElementName: UI
+        ObjectType: 4
+        guid: 40e7fbb5752c0842b836892c3cb19c94
+      Path: Events\Default Work Unit\UI
       maxAttenuation: 0
-      maxDuration: 1.6197733
-      minDuration: 1.6197733
+      maxDuration: -1
+      minDuration: -1
+    - name: UI_PressButton
+      guid: bc98c58a95368a4590fb90b19e088be7
+      id: 3824618851
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: UI
+        ObjectType: 4
+        guid: 40e7fbb5752c0842b836892c3cb19c94
+      - ElementName: UI_PressButton
+        ObjectType: 3
+        guid: bc98c58a95368a4590fb90b19e088be7
+      Path: Events\Default Work Unit\UI\UI_PressButton
+      maxAttenuation: 0
+      maxDuration: 0.05478338
+      minDuration: 0.05478338
+    - name: UI_PressPause
+      guid: 80703a0ec47c974aa2a456b106c2a54b
+      id: 3368070439
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: UI
+        ObjectType: 4
+        guid: 40e7fbb5752c0842b836892c3cb19c94
+      - ElementName: UI_PressPause
+        ObjectType: 3
+        guid: 80703a0ec47c974aa2a456b106c2a54b
+      Path: Events\Default Work Unit\UI\UI_PressPause
+      maxAttenuation: 0
+      maxDuration: 0.1985625
+      minDuration: 0.1985625
+    - name: UI_PressQuit
+      guid: 0885c6904856c74bbf46631a5cb142f8
+      id: 2691814938
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: UI
+        ObjectType: 4
+        guid: 40e7fbb5752c0842b836892c3cb19c94
+      - ElementName: UI_PressQuit
+        ObjectType: 3
+        guid: 0885c6904856c74bbf46631a5cb142f8
+      Path: Events\Default Work Unit\UI\UI_PressQuit
+      maxAttenuation: 0
+      maxDuration: 0.5685625
+      minDuration: 0.5685625
+    - name: UI_PressUnpause
+      guid: 5c4829d9f6eba44ca1c3d0789a0aab5e
+      id: 3153585820
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: UI
+        ObjectType: 4
+        guid: 40e7fbb5752c0842b836892c3cb19c94
+      - ElementName: UI_PressUnpause
+        ObjectType: 3
+        guid: 5c4829d9f6eba44ca1c3d0789a0aab5e
+      Path: Events\Default Work Unit\UI\UI_PressUnpause
+      maxAttenuation: 0
+      maxDuration: 0.18765625
+      minDuration: 0.18765625
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -438,8 +552,73 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: f072fa0b6eff4c44a854e3147b5c579a
     GuidInternal: 
-    m_lastTime: -8585029312697504649
-    List: []
+    m_lastTime: -8584927048679891040
+    List:
+    - name: MasterVolumeRTPC
+      guid: 58364fb9a77d7c43ae87d6ec026f8a3e
+      id: 2706739992
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f072fa0b6eff4c44a854e3147b5c579a
+      - ElementName: Volume
+        ObjectType: 4
+        guid: 3583c9ff1d520b418e7ce1c5dd665875
+      - ElementName: MasterVolumeRTPC
+        ObjectType: 13
+        guid: 58364fb9a77d7c43ae87d6ec026f8a3e
+      Path: Game Parameters\Default Work Unit\Volume\MasterVolumeRTPC
+    - name: MusicVolumeRTPC
+      guid: 57eeef0fe5692d449a1ba5695807ebd0
+      id: 438351637
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f072fa0b6eff4c44a854e3147b5c579a
+      - ElementName: Volume
+        ObjectType: 4
+        guid: 3583c9ff1d520b418e7ce1c5dd665875
+      - ElementName: MusicVolumeRTPC
+        ObjectType: 13
+        guid: 57eeef0fe5692d449a1ba5695807ebd0
+      Path: Game Parameters\Default Work Unit\Volume\MusicVolumeRTPC
+    - name: SFXVolumeRTPC
+      guid: 8016c34bf541b34f925455fe7c04cc4d
+      id: 3729481997
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f072fa0b6eff4c44a854e3147b5c579a
+      - ElementName: Volume
+        ObjectType: 4
+        guid: 3583c9ff1d520b418e7ce1c5dd665875
+      - ElementName: SFXVolumeRTPC
+        ObjectType: 13
+        guid: 8016c34bf541b34f925455fe7c04cc4d
+      Path: Game Parameters\Default Work Unit\Volume\SFXVolumeRTPC
+    - name: Volume
+      guid: 3583c9ff1d520b418e7ce1c5dd665875
+      id: 2415836739
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f072fa0b6eff4c44a854e3147b5c579a
+      - ElementName: Volume
+        ObjectType: 4
+        guid: 3583c9ff1d520b418e7ce1c5dd665875
+      Path: Game Parameters\Default Work Unit\Volume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -483,7 +662,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000070000000b0000000c0000000d0000000e000000
+  ExpandedWaapiItemIds: 050000000600000007000000090000000b0000000c0000000d0000000e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

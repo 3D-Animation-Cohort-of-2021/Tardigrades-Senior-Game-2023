@@ -14,9 +14,19 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID GRASSLAND_BG = 1739314252U;
-        static const AkUniqueID UI_POP = 3144290703U;
-        static const AkUniqueID UI_UPWHISTLE = 1577963409U;
+        static const AkUniqueID LOOPINGMUSICTEMP = 946441836U;
+        static const AkUniqueID UI_PRESSBUTTON = 3824618851U;
+        static const AkUniqueID UI_PRESSPAUSE = 3368070439U;
+        static const AkUniqueID UI_PRESSQUIT = 2691814938U;
+        static const AkUniqueID UI_PRESSUNPAUSE = 3153585820U;
     } // namespace EVENTS
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID MASTERVOLUMERTPC = 2706739992U;
+        static const AkUniqueID MUSICVOLUMERTPC = 438351637U;
+        static const AkUniqueID SFXVOLUMERTPC = 3729481997U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
@@ -27,7 +37,9 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID ENVIRONMENT = 1229948536U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MUSIC = 3991942870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES
