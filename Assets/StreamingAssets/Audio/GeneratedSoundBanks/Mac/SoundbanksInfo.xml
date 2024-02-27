@@ -9,14 +9,14 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{E1A38036-5D44-8762-F93D-134456FA731F}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{72565DD8-70DF-1445-E79D-2D2D4263B5E2}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
 				<File Id="112289461" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW.wav</ShortName>
 					<Path>Media/112289461.wem</Path>
-					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_C1ECC5D1.wem</CachePath>
+					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_3D5CCE37.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -27,7 +27,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{68764816-6F65-35BB-9E8A-52B5C4C1EDA8}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{2E294CA3-00C7-3EEA-14BC-BAB61F9A7838}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -53,6 +53,11 @@
 					<CachePath>SFX/UI_PressQuit_2CE66A1E.wem</CachePath>
 				</File>
 			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="1588715066" Name="Echoes_Linear" LibName="Wwise Delay" LibId="6946819"/>
+				</ShareSets>
+			</Plugins>
 			<Events>
 				<Event Id="946441836" Name="LoopingMusicTEMP" DurationType="Infinite">
 					<MediaRefs>
@@ -63,25 +68,45 @@
 					<MediaRefs>
 						<MediaRef Id="619333482"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1588715066"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="3368070439" Name="UI_PressPause" DurationType="OneShot" DurationMin="0.1985625" DurationMax="0.1985625">
 					<MediaRefs>
 						<MediaRef Id="502393985"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1588715066"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="2691814938" Name="UI_PressQuit" DurationType="OneShot" DurationMin="0.5685625" DurationMax="0.5685625">
 					<MediaRefs>
 						<MediaRef Id="939970532"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1588715066"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="3153585820" Name="UI_PressUnpause" DurationType="OneShot" DurationMin="0.18765625" DurationMax="0.18765625">
 					<MediaRefs>
 						<MediaRef Id="737277535"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1588715066"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{67B8798A-4454-C32F-C716-C49BC05BB87A}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{A47F7013-A9D3-1A0E-8E6A-8C52D0ECD857}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -228,5 +253,5 @@
 			<Path>Level_1_2_Beach_SB.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8D6F0D87-B611-F934-5DED-F21A23CDFCF9}</FileHash>
+	<FileHash>{17B51911-47F6-8869-1224-F821CBC265A4}</FileHash>
 </SoundBanksInfo>

@@ -11,7 +11,8 @@ public enum DeathType
     Default,
     Drown,
     Lava,
-    Burning,
+    Burn,
+    Freeze,
     None
 }
 
