@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI Full Pallete_0
+      name: UI X
       rect:
         serializedVersion: 2
         x: 2
@@ -138,7 +138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_1
+      name: UI Back
       rect:
         serializedVersion: 2
         x: 82
@@ -159,11 +159,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_2
+      name: UI Pause
       rect:
         serializedVersion: 2
         x: 162
-        y: 946
+        y: 948
         width: 75
         height: 76
       alignment: 0
@@ -180,7 +180,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_3
+      name: UI Play
       rect:
         serializedVersion: 2
         x: 242
@@ -201,7 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_4
+      name: UI Checkbox
       rect:
         serializedVersion: 2
         x: 322
@@ -222,7 +222,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_5
+      name: UI Checkmark
       rect:
         serializedVersion: 2
         x: 410
@@ -243,7 +243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_6
+      name: UI Gradient
       rect:
         serializedVersion: 2
         x: 496
@@ -264,7 +264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_7
+      name: UI Questionmark
       rect:
         serializedVersion: 2
         x: 2
@@ -285,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_8
+      name: UI ExclamationMark
       rect:
         serializedVersion: 2
         x: 83
@@ -306,7 +306,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_9
+      name: UISettings
       rect:
         serializedVersion: 2
         x: 162
@@ -327,7 +327,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_10
+      name: UI Blank
       rect:
         serializedVersion: 2
         x: 242
@@ -348,7 +348,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_11
+      name: UISliderKnob
       rect:
         serializedVersion: 2
         x: 545
@@ -369,7 +369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_12
+      name: UISlider
       rect:
         serializedVersion: 2
         x: 3
@@ -390,7 +390,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_13
+      name: UISkinnyText
       rect:
         serializedVersion: 2
         x: 24
@@ -411,7 +411,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_14
+      name: UI Medium Text
       rect:
         serializedVersion: 2
         x: 26
@@ -432,7 +432,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_15
+      name: UI Button
       rect:
         serializedVersion: 2
         x: 583
@@ -453,7 +453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_16
+      name: UI Large Text
       rect:
         serializedVersion: 2
         x: 20
@@ -474,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Full Pallete_17
+      name: UI SquadBack
       rect:
         serializedVersion: 2
         x: 648
@@ -482,7 +482,7 @@ TextureImporter:
         width: 236
         height: 233
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -490,6 +490,69 @@ TextureImporter:
       bones: []
       spriteID: 302ea63cd2bf18944be5d444e50f8256
       internalID: -1683505312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI ButtonSelect
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 351
+        width: 264
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e13f8b4f601eb741bec4442cf937aa6
+      internalID: -384613570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIRoundButtonSelect
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 356
+        width: 99
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3dfe86fc0b3eef438f3c9a11679467e
+      internalID: 1854144070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Slider Select
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 464
+        width: 100
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2217c2560d563394b91748bae9ccc305
+      internalID: 1433783227
       vertices: []
       indices: 
       edges: []
@@ -505,24 +568,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI Full Pallete_4: 457719240
-      UI Full Pallete_3: 1524530787
-      UI Full Pallete_11: -447796118
-      UI Full Pallete_5: 269753512
-      UI Full Pallete_12: 534135702
-      UI Full Pallete_1: -659645490
-      UI Full Pallete_13: -1847153071
-      UI Full Pallete_15: 1040870992
-      UI Full Pallete_0: 442584977
-      UI Full Pallete_10: -155820058
-      UI Full Pallete_2: -1836545979
-      UI Full Pallete_8: 1092275126
-      UI Full Pallete_17: -1683505312
-      UI Full Pallete_9: -1719840033
-      UI Full Pallete_7: 727185987
-      UI Full Pallete_16: 371357748
-      UI Full Pallete_14: -2058358492
-      UI Full Pallete_6: 982615753
+      UI SquadBack: -1683505312
+      UI Medium Text: -2058358492
+      UI Button: 1040870992
+      UI Pause: -1836545979
+      UI Checkbox: 457719240
+      UI Slider Select: 1433783227
+      UISettings: -1719840033
+      UI Large Text: 371357748
+      UI Gradient: 982615753
+      UI ButtonSelect: -384613570
+      UISlider: 534135702
+      UI Blank: -155820058
+      UISliderKnob: -447796118
+      UISkinnyText: -1847153071
+      UI Questionmark: 727185987
+      UI Back: -659645490
+      UIRoundButtonSelect: 1854144070
+      UI Checkmark: 269753512
+      UI X: 442584977
+      UI Play: 1524530787
+      UI ExclamationMark: 1092275126
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
