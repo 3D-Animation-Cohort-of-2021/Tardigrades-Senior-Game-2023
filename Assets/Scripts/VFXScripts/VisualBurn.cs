@@ -33,6 +33,15 @@ public class VisualBurn : MonoBehaviour
             }
         }
     }
-    
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out FireTardigrade td))
+        {
+            if (td.ignited)
+            {
+                
+            }
+        }
+    }
 }

@@ -16,11 +16,11 @@ public class DevLock_UnlockLevels : MonoBehaviour
 
    public void ResetAllLevelUnlocks()
    {
-      levelsInOrder[1].levelUnlocked = true;
-      for (int i = 2; i < levelsInOrder.Length; i++)
+      for (int i = 1; i < levelsInOrder.Length; i++)
       {
          levelsInOrder[i].levelUnlocked = false;
          levelsInOrder[i].levelComplete = false;
       }
+      levelsInOrder[1].levelUnlocked = true;
    }
 }
