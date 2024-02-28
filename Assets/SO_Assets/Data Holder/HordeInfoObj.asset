@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a69b607594a24245a8b67065e1964f9, type: 3}
+  m_Name: HordeInfoObj
+  m_EditorClassIdentifier: 
+  numFire: 5
+  numStone: 5
+  numWater: 5
+  numNormal: 0
+  savedFire: 5
+  savedStone: 5
+  savedWater: 5
+  savedNormal: 0
+  normalCD: 1
+  fireCD: 4
+  stoneCD: 8
+  waterCD: 5
+  normalToggleCD: 1
+  fireToggleCD: 2
+  stoneToggleCD: 3
+  waterToggleCD: 1
+  callUpdateText: {fileID: 11400000, guid: d4111673d585aeb4c947071d102f7791, type: 2}
+  hordeIsDeadAction: {fileID: 11400000, guid: 97cc7e41a39b8f14aab07abfd02a597f, type: 2}
+  gameRunning: 1
+  canFail: 1

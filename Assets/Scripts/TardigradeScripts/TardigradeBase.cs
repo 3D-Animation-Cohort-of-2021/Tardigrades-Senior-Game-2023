@@ -15,6 +15,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public float _health;
     public float _maxHealth;
     public HealthDisplay collar;
+    public GameObject damageEffectObj;
 
     [SerializeField]protected Elem _type;
 
@@ -27,6 +28,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     private GameObject _iceShardsForDeath;
     private Renderer[] _renderers;
     private Animator[] _animators;
+    
+    [SerializeField] private GameObject bonesPrefab;
+    [SerializeField] private GameObject burningBodyPrefab;
+    [SerializeField] private GameObject frozenBodyPrefab;
 
     public UnityEvent<Elem, int> deathEvent;
 
@@ -40,6 +45,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public VisualEffect _healVisualEffect;
 
     protected float _damage = 1;
+    protected VisualEffect _abilityEffect;
 
     public event System.Action<TardigradeBase> OnDestroy;
     
@@ -75,17 +81,18 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Implements the <c>Damage</c> Interface. Finds how much damage should be taken.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public void Damage(float damageAmount, Elem damageType)
+    public void Damage(float damageAmount, Elem damageType, DeathType deathType = DeathType.Default)
     {
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(damageType, _type, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMGModifier(damageType, _type);
-
-        _tarAnimator.SetTrigger("flinch");
-
         if(damageType == Elem.Water && IceCoroutine != null)
         {
             return;
         }
+        damageEffectObj.GetComponent<VisualEffect>().Play();
+        _tarAnimator.SetTrigger("flinch");
+
+        
 
         if (modifier == 1.5f)
         {
@@ -111,7 +118,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
         if (_health <= 0)
         {
-            Death();
+            Death(deathType);
         }
         
         //print(GetComponent<TardigradeBase>() +" Damage Taken: "+ finalDmg);
@@ -139,7 +146,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         //Debug.Log("damaged");
     }
     
-    private void UpdateTardigrade()
+    protected virtual void UpdateTardigrade()
     {
         TardigradeSetSO tardigradeSetSO = _tardigradeSets.GetMaterialSetByType(_type);
 
@@ -201,7 +208,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     ///  Removes tard from any lists, stops coroutines, then destroys this tard.
     /// <remarks>Written by DJ</remarks>
     /// </summary>
-    public virtual void Death()
+    public virtual void Death(DeathType deathType = DeathType.Default)
     {
         if (deathEvent != null)
         { 
@@ -210,6 +217,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         
         _tarAnimator.SetTrigger("death");
 
+        //If tard dies while not in a squad will error out here
         _mySquad.RemoveFromSquad(this);
         OnDestroy?.Invoke(this);
 
@@ -218,6 +226,31 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             StopCoroutine(IceCoroutine);
         }
 
+        
+        switch (deathType)
+        {
+            //Default Death
+            case DeathType.Default:
+                Instantiate(bonesPrefab, transform.position, transform.rotation);
+                GetComponent<SquishVFXBehaviour>().Play();
+                break;
+            case DeathType.Drown:
+                GameObject tempBones = Instantiate(bonesPrefab, transform.position, transform.rotation);
+                tempBones.GetComponent<BonesBehaviour>().FloatBones();
+                break;
+            case DeathType.Lava:
+                break;
+            case DeathType.Burn:
+                GameObject tempBurnBody = Instantiate(burningBodyPrefab, transform.position, transform.rotation);
+                tempBurnBody.GetComponent<DeadBodyConversion>().ConvertBurningBody(_type);
+                break;
+            case DeathType.Freeze:
+                GameObject tempIceBody = Instantiate(frozenBodyPrefab, transform.position, transform.rotation);
+                tempIceBody.GetComponent<DeadBodyConversion>().ConvertFreezingBody(_type);
+                break;
+            case DeathType.None:
+                break;
+        }
         Destroy(gameObject);
     }
     
@@ -266,7 +299,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
             yield return new WaitForSeconds(iceDuration);
 
-            if (iceAnimator)
+            if (iceAnimator.GetBool("IceShield"))
             {
                 iceAnimator.SetBool("IceShield", false);
                 Instantiate(iceShards, transform);
@@ -336,7 +369,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void StartIce(float iceDuration, GameObject iceShards)
     {
-        IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
+        if (IceCoroutine == null)
+        {
+            IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
+        }
     }
 
 
@@ -388,6 +424,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase._healVisualEffect = _healVisualEffect;
         tardigradeBase.hordeInfo = hordeInfo;
         tardigradeBase.collar = collar;
+        tardigradeBase.damageEffectObj = damageEffectObj;
+        tardigradeBase.bonesPrefab = bonesPrefab;
+        tardigradeBase.burningBodyPrefab = burningBodyPrefab;
+        tardigradeBase.frozenBodyPrefab = frozenBodyPrefab;
 
         tardigradeBase.UpdateTardigrade();
 

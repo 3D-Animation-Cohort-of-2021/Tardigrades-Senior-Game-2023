@@ -11,7 +11,6 @@ public class Tutorial_Popup : MonoBehaviour
     [SerializeField] private Image tutTextImage;
     public bool oneTimeUse;
     private Animator TutAnim;
-    public AK.Wwise.Event postEvent;
     
     // Start is called before the first frame update
     private void Awake()
@@ -24,8 +23,6 @@ public class Tutorial_Popup : MonoBehaviour
         if (other.gameObject.GetComponent(typeof(PlayerControl)))
         {
             TutAnim.SetBool("Active", true);
-            if(postEvent!=null)
-                postEvent.Post(gameObject);
         }
     }
 

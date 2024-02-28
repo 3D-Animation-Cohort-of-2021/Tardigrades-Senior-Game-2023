@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static Unity.VisualScripting.Dependencies.Sqlite.SQLite3;
 
 public class LargeObstacle : Obstacle
 {
@@ -65,7 +61,7 @@ public class LargeObstacle : Obstacle
         unWeakenEvent.Invoke();
     }
 
-    public override void Damage(float dmgNum, Elem dmgType)
+    public override void Damage(float dmgNum, Elem dmgType, DeathType deathType = DeathType.Default)
     {
         Effectiveness effectiveness = EffectiveTable.DetermineEffectiveness(_obstacleElement, dmgType);
 

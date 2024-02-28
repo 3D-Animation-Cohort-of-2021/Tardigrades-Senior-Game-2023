@@ -16,8 +16,12 @@ public class SquadUIBehavior : MonoBehaviour
     private WaitForSeconds wfs, wfss;
     private Coroutine currentRoutine;
     private int _secondaryState;
+    private int currentAmt;
     private Color tempColor;
     private bool PCooldown;
+    public Animator thisAnim;
+    [Range(0f,1f)]
+    public float secondaryAlphaReady, secondaryAlphaActive;
 
 
     private void Awake()
@@ -30,18 +34,24 @@ public class SquadUIBehavior : MonoBehaviour
     private void Start()
     {
         UpdateCount();
+        currentAmt = brain.GetTypeCount(elemType);
         SetSecondaryState(1);
     }
 
     public void UpdateCount()
     {
+        if(brain.GetTypeCount(elemType)==currentAmt)
+            return;
         unitCounter.text = brain.GetTypeCount(elemType).ToString();
+        //animate
+        currentAmt = brain.GetTypeCount(elemType);
+        thisAnim.SetTrigger("Flash");
     }
 
     public void SetCD()
     {
-        thisElemCD = brain.GetCD(elemType);
-        thisElemSecondCD = brain.GetToggleCD(elemType);
+        thisElemCD = brain.GetCD(elemType)-.5f;
+        thisElemSecondCD = brain.GetToggleCD(elemType)-.5f;
     }
 
     public void StartVisualCD()
@@ -104,7 +114,14 @@ public class SquadUIBehavior : MonoBehaviour
         foreach(Image image in secondaryGlows)
         {
             tempColor = image.color;
-            tempColor.a = (.5f * (float) state);
+            if(state==0)
+                tempColor.a = 0;
+            if(state==1)
+                tempColor.a =secondaryAlphaReady;
+            if (state == 2)
+                tempColor.a = secondaryAlphaActive;
+            if (image.TryGetComponent(out RotateImage RI))
+                RI.rotationSpeed = 60*state;
             image.color = tempColor;
         }
         _secondaryState = state;

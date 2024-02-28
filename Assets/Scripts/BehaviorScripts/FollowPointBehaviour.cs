@@ -8,6 +8,7 @@ public class FollowPointBehaviour : MonoBehaviour {
 
     private NavMeshAgent _navMeshAgent;
     private Animator _tarAnimator;
+    private float _normalAccel;
 
     private void Awake() {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -16,6 +17,7 @@ public class FollowPointBehaviour : MonoBehaviour {
 
     private void Start() {
         _navMeshAgent.speed = (_navMeshAgent.speed == 0) ? 5 : _navMeshAgent.speed;
+        _normalAccel = _navMeshAgent.acceleration;
         //Warp to closest navmesh position if needed
         //NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1.0f, 1);
         //_navMeshAgent.Warp(hit.position);
@@ -31,7 +33,10 @@ public class FollowPointBehaviour : MonoBehaviour {
                 CalculateAngleFromHordeCenter(out destination);
             }
 
-            _navMeshAgent.destination = (destination + _pointObject.Parent.position);
+            if (Vector3.Distance(destination + _pointObject.Parent.position, _navMeshAgent.destination) > _navMeshAgent.stoppingDistance)
+            {
+                _navMeshAgent.destination = (destination + _pointObject.Parent.position);
+            }
         }
         
         //Walk anim driver
