@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DeathZone : MonoBehaviour
 {
-    [SerializeField]public bool enabled = true;
+    public bool enabled = true;
     public DeathType tardDeathType;
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4270138854221516901}
   - component: {fileID: 251789323351670247}
   - component: {fileID: 1681110953056784310}
+  - component: {fileID: 7659114306449413595}
+  - component: {fileID: 2858403148927204396}
   m_Layer: 0
   m_Name: Matched_Cube
   m_TagString: Untagged
@@ -86,3 +88,47 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7659114306449413595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272338659748259323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7e9a7b63f55e14cbfd0612b78009eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 08abb95f6425d254aa0ecb2975319eb2, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: RaiseAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  oneTimeDamage: 1
+  alreadyDamaged: 0
+  requiresSameType: 0
+  objectType: 0
+--- !u!135 &2858403148927204396
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272338659748259323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.25
+  m_Center: {x: 0.005395353, y: 0.9108856, z: 0.004885167}

@@ -2,25 +2,58 @@ using UnityEngine;
 
 public class DeadBodyConversion : MonoBehaviour
 {
-    private SkinnedMeshRenderer renderer;
+    private SkinnedMeshRenderer skinnedRenderer;
+    private MeshRenderer[] renderers;
     [SerializeField] private Material waterBurnable, stoneBurnable, fireBurnable;
     [SerializeField] private GameObject stoneGeo;
 
-    public void Convert(Elem element)
+    public void ConvertBurningBody(Elem element)
     {
-        renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        skinnedRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         switch (element)
         {
             case Elem.Water:
-                renderer.material = waterBurnable;
+                skinnedRenderer.material = waterBurnable;
                 break;
             case Elem.Fire:
-                renderer.material = fireBurnable;
+                skinnedRenderer.material = fireBurnable;
                 break;
             case Elem.Stone:
-                renderer.material = stoneBurnable;
+                skinnedRenderer.material = stoneBurnable;
                 stoneGeo.gameObject.SetActive(true);
                 break;
+        }
+    }
+    public void ConvertFreezingBody(Elem element)
+    {
+        renderers = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer renderer in renderers)
+        {
+            Material[] tempMaterials = new Material[renderer.materials.Length];
+            for (int i = 0; i < renderer.materials.Length; i++)
+            {
+                if (renderer.materials[i].name == "NormalTardMat (Instance)")
+                {
+                    switch (element)
+                    {
+                        case Elem.Water:
+                            tempMaterials[i] = waterBurnable;
+                            break;
+                        case Elem.Fire:
+                            tempMaterials[i] = fireBurnable;
+                            break;
+                        case Elem.Stone:
+                            tempMaterials[i] = stoneBurnable;
+                            stoneGeo.gameObject.SetActive(true);
+                            break;
+                    }
+                }
+                else
+                {
+                    tempMaterials[i] = renderer.materials[i];
+                }
+            }
+            renderer.materials = tempMaterials;
         }
     }
 }
