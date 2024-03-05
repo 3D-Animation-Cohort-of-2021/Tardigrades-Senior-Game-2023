@@ -6,21 +6,20 @@ using UnityEngine.UI;
 
 public class ButtonAutoSelect : MonoBehaviour
 {
-    public Button currentButton;
-    public Button[] buttonList;
-
-    public void SetCurrentButtonToIndex(int index)
-    {
-        currentButton = buttonList[index];
-    }
-
+    public GameObject currentButton;
     public void SelectCurrentButton()
     {
-        currentButton.Select();
+        EventSystem.current.SetSelectedGameObject(currentButton);
     }
 
-    public void ClearSelection()
+    public void SetCurrentSavedButton(GameObject selection)
     {
+        currentButton = selection;
+    }
+    
+    public void SaveAndClearSelection()
+    {
+        currentButton = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
     }
 }

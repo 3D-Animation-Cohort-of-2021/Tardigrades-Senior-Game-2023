@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class InputSwapDetect : MonoBehaviour
 {
     public GameAction changeToMnK, changeToController;
     public bool usingMnK, currentIsMnK;
+
+    public UnityEvent controllerSwapEvent, mnKSwapEvent;
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,12 +30,14 @@ public class InputSwapDetect : MonoBehaviour
                     //changeToMnK.raise();
                     Debug.Log("Changing to keyboard");
                     Cursor.lockState = CursorLockMode.None;
+                    mnKSwapEvent.Invoke();
                 }
                 else
                 {
                     //changeToController.raise();
                     Debug.Log("Changing to controller");
                     Cursor.lockState = CursorLockMode.Locked;
+                    controllerSwapEvent.Invoke();
                 }
                 currentIsMnK = usingMnK;
             }
