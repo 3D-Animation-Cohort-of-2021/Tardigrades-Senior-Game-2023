@@ -191,7 +191,7 @@ public class SquadBrain : MonoBehaviour
             for (int i = 0; i < amountOfTards; i++)
             {
 
-                Vector3 newPos = transform.position + RandomPointInRadius(1f);
+                Vector3 newPos = transform.position + RandomPointInRadius(1f, (_squadType==Elem.Neutral));
                 GameObject newPiglet = Instantiate(_piggyPrefab, newPos, Quaternion.identity);
 
                 TardigradeBase pigBase = newPiglet.GetComponent<TardigradeBase>();
@@ -221,10 +221,23 @@ public class SquadBrain : MonoBehaviour
         _navMeshAgent.Warp(dest + Vector3.up * _navMeshAgent.baseOffset);
     }
 
-    private Vector3 RandomPointInRadius(float clusterRadius)
+    private Vector3 RandomPointInRadius(float clusterRadius, bool isNeutral)
     {
         Vector3 currentPos = transform.position;
-        return new Vector3((Random.Range(-clusterRadius, clusterRadius)), 0, (Random.Range(-clusterRadius, clusterRadius)));
+        float xValue = Random.Range(-clusterRadius, clusterRadius);
+        float zValue = Random.Range(-clusterRadius, clusterRadius);
+        if (isNeutral)
+        {
+            if (xValue < clusterRadius * .5 && xValue>0)
+                xValue += 1;
+            if (xValue > clusterRadius * -.5 && xValue<0)
+                xValue -= 1;
+            if (zValue < clusterRadius * .5 && zValue>0)
+                zValue += 1;
+            if (zValue > clusterRadius * -.5 && zValue<0)
+                zValue -= 1;
+        }
+        return new Vector3(xValue, 0, zValue);
     }
 
     /// <summary>
@@ -451,7 +464,7 @@ public class SquadBrain : MonoBehaviour
         for (int i = 0; i < _formationPositions.Count; i++)
         {
 
-            _formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing);
+            _formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing, _squadType==Elem.Neutral);
             _formationPositions[i].willRotate = false;
         }
     }
