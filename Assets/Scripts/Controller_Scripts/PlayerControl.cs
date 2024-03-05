@@ -22,6 +22,7 @@ public class PlayerControl : MonoBehaviour
     public bool controlsEnabled;
     public GameAction pauseResumeAction;
     private bool isPause;
+    private float scrollInputValue;
 
     private Coroutine offMeshPathInstance = null;
     public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent, secondaryAbilityEvent;
@@ -119,6 +120,25 @@ public class PlayerControl : MonoBehaviour
         {
             squadChangeNext.Invoke();
         }
+    }
+
+    public void ScrollSquad(InputAction.CallbackContext context)
+    {
+        scrollInputValue = context.ReadValue<float>();
+        Debug.Log("Next Squad");
+        if(controlsEnabled)
+            if(scrollInputValue>0f)
+            {
+                SquadsMoveCommands.AddSquadNumber();
+                squadChangeNext.Invoke();
+            }
+            else if (scrollInputValue<0f)
+            {
+                SquadsMoveCommands.SubtractSquadNumber();
+                squadChangePrevious.Invoke();
+            }
+        
+            
     }
     public void MoveSquad(InputAction.CallbackContext context)
     {
