@@ -45,7 +45,12 @@ public class PlayerControl : MonoBehaviour
         SquadsMoveCommands.SetSquadTotal(0);
         
     }
-
+/// <summary>
+/// Checks if the last input came from a mouse and or keyboard or if it came from a controller
+/// </summary>
+/// <param name="obj"></param>
+/// <param name="change"></param>
+    
     public void SetControlsActive(bool state)
     {
         controlsEnabled = state;
