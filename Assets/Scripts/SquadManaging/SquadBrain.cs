@@ -191,7 +191,7 @@ public class SquadBrain : MonoBehaviour
             for (int i = 0; i < amountOfTards; i++)
             {
 
-                Vector3 newPos = transform.position + RandomPointInRadius(1f);
+                Vector3 newPos = transform.position;
                 GameObject newPiglet = Instantiate(_piggyPrefab, newPos, Quaternion.identity);
 
                 TardigradeBase pigBase = newPiglet.GetComponent<TardigradeBase>();
@@ -224,7 +224,28 @@ public class SquadBrain : MonoBehaviour
     private Vector3 RandomPointInRadius(float clusterRadius)
     {
         Vector3 currentPos = transform.position;
-        return new Vector3((Random.Range(-clusterRadius, clusterRadius)), 0, (Random.Range(-clusterRadius, clusterRadius)));
+        Vector3 result;
+        float iterations = 0;
+        do
+        {
+            result = new Vector3((Random.Range(-clusterRadius, clusterRadius)), 0, (Random.Range(-clusterRadius, clusterRadius)));
+            iterations++;
+
+        } while (IsOverlappingPoint(result) && iterations < 10);
+
+        return result;
+    }
+
+    private bool IsOverlappingPoint(Vector3 point)
+    {
+        for(int i = 0; i < _formationPositions.Count; i++)
+        {
+            if(Vector3.Distance(point, _formationPositions[i].Position) <= 0.2f)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -444,7 +465,7 @@ public class SquadBrain : MonoBehaviour
 
     private void ClusterFormation()
     {
-        float clusterRadius = Mathf.Log((float)_formationPositions.Count, 4);
+        float clusterRadius = Mathf.Log((float)_formationPositions.Count, 4) > 0 ? Mathf.Log((float)_formationPositions.Count, 4) : 0.5f;
         float minSpacing = 1;
         float fullSpacing = minSpacing + _spacing;
 
@@ -452,6 +473,7 @@ public class SquadBrain : MonoBehaviour
         {
 
             _formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing);
+
             _formationPositions[i].willRotate = false;
         }
     }
