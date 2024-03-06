@@ -240,7 +240,7 @@ public class SquadBrain : MonoBehaviour
     {
         for(int i = 0; i < _formationPositions.Count; i++)
         {
-            if(Vector3.Distance(point, _formationPositions[i].Position) <= 0.2f)
+            if(Vector3.Distance(point, _formationPositions[i].Position) <= 0.3f)
             {
                 return true;
             }
@@ -465,7 +465,7 @@ public class SquadBrain : MonoBehaviour
 
     private void ClusterFormation()
     {
-        float clusterRadius = Mathf.Log((float)_formationPositions.Count, 4) > 0 ? Mathf.Log((float)_formationPositions.Count, 4) : 0.5f;
+        float clusterRadius = Mathf.Log((float)_formationPositions.Count, 4) > 0 ? Mathf.Log((float)_formationPositions.Count, 4) : 0.6f;
         float minSpacing = 1;
         float fullSpacing = minSpacing + _spacing;
 
