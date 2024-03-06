@@ -118,6 +118,8 @@ MonoBehaviour:
   SquadsMoveCommands: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
   controlsEnabled: 0
   pauseResumeAction: {fileID: 11400000, guid: 36750052b550c04428a424bd5e70abe7, type: 2}
+  changeToMnK: {fileID: 11400000, guid: 3921e6f7cd383d54dadc774c471841ae, type: 2}
+  changeToController: {fileID: 11400000, guid: bd62f9c721054464c83f7ff836555567, type: 2}
   squadChangeNext:
     m_PersistentCalls:
       m_Calls:
@@ -253,6 +255,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  usingMnK: 0
+  currentIsMnK: 0
 --- !u!114 &4049278343048673060
 MonoBehaviour:
   m_ObjectHideFlags: 0
