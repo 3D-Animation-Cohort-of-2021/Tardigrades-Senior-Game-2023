@@ -11,6 +11,7 @@ public class SquadBrain : MonoBehaviour
     public SO_SquadData _movementVector;
     public GameObject _piggyPrefab;
     public int _amountPerGroup;
+    public GameActionElementalFormation formationUpdateCall;
 
     private NavMeshAgent _navMeshAgent;
     private WaitForFixedUpdate _wffu;
@@ -136,8 +137,8 @@ public class SquadBrain : MonoBehaviour
         }
         if (_movementVector.squadNumber == _brainNumber /*&& _squadType != Elem.Neutral*/)
         {
+            formationUpdateCall.RaiseAction(_squadType, _formation);
             activeSquad = StartCoroutine(ActiveSquad());
-
             //Grabs new selection and Highlights them
             foreach (TardigradeBase tard in _myTards)
             {
@@ -453,6 +454,7 @@ public class SquadBrain : MonoBehaviour
                     break;
             }
         }
+        formationUpdateCall.RaiseAction(_squadType, _formation);
     }
 
     private void ClusterFormation()
