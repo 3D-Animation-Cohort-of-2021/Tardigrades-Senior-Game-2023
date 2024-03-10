@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.UI;
@@ -8,10 +9,12 @@ using UnityEngine.Events;
 
 public class UI_Formation_Manager : MonoBehaviour
 {
-    public Image leftSmall, middleLarge, rightSmall;
-    public int _shapeIndex;
+    public Image leftSmall, middleLarge, rightSmall, hiddenRight;
+    public int _shapeIndex, hiddenIndex;
     public GameActionElementalFormation formationUpdateCall;
     public Sprite[] imageArray;
+    public Animator formationAnim;
+    private int direction, tempIndex;
 
     public Sprite
         cluster,
@@ -24,6 +27,7 @@ public class UI_Formation_Manager : MonoBehaviour
 
     private void Awake()
     {
+        formationAnim = GetComponent<Animator>();
         imageArray = new[] {cluster, wedge, circle, line};
         formationUpdateCall.raise += UpdateImages;
     }
@@ -31,34 +35,12 @@ public class UI_Formation_Manager : MonoBehaviour
     private void Start()
     {
         SetSpritesToNeutral();
-    }
-
-    public Sprite CalculateMiddleSprite()
-    {
-        return imageArray[_shapeIndex];
-    }
-
-    public Sprite CalculateLeftSprite()
-    {
-        if(_shapeIndex==0)
-            return imageArray[3];
-        else
-            return imageArray[_shapeIndex-1];
-    }
-
-    public Sprite CalculateRightSprite()
-    {
-        if(_shapeIndex==3)
-            return imageArray[0];
-        else
-            return imageArray[_shapeIndex+1];
+        ApplyImages();
     }
 
     public void SetSpritesToNeutral()
     {
-        leftSmall.sprite = imageArray[12];
-        middleLarge.sprite = imageArray[12];
-        rightSmall.sprite = imageArray[12];
+        ApplyColors(neutralOverlay);
     }
     public void updateCurrentElement(Elem type)
     {
@@ -78,23 +60,41 @@ public class UI_Formation_Manager : MonoBehaviour
                 break;
         }
     }
-    public void updateCurrentShape(Formation shape)
+    public void updateCurrentShapes(Formation shape)
     {
         switch (shape)
         {
             case Formation.Cluster:
-                _shapeIndex = 0;
+                imageArray = new[] {wedge, cluster, line, circle};
+                tempIndex = 1;
                 break;
             case Formation.Wedge:
-                _shapeIndex = 1;
+                imageArray = new[] {circle, wedge, cluster, line};
+                tempIndex = 0;
                 break;
             case Formation.Circle:
-                _shapeIndex = 2;
+                imageArray = new[] {line, circle, wedge, cluster};
+                tempIndex = 3;
                 break;
             case Formation.Line:
-                _shapeIndex = 3;
+                imageArray = new[] {cluster, line, circle, wedge};
+                tempIndex = 2;
                 break;
         }
+        GetDirection(tempIndex, _shapeIndex);
+        _shapeIndex = tempIndex;
+    }
+
+    public void GetDirection(int tempX, int currentX)
+    {
+        if (tempX == currentX)
+            direction = 0;
+        direction = tempX - currentX;
+        if (math.abs(direction) == 3)
+        {
+            direction /= -3;
+        }
+        print(direction);
     }
 
     public void ApplyColors(Color clr)
@@ -102,6 +102,7 @@ public class UI_Formation_Manager : MonoBehaviour
         leftSmall.color = clr;
         middleLarge.color = clr;
         rightSmall.color = clr;
+        hiddenRight.color = clr;
     }
     public void UpdateImages(Elem type, Formation frm)
     {
@@ -111,10 +112,19 @@ public class UI_Formation_Manager : MonoBehaviour
             return;
         }
         updateCurrentElement(type);
-        updateCurrentShape(frm);
-        leftSmall.sprite = CalculateLeftSprite();
-        middleLarge.sprite = CalculateMiddleSprite();
-        rightSmall.sprite = CalculateRightSprite();
-        Debug.Log(type + " type " + frm + " formation");
+        updateCurrentShapes(frm);
+        //ApplyImages();
+        if(direction==1)
+            formationAnim.SetTrigger("Next");
+        else if(direction==-1)
+            formationAnim.SetTrigger("Previous");
+    }
+
+    public void ApplyImages()
+    {
+        leftSmall.sprite = imageArray[0];
+        middleLarge.sprite = imageArray[1];
+        rightSmall.sprite = imageArray[2];
+        hiddenRight.sprite = imageArray[3];
     }
 }
