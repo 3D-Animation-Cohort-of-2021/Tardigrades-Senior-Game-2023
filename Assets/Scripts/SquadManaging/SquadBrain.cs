@@ -225,11 +225,12 @@ public class SquadBrain : MonoBehaviour
     private Vector3 RandomPointInRadius(float clusterRadius, bool isNeutral)
     {
         Vector3 currentPos = transform.position;
-        Vector3 result;
+        Vector3 result = Vector3.zero;
         float iterations = 0;
         do
         {
-            result = new Vector3((Random.Range(-clusterRadius, clusterRadius)), 0, (Random.Range(-clusterRadius, clusterRadius)));
+            result.x = Random.Range(-clusterRadius, clusterRadius);
+            result.z = Random.Range(-clusterRadius, clusterRadius);
             iterations++;
 
         } while (IsOverlappingPoint(result) && iterations < 10);
@@ -237,13 +238,13 @@ public class SquadBrain : MonoBehaviour
         if (isNeutral)
         {
             if (result.x < clusterRadius * .5 && result.x > 0)
-                xValue += 1;
+                result.x += 1;
             if (result.x > clusterRadius * -.5 && result.x < 0)
-                xValue -= 1;
+                result.x -= 1;
             if (result.z < clusterRadius * .5 && result.z > 0)
-                zValue += 1;
+                result.z += 1;
             if (result.z > clusterRadius * -.5 && result.z < 0)
-                zValue -= 1;
+                result.z -= 1;
         }
 
         return result;
