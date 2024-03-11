@@ -11,6 +11,7 @@ public class SquadBrain : MonoBehaviour
     public SO_SquadData _movementVector;
     public GameObject _piggyPrefab;
     public int _amountPerGroup;
+    public GameActionElementalFormation formationUpdateCall;
 
     private NavMeshAgent _navMeshAgent;
     private WaitForFixedUpdate _wffu;
@@ -136,8 +137,8 @@ public class SquadBrain : MonoBehaviour
         }
         if (_movementVector.squadNumber == _brainNumber /*&& _squadType != Elem.Neutral*/)
         {
+            formationUpdateCall.RaiseAction(_squadType, _formation);
             activeSquad = StartCoroutine(ActiveSquad());
-
             //Grabs new selection and Highlights them
             foreach (TardigradeBase tard in _myTards)
             {
@@ -221,7 +222,7 @@ public class SquadBrain : MonoBehaviour
         _navMeshAgent.Warp(dest + Vector3.up * _navMeshAgent.baseOffset);
     }
 
-    private Vector3 RandomPointInRadius(float clusterRadius)
+    private Vector3 RandomPointInRadius(float clusterRadius, bool isNeutral)
     {
         Vector3 currentPos = transform.position;
         Vector3 result;
@@ -232,6 +233,18 @@ public class SquadBrain : MonoBehaviour
             iterations++;
 
         } while (IsOverlappingPoint(result) && iterations < 10);
+
+        if (isNeutral)
+        {
+            if (result.x < clusterRadius * .5 && result.x > 0)
+                xValue += 1;
+            if (result.x > clusterRadius * -.5 && result.x < 0)
+                xValue -= 1;
+            if (result.z < clusterRadius * .5 && result.z > 0)
+                zValue += 1;
+            if (result.z > clusterRadius * -.5 && result.z < 0)
+                zValue -= 1;
+        }
 
         return result;
     }
@@ -461,6 +474,7 @@ public class SquadBrain : MonoBehaviour
                     break;
             }
         }
+        formationUpdateCall.RaiseAction(_squadType, _formation);
     }
 
     private void ClusterFormation()
@@ -472,8 +486,7 @@ public class SquadBrain : MonoBehaviour
         for (int i = 0; i < _formationPositions.Count; i++)
         {
 
-            _formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing);
-
+            _formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing, _squadType==Elem.Neutral);
             _formationPositions[i].willRotate = false;
         }
     }

@@ -125,7 +125,6 @@ public class PlayerControl : MonoBehaviour
     public void ScrollSquad(InputAction.CallbackContext context)
     {
         scrollInputValue = context.ReadValue<float>();
-        Debug.Log("Next Squad");
         if(controlsEnabled)
             if(scrollInputValue>0f)
             {
