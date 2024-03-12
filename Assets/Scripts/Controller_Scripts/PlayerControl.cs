@@ -21,11 +21,17 @@ public class PlayerControl : MonoBehaviour
     public SO_SquadData SquadsMoveCommands;
     public bool controlsEnabled;
     public GameAction pauseResumeAction;
+    public GameActionBool mouseMoveCall;
     private bool isPause;
     private float scrollInputValue;
 
     private Coroutine offMeshPathInstance = null;
-    public UnityEvent squadChangeNext, squadChangePrevious, mutateEvent, primaryAbilityEvent, secondaryAbilityEvent;
+
+    public UnityEvent squadChangeNext,
+        squadChangePrevious,
+        mutateEvent,
+        primaryAbilityEvent,
+        secondaryAbilityEvent;
     public UnityEvent<int> updateFormation;
     public UnityEvent<float> updateSpacing;
     public UnityEvent<InputAction.CallbackContext> movementCallback, rotationCallback;
@@ -214,8 +220,15 @@ public class PlayerControl : MonoBehaviour
         if (context.started && controlsEnabled)
         {
             pauseResumeAction.raise();
-
         }
+    }
+
+    public void ActivateMouseMove(InputAction.CallbackContext context)
+    {
+        if(context.started&&controlsEnabled)
+            mouseMoveCall.RaiseAction(true);
+        else if (context.canceled)
+            mouseMoveCall.RaiseAction(false);
     }
 
 }
