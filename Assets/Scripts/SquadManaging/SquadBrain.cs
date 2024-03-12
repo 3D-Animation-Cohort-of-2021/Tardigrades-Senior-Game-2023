@@ -137,8 +137,8 @@ public class SquadBrain : MonoBehaviour
         }
         if (_movementVector.squadNumber == _brainNumber /*&& _squadType != Elem.Neutral*/)
         {
-            formationUpdateCall.RaiseAction(_squadType, _formation);
             activeSquad = StartCoroutine(ActiveSquad());
+            formationUpdateCall.RaiseAction(_squadType, _formation);
             //Grabs new selection and Highlights them
             foreach (TardigradeBase tard in _myTards)
             {
@@ -424,7 +424,6 @@ public class SquadBrain : MonoBehaviour
         {
             newFormation = (Formation)(currentFormationValue + formationIterator);
         }
-
         UpdateFormation(newFormation, false);
     }
         private void UpdateFormation(Formation newFormation, bool formationOverride)
@@ -435,7 +434,7 @@ public class SquadBrain : MonoBehaviour
         }
 
         _formation = newFormation;
-
+        formationUpdateCall.RaiseAction(_squadType, _formation);
         if (_myTards != null)
         {
             switch(_formation)
@@ -454,7 +453,7 @@ public class SquadBrain : MonoBehaviour
                     break;
             }
         }
-        formationUpdateCall.RaiseAction(_squadType, _formation);
+        
     }
 
     private void ClusterFormation()
