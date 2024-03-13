@@ -999,6 +999,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &38622730322401628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,6 +1547,8 @@ GameObject:
   - component: {fileID: 208583942}
   - component: {fileID: 208583943}
   - component: {fileID: 7862020900471511620}
+  - component: {fileID: 6125197496097226809}
+  - component: {fileID: 1026615743394946915}
   m_Layer: 5
   m_Name: MasterCanvas_Gameplay1.0
   m_TagString: Untagged
@@ -2016,6 +2030,98 @@ MonoBehaviour:
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6125197496097226809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622731026976793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad865b83ec0b4793815e272e85671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: 38f812e25789f7c4fbccf0a6b272fdfd, type: 2}
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 38622729851195666}
+        m_TargetAssemblyTypeName: PauseBehavior, Assembly-CSharp
+        m_MethodName: SetTimeActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 38622731466350721}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LightenPanel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 197530379}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1026615743394946915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622731026976793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad865b83ec0b4793815e272e85671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: 510e9f6d4cc833a4ca2c3dc8e2415f19, type: 2}
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 38622729851195666}
+        m_TargetAssemblyTypeName: PauseBehavior, Assembly-CSharp
+        m_MethodName: SetTimeActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 38622731466350721}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DarkenPanel
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &38622731275820508
 GameObject:
   m_ObjectHideFlags: 0
@@ -4766,30 +4872,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
         m_MethodName: RaiseAction
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 197530379}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 38622729851195666}
-        m_TargetAssemblyTypeName: PauseBehavior, Assembly-CSharp
-        m_MethodName: SetTimeActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18588,7 +18670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f98962d59924ee48951975d3aeefab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentButton: {fileID: 6262353747594741718}
+  currentSavedButton: {fileID: 0}
+  testbutton: {fileID: 0}
 --- !u!1 &8796667049322411871
 GameObject:
   m_ObjectHideFlags: 0

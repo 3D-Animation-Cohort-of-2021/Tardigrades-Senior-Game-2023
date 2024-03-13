@@ -6,20 +6,23 @@ using UnityEngine.UI;
 
 public class ButtonAutoSelect : MonoBehaviour
 {
-    public GameObject currentButton;
+    public GameObject currentSavedButton;
     public void SelectCurrentButton()
     {
-        EventSystem.current.SetSelectedGameObject(currentButton);
+        EventSystem.current.SetSelectedGameObject(currentSavedButton);
     }
 
     public void SetCurrentSavedButton(GameObject selection)
     {
-        currentButton = selection;
+        currentSavedButton = EventSystem.current.currentSelectedGameObject;
     }
     
     public void SaveAndClearSelection()
     {
-        currentButton = EventSystem.current.currentSelectedGameObject;
-        EventSystem.current.SetSelectedGameObject(null);
+        if(EventSystem.current.currentSelectedGameObject!=null)
+        {
+            currentSavedButton = EventSystem.current.currentSelectedGameObject;
+            EventSystem.current.SetSelectedGameObject(null);
+        }
     }
 }
