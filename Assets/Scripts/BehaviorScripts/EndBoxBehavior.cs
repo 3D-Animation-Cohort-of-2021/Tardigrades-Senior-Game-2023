@@ -84,5 +84,10 @@ public class EndBoxBehavior : MonoBehaviour
             nextLevel.levelUnlocked = true;
         }
     }
+
+    public void endOfSequence()
+    {
+        endOfSequenceEvent.Invoke();
+    }
     
 }

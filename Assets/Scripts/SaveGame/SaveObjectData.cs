@@ -11,7 +11,8 @@ public class SaveObjectData : ScriptableObject
     {
         foreach (var obj in listData)
         {
-            SetData(obj); 
+            SetData(obj);
+            Debug.Log("DATASET List");
         }
     }
 
@@ -20,6 +21,7 @@ public class SaveObjectData : ScriptableObject
         foreach (var obj in listData)
         {
             GetData(obj);
+            Debug.Log("DATAGOT List");
         }
     }
     
