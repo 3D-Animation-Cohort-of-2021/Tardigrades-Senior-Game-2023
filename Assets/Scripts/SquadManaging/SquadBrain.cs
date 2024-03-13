@@ -277,6 +277,10 @@ public class SquadBrain : MonoBehaviour
         {
             newTransform = new CustomTransform(transform, Vector3.zero, Quaternion.identity, Vector3.one);
         }
+        if (_secondary.ToggleStatus())
+        {
+            newTard.SecondaryAbility();
+        }
 
         _formationPositions.Add(newTransform);
         _myTards.Add(newTard);
