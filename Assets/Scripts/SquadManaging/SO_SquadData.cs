@@ -33,7 +33,7 @@ public class SO_SquadData : ScriptableObject
     //changes which squad to control and caps at 10 (see squad brain for more details)
     public void AddSquadNumber()
     {
-        if (squadNumber >= totalSquads - 1)
+        if (squadNumber == totalSquads - 1)
         {
             squadNumber = 0;
         }

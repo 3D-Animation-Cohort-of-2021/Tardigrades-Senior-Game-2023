@@ -118,6 +118,7 @@ MonoBehaviour:
   SquadsMoveCommands: {fileID: 11400000, guid: 9494354b542cf55489c8d7dc77c829ce, type: 2}
   controlsEnabled: 0
   pauseResumeAction: {fileID: 11400000, guid: 36750052b550c04428a424bd5e70abe7, type: 2}
+  mouseMoveCall: {fileID: 11400000, guid: 3f24578ce6fe77446a28d3287b5c90a2, type: 2}
   squadChangeNext:
     m_PersistentCalls:
       m_Calls:
@@ -342,6 +343,14 @@ MonoBehaviour:
   _hordeSpeed: 5
   _leapMethod: 2
   controlsEnabled: 0
+  mouseMoveGo: 0
+  mouseMoveCall: {fileID: 11400000, guid: 3f24578ce6fe77446a28d3287b5c90a2, type: 2}
+  pointTargetPrefab: {fileID: 9204139062181287301, guid: 7dc06392b3626484ea9398e2251fc8ea,
+    type: 3}
+  pointTargetObj: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &2586100944502646641
 MonoBehaviour:
   m_ObjectHideFlags: 0

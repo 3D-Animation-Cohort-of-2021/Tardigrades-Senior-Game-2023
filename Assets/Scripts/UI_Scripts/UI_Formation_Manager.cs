@@ -30,6 +30,8 @@ public class UI_Formation_Manager : MonoBehaviour
         formationAnim = GetComponent<Animator>();
         imageArray = new[] {cluster, wedge, circle, line};
         formationUpdateCall.raise += UpdateImages;
+        imageArray = new[] {wedge, cluster, line, circle};
+
     }
 
     private void Start()
@@ -65,19 +67,31 @@ public class UI_Formation_Manager : MonoBehaviour
         switch (shape)
         {
             case Formation.Cluster:
-                imageArray = new[] {wedge, cluster, line, circle};
+                imageArray[0] = wedge;
+                imageArray[1] = cluster;
+                imageArray[2] = line;
+                imageArray[3] = circle;
                 tempIndex = 1;
                 break;
             case Formation.Wedge:
-                imageArray = new[] {circle, wedge, cluster, line};
+                imageArray[0] = circle;
+                imageArray[1] = wedge;
+                imageArray[2] = cluster;
+                imageArray[3] = line;
                 tempIndex = 0;
                 break;
             case Formation.Circle:
-                imageArray = new[] {line, circle, wedge, cluster};
+                imageArray[0] = line;
+                imageArray[1] = circle;
+                imageArray[2] = wedge;
+                imageArray[3] = cluster;
                 tempIndex = 3;
                 break;
             case Formation.Line:
-                imageArray = new[] {cluster, line, circle, wedge};
+                imageArray[0] = cluster;
+                imageArray[1] = line;
+                imageArray[2] = circle;
+                imageArray[3] = wedge;
                 tempIndex = 2;
                 break;
         }
@@ -90,7 +104,7 @@ public class UI_Formation_Manager : MonoBehaviour
         if (tempX == currentX)
             direction = 0;
         direction = tempX - currentX;
-        if (math.abs(direction) == 3)
+        if (math.abs(direction) >= 3)
         {
             direction /= -3;
         }
@@ -113,10 +127,11 @@ public class UI_Formation_Manager : MonoBehaviour
         }
         updateCurrentElement(type);
         updateCurrentShapes(frm);
-        //ApplyImages();
-        if(direction==1)
+        ApplyImages();
+        Debug.Log(direction);
+        if(direction>=1)
             formationAnim.SetTrigger("Next");
-        else if(direction==-1)
+        else if(direction<=-1)
             formationAnim.SetTrigger("Previous");
     }
 
