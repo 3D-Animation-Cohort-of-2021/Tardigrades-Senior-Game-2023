@@ -34,7 +34,6 @@ public class InputSwapDetect : MonoBehaviour
                 }
                 else
                 {
-                    changeToController.raise();
                     Debug.Log("Changing to controller");
                     Cursor.lockState = CursorLockMode.Locked;
                     //controllerSwapEvent.Invoke();
