@@ -7,16 +7,6 @@ using UnityEngine.VFX;
 
 public class VisualBurn : MonoBehaviour
 {
-    //public UnityEvent burnEvent;
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.TryGetComponent(out TardigradeBase tard))
-    //    {
-    //        //if (tard.GetStatus() == Status.Burning)
-    //            Burn();
-    //            burnEvent.Invoke();
-    //    }
-    //}
 
     public void Burn()
     {
@@ -30,17 +20,6 @@ public class VisualBurn : MonoBehaviour
                 {
                     effect.enabled = true;
                 }
-            }
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent(out FireTardigrade td))
-        {
-            if (td.ignited)
-            {
-                
             }
         }
     }

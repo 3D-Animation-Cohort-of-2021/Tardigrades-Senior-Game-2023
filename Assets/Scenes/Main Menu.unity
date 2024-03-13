@@ -45912,6 +45912,7 @@ GameObject:
   - component: {fileID: 1999104717}
   - component: {fileID: 1999104716}
   - component: {fileID: 1999104718}
+  - component: {fileID: 1999104719}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -45990,6 +45991,36 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!114 &1999104719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999104714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36366253597043848a01cb3bc7620069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 1e4743e6170ac6b45b5da68533a5c0a0, type: 2}
+        m_TargetAssemblyTypeName: SaveObjectData, Assembly-CSharp
+        m_MethodName: GetListData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enabledDelay: 0
+  isDelayed: 0
+  runOnEnabled: 1
 --- !u!1001 &2002586732
 PrefabInstance:
   m_ObjectHideFlags: 0

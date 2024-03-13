@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3998043657943780176}
   - component: {fileID: 3998043657943780177}
   - component: {fileID: 3998043657943780174}
+  - component: {fileID: -6837137350597931441}
   m_Layer: 0
   m_Name: Elemental_Flame_Water
   m_TagString: Untagged
@@ -185,6 +186,34 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-6837137350597931441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3998043657943780175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad865b83ec0b4793815e272e85671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: 5504cf14e43b4a744a24831f850108fa, type: 2}
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3998043657943780176}
+        m_TargetAssemblyTypeName: ElementalFlame, Assembly-CSharp
+        m_MethodName: ResetToStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8483439897209478912
 GameObject:
   m_ObjectHideFlags: 0

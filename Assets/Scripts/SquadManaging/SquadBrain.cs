@@ -137,8 +137,8 @@ public class SquadBrain : MonoBehaviour
         }
         if (_movementVector.squadNumber == _brainNumber /*&& _squadType != Elem.Neutral*/)
         {
-            formationUpdateCall.RaiseAction(_squadType, _formation);
             activeSquad = StartCoroutine(ActiveSquad());
+            formationUpdateCall.RaiseAction(_squadType, _formation);
             //Grabs new selection and Highlights them
             foreach (TardigradeBase tard in _myTards)
             {
@@ -192,7 +192,7 @@ public class SquadBrain : MonoBehaviour
             for (int i = 0; i < amountOfTards; i++)
             {
 
-                Vector3 newPos = transform.position + RandomPointInRadius(1f, (_squadType==Elem.Neutral));
+                Vector3 newPos = transform.position;
                 GameObject newPiglet = Instantiate(_piggyPrefab, newPos, Quaternion.identity);
 
                 TardigradeBase pigBase = newPiglet.GetComponent<TardigradeBase>();
@@ -225,20 +225,41 @@ public class SquadBrain : MonoBehaviour
     private Vector3 RandomPointInRadius(float clusterRadius, bool isNeutral)
     {
         Vector3 currentPos = transform.position;
-        float xValue = Random.Range(-clusterRadius, clusterRadius);
-        float zValue = Random.Range(-clusterRadius, clusterRadius);
+        Vector3 result = Vector3.zero;
+        float iterations = 0;
+        do
+        {
+            result.x = Random.Range(-clusterRadius, clusterRadius);
+            result.z = Random.Range(-clusterRadius, clusterRadius);
+            iterations++;
+
+        } while (IsOverlappingPoint(result) && iterations < 10);
+
         if (isNeutral)
         {
-            if (xValue < clusterRadius * .5 && xValue>0)
-                xValue += 1;
-            if (xValue > clusterRadius * -.5 && xValue<0)
-                xValue -= 1;
-            if (zValue < clusterRadius * .5 && zValue>0)
-                zValue += 1;
-            if (zValue > clusterRadius * -.5 && zValue<0)
-                zValue -= 1;
+            if (result.x < clusterRadius * .5 && result.x > 0)
+                result.x += 1;
+            if (result.x > clusterRadius * -.5 && result.x < 0)
+                result.x -= 1;
+            if (result.z < clusterRadius * .5 && result.z > 0)
+                result.z += 1;
+            if (result.z > clusterRadius * -.5 && result.z < 0)
+                result.z -= 1;
         }
-        return new Vector3(xValue, 0, zValue);
+
+        return result;
+    }
+
+    private bool IsOverlappingPoint(Vector3 point)
+    {
+        for(int i = 0; i < _formationPositions.Count; i++)
+        {
+            if(Vector3.Distance(point, _formationPositions[i].Position) <= 0.3f)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -424,7 +445,6 @@ public class SquadBrain : MonoBehaviour
         {
             newFormation = (Formation)(currentFormationValue + formationIterator);
         }
-
         UpdateFormation(newFormation, false);
     }
         private void UpdateFormation(Formation newFormation, bool formationOverride)
@@ -435,7 +455,7 @@ public class SquadBrain : MonoBehaviour
         }
 
         _formation = newFormation;
-
+        formationUpdateCall.RaiseAction(_squadType, _formation);
         if (_myTards != null)
         {
             switch(_formation)
@@ -454,12 +474,12 @@ public class SquadBrain : MonoBehaviour
                     break;
             }
         }
-        formationUpdateCall.RaiseAction(_squadType, _formation);
+        
     }
 
     private void ClusterFormation()
     {
-        float clusterRadius = Mathf.Log((float)_formationPositions.Count, 4);
+        float clusterRadius = Mathf.Log((float)_formationPositions.Count, 4) > 0 ? Mathf.Log((float)_formationPositions.Count, 4) : 0.6f;
         float minSpacing = 1;
         float fullSpacing = minSpacing + _spacing;
 

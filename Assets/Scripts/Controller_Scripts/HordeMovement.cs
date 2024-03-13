@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
+
 //Created by: Marshall Krueger 10/4/23
 //Purpose: This script manages horde movement
 
@@ -18,7 +22,10 @@ public class HordeMovement : MonoBehaviour
     private Coroutine offMeshPathInstance = null;
     private Camera _cam;
     private Vector3 _leftStickMovement, _triggerRotation;
-    public bool controlsEnabled;
+    public bool controlsEnabled, mouseMoveGo;
+    public GameActionBool mouseMoveCall;
+    public GameObject pointTargetPrefab, pointTargetObj;
+    public LayerMask groundLayer;
 
 
 
@@ -30,8 +37,16 @@ public class HordeMovement : MonoBehaviour
         _hordeAgent.speed = 0;
         _cam = Camera.main;
         checkDestination = new NavMeshHit();
+        mouseMoveGo = false;
+        mouseMoveCall.raise += SetMouseMoveActive;
     }
 
+    private void Start()
+    {
+        pointTargetObj = Instantiate(pointTargetPrefab, gameObject.transform.position, Quaternion.identity);
+        if(pointTargetObj.TryGetComponent(out VisualEffect FX))
+            FX.Stop();
+    }
 
     public void Update()
     {
@@ -70,31 +85,38 @@ public class HordeMovement : MonoBehaviour
 
         //RotateSquad
         transform.Rotate(_triggerRotation * (Time.deltaTime * 50));
+        
+        if(mouseMoveGo)
+            MoveTargetToMouse();
     }
 
 
     private void MoveHoardMouse(InputAction.CallbackContext context)
     {
-        if (_cam == null)
         {
-            _cam = Camera.main;
-        }
+            if (_cam == null)
+            {
+                _cam = Camera.main;
+            }
+            if(mouseMoveGo)
+            {
+                Vector2 centerScreen = _cam.WorldToScreenPoint(transform.position);
+                Vector2 offsetFromCenter = context.ReadValue<Vector2>() - centerScreen;
+                
+                if (Mathf.Abs(offsetFromCenter.x) > 50 || Mathf.Abs(offsetFromCenter.y) > 50)
+                {
+                    Vector2 normalizedOffset = offsetFromCenter.normalized;
 
-        Vector2 centerScreen = _cam.WorldToScreenPoint(transform.position);
-
-        Vector2 offsetFromCenter = context.ReadValue<Vector2>() - centerScreen;
-
-        if (Mathf.Abs(offsetFromCenter.x) > 50 || Mathf.Abs(offsetFromCenter.y) > 50)
-        {
-            Vector2 normalizedOffset = offsetFromCenter.normalized;
-
-            _leftStickMovement.x = normalizedOffset.x;
-            _leftStickMovement.z = normalizedOffset.y;
-        }
-        else
-        {
-            _leftStickMovement.x = 0;
-            _leftStickMovement.z = 0;
+                    _leftStickMovement.x = normalizedOffset.x;
+                    _leftStickMovement.z = normalizedOffset.y;
+                }
+                
+            }
+            else
+            {
+                _leftStickMovement.x = 0;
+                _leftStickMovement.z = 0;
+            }
         }
     }
 
@@ -111,7 +133,36 @@ public class HordeMovement : MonoBehaviour
             _leftStickMovement.z = context.ReadValue<Vector2>().y;
         }
     }
+/// <summary>
+/// Reads the unity action from input and enables the player to move the horde with the mouse
+/// </summary>
+/// <param name="state"></param>
+    public void SetMouseMoveActive(bool state)
+    {
+        mouseMoveGo = state;
+        if (pointTargetObj.TryGetComponent(out VisualEffect FX))
+        {
+            if(mouseMoveGo)
+            {
+                FX.Reinit();
+            }
+            else
+                FX.Stop();
+        }
+            
+    }
 
+    public void MoveTargetToMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundLayer))
+        {
+            // move the object to the point where the ray hit the ground
+            Vector3 worldPos = hit.point;
+            worldPos.y =.5f;
+            pointTargetObj.transform.position = worldPos;
+        }
+    }
 
     public void Rotate(InputAction.CallbackContext context)
     {
