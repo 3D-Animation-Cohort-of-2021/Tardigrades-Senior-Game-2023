@@ -717,6 +717,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SetCurrentSavedButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 38622730528760823}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &38622730322401628
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +1006,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SetCurrentSavedButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 38622730146144254}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4618,6 +4642,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SetCurrentSavedButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3123426874538520724}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8779519878023807384}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -4871,6 +4907,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SetCurrentSavedButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5672615395709729454}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5480,6 +5528,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SetCurrentSavedButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2172616643016721621}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6680,6 +6740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1354488664635553859}
   - component: {fileID: 5418982353273644993}
+  - component: {fileID: 7431090216067697550}
   m_Layer: 5
   m_Name: InputDetector
   m_TagString: Untagged
@@ -6723,6 +6784,49 @@ MonoBehaviour:
   changeToController: {fileID: 11400000, guid: bd62f9c721054464c83f7ff836555567, type: 2}
   usingMnK: 0
   currentIsMnK: 0
+  controllerSwapEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SelectCurrentButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mnKSwapEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SaveAndClearSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7431090216067697550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3903712401899694242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f98962d59924ee48951975d3aeefab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSavedButton: {fileID: 0}
 --- !u!1 &4020719969939499311
 GameObject:
   m_ObjectHideFlags: 0
@@ -12414,6 +12518,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SetCurrentSavedButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8614546865415796114}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8191577401980693354
 GameObject:
   m_ObjectHideFlags: 0
@@ -13032,6 +13148,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SetCurrentSavedButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2298263835798604042}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8519108555319461481
 GameObject:
   m_ObjectHideFlags: 0
@@ -13310,6 +13438,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7431090216067697550}
+        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
+        m_MethodName: SetCurrentSavedButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3348908915077840684}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
