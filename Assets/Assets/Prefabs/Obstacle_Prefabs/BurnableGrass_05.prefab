@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3766145354393663427}
   - component: {fileID: 3766145354393663431}
   - component: {fileID: -605791523115956378}
+  - component: {fileID: 4073889439404260715}
   m_Layer: 0
   m_Name: BurnableGrass_05
   m_TagString: Untagged
@@ -113,7 +114,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 1.25, z: 0.5}
+  m_Extents: {x: 0.25, y: 1.25, z: 0.25}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
@@ -247,8 +248,7 @@ MonoBehaviour:
   objectEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2760805095522722099, guid: 3addaf6c0b57fc74c8cc9ddef0126fc0,
-          type: 3}
+      - m_Target: {fileID: 3660816877972815924}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -260,6 +260,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 4
+  enabledDelay: 0
   isDelayed: 1
   runOnEnabled: 0
+--- !u!114 &4073889439404260715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660816877972815924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e49be3a5d233a845a8600d81785e7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BurnEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3766145354393663431}
+        m_TargetAssemblyTypeName: VisualBurn, Assembly-CSharp
+        m_MethodName: Burn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -605791523115956378}
+        m_TargetAssemblyTypeName: EventBehavior, Assembly-CSharp
+        m_MethodName: RunEvent
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
