@@ -12,7 +12,7 @@ public class DamageOverTimeInSphere : MonoBehaviour
    private Coroutine activeRoutine;
    public Elem dmgType;
    public DeathType deathType;
-   public bool isRunning;
+   public bool isRunning { set; get; }
    private Vector3 sphereCenter, adjustedScale;
    private float sphereRadius;
    private Collider[] colsInArea;
