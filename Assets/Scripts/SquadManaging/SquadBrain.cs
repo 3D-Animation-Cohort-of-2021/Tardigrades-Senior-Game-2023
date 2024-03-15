@@ -143,6 +143,9 @@ public class SquadBrain : MonoBehaviour
             {
                 ChangeHighlight(tard, true);
             }
+            //Highlight squad center
+            GetComponentInChildren<SquadCenterVisual>().HighLight();
+            
         }
         else
         {
@@ -150,6 +153,8 @@ public class SquadBrain : MonoBehaviour
             {
                 ChangeHighlight(tard, false);
             }
+            //UnHighlights squad center
+            GetComponentInChildren<SquadCenterVisual>().UnHighLight();
         }
         
     }

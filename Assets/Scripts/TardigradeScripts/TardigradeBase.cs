@@ -342,18 +342,17 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public void Heal(float healthGain)
     {
+        if (_healVisualEffect.enabled)
+        {
+            _healVisualEffect.Play();
+        }
+        else
+        {
+            _healVisualEffect.enabled = true;
+        }
         if (_health < _maxHealth)
         {
             _health += healthGain;
-
-            if (_healVisualEffect.enabled)
-            {
-                _healVisualEffect.Play();
-            }
-            else
-            {
-                _healVisualEffect.enabled = true;
-            }
 
             if (_health > _maxHealth)
             {
