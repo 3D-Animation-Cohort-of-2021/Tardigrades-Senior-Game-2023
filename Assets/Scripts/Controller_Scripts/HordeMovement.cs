@@ -159,7 +159,7 @@ public class HordeMovement : MonoBehaviour
         {
             // move the object to the point where the ray hit the ground
             Vector3 worldPos = hit.point;
-            worldPos.y =.5f;
+            worldPos.y = gameObject.transform.position.y;
             pointTargetObj.transform.position = worldPos;
         }
     }
@@ -239,5 +239,10 @@ public class HordeMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToEnable);
         controlsEnabled = state;
+    }
+
+    private void OnDestroy()
+    {
+        mouseMoveCall.raise -= SetMouseMoveActive;
     }
 }

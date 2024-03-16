@@ -36,7 +36,7 @@ public class InputSwapDetect : MonoBehaviour
                 {
                     Debug.Log("Changing to controller");
                     Cursor.lockState = CursorLockMode.Locked;
-                    //controllerSwapEvent.Invoke();
+                    controllerSwapEvent.Invoke();
                 }
                 currentIsMnK = usingMnK;
             }

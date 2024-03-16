@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 5686460406780486810}
   - component: {fileID: 5686460406780486811}
   - component: {fileID: 5686460406780486815}
+  - component: {fileID: 9168934071050030259}
   m_Layer: 0
   m_Name: Fall Trigger
   m_TagString: Untagged
@@ -444,6 +445,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9168934071050030259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686460406780486806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7e9a7b63f55e14cbfd0612b78009eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  oneTimeDamage: 0
+  alreadyDamaged: 0
+  requiresSpecificType: 0
+  requiredType: 0
 --- !u!1 &5686460407482572119
 GameObject:
   m_ObjectHideFlags: 0
