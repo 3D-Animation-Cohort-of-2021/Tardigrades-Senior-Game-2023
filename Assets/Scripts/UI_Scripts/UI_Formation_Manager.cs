@@ -142,4 +142,9 @@ public class UI_Formation_Manager : MonoBehaviour
         rightSmall.sprite = imageArray[2];
         hiddenRight.sprite = imageArray[3];
     }
+
+    private void OnDestroy()
+    {
+        formationUpdateCall.raise -= UpdateImages;
+    }
 }
