@@ -65,7 +65,7 @@ public class SquadBrain : MonoBehaviour
     {
         _primary.cooldown = _hordeInfo.GetCD(_squadType);
         _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
-        _loopDelay = new WaitForSeconds(1f);
+        _loopDelay = new WaitForSeconds(0.25f);
     }
     private void FixedUpdate()
     {
@@ -319,14 +319,19 @@ public class SquadBrain : MonoBehaviour
 
         if (_squadType == Elem.Water)
         {
-            if (_secondary.FlipToggle())
+            if (!_secondary.ToggleStatus() && _secondary.activatable)
             {
-                SecondaryAbility = StartCoroutine(SecondaryLoop());
+                foreach (TardigradeBase tard in _myTards)
+                {
+                    tard.SecondaryAbility();
+                }
+                _secondary.FlipToggle();
+                _secondary.FlipToggle();
             }
             else
             {
-                StopCoroutine(SecondaryAbility);
-                SecondaryAbility = null;
+                /*StopCoroutine(SecondaryAbility);
+                SecondaryAbility = null; */
             }
         }
         else
@@ -349,12 +354,13 @@ public class SquadBrain : MonoBehaviour
 
         return true;
     }
-
+    
     public bool GetToggledStatus()
     {
         return _secondary.ToggleStatus();
     }
 
+    /*
     protected IEnumerator SecondaryLoop()
     {
         foreach (TardigradeBase tard in _myTards)
@@ -367,6 +373,7 @@ public class SquadBrain : MonoBehaviour
         SecondaryAbility = StartCoroutine(SecondaryLoop());
 
     }
+*/
 
     public List<TardigradeBase> GetTards()
     {

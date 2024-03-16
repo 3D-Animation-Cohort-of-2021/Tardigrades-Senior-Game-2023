@@ -706,6 +706,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 115471360373520691, guid: b313ded538967c447b49460bee8c64b3,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5792093542801407897, guid: b313ded538967c447b49460bee8c64b3,
         type: 3}
       propertyPath: m_RootOrder
@@ -3271,7 +3276,7 @@ VFXRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398109479}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -4474,6 +4479,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 38622729763212190, guid: 643ee5bd904b3c842a8696617b422d71,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 38622731026976793, guid: 643ee5bd904b3c842a8696617b422d71,
         type: 3}
       propertyPath: m_Name

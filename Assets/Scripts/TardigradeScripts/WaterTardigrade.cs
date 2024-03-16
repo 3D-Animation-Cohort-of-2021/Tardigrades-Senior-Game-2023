@@ -8,9 +8,10 @@ public class WaterTardigrade : TardigradeBase
 {
 
     private float _iceDuration = 3;
-    private float _healAmount = 2.5f;
+    private float _healAmount = 0.5f;
     public List<TardigradeBase> _shieldableTards;
     public List<Obstacle> _inRangeObstacles;
+    
 
 
     protected override void Awake()
@@ -72,11 +73,13 @@ public class WaterTardigrade : TardigradeBase
             {
                 continue;
             }
-
-            tard.Heal(_healAmount);
+            if (tard.HealCoroutine == null)
+            {
+                tard.StartHeal(_healAmount, hordeInfo.waterToggleCD);
+            }
+            
         }
-
-        Heal(_healAmount);
+        StartHeal(_healAmount, hordeInfo.waterToggleCD);
 
     }
     
