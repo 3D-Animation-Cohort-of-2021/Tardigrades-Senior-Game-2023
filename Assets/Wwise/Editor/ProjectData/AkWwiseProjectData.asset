@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584926111288909054
+    m_lastTime: -8584909511003721378
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -449,7 +449,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584925973811711155
+    m_lastTime: -8584909511003770779
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -548,6 +548,40 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Environment
+      guid: 64188b3e9b0d41439e2008c4bbe18844
+      id: 1229948536
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      Path: Events\Default Work Unit\Environment
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: General
+      guid: e238518739d7fe4d975d5a34b63bb2e6
+      id: 133642231
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: General
+        ObjectType: 4
+        guid: e238518739d7fe4d975d5a34b63bb2e6
+      Path: Events\Default Work Unit\General
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: LoopingMusicTEMP
       guid: 1b3d07de0d4d704fad01e77cc691b093
       id: 946441836
@@ -585,6 +619,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_AcidDrop
+      guid: 2bf0892031f1794b90cc1e7145baba2b
+      id: 1653480626
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_AcidDrop
+        ObjectType: 3
+        guid: 2bf0892031f1794b90cc1e7145baba2b
+      Path: Events\Default Work Unit\Environment\Play_AcidDrop
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Brazier_Burning
+      guid: 7d80f943c8d5c64e98ed2977176e200d
+      id: 2755379793
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Brazier_Burning
+        ObjectType: 3
+        guid: 7d80f943c8d5c64e98ed2977176e200d
+      Path: Events\Default Work Unit\Environment\Play_Brazier_Burning
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
     - name: Play_ForestAmbience
       guid: 21ccbc06616323479228d65b3c9fd30b
       id: 3149538809
@@ -608,6 +682,103 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_SpawnerBox_Sequence
+      guid: aa00bf852846a04ca0751a73caafad4e
+      id: 3640949955
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: General
+        ObjectType: 4
+        guid: e238518739d7fe4d975d5a34b63bb2e6
+      - ElementName: Play_SpawnerBox_Sequence
+        ObjectType: 3
+        guid: aa00bf852846a04ca0751a73caafad4e
+      Path: Events\Default Work Unit\General\Play_SpawnerBox_Sequence
+      maxAttenuation: 0
+      maxDuration: 3.7898655
+      minDuration: 3.7898655
+    - name: Play_TardigradeJoin
+      guid: b2291b2172e413478055109f007b2207
+      id: 1666595735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Play_TardigradeJoin
+        ObjectType: 3
+        guid: b2291b2172e413478055109f007b2207
+      Path: Events\Default Work Unit\Tardigrades\Play_TardigradeJoin
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_TardigradePain_Hit
+      guid: a2222cfd0985c546ad64bdf1a5f43952
+      id: 3664269105
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Play_TardigradePain_Hit
+        ObjectType: 3
+        guid: a2222cfd0985c546ad64bdf1a5f43952
+      Path: Events\Default Work Unit\Tardigrades\Play_TardigradePain_Hit
+      maxAttenuation: 0
+      maxDuration: 0.3561179
+      minDuration: 0.24570516
+    - name: Play_Tree_AmbientRustling
+      guid: 3cbfb400a9814d4b996e5e49d53dd836
+      id: 1620839241
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Tree_AmbientRustling
+        ObjectType: 3
+        guid: 3cbfb400a9814d4b996e5e49d53dd836
+      Path: Events\Default Work Unit\Environment\Play_Tree_AmbientRustling
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
+    - name: Tardigrades
+      guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      id: 2170553487
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      Path: Events\Default Work Unit\Tardigrades
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: UI
       guid: 40e7fbb5752c0842b836892c3cb19c94
       id: 1551306167
@@ -625,6 +796,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: UI_AreYouSure
+      guid: 481192ae78ae56499b973e90acef130a
+      id: 882936002
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: UI
+        ObjectType: 4
+        guid: 40e7fbb5752c0842b836892c3cb19c94
+      - ElementName: UI_AreYouSure
+        ObjectType: 3
+        guid: 481192ae78ae56499b973e90acef130a
+      Path: Events\Default Work Unit\UI\UI_AreYouSure
+      maxAttenuation: 0
+      maxDuration: 0.35
+      minDuration: 0.35
+    - name: UI_BackTo
+      guid: 5aec5cebefaaa94fb480b0ffb4291676
+      id: 209618788
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: UI
+        ObjectType: 4
+        guid: 40e7fbb5752c0842b836892c3cb19c94
+      - ElementName: UI_BackTo
+        ObjectType: 3
+        guid: 5aec5cebefaaa94fb480b0ffb4291676
+      Path: Events\Default Work Unit\UI\UI_BackTo
+      maxAttenuation: 0
+      maxDuration: 0.396875
+      minDuration: 0.396875
     - name: UI_PressButton
       guid: bc98c58a95368a4590fb90b19e088be7
       id: 3824618851
@@ -643,8 +854,8 @@ MonoBehaviour:
         guid: bc98c58a95368a4590fb90b19e088be7
       Path: Events\Default Work Unit\UI\UI_PressButton
       maxAttenuation: 0
-      maxDuration: 0.05478338
-      minDuration: 0.05478338
+      maxDuration: 0.1625
+      minDuration: 0.1625
     - name: UI_PressPause
       guid: 80703a0ec47c974aa2a456b106c2a54b
       id: 3368070439
@@ -683,8 +894,8 @@ MonoBehaviour:
         guid: 0885c6904856c74bbf46631a5cb142f8
       Path: Events\Default Work Unit\UI\UI_PressQuit
       maxAttenuation: 0
-      maxDuration: 0.5685625
-      minDuration: 0.5685625
+      maxDuration: 0.8716979
+      minDuration: 0.8716979
     - name: UI_PressUnpause
       guid: 5c4829d9f6eba44ca1c3d0789a0aab5e
       id: 3153585820
@@ -705,6 +916,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.18765625
       minDuration: 0.18765625
+    - name: UI_ResetButton
+      guid: 5d6490d82f49f542a3293f3c2127712f
+      id: 2454902471
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: UI
+        ObjectType: 4
+        guid: 40e7fbb5752c0842b836892c3cb19c94
+      - ElementName: UI_ResetButton
+        ObjectType: 3
+        guid: 5d6490d82f49f542a3293f3c2127712f
+      Path: Events\Default Work Unit\UI\UI_ResetButton
+      maxAttenuation: 0
+      maxDuration: 0.31875
+      minDuration: 0.31875
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -827,7 +1058,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000007000000090000000b0000000c0000000d0000000e000000240000003c000000
+  ExpandedWaapiItemIds: 0500000006000000070000000d0000000f0000001000000027000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

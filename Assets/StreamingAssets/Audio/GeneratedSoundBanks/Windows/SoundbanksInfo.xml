@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{72565DD8-70DF-1445-E79D-2D2D4263B5E2}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{E019DB4A-3B0F-1FA4-F413-0F359BA3EE8B}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -18,19 +18,57 @@
 					<Path>Media/112289461.wem</Path>
 					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_3D5CCE37.wem</CachePath>
 				</File>
+				<File Id="161461778" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Brazier_Burning.wav</ShortName>
+					<CachePath>SFX/Brazier_Burning_748CB298.wem</CachePath>
+				</File>
+				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
+					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
+				<Event Id="2755379793" Name="Play_Brazier_Burning" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="161461778"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3149538809" Name="Play_ForestAmbience" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="112289461"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1620839241" Name="Play_Tree_AmbientRustling" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="772731709"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{2E294CA3-00C7-3EEA-14BC-BAB61F9A7838}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{105257D1-D217-F783-5603-46E789A5E0FE}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
+				<File Id="62295430" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_PressQuit_V2.wav</ShortName>
+					<CachePath>SFX/UI_PressQuit_V2_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="157662111" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TardigradeGrunt_PainHit_02.wav</ShortName>
+					<CachePath>SFX/TardigradeGrunt_PainHit_02_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="189534938" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TardigradeGrunt_PainHit_03.wav</ShortName>
+					<CachePath>SFX/TardigradeGrunt_PainHit_03_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="305708374" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TardigradeGrunt_PainHit_05.wav</ShortName>
+					<CachePath>SFX/TardigradeGrunt_PainHit_05_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="476390243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_AreYouSure.wav</ShortName>
+					<CachePath>SFX/UI_AreYouSure_2CE66A1E.wem</CachePath>
+				</File>
 				<File Id="502393985" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_PressPause.wav</ShortName>
 					<CachePath>SFX/UI_PressPause_2CE66A1E.wem</CachePath>
@@ -40,17 +78,37 @@
 					<Path>Media/539989011.wem</Path>
 					<CachePath>SFX/ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER_748CB298.wem</CachePath>
 				</File>
-				<File Id="619333482" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>UI_ButtonPress.wav</ShortName>
-					<CachePath>SFX/UI_ButtonPress_D55EF1C3.wem</CachePath>
+				<File Id="552837019" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_BackTo.wav</ShortName>
+					<CachePath>SFX/UI_BackTo_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="562881451" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SpawnerBox_Sequence_01.wav</ShortName>
+					<CachePath>SFX/SpawnerBox_Sequence_01_85D5F94B.wem</CachePath>
+				</File>
+				<File Id="613020561" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_ResetButton.wav</ShortName>
+					<CachePath>SFX/UI_ResetButton_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="624600041" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_PressButton_V3.wav</ShortName>
+					<CachePath>SFX/UI_PressButton_V3_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="686178676" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TardigradeGrunt_PainHit_06.wav</ShortName>
+					<CachePath>SFX/TardigradeGrunt_PainHit_06_2CE66A1E.wem</CachePath>
 				</File>
 				<File Id="737277535" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Unpause.wav</ShortName>
 					<CachePath>SFX/UI_Unpause_2CE66A1E.wem</CachePath>
 				</File>
-				<File Id="939970532" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>UI_PressQuit.wav</ShortName>
-					<CachePath>SFX/UI_PressQuit_2CE66A1E.wem</CachePath>
+				<File Id="787660656" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TardigradeGrunt_PainHit_04.wav</ShortName>
+					<CachePath>SFX/TardigradeGrunt_PainHit_04_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="932023741" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TardigradeGrunt_PainHit_01.wav</ShortName>
+					<CachePath>SFX/TardigradeGrunt_PainHit_01_2CE66A1E.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -64,9 +122,44 @@
 						<MediaRef Id="539989011"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3824618851" Name="UI_PressButton" DurationType="OneShot" DurationMin="0.05478338" DurationMax="0.05478338">
+				<Event Id="3640949955" Name="Play_SpawnerBox_Sequence" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.6966202" DurationMax="3.6966202">
 					<MediaRefs>
-						<MediaRef Id="619333482"/>
+						<MediaRef Id="562881451"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3664269105" Name="Play_TardigradePain_Hit" DurationType="OneShot" DurationMin="0.24570516" DurationMax="0.3561179">
+					<MediaRefs>
+						<MediaRef Id="157662111"/>
+						<MediaRef Id="189534938"/>
+						<MediaRef Id="305708374"/>
+						<MediaRef Id="686178676"/>
+						<MediaRef Id="787660656"/>
+						<MediaRef Id="932023741"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="882936002" Name="UI_AreYouSure" DurationType="OneShot" DurationMin="0.35" DurationMax="0.35">
+					<MediaRefs>
+						<MediaRef Id="476390243"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1588715066"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="209618788" Name="UI_BackTo" DurationType="OneShot" DurationMin="0.396875" DurationMax="0.396875">
+					<MediaRefs>
+						<MediaRef Id="552837019"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1588715066"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="3824618851" Name="UI_PressButton" DurationType="OneShot" DurationMin="0.1625" DurationMax="0.1625">
+					<MediaRefs>
+						<MediaRef Id="624600041"/>
 					</MediaRefs>
 					<PluginRefs>
 						<ShareSets>
@@ -84,9 +177,9 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="2691814938" Name="UI_PressQuit" DurationType="OneShot" DurationMin="0.5685625" DurationMax="0.5685625">
+				<Event Id="2691814938" Name="UI_PressQuit" DurationType="OneShot" DurationMin="0.8716979" DurationMax="0.8716979">
 					<MediaRefs>
-						<MediaRef Id="939970532"/>
+						<MediaRef Id="62295430"/>
 					</MediaRefs>
 					<PluginRefs>
 						<ShareSets>
@@ -97,6 +190,16 @@
 				<Event Id="3153585820" Name="UI_PressUnpause" DurationType="OneShot" DurationMin="0.18765625" DurationMax="0.18765625">
 					<MediaRefs>
 						<MediaRef Id="737277535"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1588715066"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2454902471" Name="UI_ResetButton" DurationType="OneShot" DurationMin="0.31875" DurationMax="0.31875">
+					<MediaRefs>
+						<MediaRef Id="613020561"/>
 					</MediaRefs>
 					<PluginRefs>
 						<ShareSets>
@@ -240,18 +343,44 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{436EA355-757C-B16C-EBA3-373C98998197}">
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{06387E63-7429-5578-1213-3A306E1BCD36}">
 			<ShortName>Level_0_1_Tutorial_SB</ShortName>
 			<Path>Level_0_1_Tutorial_SB.bnk</Path>
+			<Media>
+				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
+					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1620839241" Name="Play_Tree_AmbientRustling" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="772731709"/>
+					</MediaRefs>
+				</Event>
+			</Events>
 		</SoundBank>
 		<SoundBank Id="2561270309" Type="User" Language="SFX" Hash="{6F7A75F3-B52F-C06D-E3B1-3DF4093D1CE9}">
 			<ShortName>Level_2_1_Lava_SB</ShortName>
 			<Path>Level_2_1_Lava_SB.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{F3E43F7F-5713-B4B6-D93D-7ABD488D9120}">
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{0C68727D-913E-50D9-8C4F-95DC56492F39}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
+			<Media>
+				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
+					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1620839241" Name="Play_Tree_AmbientRustling" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="772731709"/>
+					</MediaRefs>
+				</Event>
+			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DB1108D8-2A07-F268-DA12-91F533784491}</FileHash>
+	<FileHash>{6A324CBB-730F-2AE8-37E4-BF9F7612E32D}</FileHash>
 </SoundBanksInfo>

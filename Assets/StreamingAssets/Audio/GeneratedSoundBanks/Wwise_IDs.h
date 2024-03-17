@@ -14,11 +14,18 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID LOOPINGMUSICTEMP = 946441836U;
+        static const AkUniqueID PLAY_BRAZIER_BURNING = 2755379793U;
         static const AkUniqueID PLAY_FORESTAMBIENCE = 3149538809U;
+        static const AkUniqueID PLAY_SPAWNERBOX_SEQUENCE = 3640949955U;
+        static const AkUniqueID PLAY_TARDIGRADEPAIN_HIT = 3664269105U;
+        static const AkUniqueID PLAY_TREE_AMBIENTRUSTLING = 1620839241U;
+        static const AkUniqueID UI_AREYOUSURE = 882936002U;
+        static const AkUniqueID UI_BACKTO = 209618788U;
         static const AkUniqueID UI_PRESSBUTTON = 3824618851U;
         static const AkUniqueID UI_PRESSPAUSE = 3368070439U;
         static const AkUniqueID UI_PRESSQUIT = 2691814938U;
         static const AkUniqueID UI_PRESSUNPAUSE = 3153585820U;
+        static const AkUniqueID UI_RESETBUTTON = 2454902471U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS

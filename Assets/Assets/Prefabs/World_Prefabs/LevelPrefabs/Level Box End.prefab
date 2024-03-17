@@ -1243,6 +1243,7 @@ GameObject:
   - component: {fileID: 2996289370955359249}
   - component: {fileID: 2349592814604714576}
   - component: {fileID: 8659629545483770167}
+  - component: {fileID: 3413004782098839991}
   m_Layer: 0
   m_Name: Level Box End
   m_TagString: Untagged
@@ -1424,6 +1425,23 @@ MonoBehaviour:
   enabledDelay: 0
   isDelayed: 1
   runOnEnabled: 0
+--- !u!114 &3413004782098839991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2561704254570019707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992fac49650f9f498e400c2b9e979a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 25f2e072463dfbe4984aa133b05030c2,
+      type: 2}
 --- !u!1 &2813864506255511871
 GameObject:
   m_ObjectHideFlags: 0

@@ -1523,6 +1523,7 @@ GameObject:
   - component: {fileID: 4517000501568733030}
   - component: {fileID: 7357154464993697898}
   - component: {fileID: 7357154464993697899}
+  - component: {fileID: 8667360378641850778}
   m_Layer: 0
   m_Name: Level Box Spawn
   m_TagString: Untagged
@@ -1734,6 +1735,23 @@ MonoBehaviour:
   enabledDelay: 0
   isDelayed: 1
   runOnEnabled: 1
+--- !u!114 &8667360378641850778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447852476620621389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992fac49650f9f498e400c2b9e979a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 25f2e072463dfbe4984aa133b05030c2,
+      type: 2}
 --- !u!1 &4504101909548001449
 GameObject:
   m_ObjectHideFlags: 0
