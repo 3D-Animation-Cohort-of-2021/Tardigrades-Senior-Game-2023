@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{E019DB4A-3B0F-1FA4-F413-0F359BA3EE8B}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{DFDEECE5-B15D-F9D9-22AB-B89E3FC71610}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -18,21 +18,12 @@
 					<Path>Media/112289461.wem</Path>
 					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_3D5CCE37.wem</CachePath>
 				</File>
-				<File Id="161461778" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Brazier_Burning.wav</ShortName>
-					<CachePath>SFX/Brazier_Burning_748CB298.wem</CachePath>
-				</File>
 				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
 					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="2755379793" Name="Play_Brazier_Burning" MaxAttenuation="100" DurationType="Infinite">
-					<MediaRefs>
-						<MediaRef Id="161461778"/>
-					</MediaRefs>
-				</Event>
 				<Event Id="3149538809" Name="Play_ForestAmbience" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="112289461"/>
@@ -45,7 +36,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{105257D1-D217-F783-5603-46E789A5E0FE}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{2CED2D1D-AFB7-F4C5-638D-7EDED8EC64C1}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -56,6 +47,10 @@
 				<File Id="157662111" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_02.wav</ShortName>
 					<CachePath>SFX/TardigradeGrunt_PainHit_02_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="161461778" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Brazier_Burning.wav</ShortName>
+					<CachePath>SFX/Brazier_Burning_748CB298.wem</CachePath>
 				</File>
 				<File Id="189534938" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_03.wav</ShortName>
@@ -122,6 +117,11 @@
 						<MediaRef Id="539989011"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2755379793" Name="Play_Brazier_Burning" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="161461778"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3640949955" Name="Play_SpawnerBox_Sequence" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.6966202" DurationMax="3.6966202">
 					<MediaRefs>
 						<MediaRef Id="562881451"/>
@@ -137,6 +137,7 @@
 						<MediaRef Id="932023741"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4175962335" Name="StopAll_General" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="882936002" Name="UI_AreYouSure" DurationType="OneShot" DurationMin="0.35" DurationMax="0.35">
 					<MediaRefs>
 						<MediaRef Id="476390243"/>
@@ -382,5 +383,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6A324CBB-730F-2AE8-37E4-BF9F7612E32D}</FileHash>
+	<FileHash>{063A3C7F-8AA5-1EE2-514A-5D3BB7C76035}</FileHash>
 </SoundBanksInfo>

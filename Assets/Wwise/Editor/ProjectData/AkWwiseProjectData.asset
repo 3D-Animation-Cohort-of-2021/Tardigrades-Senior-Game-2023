@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584909511003721378
+    m_lastTime: -8584908991958121359
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -449,7 +449,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584909511003770779
+    m_lastTime: -8584908990594749317
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -699,9 +699,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: aa00bf852846a04ca0751a73caafad4e
       Path: Events\Default Work Unit\General\Play_SpawnerBox_Sequence
-      maxAttenuation: 0
-      maxDuration: 3.7898655
-      minDuration: 3.7898655
+      maxAttenuation: 100
+      maxDuration: 3.6966202
+      minDuration: 3.6966202
     - name: Play_TardigradeJoin
       guid: b2291b2172e413478055109f007b2207
       id: 1666595735
@@ -760,6 +760,43 @@ MonoBehaviour:
         guid: 3cbfb400a9814d4b996e5e49d53dd836
       Path: Events\Default Work Unit\Environment\Play_Tree_AmbientRustling
       maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
+    - name: StopAll_General
+      guid: 9561747613f9a24abe7fa53288de3506
+      id: 4175962335
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Stops
+        ObjectType: 4
+        guid: 3d24c4d35cb4d447a7aa1679296fc4b5
+      - ElementName: StopAll_General
+        ObjectType: 3
+        guid: 9561747613f9a24abe7fa53288de3506
+      Path: Events\Default Work Unit\Stops\StopAll_General
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stops
+      guid: 3d24c4d35cb4d447a7aa1679296fc4b5
+      id: 1653184020
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Stops
+        ObjectType: 4
+        guid: 3d24c4d35cb4d447a7aa1679296fc4b5
+      Path: Events\Default Work Unit\Stops
+      maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
     - name: Tardigrades
@@ -1058,7 +1095,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000070000000d0000000f0000001000000027000000
+  ExpandedWaapiItemIds: 05000000060000000f0000001000000023000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

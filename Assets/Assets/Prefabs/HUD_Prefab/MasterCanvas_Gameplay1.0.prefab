@@ -14442,6 +14442,7 @@ GameObject:
   - component: {fileID: 3671027053593158802}
   - component: {fileID: 5623498068977789602}
   - component: {fileID: 4779132249940860910}
+  - component: {fileID: 7290123854061007623}
   m_Layer: 5
   m_Name: Confirm Button
   m_TagString: Untagged
@@ -14600,6 +14601,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 7290123854061007623}
+        m_TargetAssemblyTypeName: PostStopEvent, Assembly-CSharp
+        m_MethodName: PostEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &5623498068977789602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14658,6 +14671,23 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: a1e4e03d9962a964f90a54e940ae62a8,
+      type: 2}
+--- !u!114 &7290123854061007623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6011818031602576939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf81264678fb4a04b906d0324e9e2767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToStop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2de992672e25f9142a11a86c64279d49,
       type: 2}
 --- !u!1 &6037751248166867770
 GameObject:
