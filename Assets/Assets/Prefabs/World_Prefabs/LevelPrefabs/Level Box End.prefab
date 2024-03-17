@@ -1360,9 +1360,22 @@ MonoBehaviour:
       m_Calls: []
   endOfSequenceEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 673e09734f54de74d8f648472c762399, type: 2}
+        m_TargetAssemblyTypeName: SaveObjectData, Assembly-CSharp
+        m_MethodName: SetListData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isEnd: 1
   startGameplay: 0
+  spawnMom: {fileID: 11400000, guid: a8ade25074e2cbd4ebca1c81f7325f87, type: 2}
   endLevel: {fileID: 11400000, guid: b195b3ae8eee91f4db2bd436739c4af7, type: 2}
   rallyPoint: {fileID: 8036169641195391268}
   hordeBrain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}

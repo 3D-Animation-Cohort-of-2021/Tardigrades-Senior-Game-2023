@@ -93,6 +93,23 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             return;
         }
+        else if(IceCoroutine != null)
+        {
+            Animator iceAnimator = null;
+
+            for (int i = 0; i < _animators.Length; i++)
+            {
+                if (_animators[i].runtimeAnimatorController.name == "PiglettController")
+                {
+                    iceAnimator = _animators[i];
+                    break;
+                }
+            }
+
+            DeactivateIceShield(_iceShardsForDeath, iceAnimator);
+            return;
+        }
+
         damageEffectObj.GetComponent<VisualEffect>().Play();
         _tarAnimator.SetTrigger("flinch");
 
@@ -106,17 +123,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             ReactToStrong();
         }
-        
-        if (_animators[1] != null)
-        {
-            if (_animators[1].GetBool("IceShield"))
-            {
-                finalDmg = 0;
-                _animators[1].SetBool("IceShield", false);
-                Instantiate(_iceShardsForDeath, transform);
-                IceCoroutine = null;
-            }
-        }
+
         _health -= finalDmg;
         collar.UpdateColor(_health, _maxHealth);
 
@@ -303,14 +310,23 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
             yield return new WaitForSeconds(iceDuration);
 
-            if (iceAnimator.GetBool("IceShield"))
-            {
-                iceAnimator.SetBool("IceShield", false);
-                Instantiate(iceShards, transform);
-            }
+            DeactivateIceShield(iceShards, iceAnimator);
+            
         }
         IceCoroutine = null;
     }
+
+    private void DeactivateIceShield(GameObject iceShards, Animator iceAnimator)
+    {
+        if (iceAnimator.GetBool("IceShield"))
+        {
+            iceAnimator.SetBool("IceShield", false);
+            Instantiate(iceShards, transform);
+            StopCoroutine(IceCoroutine);
+            IceCoroutine = null;
+        }
+    }
+
 
     public void ChangeTardigradeHighlight(bool shouldHighlight)
     {

@@ -176,6 +176,8 @@ MonoBehaviour:
   _piggyPrefab: {fileID: 6569193638812886307, guid: b313ded538967c447b49460bee8c64b3,
     type: 3}
   _amountPerGroup: 5
+  formationUpdateCall: {fileID: 11400000, guid: 9b5a485a9505fd24b807333a817b4431,
+    type: 2}
   _brainNumber: -1
   _squadType: 0
   _radius: 5
@@ -226,7 +228,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.05
-  m_Speed: 2.5
+  m_Speed: 3
   m_Acceleration: 20
   avoidancePriority: 90
   m_AngularSpeed: 120
