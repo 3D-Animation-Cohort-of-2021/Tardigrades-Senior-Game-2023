@@ -1651,6 +1651,8 @@ GameObject:
   - component: {fileID: 7862020900471511620}
   - component: {fileID: 6125197496097226809}
   - component: {fileID: 1026615743394946915}
+  - component: {fileID: 3000110516987298198}
+  - component: {fileID: 5470531377292693787}
   m_Layer: 5
   m_Name: MasterCanvas_Gameplay1.0
   m_TagString: Untagged
@@ -2015,13 +2017,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 8723852102627952083}
-        m_TargetAssemblyTypeName: ButtonAutoSelect, Assembly-CSharp
-        m_MethodName: SetCurrentSavedButton
-        m_Mode: 2
+      - m_Target: {fileID: 5470531377292693787}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 6262353747594741718}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2078,9 +2080,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 197530379}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: Select
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
+        m_MethodName: SetSelectedGameObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 197530377}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3000110516987298198}
+        m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2224,6 +2238,40 @@ MonoBehaviour:
           m_StringArgument: DarkenPanel
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3000110516987298198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622731026976793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8e7746ffe2b87854ab33635ee1374a6b,
+      type: 2}
+--- !u!114 &5470531377292693787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622731026976793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 996bbebd9e64731468cb40ea370e7762,
+      type: 2}
 --- !u!1 &38622731275820508
 GameObject:
   m_ObjectHideFlags: 0
@@ -14443,6 +14491,7 @@ GameObject:
   - component: {fileID: 5623498068977789602}
   - component: {fileID: 4779132249940860910}
   - component: {fileID: 7290123854061007623}
+  - component: {fileID: 4646563734977132333}
   m_Layer: 5
   m_Name: Confirm Button
   m_TagString: Untagged
@@ -14613,6 +14662,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 4646563734977132333}
+        m_TargetAssemblyTypeName: DuckAudioRTPC, Assembly-CSharp
+        m_MethodName: UnDuckAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &5623498068977789602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14689,6 +14750,18 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 2de992672e25f9142a11a86c64279d49,
       type: 2}
+--- !u!114 &4646563734977132333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6011818031602576939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07219be58c537a742a6e0f0df251807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6037751248166867770
 GameObject:
   m_ObjectHideFlags: 0
@@ -15336,6 +15409,7 @@ GameObject:
   - component: {fileID: 5633979310502049382}
   - component: {fileID: 9067908088336596670}
   - component: {fileID: 6620832341943181858}
+  - component: {fileID: 8586353647818733668}
   m_Layer: 5
   m_Name: Resume Button
   m_TagString: Untagged
@@ -15530,6 +15604,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8586353647818733668}
+        m_TargetAssemblyTypeName: DuckAudioRTPC, Assembly-CSharp
+        m_MethodName: UnDuckAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6620832341943181858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15547,6 +15633,18 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 8e7746ffe2b87854ab33635ee1374a6b,
       type: 2}
+--- !u!114 &8586353647818733668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262353747594741718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07219be58c537a742a6e0f0df251807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6356151467256784761
 GameObject:
   m_ObjectHideFlags: 0

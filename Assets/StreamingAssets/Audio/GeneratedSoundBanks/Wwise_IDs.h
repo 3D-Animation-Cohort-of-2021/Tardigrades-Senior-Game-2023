@@ -31,6 +31,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID DUCKAUDIORTPC = 1082095005U;
         static const AkUniqueID MASTERVOLUMERTPC = 2706739992U;
         static const AkUniqueID MUSICVOLUMERTPC = 438351637U;
         static const AkUniqueID SFXVOLUMERTPC = 3729481997U;
