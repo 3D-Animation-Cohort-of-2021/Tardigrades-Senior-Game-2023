@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID LOOPINGMUSICTEMP = 946441836U;
+        static const AkUniqueID PLAY_ACIDDROP_SPLASHRANDOM = 2954778481U;
         static const AkUniqueID PLAY_BRAZIER_BURNING = 2755379793U;
         static const AkUniqueID PLAY_FORESTAMBIENCE = 3149538809U;
         static const AkUniqueID PLAY_SPAWNERBOX_SEQUENCE = 3640949955U;

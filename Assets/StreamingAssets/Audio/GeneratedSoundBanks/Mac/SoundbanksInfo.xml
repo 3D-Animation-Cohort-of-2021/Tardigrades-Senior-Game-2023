@@ -9,14 +9,30 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{DFDEECE5-B15D-F9D9-22AB-B89E3FC71610}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{AC885518-509F-F657-D8DD-CD0BDA221996}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
+				<File Id="2605173" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AcidDrop_Splash_03.wav</ShortName>
+					<CachePath>SFX/AcidDrop_Splash_03_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="18241366" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AcidDrop_Splash_01.wav</ShortName>
+					<CachePath>SFX/AcidDrop_Splash_01_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="93515734" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AcidDrop_Splash_02.wav</ShortName>
+					<CachePath>SFX/AcidDrop_Splash_02_2CE66A1E.wem</CachePath>
+				</File>
 				<File Id="112289461" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW.wav</ShortName>
 					<Path>Media/112289461.wem</Path>
 					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_3D5CCE37.wem</CachePath>
+				</File>
+				<File Id="321851065" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AcidDrop_Splash_04.wav</ShortName>
+					<CachePath>SFX/AcidDrop_Splash_04_2CE66A1E.wem</CachePath>
 				</File>
 				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
@@ -24,6 +40,14 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="2954778481" Name="Play_AcidDrop_SplashRandom" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.4630051" DurationMax="1.8432709">
+					<MediaRefs>
+						<MediaRef Id="2605173"/>
+						<MediaRef Id="18241366"/>
+						<MediaRef Id="93515734"/>
+						<MediaRef Id="321851065"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3149538809" Name="Play_ForestAmbience" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="112289461"/>
@@ -384,5 +408,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{36966773-643A-4250-113A-6F498D2AF529}</FileHash>
+	<FileHash>{3899B483-B25A-7158-DA61-22A9E1AC2B09}</FileHash>
 </SoundBanksInfo>

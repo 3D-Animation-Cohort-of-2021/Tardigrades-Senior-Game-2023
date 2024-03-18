@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584908991958121359
+    m_lastTime: -8584908760467551109
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -449,7 +449,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584908990594749317
+    m_lastTime: -8584908760467488816
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -619,9 +619,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Play_AcidDrop
-      guid: 2bf0892031f1794b90cc1e7145baba2b
-      id: 1653480626
+    - name: Play_AcidDrop_SplashRandom
+      guid: 42a74969df38304a964ae310840d5d47
+      id: 2954778481
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -629,16 +629,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 2c5444863974a2409959f332a77548bb
-      - ElementName: Environment
-        ObjectType: 4
-        guid: 64188b3e9b0d41439e2008c4bbe18844
-      - ElementName: Play_AcidDrop
+      - ElementName: Play_AcidDrop_SplashRandom
         ObjectType: 3
-        guid: 2bf0892031f1794b90cc1e7145baba2b
-      Path: Events\Default Work Unit\Environment\Play_AcidDrop
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+        guid: 42a74969df38304a964ae310840d5d47
+      Path: Events\Default Work Unit\Play_AcidDrop_SplashRandom
+      maxAttenuation: 100
+      maxDuration: 1.8432709
+      minDuration: 1.4630051
     - name: Play_Brazier_Burning
       guid: 7d80f943c8d5c64e98ed2977176e200d
       id: 2755379793
