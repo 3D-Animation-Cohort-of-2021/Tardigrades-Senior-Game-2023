@@ -14,12 +14,15 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID LOOPINGMUSICTEMP = 946441836U;
+        static const AkUniqueID PLAY_ACIDBUBBLING = 3054842010U;
         static const AkUniqueID PLAY_ACIDDROP_SPLASHRANDOM = 2954778481U;
         static const AkUniqueID PLAY_BRAZIER_BURNING = 2755379793U;
+        static const AkUniqueID PLAY_BRAZIER_BURNING_NOCHIME = 3235386399U;
         static const AkUniqueID PLAY_FORESTAMBIENCE = 3149538809U;
         static const AkUniqueID PLAY_SPAWNERBOX_SEQUENCE = 3640949955U;
         static const AkUniqueID PLAY_TARDIGRADEPAIN_HIT = 3664269105U;
         static const AkUniqueID PLAY_TREE_AMBIENTRUSTLING = 1620839241U;
+        static const AkUniqueID PLAY_TREE_FALL = 3560238346U;
         static const AkUniqueID STOPALL_GENERAL = 4175962335U;
         static const AkUniqueID UI_AREYOUSURE = 882936002U;
         static const AkUniqueID UI_BACKTO = 209618788U;

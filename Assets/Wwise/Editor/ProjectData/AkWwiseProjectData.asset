@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584908760467551109
+    m_lastTime: -8584907161936939300
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -449,7 +449,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584908760467488816
+    m_lastTime: -8584907163315952925
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -582,6 +582,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Hazards
+      guid: 619088906200554385348749d5adca0d
+      id: 4039062316
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Hazards
+        ObjectType: 4
+        guid: 619088906200554385348749d5adca0d
+      Path: Events\Default Work Unit\Hazards
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: LoopingMusicTEMP
       guid: 1b3d07de0d4d704fad01e77cc691b093
       id: 946441836
@@ -619,6 +636,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_AcidBubbling
+      guid: 73228783c577cd48b92ea8a60218bfb0
+      id: 3054842010
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_AcidBubbling
+        ObjectType: 3
+        guid: 73228783c577cd48b92ea8a60218bfb0
+      Path: Events\Default Work Unit\Environment\Play_AcidBubbling
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
     - name: Play_AcidDrop_SplashRandom
       guid: 42a74969df38304a964ae310840d5d47
       id: 2954778481
@@ -629,10 +666,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Hazards
+        ObjectType: 4
+        guid: 619088906200554385348749d5adca0d
       - ElementName: Play_AcidDrop_SplashRandom
         ObjectType: 3
         guid: 42a74969df38304a964ae310840d5d47
-      Path: Events\Default Work Unit\Play_AcidDrop_SplashRandom
+      Path: Events\Default Work Unit\Hazards\Play_AcidDrop_SplashRandom
       maxAttenuation: 100
       maxDuration: 1.8432709
       minDuration: 1.4630051
@@ -653,6 +693,26 @@ MonoBehaviour:
         ObjectType: 3
         guid: 7d80f943c8d5c64e98ed2977176e200d
       Path: Events\Default Work Unit\Environment\Play_Brazier_Burning
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Brazier_Burning_NoChime
+      guid: 21eedacaeb17924281135185a7ab5a65
+      id: 3235386399
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Brazier_Burning_NoChime
+        ObjectType: 3
+        guid: 21eedacaeb17924281135185a7ab5a65
+      Path: Events\Default Work Unit\Environment\Play_Brazier_Burning_NoChime
       maxAttenuation: 100
       maxDuration: -1
       minDuration: -1
@@ -759,6 +819,26 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: -1
       minDuration: -1
+    - name: Play_Tree_Fall
+      guid: 7456ae066389074392aee9f6ae669478
+      id: 3560238346
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Tree_Fall
+        ObjectType: 3
+        guid: 7456ae066389074392aee9f6ae669478
+      Path: Events\Default Work Unit\Environment\Play_Tree_Fall
+      maxAttenuation: 100
+      maxDuration: 2.55
+      minDuration: 2.55
     - name: StopAll_General
       guid: 9561747613f9a24abe7fa53288de3506
       id: 4175962335
@@ -1109,7 +1189,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000d0000000f0000001000000023000000
+  ExpandedWaapiItemIds: 0500000006000000080000000f0000001000000023000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

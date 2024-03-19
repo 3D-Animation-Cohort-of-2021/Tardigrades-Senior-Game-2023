@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{AC885518-509F-F657-D8DD-CD0BDA221996}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{F618C4AD-E01B-9913-6BC9-58A11742B247}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -21,6 +21,11 @@
 					<ShortName>AcidDrop_Splash_01.wav</ShortName>
 					<CachePath>SFX/AcidDrop_Splash_01_2CE66A1E.wem</CachePath>
 				</File>
+				<File Id="25212802" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>CartoonBubbling_01.wav</ShortName>
+					<Path>Media/25212802.wem</Path>
+					<CachePath>SFX/CartoonBubbling_01_37657DA8.wem</CachePath>
+				</File>
 				<File Id="93515734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AcidDrop_Splash_02.wav</ShortName>
 					<CachePath>SFX/AcidDrop_Splash_02_2CE66A1E.wem</CachePath>
@@ -30,9 +35,18 @@
 					<Path>Media/112289461.wem</Path>
 					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_3D5CCE37.wem</CachePath>
 				</File>
+				<File Id="300485277" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Tree_Fall.wav</ShortName>
+					<CachePath>SFX/Tree_Fall_2CE66A1E.wem</CachePath>
+				</File>
 				<File Id="321851065" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AcidDrop_Splash_04.wav</ShortName>
 					<CachePath>SFX/AcidDrop_Splash_04_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="524569025" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>DeepBubbling_01.wav</ShortName>
+					<Path>Media/524569025.wem</Path>
+					<CachePath>SFX/DeepBubbling_01_37657DA8.wem</CachePath>
 				</File>
 				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
@@ -40,6 +54,12 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="3054842010" Name="Play_AcidBubbling" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="25212802"/>
+						<MediaRef Id="524569025"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2954778481" Name="Play_AcidDrop_SplashRandom" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.4630051" DurationMax="1.8432709">
 					<MediaRefs>
 						<MediaRef Id="2605173"/>
@@ -58,9 +78,14 @@
 						<MediaRef Id="772731709"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3560238346" Name="Play_Tree_Fall" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.55" DurationMax="2.55">
+					<MediaRefs>
+						<MediaRef Id="300485277"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{009F43A7-B887-9CEB-D255-B06E99C8F471}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{658AD0E8-37B6-ACA7-6BD6-0CAFE0251136}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -75,6 +100,10 @@
 				<File Id="161461778" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Brazier_Burning.wav</ShortName>
 					<CachePath>SFX/Brazier_Burning_748CB298.wem</CachePath>
+				</File>
+				<File Id="176383385" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BellChime_03.wav</ShortName>
+					<CachePath>SFX/BellChime_03_E50DD2C4.wem</CachePath>
 				</File>
 				<File Id="189534938" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_03.wav</ShortName>
@@ -141,7 +170,13 @@
 						<MediaRef Id="539989011"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2755379793" Name="Play_Brazier_Burning" MaxAttenuation="100" DurationType="Infinite">
+				<Event Id="2755379793" Name="Play_Brazier_Burning" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="161461778"/>
+						<MediaRef Id="176383385"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3235386399" Name="Play_Brazier_Burning_NoChime" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="161461778"/>
 					</MediaRefs>
@@ -408,5 +443,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{1C4834BD-2E6D-0396-FBCE-CD02E942FBCE}</FileHash>
+	<FileHash>{DA106199-5CC9-D827-7451-E41A681A8091}</FileHash>
 </SoundBanksInfo>
