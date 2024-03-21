@@ -8217,6 +8217,7 @@ GameObject:
   - component: {fileID: 2694993492930063387}
   - component: {fileID: 7367874912106636385}
   - component: {fileID: 3748462164638523861}
+  - component: {fileID: 5750257502135254567}
   m_Layer: 5
   m_Name: CompleteButton
   m_TagString: Untagged
@@ -8363,6 +8364,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5750257502135254567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147989158274408132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89815ddb300ee7f49bfbfc2140bbc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
 --- !u!1 &3166619981619624083
 GameObject:
   m_ObjectHideFlags: 0
