@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584907161936939300
+    m_lastTime: -8584905125396624560
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -449,7 +449,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584907163315952925
+    m_lastTime: -8584905132352781609
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -737,6 +737,66 @@ MonoBehaviour:
         guid: 21ccbc06616323479228d65b3c9fd30b
       Path: Events\Default Work Unit\Ambiences\1_1 Wasteland\Play_ForestAmbience
       maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Grass_BurningUp
+      guid: 612ce0ad129562499d6f4f0529e9239b
+      id: 3080242803
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Grass_BurningUp
+        ObjectType: 3
+        guid: 612ce0ad129562499d6f4f0529e9239b
+      Path: Events\Default Work Unit\Environment\Play_Grass_BurningUp
+      maxAttenuation: 100
+      maxDuration: 3.3620236
+      minDuration: 1.9990714
+    - name: Play_Log_Disintegrate
+      guid: e8ac650f8e2663418cd768121729ca47
+      id: 500576682
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Log_Disintegrate
+        ObjectType: 3
+        guid: e8ac650f8e2663418cd768121729ca47
+      Path: Events\Default Work Unit\Environment\Play_Log_Disintegrate
+      maxAttenuation: 100
+      maxDuration: 2.5666666
+      minDuration: 2.5333333
+    - name: Play_QuestionMarkDrone
+      guid: 90ab98af581422458357709ea67071c1
+      id: 2073632745
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: General
+        ObjectType: 4
+        guid: e238518739d7fe4d975d5a34b63bb2e6
+      - ElementName: Play_QuestionMarkDrone
+        ObjectType: 3
+        guid: 90ab98af581422458357709ea67071c1
+      Path: Events\Default Work Unit\General\Play_QuestionMarkDrone
+      maxAttenuation: 100
       maxDuration: -1
       minDuration: -1
     - name: Play_SpawnerBox_Sequence
@@ -1189,7 +1249,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000e0000000f0000001000000023000000
+  ExpandedWaapiItemIds: 05000000060000000e0000000f000000100000002300000025000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

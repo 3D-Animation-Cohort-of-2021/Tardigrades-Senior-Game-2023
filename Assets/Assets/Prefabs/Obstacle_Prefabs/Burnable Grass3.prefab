@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1416141304225730069}
   - component: {fileID: 1416141304225730070}
   - component: {fileID: 1416141304225730071}
+  - component: {fileID: 4191887745702991824}
   m_Layer: 0
   m_Name: Burnable Grass3
   m_TagString: Untagged
@@ -135,6 +136,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1416141304225730077}
         m_TargetAssemblyTypeName: VisualBurn, Assembly-CSharp
         m_MethodName: Burn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4191887745702991824}
+        m_TargetAssemblyTypeName: PostAudioEvent, Assembly-CSharp
+        m_MethodName: PostEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -339,6 +352,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &4191887745702991824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416141304225730079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992fac49650f9f498e400c2b9e979a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 84d61e2efa19d9749a9ada030afb9e5a,
+      type: 2}
 --- !u!1 &3004328538278549173
 GameObject:
   m_ObjectHideFlags: 0

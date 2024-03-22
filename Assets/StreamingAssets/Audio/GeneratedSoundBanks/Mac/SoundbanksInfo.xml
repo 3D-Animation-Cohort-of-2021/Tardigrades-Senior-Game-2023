@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{F618C4AD-E01B-9913-6BC9-58A11742B247}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{5B005469-846B-E133-B692-77677E597DE1}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -48,6 +48,10 @@
 					<Path>Media/524569025.wem</Path>
 					<CachePath>SFX/DeepBubbling_01_37657DA8.wem</CachePath>
 				</File>
+				<File Id="762424537" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Grass_BurningUp.wav</ShortName>
+					<CachePath>SFX/Grass_BurningUp_6923A185.wem</CachePath>
+				</File>
 				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
 					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
@@ -73,6 +77,11 @@
 						<MediaRef Id="112289461"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3080242803" Name="Play_Grass_BurningUp" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.9990714" DurationMax="3.3620236">
+					<MediaRefs>
+						<MediaRef Id="762424537"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1620839241" Name="Play_Tree_AmbientRustling" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="772731709"/>
@@ -85,7 +94,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{5E971FFB-2CC0-5E11-BFD5-AF04B94E56E5}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{DB6B5B72-99F1-7962-C067-7C67119AE820}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -132,7 +141,7 @@
 				</File>
 				<File Id="562881451" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SpawnerBox_Sequence_01.wav</ShortName>
-					<CachePath>SFX/SpawnerBox_Sequence_01_5B925AF7.wem</CachePath>
+					<CachePath>SFX/SpawnerBox_Sequence_01_614B1EE0.wem</CachePath>
 				</File>
 				<File Id="613020561" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_ResetButton.wav</ShortName>
@@ -150,9 +159,17 @@
 					<ShortName>UI_Unpause.wav</ShortName>
 					<CachePath>SFX/UI_Unpause_2CE66A1E.wem</CachePath>
 				</File>
+				<File Id="769056427" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DroneLoop.wav</ShortName>
+					<CachePath>SFX/DroneLoop_37657DA8.wem</CachePath>
+				</File>
 				<File Id="787660656" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_04.wav</ShortName>
 					<CachePath>SFX/TardigradeGrunt_PainHit_04_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="818361875" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>WindChimesLoop.wav</ShortName>
+					<CachePath>SFX/WindChimesLoop_37657DA8.wem</CachePath>
 				</File>
 				<File Id="932023741" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_01.wav</ShortName>
@@ -179,6 +196,12 @@
 				<Event Id="3235386399" Name="Play_Brazier_Burning_NoChime" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="161461778"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2073632745" Name="Play_QuestionMarkDrone" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="769056427"/>
+						<MediaRef Id="818361875"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3640949955" Name="Play_SpawnerBox_Sequence" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.6966202" DurationMax="3.6966202">
@@ -404,16 +427,49 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{06387E63-7429-5578-1213-3A306E1BCD36}">
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{5DC8844C-1D0E-7D6F-5C9D-5904F214709A}">
 			<ShortName>Level_0_1_Tutorial_SB</ShortName>
 			<Path>Level_0_1_Tutorial_SB.bnk</Path>
 			<Media>
+				<File Id="52196000" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Log_Disintegrate_01.wav</ShortName>
+					<CachePath>SFX/Log_Disintegrate_01_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="112289461" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW.wav</ShortName>
+					<Path>Media/112289461.wem</Path>
+					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_3D5CCE37.wem</CachePath>
+				</File>
+				<File Id="762424537" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Grass_BurningUp.wav</ShortName>
+					<CachePath>SFX/Grass_BurningUp_6923A185.wem</CachePath>
+				</File>
 				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
 					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
 				</File>
+				<File Id="964770098" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Log_Disintegrate_02.wav</ShortName>
+					<CachePath>SFX/Log_Disintegrate_02_2CE66A1E.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
+				<Event Id="3149538809" Name="Play_ForestAmbience" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="112289461"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3080242803" Name="Play_Grass_BurningUp" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.9990714" DurationMax="3.3620236">
+					<MediaRefs>
+						<MediaRef Id="762424537"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="500576682" Name="Play_Log_Disintegrate" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.5333333" DurationMax="2.5666666">
+					<MediaRefs>
+						<MediaRef Id="52196000"/>
+						<MediaRef Id="964770098"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1620839241" Name="Play_Tree_AmbientRustling" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="772731709"/>
@@ -425,16 +481,25 @@
 			<ShortName>Level_2_1_Lava_SB</ShortName>
 			<Path>Level_2_1_Lava_SB.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{0C68727D-913E-50D9-8C4F-95DC56492F39}">
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{186AC9A4-E2DA-2B81-4115-6684BBD249BD}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
 			<Media>
+				<File Id="762424537" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Grass_BurningUp.wav</ShortName>
+					<CachePath>SFX/Grass_BurningUp_6923A185.wem</CachePath>
+				</File>
 				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
 					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
+				<Event Id="3080242803" Name="Play_Grass_BurningUp" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.9990714" DurationMax="3.3620236">
+					<MediaRefs>
+						<MediaRef Id="762424537"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1620839241" Name="Play_Tree_AmbientRustling" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="772731709"/>
@@ -443,5 +508,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EDFC3627-C72C-94EB-E7EE-B8B4547B5455}</FileHash>
+	<FileHash>{81DBCC9E-27DD-3B39-50FD-C4837ECECE0D}</FileHash>
 </SoundBanksInfo>

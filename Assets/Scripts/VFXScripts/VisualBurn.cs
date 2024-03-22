@@ -18,8 +18,7 @@ public class VisualBurn : MonoBehaviour
     //            burnEvent.Invoke();
     //    }
     //}
-
-
+    
     public void Burn()
     {
         if(TryGetComponent<Animator>(out Animator otherAnim))
