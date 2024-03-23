@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{010DFF83-50B6-CBAB-0FEB-2FAE1ABA100F}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{624E626D-3C71-73EE-7D4F-CB9ED4BDF83B}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -64,7 +64,7 @@
 						<MediaRef Id="524569025"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2954778481" Name="Play_AcidDrop_SplashRandom" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.4630051" DurationMax="1.8432709">
+				<Event Id="2954778481" Name="Play_AcidDrop_SplashRandom" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.3415817" DurationMax="2.0101013">
 					<MediaRefs>
 						<MediaRef Id="2605173"/>
 						<MediaRef Id="18241366"/>
@@ -94,7 +94,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{0A2FEC6B-C934-6DF4-AF91-038787385087}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{919A5433-9E50-ACF0-C76B-41AB0E6A3F20}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -159,16 +159,18 @@
 					<ShortName>UI_Unpause.wav</ShortName>
 					<CachePath>SFX/UI_Unpause_2CE66A1E.wem</CachePath>
 				</File>
-				<File Id="769056427" Language="SFX" Streaming="false" Location="Memory">
+				<File Id="769056427" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>DroneLoop.wav</ShortName>
+					<Path>Media/769056427.wem</Path>
 					<CachePath>SFX/DroneLoop_37657DA8.wem</CachePath>
 				</File>
 				<File Id="787660656" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_04.wav</ShortName>
 					<CachePath>SFX/TardigradeGrunt_PainHit_04_2CE66A1E.wem</CachePath>
 				</File>
-				<File Id="818361875" Language="SFX" Streaming="false" Location="Memory">
+				<File Id="818361875" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>WindChimesLoop.wav</ShortName>
+					<Path>Media/818361875.wem</Path>
 					<CachePath>SFX/WindChimesLoop_37657DA8.wem</CachePath>
 				</File>
 				<File Id="932023741" Language="SFX" Streaming="false" Location="Memory">
@@ -427,7 +429,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{EF1E26FA-8201-46A4-579F-341D48F897C3}">
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{D6C48296-BE2C-13D9-09E4-8069E68C0960}">
 			<ShortName>Level_0_1_Tutorial_SB</ShortName>
 			<Path>Level_0_1_Tutorial_SB.bnk</Path>
 			<Media>
@@ -481,7 +483,7 @@
 			<ShortName>Level_2_1_Lava_SB</ShortName>
 			<Path>Level_2_1_Lava_SB.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{7AAFE1A9-2544-D910-77C9-FFC985AE835C}">
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{7EDDC5FC-8902-9749-9415-E2E6FD32E6DF}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
 			<Media>
@@ -508,5 +510,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{3A0C0280-5F3A-5DDF-E93A-D267B34E94E9}</FileHash>
+	<FileHash>{3A0038E6-2CF1-A832-9831-5BE165E45970}</FileHash>
 </SoundBanksInfo>
