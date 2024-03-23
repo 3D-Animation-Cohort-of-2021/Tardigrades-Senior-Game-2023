@@ -1653,6 +1653,7 @@ GameObject:
   - component: {fileID: 1026615743394946915}
   - component: {fileID: 3000110516987298198}
   - component: {fileID: 5470531377292693787}
+  - component: {fileID: 2140044731851963833}
   m_Layer: 5
   m_Name: MasterCanvas_Gameplay1.0
   m_TagString: Untagged
@@ -2029,6 +2030,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2140044731851963833}
+        m_TargetAssemblyTypeName: DuckAudioRTPC, Assembly-CSharp
+        m_MethodName: DuckAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   resumeEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2095,6 +2108,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3000110516987298198}
         m_TargetAssemblyTypeName: ButtonClickEvent, Assembly-CSharp
         m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2140044731851963833}
+        m_TargetAssemblyTypeName: DuckAudioRTPC, Assembly-CSharp
+        m_MethodName: UnDuckAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2272,6 +2297,18 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 996bbebd9e64731468cb40ea370e7762,
       type: 2}
+--- !u!114 &2140044731851963833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38622731026976793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07219be58c537a742a6e0f0df251807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &38622731275820508
 GameObject:
   m_ObjectHideFlags: 0

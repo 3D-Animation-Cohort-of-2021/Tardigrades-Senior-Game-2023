@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{624E626D-3C71-73EE-7D4F-CB9ED4BDF83B}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{8BC9156E-8371-17C3-42BF-538498A085BC}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -28,7 +28,7 @@
 				</File>
 				<File Id="93515734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AcidDrop_Splash_02.wav</ShortName>
-					<CachePath>SFX/AcidDrop_Splash_02_2CE66A1E.wem</CachePath>
+					<CachePath>SFX/AcidDrop_Splash_02_1F74FA44.wem</CachePath>
 				</File>
 				<File Id="112289461" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW.wav</ShortName>
@@ -64,7 +64,7 @@
 						<MediaRef Id="524569025"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2954778481" Name="Play_AcidDrop_SplashRandom" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.3415817" DurationMax="2.0101013">
+				<Event Id="2954778481" Name="Play_AcidDrop_SplashRandom" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.293231" DurationMax="1.8432709">
 					<MediaRefs>
 						<MediaRef Id="2605173"/>
 						<MediaRef Id="18241366"/>
@@ -94,7 +94,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{919A5433-9E50-ACF0-C76B-41AB0E6A3F20}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{DC287884-B301-9A32-549D-470B41038CA8}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -198,6 +198,11 @@
 				<Event Id="3235386399" Name="Play_Brazier_Burning_NoChime" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="161461778"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2166256596" Name="Play_EndBox_Sequence" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.9466202" DurationMax="3.9466202">
+					<MediaRefs>
+						<MediaRef Id="562881451"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2073632745" Name="Play_QuestionMarkDrone" MaxAttenuation="100" DurationType="Infinite">
@@ -429,7 +434,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{D6C48296-BE2C-13D9-09E4-8069E68C0960}">
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{7344AF42-BC0F-550A-BB71-1513E31F99D4}">
 			<ShortName>Level_0_1_Tutorial_SB</ShortName>
 			<Path>Level_0_1_Tutorial_SB.bnk</Path>
 			<Media>
@@ -483,7 +488,7 @@
 			<ShortName>Level_2_1_Lava_SB</ShortName>
 			<Path>Level_2_1_Lava_SB.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{7EDDC5FC-8902-9749-9415-E2E6FD32E6DF}">
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{A6A2FF29-225E-DC6F-3E5F-7C70E375AFAC}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
 			<Media>
@@ -510,5 +515,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D4D4426C-FE33-1228-86BC-0698153EF914}</FileHash>
+	<FileHash>{1FD6BFFF-A3A8-C1D2-AD8C-E9299BCB4B57}</FileHash>
 </SoundBanksInfo>

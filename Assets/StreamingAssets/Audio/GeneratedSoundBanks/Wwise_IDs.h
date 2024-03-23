@@ -18,6 +18,7 @@ namespace AK
         static const AkUniqueID PLAY_ACIDDROP_SPLASHRANDOM = 2954778481U;
         static const AkUniqueID PLAY_BRAZIER_BURNING = 2755379793U;
         static const AkUniqueID PLAY_BRAZIER_BURNING_NOCHIME = 3235386399U;
+        static const AkUniqueID PLAY_ENDBOX_SEQUENCE = 2166256596U;
         static const AkUniqueID PLAY_FORESTAMBIENCE = 3149538809U;
         static const AkUniqueID PLAY_GRASS_BURNINGUP = 3080242803U;
         static const AkUniqueID PLAY_LOG_DISINTEGRATE = 500576682U;
