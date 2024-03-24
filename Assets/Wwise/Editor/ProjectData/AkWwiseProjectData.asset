@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584904343681174171
+    m_lastTime: -8584903485539763386
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -449,7 +449,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584904343681117957
+    m_lastTime: -8584903485539813535
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -919,6 +919,26 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 2.55
       minDuration: 2.55
+    - name: Play_UI_TutorialMessage_Sequence
+      guid: 793a349dbe79884b90bb7d7a43382622
+      id: 1285133454
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: UI
+        ObjectType: 4
+        guid: 40e7fbb5752c0842b836892c3cb19c94
+      - ElementName: Play_UI_TutorialMessage_Sequence
+        ObjectType: 3
+        guid: 793a349dbe79884b90bb7d7a43382622
+      Path: Events\Default Work Unit\UI\Play_UI_TutorialMessage_Sequence
+      maxAttenuation: 0
+      maxDuration: 0.24663231
+      minDuration: 0.23305285
     - name: StopAll_General
       guid: 9561747613f9a24abe7fa53288de3506
       id: 4175962335
@@ -1008,8 +1028,8 @@ MonoBehaviour:
         guid: 481192ae78ae56499b973e90acef130a
       Path: Events\Default Work Unit\UI\UI_AreYouSure
       maxAttenuation: 0
-      maxDuration: 0.35
-      minDuration: 0.35
+      maxDuration: 0.27366436
+      minDuration: 0.27366436
     - name: UI_BackTo
       guid: 5aec5cebefaaa94fb480b0ffb4291676
       id: 209618788
@@ -1028,8 +1048,8 @@ MonoBehaviour:
         guid: 5aec5cebefaaa94fb480b0ffb4291676
       Path: Events\Default Work Unit\UI\UI_BackTo
       maxAttenuation: 0
-      maxDuration: 0.396875
-      minDuration: 0.396875
+      maxDuration: 0.32827625
+      minDuration: 0.32827625
     - name: UI_PressButton
       guid: bc98c58a95368a4590fb90b19e088be7
       id: 3824618851
@@ -1048,8 +1068,8 @@ MonoBehaviour:
         guid: bc98c58a95368a4590fb90b19e088be7
       Path: Events\Default Work Unit\UI\UI_PressButton
       maxAttenuation: 0
-      maxDuration: 0.1625
-      minDuration: 0.1625
+      maxDuration: 0.078873165
+      minDuration: 0.078873165
     - name: UI_PressPause
       guid: 80703a0ec47c974aa2a456b106c2a54b
       id: 3368070439
@@ -1269,7 +1289,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000007000000090000002300000025000000
+  ExpandedWaapiItemIds: 05000000060000000e0000002300000025000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

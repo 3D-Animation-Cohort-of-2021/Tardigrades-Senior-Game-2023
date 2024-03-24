@@ -27,6 +27,7 @@ namespace AK
         static const AkUniqueID PLAY_TARDIGRADEPAIN_HIT = 3664269105U;
         static const AkUniqueID PLAY_TREE_AMBIENTRUSTLING = 1620839241U;
         static const AkUniqueID PLAY_TREE_FALL = 3560238346U;
+        static const AkUniqueID PLAY_UI_TUTORIALMESSAGE_SEQUENCE = 1285133454U;
         static const AkUniqueID STOPALL_GENERAL = 4175962335U;
         static const AkUniqueID UI_AREYOUSURE = 882936002U;
         static const AkUniqueID UI_BACKTO = 209618788U;

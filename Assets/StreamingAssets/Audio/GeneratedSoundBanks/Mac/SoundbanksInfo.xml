@@ -94,7 +94,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{DC287884-B301-9A32-549D-470B41038CA8}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{1C5A8D63-226E-6062-CA16-83486A3BA70B}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -122,13 +122,21 @@
 					<ShortName>TardigradeGrunt_PainHit_05.wav</ShortName>
 					<CachePath>SFX/TardigradeGrunt_PainHit_05_2CE66A1E.wem</CachePath>
 				</File>
+				<File Id="351531709" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_TutorialMessage_FlyOut.wav</ShortName>
+					<CachePath>SFX/UI_TutorialMessage_FlyOut_71ACF8DF.wem</CachePath>
+				</File>
 				<File Id="476390243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_AreYouSure.wav</ShortName>
-					<CachePath>SFX/UI_AreYouSure_2CE66A1E.wem</CachePath>
+					<CachePath>SFX/UI_AreYouSure_FC807E78.wem</CachePath>
 				</File>
 				<File Id="502393985" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_PressPause.wav</ShortName>
 					<CachePath>SFX/UI_PressPause_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="539769877" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_TutorialMessage_FlyIn.wav</ShortName>
+					<CachePath>SFX/UI_TutorialMessage_FlyIn_FDF765ED.wem</CachePath>
 				</File>
 				<File Id="539989011" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER.wav</ShortName>
@@ -137,7 +145,7 @@
 				</File>
 				<File Id="552837019" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_BackTo.wav</ShortName>
-					<CachePath>SFX/UI_BackTo_2CE66A1E.wem</CachePath>
+					<CachePath>SFX/UI_BackTo_645B634A.wem</CachePath>
 				</File>
 				<File Id="562881451" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SpawnerBox_Sequence_01.wav</ShortName>
@@ -149,7 +157,7 @@
 				</File>
 				<File Id="624600041" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_PressButton_V3.wav</ShortName>
-					<CachePath>SFX/UI_PressButton_V3_2CE66A1E.wem</CachePath>
+					<CachePath>SFX/UI_PressButton_V3_87407A3C.wem</CachePath>
 				</File>
 				<File Id="686178676" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_06.wav</ShortName>
@@ -226,8 +234,19 @@
 						<MediaRef Id="932023741"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1285133454" Name="Play_UI_TutorialMessage_Sequence" DurationType="OneShot" DurationMin="0.24407488" DurationMax="0.25829658">
+					<MediaRefs>
+						<MediaRef Id="351531709"/>
+						<MediaRef Id="539769877"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1588715066"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
 				<Event Id="4175962335" Name="StopAll_General" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="882936002" Name="UI_AreYouSure" DurationType="OneShot" DurationMin="0.35" DurationMax="0.35">
+				<Event Id="882936002" Name="UI_AreYouSure" DurationType="OneShot" DurationMin="0.27366436" DurationMax="0.27366436">
 					<MediaRefs>
 						<MediaRef Id="476390243"/>
 					</MediaRefs>
@@ -237,7 +256,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="209618788" Name="UI_BackTo" DurationType="OneShot" DurationMin="0.396875" DurationMax="0.396875">
+				<Event Id="209618788" Name="UI_BackTo" DurationType="OneShot" DurationMin="0.32827625" DurationMax="0.32827625">
 					<MediaRefs>
 						<MediaRef Id="552837019"/>
 					</MediaRefs>
@@ -247,7 +266,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="3824618851" Name="UI_PressButton" DurationType="OneShot" DurationMin="0.1625" DurationMax="0.1625">
+				<Event Id="3824618851" Name="UI_PressButton" DurationType="OneShot" DurationMin="0.078873165" DurationMax="0.078873165">
 					<MediaRefs>
 						<MediaRef Id="624600041"/>
 					</MediaRefs>
@@ -515,5 +534,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{1FD6BFFF-A3A8-C1D2-AD8C-E9299BCB4B57}</FileHash>
+	<FileHash>{B40EA7C0-B4B3-4AE4-98A7-F3B268C4D7D7}</FileHash>
 </SoundBanksInfo>
