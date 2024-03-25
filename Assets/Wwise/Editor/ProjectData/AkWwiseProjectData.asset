@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584903485539763386
+    m_lastTime: -8584902585440499922
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -449,7 +449,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584903485539813535
+    m_lastTime: -8584902583763513212
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -676,6 +676,26 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 1.8432709
       minDuration: 1.293231
+    - name: Play_BoulderBlast
+      guid: 95dedd5357cde04aa53fcceacef83a34
+      id: 1124345361
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_BoulderBlast
+        ObjectType: 3
+        guid: 95dedd5357cde04aa53fcceacef83a34
+      Path: Events\Default Work Unit\Environment\Play_BoulderBlast
+      maxAttenuation: 100
+      maxDuration: 2.313046
+      minDuration: 2.0009243
     - name: Play_Brazier_Burning
       guid: 7d80f943c8d5c64e98ed2977176e200d
       id: 2755379793
@@ -734,8 +754,8 @@ MonoBehaviour:
         guid: bb3ec0aa53b78d49a93d71568c40a540
       Path: Events\Default Work Unit\General\Play_EndBox_Sequence
       maxAttenuation: 100
-      maxDuration: 3.9466202
-      minDuration: 3.9466202
+      maxDuration: 3.5985858
+      minDuration: 3.5985858
     - name: Play_ForestAmbience
       guid: 21ccbc06616323479228d65b3c9fd30b
       id: 3149538809
@@ -797,8 +817,8 @@ MonoBehaviour:
         guid: e8ac650f8e2663418cd768121729ca47
       Path: Events\Default Work Unit\Environment\Play_Log_Disintegrate
       maxAttenuation: 100
-      maxDuration: 2.5666666
-      minDuration: 2.5333333
+      maxDuration: 2.4424472
+      minDuration: 2.3979888
     - name: Play_QuestionMarkDrone
       guid: 90ab98af581422458357709ea67071c1
       id: 2073632745
@@ -937,8 +957,8 @@ MonoBehaviour:
         guid: 793a349dbe79884b90bb7d7a43382622
       Path: Events\Default Work Unit\UI\Play_UI_TutorialMessage_Sequence
       maxAttenuation: 0
-      maxDuration: 0.24663231
-      minDuration: 0.23305285
+      maxDuration: 0.25829658
+      minDuration: 0.24407488
     - name: StopAll_General
       guid: 9561747613f9a24abe7fa53288de3506
       id: 4175962335
@@ -1289,7 +1309,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000e0000002300000025000000
+  ExpandedWaapiItemIds: 0500000006000000090000000e0000002300000025000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

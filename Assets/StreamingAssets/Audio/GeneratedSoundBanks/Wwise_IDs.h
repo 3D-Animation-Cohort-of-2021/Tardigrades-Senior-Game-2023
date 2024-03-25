@@ -16,6 +16,7 @@ namespace AK
         static const AkUniqueID LOOPINGMUSICTEMP = 946441836U;
         static const AkUniqueID PLAY_ACIDBUBBLING = 3054842010U;
         static const AkUniqueID PLAY_ACIDDROP_SPLASHRANDOM = 2954778481U;
+        static const AkUniqueID PLAY_BOULDERBLAST = 1124345361U;
         static const AkUniqueID PLAY_BRAZIER_BURNING = 2755379793U;
         static const AkUniqueID PLAY_BRAZIER_BURNING_NOCHIME = 3235386399U;
         static const AkUniqueID PLAY_ENDBOX_SEQUENCE = 2166256596U;

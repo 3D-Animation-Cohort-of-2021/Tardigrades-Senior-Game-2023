@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{8BC9156E-8371-17C3-42BF-538498A085BC}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{3EF4CA08-EC2D-34CB-B5EE-4F18270E5F53}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -43,6 +43,10 @@
 					<ShortName>AcidDrop_Splash_04.wav</ShortName>
 					<CachePath>SFX/AcidDrop_Splash_04_2CE66A1E.wem</CachePath>
 				</File>
+				<File Id="412191787" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoulderBlast_01.wav</ShortName>
+					<CachePath>SFX/BoulderBlast_01_760FCE05.wem</CachePath>
+				</File>
 				<File Id="524569025" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>DeepBubbling_01.wav</ShortName>
 					<Path>Media/524569025.wem</Path>
@@ -55,6 +59,10 @@
 				<File Id="772731709" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
 					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
+				</File>
+				<File Id="957286506" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoulderBlast_02.wav</ShortName>
+					<CachePath>SFX/BoulderBlast_02_2AE2B662.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -70,6 +78,12 @@
 						<MediaRef Id="18241366"/>
 						<MediaRef Id="93515734"/>
 						<MediaRef Id="321851065"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1124345361" Name="Play_BoulderBlast" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.0009243" DurationMax="2.313046">
+					<MediaRefs>
+						<MediaRef Id="412191787"/>
+						<MediaRef Id="957286506"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3149538809" Name="Play_ForestAmbience" DurationType="Infinite">
@@ -94,7 +108,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{1C5A8D63-226E-6062-CA16-83486A3BA70B}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{1B5DB679-2A43-5683-9FF6-199CC24E8B1F}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -122,13 +136,17 @@
 					<ShortName>TardigradeGrunt_PainHit_05.wav</ShortName>
 					<CachePath>SFX/TardigradeGrunt_PainHit_05_2CE66A1E.wem</CachePath>
 				</File>
+				<File Id="335115077" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>EndBox_Sequence.wav</ShortName>
+					<CachePath>SFX/EndBox_Sequence_66945F42.wem</CachePath>
+				</File>
 				<File Id="351531709" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_TutorialMessage_FlyOut.wav</ShortName>
-					<CachePath>SFX/UI_TutorialMessage_FlyOut_71ACF8DF.wem</CachePath>
+					<CachePath>SFX/UI_TutorialMessage_FlyOut_8985DD1F.wem</CachePath>
 				</File>
 				<File Id="476390243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_AreYouSure.wav</ShortName>
-					<CachePath>SFX/UI_AreYouSure_FC807E78.wem</CachePath>
+					<CachePath>SFX/UI_AreYouSure_9E5C773F.wem</CachePath>
 				</File>
 				<File Id="502393985" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_PressPause.wav</ShortName>
@@ -136,7 +154,7 @@
 				</File>
 				<File Id="539769877" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_TutorialMessage_FlyIn.wav</ShortName>
-					<CachePath>SFX/UI_TutorialMessage_FlyIn_FDF765ED.wem</CachePath>
+					<CachePath>SFX/UI_TutorialMessage_FlyIn_125957B3.wem</CachePath>
 				</File>
 				<File Id="539989011" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER.wav</ShortName>
@@ -145,7 +163,7 @@
 				</File>
 				<File Id="552837019" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_BackTo.wav</ShortName>
-					<CachePath>SFX/UI_BackTo_645B634A.wem</CachePath>
+					<CachePath>SFX/UI_BackTo_12CB6B1C.wem</CachePath>
 				</File>
 				<File Id="562881451" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SpawnerBox_Sequence_01.wav</ShortName>
@@ -157,7 +175,7 @@
 				</File>
 				<File Id="624600041" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_PressButton_V3.wav</ShortName>
-					<CachePath>SFX/UI_PressButton_V3_87407A3C.wem</CachePath>
+					<CachePath>SFX/UI_PressButton_V3_EA56946F.wem</CachePath>
 				</File>
 				<File Id="686178676" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_06.wav</ShortName>
@@ -208,9 +226,9 @@
 						<MediaRef Id="161461778"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2166256596" Name="Play_EndBox_Sequence" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.9466202" DurationMax="3.9466202">
+				<Event Id="2166256596" Name="Play_EndBox_Sequence" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.5985858" DurationMax="3.5985858">
 					<MediaRefs>
-						<MediaRef Id="562881451"/>
+						<MediaRef Id="335115077"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2073632745" Name="Play_QuestionMarkDrone" MaxAttenuation="100" DurationType="Infinite">
@@ -453,18 +471,22 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{7344AF42-BC0F-550A-BB71-1513E31F99D4}">
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{74CACFB9-37D7-6001-34F5-626A7D10FCF5}">
 			<ShortName>Level_0_1_Tutorial_SB</ShortName>
 			<Path>Level_0_1_Tutorial_SB.bnk</Path>
 			<Media>
 				<File Id="52196000" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Log_Disintegrate_01.wav</ShortName>
-					<CachePath>SFX/Log_Disintegrate_01_2CE66A1E.wem</CachePath>
+					<CachePath>SFX/Log_Disintegrate_01_1F300A99.wem</CachePath>
 				</File>
 				<File Id="112289461" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW.wav</ShortName>
 					<Path>Media/112289461.wem</Path>
 					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_3D5CCE37.wem</CachePath>
+				</File>
+				<File Id="412191787" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoulderBlast_01.wav</ShortName>
+					<CachePath>SFX/BoulderBlast_01_760FCE05.wem</CachePath>
 				</File>
 				<File Id="762424537" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Grass_BurningUp.wav</ShortName>
@@ -474,12 +496,22 @@
 					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
 					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
 				</File>
+				<File Id="957286506" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoulderBlast_02.wav</ShortName>
+					<CachePath>SFX/BoulderBlast_02_2AE2B662.wem</CachePath>
+				</File>
 				<File Id="964770098" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Log_Disintegrate_02.wav</ShortName>
-					<CachePath>SFX/Log_Disintegrate_02_2CE66A1E.wem</CachePath>
+					<CachePath>SFX/Log_Disintegrate_02_A840B265.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
+				<Event Id="1124345361" Name="Play_BoulderBlast" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.0009243" DurationMax="2.313046">
+					<MediaRefs>
+						<MediaRef Id="412191787"/>
+						<MediaRef Id="957286506"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3149538809" Name="Play_ForestAmbience" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="112289461"/>
@@ -490,7 +522,7 @@
 						<MediaRef Id="762424537"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="500576682" Name="Play_Log_Disintegrate" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.5333333" DurationMax="2.5666666">
+				<Event Id="500576682" Name="Play_Log_Disintegrate" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.3979888" DurationMax="2.4424472">
 					<MediaRefs>
 						<MediaRef Id="52196000"/>
 						<MediaRef Id="964770098"/>
@@ -507,7 +539,7 @@
 			<ShortName>Level_2_1_Lava_SB</ShortName>
 			<Path>Level_2_1_Lava_SB.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{A6A2FF29-225E-DC6F-3E5F-7C70E375AFAC}">
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{59ECBDBD-DB1A-1352-E5AB-D458E8642FCC}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
 			<Media>
@@ -534,5 +566,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{B3762035-4986-3F11-2C90-B5FE9DEA2C22}</FileHash>
+	<FileHash>{157B4863-A0DD-1E66-78D8-855D25D3FF1E}</FileHash>
 </SoundBanksInfo>
