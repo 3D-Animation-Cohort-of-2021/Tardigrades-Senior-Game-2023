@@ -557,12 +557,13 @@ public class SquadBrain : MonoBehaviour
 
     public void TerminateSquad()
     { 
+        Debug.Log("Terminating");
         List<TardigradeBase> refList = new List<TardigradeBase>();
         foreach (TardigradeBase pig in _myTards)
         {
             refList.Add(pig);
         }
-
+        
         foreach (TardigradeBase pig in refList)
         {
             pig.Death(DeathType.None);

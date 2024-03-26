@@ -11,7 +11,8 @@ public class GameActionHandler : MonoBehaviour
 
  public void Start()
  {
-     gameActionObj.raise += Respond;
+     if(gameActionObj!=null)
+         gameActionObj.raise += Respond;
  }
 
  public void Respond()
