@@ -128,7 +128,6 @@ public class UI_Formation_Manager : MonoBehaviour
         updateCurrentElement(type);
         updateCurrentShapes(frm);
         ApplyImages();
-        Debug.Log(direction);
         if(direction>=1)
             formationAnim.SetTrigger("Next");
         else if(direction<=-1)

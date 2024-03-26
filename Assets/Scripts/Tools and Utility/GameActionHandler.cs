@@ -19,4 +19,9 @@ public class GameActionHandler : MonoBehaviour
  {
    respondEvent.Invoke();
  }
+
+ public void OnDestroy()
+ {
+     gameActionObj.raise -= Respond;
+ }
 }

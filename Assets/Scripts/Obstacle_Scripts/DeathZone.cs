@@ -13,7 +13,6 @@ public class DeathZone : MonoBehaviour
         if (other.TryGetComponent(out TardigradeBase tard) && enabled)
         {
             tard.Death(tardDeathType);
-            Debug.Log("A tardigrade has fallen to it's death");
         }
     }
 }
