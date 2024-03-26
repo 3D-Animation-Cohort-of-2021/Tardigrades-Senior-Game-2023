@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584902585440499922
+    m_lastTime: -8584901778277563774
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -449,7 +449,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584902583763513212
+    m_lastTime: -8584901778277608804
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -676,6 +676,29 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 1.8432709
       minDuration: 1.293231
+    - name: Play_BeachAmbience
+      guid: e853df2f5e61df4fb58a315215f296ae
+      id: 283495111
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Ambiences
+        ObjectType: 4
+        guid: fa88a5b47edbcd40a8031a9944a5c0d1
+      - ElementName: 1_2 Beach
+        ObjectType: 4
+        guid: 8521eb6f0961834d912d88df5c06bee4
+      - ElementName: Play_BeachAmbience
+        ObjectType: 3
+        guid: e853df2f5e61df4fb58a315215f296ae
+      Path: Events\Default Work Unit\Ambiences\1_2 Beach\Play_BeachAmbience
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_BoulderBlast
       guid: 95dedd5357cde04aa53fcceacef83a34
       id: 1124345361
@@ -859,6 +882,26 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 3.6966202
       minDuration: 3.6966202
+    - name: Play_StrongWind
+      guid: 5c74850ae8630b4bb68ffbca6a325ee2
+      id: 2364834417
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_StrongWind
+        ObjectType: 3
+        guid: 5c74850ae8630b4bb68ffbca6a325ee2
+      Path: Events\Default Work Unit\Environment\Play_StrongWind
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
     - name: Play_TardigradeJoin
       guid: b2291b2172e413478055109f007b2207
       id: 1666595735
@@ -899,6 +942,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.3561179
       minDuration: 0.24570516
+    - name: Play_ToxicPlant_Aura
+      guid: ff53ca87af289a479789b988f8c3a707
+      id: 3280802904
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Hazards
+        ObjectType: 4
+        guid: 619088906200554385348749d5adca0d
+      - ElementName: Play_ToxicPlant_Aura
+        ObjectType: 3
+        guid: ff53ca87af289a479789b988f8c3a707
+      Path: Events\Default Work Unit\Hazards\Play_ToxicPlant_Aura
+      maxAttenuation: 100
+      maxDuration: 4.266667
+      minDuration: 4.266667
     - name: Play_Tree_AmbientRustling
       guid: 3cbfb400a9814d4b996e5e49d53dd836
       id: 1620839241
@@ -1309,7 +1372,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000090000000e0000002300000025000000
+  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000b0000000e0000002300000025000000270000002a000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

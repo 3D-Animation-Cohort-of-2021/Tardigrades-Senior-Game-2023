@@ -16,6 +16,7 @@ namespace AK
         static const AkUniqueID LOOPINGMUSICTEMP = 946441836U;
         static const AkUniqueID PLAY_ACIDBUBBLING = 3054842010U;
         static const AkUniqueID PLAY_ACIDDROP_SPLASHRANDOM = 2954778481U;
+        static const AkUniqueID PLAY_BEACHAMBIENCE = 283495111U;
         static const AkUniqueID PLAY_BOULDERBLAST = 1124345361U;
         static const AkUniqueID PLAY_BRAZIER_BURNING = 2755379793U;
         static const AkUniqueID PLAY_BRAZIER_BURNING_NOCHIME = 3235386399U;
@@ -25,7 +26,9 @@ namespace AK
         static const AkUniqueID PLAY_LOG_DISINTEGRATE = 500576682U;
         static const AkUniqueID PLAY_QUESTIONMARKDRONE = 2073632745U;
         static const AkUniqueID PLAY_SPAWNERBOX_SEQUENCE = 3640949955U;
+        static const AkUniqueID PLAY_STRONGWIND = 2364834417U;
         static const AkUniqueID PLAY_TARDIGRADEPAIN_HIT = 3664269105U;
+        static const AkUniqueID PLAY_TOXICPLANT_AURA = 3280802904U;
         static const AkUniqueID PLAY_TREE_AMBIENTRUSTLING = 1620839241U;
         static const AkUniqueID PLAY_TREE_FALL = 3560238346U;
         static const AkUniqueID PLAY_UI_TUTORIALMESSAGE_SEQUENCE = 1285133454U;
