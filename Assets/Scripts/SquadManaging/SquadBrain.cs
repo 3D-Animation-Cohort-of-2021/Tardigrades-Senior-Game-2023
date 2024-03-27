@@ -574,7 +574,7 @@ public class SquadBrain : MonoBehaviour
         {
             refList.Add(pig);
         }
-
+        
         foreach (TardigradeBase pig in refList)
         {
             pig.Death(DeathType.None);
