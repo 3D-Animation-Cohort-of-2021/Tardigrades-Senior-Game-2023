@@ -22,7 +22,7 @@ public class Ability : MonoBehaviour
     {
         activatable = false;
         yield return new WaitForSeconds(cooldown);
-        Debug.Log("ability ready to use");
+        //Debug.Log("ability ready to use");
         activatable = true;
     }
 }
