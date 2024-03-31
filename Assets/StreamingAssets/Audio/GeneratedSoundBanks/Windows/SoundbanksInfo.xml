@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{CB4636A3-5834-5736-094C-159A91880B80}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{CF95A85F-59B0-1FEB-E065-CCAF2A3792BD}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -26,6 +26,10 @@
 					<Path>Media/25212802.wem</Path>
 					<CachePath>SFX/CartoonBubbling_01_37657DA8.wem</CachePath>
 				</File>
+				<File Id="63231738" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mushroom_Splatter.wav</ShortName>
+					<CachePath>SFX/Mushroom_Splatter_1AB3A48A.wem</CachePath>
+				</File>
 				<File Id="93515734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AcidDrop_Splash_02.wav</ShortName>
 					<CachePath>SFX/AcidDrop_Splash_02_1F74FA44.wem</CachePath>
@@ -35,22 +39,42 @@
 					<Path>Media/112289461.wem</Path>
 					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_3D5CCE37.wem</CachePath>
 				</File>
+				<File Id="224817251" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MushroomBoss_SquishImpact_02.wav</ShortName>
+					<CachePath>SFX/MushroomBoss_SquishImpact_02_2CE66A1E.wem</CachePath>
+				</File>
 				<File Id="300485277" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tree_Fall.wav</ShortName>
 					<CachePath>SFX/Tree_Fall_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="320041867" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MushroomBoss_SquishImpact_01.wav</ShortName>
+					<CachePath>SFX/MushroomBoss_SquishImpact_01_2CE66A1E.wem</CachePath>
 				</File>
 				<File Id="321851065" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AcidDrop_Splash_04.wav</ShortName>
 					<CachePath>SFX/AcidDrop_Splash_04_2CE66A1E.wem</CachePath>
 				</File>
+				<File Id="355979116" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MushroomBoss_SquishImpact_03.wav</ShortName>
+					<CachePath>SFX/MushroomBoss_SquishImpact_03_2CE66A1E.wem</CachePath>
+				</File>
 				<File Id="412191787" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoulderBlast_01.wav</ShortName>
-					<CachePath>SFX/BoulderBlast_01_95A25ED7.wem</CachePath>
+					<CachePath>SFX/BoulderBlast_01_BDC708DC.wem</CachePath>
+				</File>
+				<File Id="473291318" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MushroomBoss_SquishImpact_04.wav</ShortName>
+					<CachePath>SFX/MushroomBoss_SquishImpact_04_2CE66A1E.wem</CachePath>
 				</File>
 				<File Id="524569025" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>DeepBubbling_01.wav</ShortName>
 					<Path>Media/524569025.wem</Path>
 					<CachePath>SFX/DeepBubbling_01_37657DA8.wem</CachePath>
+				</File>
+				<File Id="558915682" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MushroomBoss_Splatter.wav</ShortName>
+					<CachePath>SFX/MushroomBoss_Splatter_2CE66A1E.wem</CachePath>
 				</File>
 				<File Id="762424537" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Grass_BurningUp.wav</ShortName>
@@ -61,6 +85,10 @@
 					<Path>Media/772731709.wem</Path>
 					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
 				</File>
+				<File Id="907625439" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MushroomBoss_ShieldSpin.wav</ShortName>
+					<CachePath>SFX/MushroomBoss_ShieldSpin_2CE66A1E.wem</CachePath>
+				</File>
 				<File Id="953339158" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>ToxicPlant_Aura.wav</ShortName>
 					<Path>Media/953339158.wem</Path>
@@ -68,7 +96,7 @@
 				</File>
 				<File Id="957286506" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoulderBlast_02.wav</ShortName>
-					<CachePath>SFX/BoulderBlast_02_0FB5F883.wem</CachePath>
+					<CachePath>SFX/BoulderBlast_02_6FDB8596.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -107,6 +135,25 @@
 						<MediaRef Id="762424537"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4217436442" Name="Play_Mushroom_Splatter" DurationType="OneShot" DurationMin="0.8826854" DurationMax="0.8826854">
+					<MediaRefs>
+						<MediaRef Id="63231738"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="587782264" Name="Play_MushroomBoss_Impact" DurationType="OneShot" DurationMin="6.398344" DurationMax="6.398344">
+					<MediaRefs>
+						<MediaRef Id="224817251"/>
+						<MediaRef Id="320041867"/>
+						<MediaRef Id="355979116"/>
+						<MediaRef Id="473291318"/>
+						<MediaRef Id="907625439"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1775051791" Name="Play_MushroomBoss_Splatter" DurationType="OneShot" DurationMin="0.71666664" DurationMax="0.71666664">
+					<MediaRefs>
+						<MediaRef Id="558915682"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3280802904" Name="Play_ToxicPlant_Aura" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="953339158"/>
@@ -129,7 +176,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{2B68D505-6EE8-A6C0-2301-22A114BEBB49}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{5A3499A1-28BD-FC2D-31C0-3B8A1E924080}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -141,6 +188,14 @@
 					<ShortName>FireAbility_BurningLoop.wav</ShortName>
 					<CachePath>SFX/FireAbility_BurningLoop_37657DA8.wem</CachePath>
 				</File>
+				<File Id="108162959" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>StoneAbility_Rocks.wav</ShortName>
+					<CachePath>SFX/StoneAbility_Rocks_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="124185785" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FreezeAbility_Blast.wav</ShortName>
+					<CachePath>SFX/FreezeAbility_Blast_E068E107.wem</CachePath>
+				</File>
 				<File Id="157662111" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_02.wav</ShortName>
 					<CachePath>SFX/TardigradeGrunt_PainHit_02_2CE66A1E.wem</CachePath>
@@ -151,11 +206,11 @@
 				</File>
 				<File Id="176383385" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BellChime_03.wav</ShortName>
-					<CachePath>SFX/BellChime_03_665BFD10.wem</CachePath>
+					<CachePath>SFX/BellChime_03_938F5688.wem</CachePath>
 				</File>
 				<File Id="178163077" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FireAbility_Boom.wav</ShortName>
-					<CachePath>SFX/FireAbility_Boom_49F235AD.wem</CachePath>
+					<CachePath>SFX/FireAbility_Boom_95F3802D.wem</CachePath>
 				</File>
 				<File Id="189534938" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_03.wav</ShortName>
@@ -172,6 +227,10 @@
 				<File Id="351531709" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_TutorialMessage_FlyOut.wav</ShortName>
 					<CachePath>SFX/UI_TutorialMessage_FlyOut_8985DD1F.wem</CachePath>
+				</File>
+				<File Id="352887448" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>IceAbility_Healing_wPop_02.wav</ShortName>
+					<CachePath>SFX/IceAbility_Healing_wPop_02_2CE66A1E.wem</CachePath>
 				</File>
 				<File Id="476390243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_AreYouSure.wav</ShortName>
@@ -222,6 +281,10 @@
 					<ShortName>DroneLoop.wav</ShortName>
 					<Path>Media/769056427.wem</Path>
 					<CachePath>SFX/DroneLoop_37657DA8.wem</CachePath>
+				</File>
+				<File Id="775879628" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>StoneAbility_WeightDownArrow_03.wav</ShortName>
+					<CachePath>SFX/StoneAbility_WeightDownArrow_03_2CE66A1E.wem</CachePath>
 				</File>
 				<File Id="787660656" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TardigradeGrunt_PainHit_04.wav</ShortName>
@@ -275,6 +338,16 @@
 						<MediaRef Id="727543428"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="712876480" Name="Play_FreezeAbility_Blast" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.6585795" DurationMax="1.6585795">
+					<MediaRefs>
+						<MediaRef Id="124185785"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1652449308" Name="Play_IceAbility_Healing_wPop_02" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.45" DurationMax="3.45">
+					<MediaRefs>
+						<MediaRef Id="352887448"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2073632745" Name="Play_QuestionMarkDrone" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="769056427"/>
@@ -284,6 +357,16 @@
 				<Event Id="3640949955" Name="Play_SpawnerBox_Sequence" MaxAttenuation="16" DurationType="OneShot" DurationMin="3.6966202" DurationMax="3.6966202">
 					<MediaRefs>
 						<MediaRef Id="562881451"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2406343346" Name="Play_StoneAbility_Rocks" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.2333333" DurationMax="2.2333333">
+					<MediaRefs>
+						<MediaRef Id="108162959"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3396071063" Name="Play_StoneAbility_WeightDownArrow" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.9" DurationMax="0.9">
+					<MediaRefs>
+						<MediaRef Id="775879628"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3664269105" Name="Play_TardigradePain_Hit" DurationType="OneShot" DurationMin="0.24570516" DurationMax="0.3561179">
@@ -544,7 +627,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{9D3C0B65-3C16-5079-5A9E-2FBEE88B6A72}">
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{6F004B03-ADBA-1F15-5DFD-A04D544D836C}">
 			<ShortName>Level_0_1_Tutorial_SB</ShortName>
 			<Path>Level_0_1_Tutorial_SB.bnk</Path>
 			<Media>
@@ -559,7 +642,7 @@
 				</File>
 				<File Id="412191787" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoulderBlast_01.wav</ShortName>
-					<CachePath>SFX/BoulderBlast_01_95A25ED7.wem</CachePath>
+					<CachePath>SFX/BoulderBlast_01_BDC708DC.wem</CachePath>
 				</File>
 				<File Id="762424537" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Grass_BurningUp.wav</ShortName>
@@ -572,7 +655,7 @@
 				</File>
 				<File Id="957286506" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoulderBlast_02.wav</ShortName>
-					<CachePath>SFX/BoulderBlast_02_0FB5F883.wem</CachePath>
+					<CachePath>SFX/BoulderBlast_02_6FDB8596.wem</CachePath>
 				</File>
 				<File Id="964770098" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Log_Disintegrate_02.wav</ShortName>
@@ -609,23 +692,41 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2561270309" Type="User" Language="SFX" Hash="{6F7A75F3-B52F-C06D-E3B1-3DF4093D1CE9}">
+		<SoundBank Id="2561270309" Type="User" Language="SFX" Hash="{E431B1EC-0A77-3834-6E56-7B785C8C9786}">
 			<ShortName>Level_2_1_Lava_SB</ShortName>
 			<Path>Level_2_1_Lava_SB.bnk</Path>
+			<Media>
+				<File Id="261261006" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>ShortRyan_Tardigrades-Lava-Theme_95bpm4-4L43M_LOOPER_Draft2.wav</ShortName>
+					<Path>Media/261261006.wem</Path>
+					<CachePath>SFX/ShortRyan_Tardigrades-Lava-Theme_95bpm4-4L43M_LOOPER_Draft2_942592D0.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="4042899639" Name="Play_MUSIC_LavaTheme" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="261261006"/>
+					</MediaRefs>
+				</Event>
+			</Events>
 		</SoundBank>
-		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{B3C54CDE-FC6F-E755-2CA0-837287EC8497}">
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{49C18544-AEF5-9D1B-DCF1-68305E07095A}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
 			<Media>
+				<File Id="176383385" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BellChime_03.wav</ShortName>
+					<CachePath>SFX/BellChime_03_938F5688.wem</CachePath>
+				</File>
 				<File Id="272590377" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>StrongWind.wav</ShortName>
 					<Path>Media/272590377.wem</Path>
 					<CachePath>SFX/StrongWind_37657DA8.wem</CachePath>
 				</File>
-				<File Id="436262395" Language="SFX" Streaming="true" Location="Loose">
-					<ShortName>AMB_Beach.wav</ShortName>
-					<Path>Media/436262395.wem</Path>
-					<CachePath>SFX/AMB_Beach_37657DA8.wem</CachePath>
+				<File Id="432837641" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>OceanAmbience.wav</ShortName>
+					<Path>Media/432837641.wem</Path>
+					<CachePath>SFX/OceanAmbience_37657DA8.wem</CachePath>
 				</File>
 				<File Id="762424537" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Grass_BurningUp.wav</ShortName>
@@ -640,7 +741,12 @@
 			<Events>
 				<Event Id="283495111" Name="Play_BeachAmbience" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="436262395"/>
+						<MediaRef Id="432837641"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3393043477" Name="Play_GemChime" DurationType="OneShot" DurationMin="0.93786675" DurationMax="0.93786675">
+					<MediaRefs>
+						<MediaRef Id="176383385"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3080242803" Name="Play_Grass_BurningUp" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.9990714" DurationMax="3.3620236">
@@ -661,5 +767,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D0B24EE6-8BF8-1DAD-6865-DFC2B46FB468}</FileHash>
+	<FileHash>{1FB88DA5-9F86-6313-9AFA-BACB012400CB}</FileHash>
 </SoundBanksInfo>

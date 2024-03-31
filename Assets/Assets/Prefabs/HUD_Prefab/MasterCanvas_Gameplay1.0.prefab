@@ -12792,6 +12792,7 @@ GameObject:
   - component: {fileID: 4805354399075282969}
   - component: {fileID: 3074211790742033002}
   - component: {fileID: 8846597664757360435}
+  - component: {fileID: 1708212696647810588}
   m_Layer: 5
   m_Name: Back To Lab Button
   m_TagString: Untagged
@@ -12938,6 +12939,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1708212696647810588}
+        m_TargetAssemblyTypeName: PostStopEvent, Assembly-CSharp
+        m_MethodName: PostEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3074211790742033002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12984,6 +12997,23 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: acf63c8bea7df194f8fa9dfca7d4662a,
+      type: 2}
+--- !u!114 &1708212696647810588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5511914130843065031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf81264678fb4a04b906d0324e9e2767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToStop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2de992672e25f9142a11a86c64279d49,
       type: 2}
 --- !u!1 &5523755896556714778
 GameObject:
@@ -21607,6 +21637,7 @@ GameObject:
   - component: {fileID: 3905448706255626404}
   - component: {fileID: 858718435}
   - component: {fileID: 353779809377644304}
+  - component: {fileID: 3831006401920677299}
   m_Layer: 5
   m_Name: Next Level Button
   m_TagString: Untagged
@@ -21753,6 +21784,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3831006401920677299}
+        m_TargetAssemblyTypeName: PostStopEvent, Assembly-CSharp
+        m_MethodName: PostEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3905448706255626404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21830,6 +21873,23 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 5b401bf41d2b01043837b9c1ee4e8c6d,
+      type: 2}
+--- !u!114 &3831006401920677299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9176705194289197175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf81264678fb4a04b906d0324e9e2767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToStop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2de992672e25f9142a11a86c64279d49,
       type: 2}
 --- !u!1 &9217987478490159356
 GameObject:

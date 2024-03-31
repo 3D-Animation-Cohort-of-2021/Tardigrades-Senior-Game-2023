@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584897505813458549
+    m_lastTime: -8584896817618691566
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -463,7 +463,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584897505813523673
+    m_lastTime: -8584896817618751581
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -922,6 +922,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_FreezeAbility_Blast
+      guid: 436cb7a148fbf246a31801544549e3e6
+      id: 712876480
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Play_FreezeAbility_Blast
+        ObjectType: 3
+        guid: 436cb7a148fbf246a31801544549e3e6
+      Path: Events\Default Work Unit\Tardigrades\Play_FreezeAbility_Blast
+      maxAttenuation: 100
+      maxDuration: 1.6585795
+      minDuration: 1.6585795
+    - name: Play_GemChime
+      guid: 915ffdd25b2b8b4bbcbe82de87397047
+      id: 3393043477
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_GemChime
+        ObjectType: 3
+        guid: 915ffdd25b2b8b4bbcbe82de87397047
+      Path: Events\Default Work Unit\Environment\Play_GemChime
+      maxAttenuation: 0
+      maxDuration: 0.93786675
+      minDuration: 0.93786675
     - name: Play_Grass_BurningUp
       guid: 612ce0ad129562499d6f4f0529e9239b
       id: 3080242803
@@ -942,6 +982,26 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 3.3620236
       minDuration: 1.9990714
+    - name: Play_IceAbility_Healing_wPop_02
+      guid: fb51a10bacda4042b7b493e60a53b41a
+      id: 1652449308
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Play_IceAbility_Healing_wPop_02
+        ObjectType: 3
+        guid: fb51a10bacda4042b7b493e60a53b41a
+      Path: Events\Default Work Unit\Tardigrades\Play_IceAbility_Healing_wPop_02
+      maxAttenuation: 100
+      maxDuration: 3.45
+      minDuration: 3.45
     - name: Play_Log_Disintegrate
       guid: e8ac650f8e2663418cd768121729ca47
       id: 500576682
@@ -962,6 +1022,86 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 2.4424472
       minDuration: 2.3979888
+    - name: Play_Mushroom_Splatter
+      guid: 3e8508a28ab74d429b9ed3cb2b0cd820
+      id: 4217436442
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Hazards
+        ObjectType: 4
+        guid: 619088906200554385348749d5adca0d
+      - ElementName: Play_Mushroom_Splatter
+        ObjectType: 3
+        guid: 3e8508a28ab74d429b9ed3cb2b0cd820
+      Path: Events\Default Work Unit\Hazards\Play_Mushroom_Splatter
+      maxAttenuation: 0
+      maxDuration: 0.8826854
+      minDuration: 0.8826854
+    - name: Play_MushroomBoss_Impact
+      guid: fe851119a9592446b69eeaaa01886a19
+      id: 587782264
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Hazards
+        ObjectType: 4
+        guid: 619088906200554385348749d5adca0d
+      - ElementName: Play_MushroomBoss_Impact
+        ObjectType: 3
+        guid: fe851119a9592446b69eeaaa01886a19
+      Path: Events\Default Work Unit\Hazards\Play_MushroomBoss_Impact
+      maxAttenuation: 0
+      maxDuration: 6.398344
+      minDuration: 6.398344
+    - name: Play_MushroomBoss_Splatter
+      guid: a08bf31e10162c488fe91a78d8a8566e
+      id: 1775051791
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Hazards
+        ObjectType: 4
+        guid: 619088906200554385348749d5adca0d
+      - ElementName: Play_MushroomBoss_Splatter
+        ObjectType: 3
+        guid: a08bf31e10162c488fe91a78d8a8566e
+      Path: Events\Default Work Unit\Hazards\Play_MushroomBoss_Splatter
+      maxAttenuation: 0
+      maxDuration: 0.71666664
+      minDuration: 0.71666664
+    - name: Play_MUSIC_LavaTheme
+      guid: 32c670d51d686b4281a988dd75ab1c31
+      id: 4042899639
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Music
+        ObjectType: 4
+        guid: 0b8bf563514d5e4eb1d05e4342506962
+      - ElementName: Play_MUSIC_LavaTheme
+        ObjectType: 3
+        guid: 32c670d51d686b4281a988dd75ab1c31
+      Path: Events\Default Work Unit\Music\Play_MUSIC_LavaTheme
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_QuestionMarkDrone
       guid: 90ab98af581422458357709ea67071c1
       id: 2073632745
@@ -1002,6 +1142,46 @@ MonoBehaviour:
       maxAttenuation: 16
       maxDuration: 3.6966202
       minDuration: 3.6966202
+    - name: Play_StoneAbility_Rocks
+      guid: cbfb6de122454f4bbaefb8825ea59951
+      id: 2406343346
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Play_StoneAbility_Rocks
+        ObjectType: 3
+        guid: cbfb6de122454f4bbaefb8825ea59951
+      Path: Events\Default Work Unit\Tardigrades\Play_StoneAbility_Rocks
+      maxAttenuation: 100
+      maxDuration: 2.2333333
+      minDuration: 2.2333333
+    - name: Play_StoneAbility_WeightDownArrow
+      guid: 184872b769280844bd4edc1c0c0806ca
+      id: 3396071063
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Play_StoneAbility_WeightDownArrow
+        ObjectType: 3
+        guid: 184872b769280844bd4edc1c0c0806ca
+      Path: Events\Default Work Unit\Tardigrades\Play_StoneAbility_WeightDownArrow
+      maxAttenuation: 100
+      maxDuration: 0.9
+      minDuration: 0.9
     - name: Play_StrongWind
       guid: 5c74850ae8630b4bb68ffbca6a325ee2
       id: 2364834417
@@ -1538,7 +1718,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000d0000000f0000001100000012000000230000002500000027000000290000002a0000003c0000003d000000
+  ExpandedWaapiItemIds: 0500000006000000080000000a0000000c0000000d0000000f0000001100000012000000230000002500000027000000290000002a0000003c0000003d000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
