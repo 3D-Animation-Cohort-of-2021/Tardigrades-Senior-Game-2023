@@ -3,6 +3,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	882936002	UI_AreYouSure			\Default Work Unit\UI\UI_AreYouSure	
 	946441836	LoopingMusicTEMP			\Default Work Unit\Music\LoopingMusicTEMP	
 	1285133454	Play_UI_TutorialMessage_Sequence			\Default Work Unit\UI\Play_UI_TutorialMessage_Sequence	
+	1444742504	Play_FireAbility_Burning			\Default Work Unit\Tardigrades\Fire\Play_FireAbility_Burning	
+	1984528726	Play_FireAbility_Boom			\Default Work Unit\Tardigrades\Fire\Play_FireAbility_Boom	
 	2073632745	Play_QuestionMarkDrone			\Default Work Unit\General\Play_QuestionMarkDrone	
 	2166256596	Play_EndBox_Sequence			\Default Work Unit\General\Play_EndBox_Sequence	
 	2454902471	UI_ResetButton			\Default Work Unit\UI\UI_ResetButton	
@@ -12,7 +14,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3235386399	Play_Brazier_Burning_NoChime			\Default Work Unit\Environment\Play_Brazier_Burning_NoChime	
 	3368070439	UI_PressPause			\Default Work Unit\UI\UI_PressPause	
 	3640949955	Play_SpawnerBox_Sequence			\Default Work Unit\General\Play_SpawnerBox_Sequence	
-	3664269105	Play_TardigradePain_Hit			\Default Work Unit\Tardigrades\Play_TardigradePain_Hit	
+	3664269105	Play_TardigradePain_Hit			\Default Work Unit\Tardigrades\General\Play_TardigradePain_Hit	
 	3824618851	UI_PressButton			\Default Work Unit\UI\UI_PressButton	
 	3903759629	StopAll_Delayed			\Default Work Unit\Stops\StopAll_Delayed	
 	4175962335	StopAll_General			\Default Work Unit\Stops\StopAll_General	
@@ -22,11 +24,13 @@ Effect plug-ins	ID	Name	Type				Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	62295430	UI_PressQuit_V2	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_PressQuit_V2_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_PressQuit_V2		6638
-	157662111	TardigradeGrunt_PainHit_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_02_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_02		2333
+	104885782	FireAbility_BurningLoop	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\FireAbility_BurningLoop_37657DA8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Fire\FireAbility_BurningLoop		41190
+	157662111	TardigradeGrunt_PainHit_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_02_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_02		2333
 	161461778	Brazier_Burning	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\Brazier_Burning_748CB298.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\1_1\Brazier_Burning		24569
 	176383385	BellChime_03	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\BellChime_03_665BFD10.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\1_1\BellChime_03		9306
-	189534938	TardigradeGrunt_PainHit_03	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_03_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_03		2796
-	305708374	TardigradeGrunt_PainHit_05	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_05_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_05		4093
+	178163077	FireAbility_Boom	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\FireAbility_Boom_49F235AD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Fire\FireAbility_Boom		14906
+	189534938	TardigradeGrunt_PainHit_03	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_03_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_03		2796
+	305708374	TardigradeGrunt_PainHit_05	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_05_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_05		4093
 	335115077	EndBox_Sequence	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\EndBox_Sequence_5002E4A3.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\EndBox_Sequence		39945
 	351531709	UI_TutorialMessage_FlyOut	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_TutorialMessage_FlyOut_8985DD1F.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_TutorialMessage_Sequence\UI_TutorialMessage_FlyOut		2245
 	476390243	UI_AreYouSure	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_AreYouSure_9E5C773F.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_AreYouSure		2020
@@ -36,10 +40,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	562881451	SpawnerBox_Sequence_01	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\SpawnerBox_Sequence_01_1ED08815.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\SpawnerBox_Sequence_01		45078
 	613020561	UI_ResetButton	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_ResetButton_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_ResetButton		1888
 	624600041	UI_PressButton_V3	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_PressButton_V3_EA56946F.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_PressButton_V3		914
-	686178676	TardigradeGrunt_PainHit_06	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_06_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_06		3031
+	686178676	TardigradeGrunt_PainHit_06	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_06_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_06		3031
+	727543428	FireAbility_StartBurning_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\FireAbility_StartBurning_02_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Fire\FireAbility_StartBurning_02		8296
 	737277535	UI_Unpause	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_Unpause_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_Unpause		2463
-	787660656	TardigradeGrunt_PainHit_04	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_04_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_04		3790
-	932023741	TardigradeGrunt_PainHit_01	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_01_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_01		2661
+	787660656	TardigradeGrunt_PainHit_04	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_04_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_04		3790
+	932023741	TardigradeGrunt_PainHit_01	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_01_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_01		2661
 
 Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
 	539989011	ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER_748CB298.wem	539989011.wem	\Actor-Mixer Hierarchy\Default Work Unit\Music\ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER	

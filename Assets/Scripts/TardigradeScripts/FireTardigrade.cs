@@ -6,9 +6,8 @@ using UnityEngine.VFX;
 
 public class FireTardigrade : TardigradeBase
 {
-
     public bool ignited = false;
-
+    
     protected override void UpdateTardigrade()
     {
         base.UpdateTardigrade();
@@ -30,7 +29,7 @@ public class FireTardigrade : TardigradeBase
         DamageOnEnter explosion = Instantiate(_abilityPrefab, transform.position, Quaternion.identity).GetComponent<DamageOnEnter>();
         explosion._damage = _damage;
         
-        _tarAnimator.SetTrigger("explode"); ;
+        _tarAnimator.SetTrigger("explode");
     }
 
     public override void SecondaryAbility()

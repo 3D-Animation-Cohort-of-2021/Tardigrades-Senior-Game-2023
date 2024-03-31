@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584897563409959806
+    m_lastTime: -8584897505813458549
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -463,7 +463,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584897563502335227
+    m_lastTime: -8584897505813523673
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -579,6 +579,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Fire
+      guid: a13e9b9b19c85c4eb2e384d6c3432448
+      id: 2678880713
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Fire
+        ObjectType: 4
+        guid: a13e9b9b19c85c4eb2e384d6c3432448
+      Path: Events\Default Work Unit\Tardigrades\Fire
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: General
       guid: e238518739d7fe4d975d5a34b63bb2e6
       id: 133642231
@@ -596,6 +616,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: General
+      guid: 3fb8d8f521a63a489b680df7f4074a0f
+      id: 133642231
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: General
+        ObjectType: 4
+        guid: 3fb8d8f521a63a489b680df7f4074a0f
+      Path: Events\Default Work Unit\Tardigrades\General
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Hazards
       guid: 619088906200554385348749d5adca0d
       id: 4039062316
@@ -610,6 +650,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 619088906200554385348749d5adca0d
       Path: Events\Default Work Unit\Hazards
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Ice
+      guid: 1306bdb76681cf40b3e278ec672dbe17
+      id: 344481046
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Ice
+        ObjectType: 4
+        guid: 1306bdb76681cf40b3e278ec672dbe17
+      Path: Events\Default Work Unit\Tardigrades\Ice
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -790,9 +850,55 @@ MonoBehaviour:
         ObjectType: 3
         guid: bb3ec0aa53b78d49a93d71568c40a540
       Path: Events\Default Work Unit\General\Play_EndBox_Sequence
-      maxAttenuation: 30
+      maxAttenuation: 16
       maxDuration: 3.5985858
       minDuration: 3.5985858
+    - name: Play_FireAbility_Boom
+      guid: c3e9cbcb8c04544ba3ed8436d9a7202f
+      id: 1984528726
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Fire
+        ObjectType: 4
+        guid: a13e9b9b19c85c4eb2e384d6c3432448
+      - ElementName: Play_FireAbility_Boom
+        ObjectType: 3
+        guid: c3e9cbcb8c04544ba3ed8436d9a7202f
+      Path: Events\Default Work Unit\Tardigrades\Fire\Play_FireAbility_Boom
+      maxAttenuation: 100
+      maxDuration: 2.0536807
+      minDuration: 1.6537166
+    - name: Play_FireAbility_Burning
+      guid: a8c166eabe356f418754e9ddebed30f9
+      id: 1444742504
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Fire
+        ObjectType: 4
+        guid: a13e9b9b19c85c4eb2e384d6c3432448
+      - ElementName: Play_FireAbility_Burning
+        ObjectType: 3
+        guid: a8c166eabe356f418754e9ddebed30f9
+      Path: Events\Default Work Unit\Tardigrades\Fire\Play_FireAbility_Burning
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
     - name: Play_ForestAmbience
       guid: 21ccbc06616323479228d65b3c9fd30b
       id: 3149538809
@@ -893,7 +999,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: aa00bf852846a04ca0751a73caafad4e
       Path: Events\Default Work Unit\General\Play_SpawnerBox_Sequence
-      maxAttenuation: 30
+      maxAttenuation: 16
       maxDuration: 3.6966202
       minDuration: 3.6966202
     - name: Play_StrongWind
@@ -929,10 +1035,13 @@ MonoBehaviour:
       - ElementName: Tardigrades
         ObjectType: 4
         guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: General
+        ObjectType: 4
+        guid: 3fb8d8f521a63a489b680df7f4074a0f
       - ElementName: Play_TardigradeJoin
         ObjectType: 3
         guid: b2291b2172e413478055109f007b2207
-      Path: Events\Default Work Unit\Tardigrades\Play_TardigradeJoin
+      Path: Events\Default Work Unit\Tardigrades\General\Play_TardigradeJoin
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -949,10 +1058,13 @@ MonoBehaviour:
       - ElementName: Tardigrades
         ObjectType: 4
         guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: General
+        ObjectType: 4
+        guid: 3fb8d8f521a63a489b680df7f4074a0f
       - ElementName: Play_TardigradePain_Hit
         ObjectType: 3
         guid: a2222cfd0985c546ad64bdf1a5f43952
-      Path: Events\Default Work Unit\Tardigrades\Play_TardigradePain_Hit
+      Path: Events\Default Work Unit\Tardigrades\General\Play_TardigradePain_Hit
       maxAttenuation: 0
       maxDuration: 0.3561179
       minDuration: 0.24570516
@@ -1036,6 +1148,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.25829658
       minDuration: 0.24407488
+    - name: Stone
+      guid: 280522b5836505439cd257e782c61a6e
+      id: 1216965916
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Stone
+        ObjectType: 4
+        guid: 280522b5836505439cd257e782c61a6e
+      Path: Events\Default Work Unit\Tardigrades\Stone
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: StopAll_Delayed
       guid: 1a48f97ff340a14080270d30a351f4e1
       id: 3903759629
@@ -1406,7 +1538,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000090000000e0000000f0000001100000012000000230000002500000027000000290000002a000000
+  ExpandedWaapiItemIds: 05000000060000000d0000000f0000001100000012000000230000002500000027000000290000002a0000003c0000003d000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
