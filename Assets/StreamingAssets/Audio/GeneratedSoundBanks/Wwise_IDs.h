@@ -32,6 +32,7 @@ namespace AK
         static const AkUniqueID PLAY_TREE_AMBIENTRUSTLING = 1620839241U;
         static const AkUniqueID PLAY_TREE_FALL = 3560238346U;
         static const AkUniqueID PLAY_UI_TUTORIALMESSAGE_SEQUENCE = 1285133454U;
+        static const AkUniqueID STOPALL_DELAYED = 3903759629U;
         static const AkUniqueID STOPALL_GENERAL = 4175962335U;
         static const AkUniqueID UI_AREYOUSURE = 882936002U;
         static const AkUniqueID UI_BACKTO = 209618788U;
@@ -54,6 +55,7 @@ namespace AK
     {
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID GENERAL_SB = 935286101U;
+        static const AkUniqueID HUBSCENE_SB = 1778457274U;
         static const AkUniqueID LEVEL_0_1_TUTORIAL_SB = 1892470695U;
         static const AkUniqueID LEVEL_1_1_WASTELAND_SB = 551713303U;
         static const AkUniqueID LEVEL_1_2_BEACH_SB = 3486483130U;

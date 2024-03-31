@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{540A3BE1-9361-2F8C-7D4C-70C8C663BF87}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{F14BBBA7-0EE3-E8EB-8298-17DCEC3BB88C}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -119,7 +119,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{20CC33B6-CE6B-4344-BBB1-0A438C11E984}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{3A3AD874-1439-22DC-B095-30460866C7C8}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -237,7 +237,7 @@
 						<MediaRef Id="161461778"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2166256596" Name="Play_EndBox_Sequence" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.5985858" DurationMax="3.5985858">
+				<Event Id="2166256596" Name="Play_EndBox_Sequence" MaxAttenuation="16" DurationType="OneShot" DurationMin="3.5985858" DurationMax="3.5985858">
 					<MediaRefs>
 						<MediaRef Id="335115077"/>
 					</MediaRefs>
@@ -248,7 +248,7 @@
 						<MediaRef Id="818361875"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3640949955" Name="Play_SpawnerBox_Sequence" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.6966202" DurationMax="3.6966202">
+				<Event Id="3640949955" Name="Play_SpawnerBox_Sequence" MaxAttenuation="16" DurationType="OneShot" DurationMin="3.6966202" DurationMax="3.6966202">
 					<MediaRefs>
 						<MediaRef Id="562881451"/>
 					</MediaRefs>
@@ -274,6 +274,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
+				<Event Id="3903759629" Name="StopAll_Delayed" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="4175962335" Name="StopAll_General" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="882936002" Name="UI_AreYouSure" DurationType="OneShot" DurationMin="0.27366436" DurationMax="0.27366436">
 					<MediaRefs>
@@ -482,7 +483,35 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{3FD44EC5-D2D9-F445-B21E-4700FA7C4D1D}">
+		<SoundBank Id="1778457274" Type="User" Language="SFX" Hash="{365FDA21-5432-4584-7DB9-881484B7ECD4}">
+			<ShortName>HubScene_SB</ShortName>
+			<Path>HubScene_SB.bnk</Path>
+			<Media>
+				<File Id="112289461" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW.wav</ShortName>
+					<Path>Media/112289461.wem</Path>
+					<CachePath>SFX/528464-AMBForst-Windy_Afternoon_Quinault_Rainforest-JATH-SPNW_3D5CCE37.wem</CachePath>
+				</File>
+				<File Id="772731709" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Tree_AmbientRustling_01.wav</ShortName>
+					<Path>Media/772731709.wem</Path>
+					<CachePath>SFX/Tree_AmbientRustling_01_37657DA8.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="3149538809" Name="Play_ForestAmbience" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="112289461"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1620839241" Name="Play_Tree_AmbientRustling" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="772731709"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{5D5DAE07-95D4-C738-58D9-251EB7847D81}">
 			<ShortName>Level_0_1_Tutorial_SB</ShortName>
 			<Path>Level_0_1_Tutorial_SB.bnk</Path>
 			<Media>
@@ -551,7 +580,7 @@
 			<ShortName>Level_2_1_Lava_SB</ShortName>
 			<Path>Level_2_1_Lava_SB.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{F3E7A744-0F5B-DA1E-BAF7-AC31CB7CE638}">
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{032815C6-1EB9-0B63-0E92-13F59CF6E05D}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
 			<Media>
@@ -599,5 +628,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{C66EE88C-3A59-5E58-F433-050998BF7857}</FileHash>
+	<FileHash>{AEF5B196-EE1E-5435-D581-877EBF4D964F}</FileHash>
 </SoundBanksInfo>

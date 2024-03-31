@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584901778277563774
+    m_lastTime: -8584897563409959806
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -381,6 +381,20 @@ MonoBehaviour:
         ObjectType: 7
         guid: dc23fe8a4ddb2d468c3b1fe6c477250a
       Path: SoundBanks\Default Work Unit\General_SB
+    - name: HubScene_SB
+      guid: 6b926af85bcde6448ac40833fe448332
+      id: 1778457274
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: c55937d096768a428ea2e4ef73f3e81a
+      - ElementName: HubScene_SB
+        ObjectType: 7
+        guid: 6b926af85bcde6448ac40833fe448332
+      Path: SoundBanks\Default Work Unit\HubScene_SB
     - name: Level_0_1_Tutorial_SB
       guid: 4f2a4796dc577b439dea2c449ff093c2
       id: 1892470695
@@ -449,7 +463,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584901778277608804
+    m_lastTime: -8584897563502335227
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -776,7 +790,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: bb3ec0aa53b78d49a93d71568c40a540
       Path: Events\Default Work Unit\General\Play_EndBox_Sequence
-      maxAttenuation: 100
+      maxAttenuation: 30
       maxDuration: 3.5985858
       minDuration: 3.5985858
     - name: Play_ForestAmbience
@@ -879,7 +893,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: aa00bf852846a04ca0751a73caafad4e
       Path: Events\Default Work Unit\General\Play_SpawnerBox_Sequence
-      maxAttenuation: 100
+      maxAttenuation: 30
       maxDuration: 3.6966202
       minDuration: 3.6966202
     - name: Play_StrongWind
@@ -960,8 +974,8 @@ MonoBehaviour:
         guid: ff53ca87af289a479789b988f8c3a707
       Path: Events\Default Work Unit\Hazards\Play_ToxicPlant_Aura
       maxAttenuation: 100
-      maxDuration: 4.266667
-      minDuration: 4.266667
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Tree_AmbientRustling
       guid: 3cbfb400a9814d4b996e5e49d53dd836
       id: 1620839241
@@ -1022,6 +1036,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.25829658
       minDuration: 0.24407488
+    - name: StopAll_Delayed
+      guid: 1a48f97ff340a14080270d30a351f4e1
+      id: 3903759629
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Stops
+        ObjectType: 4
+        guid: 3d24c4d35cb4d447a7aa1679296fc4b5
+      - ElementName: StopAll_Delayed
+        ObjectType: 3
+        guid: 1a48f97ff340a14080270d30a351f4e1
+      Path: Events\Default Work Unit\Stops\StopAll_Delayed
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: StopAll_General
       guid: 9561747613f9a24abe7fa53288de3506
       id: 4175962335
@@ -1372,7 +1406,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000b0000000e0000002300000025000000270000002a000000
+  ExpandedWaapiItemIds: 0500000006000000090000000e0000000f0000001100000012000000230000002500000027000000290000002a000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
