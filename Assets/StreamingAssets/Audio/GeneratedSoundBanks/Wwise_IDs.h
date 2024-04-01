@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID LOOPINGMUSICTEMP = 946441836U;
         static const AkUniqueID PLAY_ACIDBUBBLING = 3054842010U;
+        static const AkUniqueID PLAY_ACIDDROP_FALLING = 1913892122U;
         static const AkUniqueID PLAY_ACIDDROP_SPLASHRANDOM = 2954778481U;
         static const AkUniqueID PLAY_BEACHAMBIENCE = 283495111U;
         static const AkUniqueID PLAY_BOULDERBLAST = 1124345361U;
@@ -23,12 +24,14 @@ namespace AK
         static const AkUniqueID PLAY_ENDBOX_SEQUENCE = 2166256596U;
         static const AkUniqueID PLAY_FIREABILITY_BOOM = 1984528726U;
         static const AkUniqueID PLAY_FIREABILITY_BURNING = 1444742504U;
+        static const AkUniqueID PLAY_FIREABILITY_STOPBURNING = 504204120U;
         static const AkUniqueID PLAY_FORESTAMBIENCE = 3149538809U;
         static const AkUniqueID PLAY_FREEZEABILITY_BLAST = 712876480U;
         static const AkUniqueID PLAY_GEMCHIME = 3393043477U;
         static const AkUniqueID PLAY_GRASS_BURNINGUP = 3080242803U;
         static const AkUniqueID PLAY_ICEABILITY_HEALING_WPOP_02 = 1652449308U;
         static const AkUniqueID PLAY_LOG_DISINTEGRATE = 500576682U;
+        static const AkUniqueID PLAY_MAINMENUAMBIENCE = 2773040656U;
         static const AkUniqueID PLAY_MUSHROOM_SPLATTER = 4217436442U;
         static const AkUniqueID PLAY_MUSHROOMBOSS_IMPACT = 587782264U;
         static const AkUniqueID PLAY_MUSHROOMBOSS_SPLATTER = 1775051791U;
@@ -71,6 +74,7 @@ namespace AK
         static const AkUniqueID LEVEL_1_1_WASTELAND_SB = 551713303U;
         static const AkUniqueID LEVEL_1_2_BEACH_SB = 3486483130U;
         static const AkUniqueID LEVEL_2_1_LAVA_SB = 2561270309U;
+        static const AkUniqueID MAINMENU_SB = 2840159625U;
     } // namespace BANKS
 
     namespace BUSSES

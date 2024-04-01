@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{C1052254-A203-5B2B-0AF9-5CC0306033EA}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{A67257F5-BB50-1738-4A67-761437C224D5}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -54,6 +54,10 @@
 				<File Id="321851065" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AcidDrop_Splash_04.wav</ShortName>
 					<CachePath>SFX/AcidDrop_Splash_04_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="347079794" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AcidDrop_Falling_02.wav</ShortName>
+					<CachePath>SFX/AcidDrop_Falling_02_4B5BEFBF.wem</CachePath>
 				</File>
 				<File Id="355979116" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>MushroomBoss_SquishImpact_03.wav</ShortName>
@@ -109,6 +113,11 @@
 					<MediaRefs>
 						<MediaRef Id="25212802"/>
 						<MediaRef Id="524569025"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1913892122" Name="Play_AcidDrop_Falling" DurationType="OneShot" DurationMin="1.5166667" DurationMax="1.5166667">
+					<MediaRefs>
+						<MediaRef Id="347079794"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2954778481" Name="Play_AcidDrop_SplashRandom" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.293231" DurationMax="1.8432709">
@@ -176,7 +185,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{7BA9AE66-C7FA-FD60-303A-E9F12C8E4C04}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{3696FB40-1013-1864-6085-5D423A5AE776}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -203,6 +212,10 @@
 				<File Id="161461778" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Brazier_Burning.wav</ShortName>
 					<CachePath>SFX/Brazier_Burning_748CB298.wem</CachePath>
+				</File>
+				<File Id="176324972" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FireAbility_StopBurning.wav</ShortName>
+					<CachePath>SFX/FireAbility_StopBurning_3E4B63C8.wem</CachePath>
 				</File>
 				<File Id="176383385" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BellChime_03.wav</ShortName>
@@ -336,6 +349,11 @@
 					<MediaRefs>
 						<MediaRef Id="104885782"/>
 						<MediaRef Id="727543428"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="504204120" Name="Play_FireAbility_StopBurning" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.0848774" DurationMax="1.1661056">
+					<MediaRefs>
+						<MediaRef Id="176324972"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="712876480" Name="Play_FreezeAbility_Blast" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.6585795" DurationMax="1.6585795">
@@ -710,6 +728,36 @@
 				</Event>
 			</Events>
 		</SoundBank>
+		<SoundBank Id="2840159625" Type="User" Language="SFX" Hash="{C37DADE5-B501-2DA1-D14D-B45C073A4EFA}">
+			<ShortName>MainMenu_SB</ShortName>
+			<Path>MainMenu_SB.bnk</Path>
+			<Media>
+				<File Id="214568736" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>TreeRustlingAmbience_ST.wav</ShortName>
+					<Path>Media/214568736.wem</Path>
+					<CachePath>SFX/TreeRustlingAmbience_ST_37657DA8.wem</CachePath>
+				</File>
+				<File Id="425643069" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>BirdsChirpingAmbience.wav</ShortName>
+					<Path>Media/425643069.wem</Path>
+					<CachePath>SFX/BirdsChirpingAmbience_37657DA8.wem</CachePath>
+				</File>
+				<File Id="581932755" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>WaterStreamAmbience.wav</ShortName>
+					<Path>Media/581932755.wem</Path>
+					<CachePath>SFX/WaterStreamAmbience_37657DA8.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="2773040656" Name="Play_MainMenuAmbience" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="214568736"/>
+						<MediaRef Id="425643069"/>
+						<MediaRef Id="581932755"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
 		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{462D1FDB-D2CB-0D7D-76D6-B6D3D938223B}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
@@ -767,5 +815,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{797D2F24-148A-BE68-509A-D6AE5A72A635}</FileHash>
+	<FileHash>{2701293B-6B0A-1342-CA1D-A58FB3BFB50D}</FileHash>
 </SoundBanksInfo>
