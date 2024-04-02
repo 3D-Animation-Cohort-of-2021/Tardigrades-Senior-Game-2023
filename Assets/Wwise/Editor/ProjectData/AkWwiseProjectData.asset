@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584896604783638285
+    m_lastTime: -8584895820808937285
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -477,7 +477,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584896600856298828
+    m_lastTime: -8584895818301876684
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -614,23 +614,6 @@ MonoBehaviour:
       maxDuration: -1
       minDuration: -1
     - name: General
-      guid: e238518739d7fe4d975d5a34b63bb2e6
-      id: 133642231
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 2c5444863974a2409959f332a77548bb
-      - ElementName: General
-        ObjectType: 4
-        guid: e238518739d7fe4d975d5a34b63bb2e6
-      Path: Events\Default Work Unit\General
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: General
       guid: 3fb8d8f521a63a489b680df7f4074a0f
       id: 133642231
       PathAndIcons:
@@ -647,6 +630,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: 3fb8d8f521a63a489b680df7f4074a0f
       Path: Events\Default Work Unit\Tardigrades\General
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: General
+      guid: e238518739d7fe4d975d5a34b63bb2e6
+      id: 133642231
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: General
+        ObjectType: 4
+        guid: e238518739d7fe4d975d5a34b63bb2e6
+      Path: Events\Default Work Unit\General
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -761,9 +761,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: ea74ad46a4e978449aea1d208caf4922
       Path: Events\Default Work Unit\Hazards\Play_AcidDrop_Falling
-      maxAttenuation: 0
-      maxDuration: 1.5166667
-      minDuration: 1.5166667
+      maxAttenuation: 100
+      maxDuration: 2.7666667
+      minDuration: 2.7666667
     - name: Play_AcidDrop_SplashRandom
       guid: 42a74969df38304a964ae310840d5d47
       id: 2954778481
@@ -946,10 +946,13 @@ MonoBehaviour:
       - ElementName: Tardigrades
         ObjectType: 4
         guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Fire
+        ObjectType: 4
+        guid: a13e9b9b19c85c4eb2e384d6c3432448
       - ElementName: Play_FireAbility_StopBurning
         ObjectType: 3
         guid: a9e3f38e53a67b4f893e5f2e89dabb80
-      Path: Events\Default Work Unit\Tardigrades\Play_FireAbility_StopBurning
+      Path: Events\Default Work Unit\Tardigrades\Fire\Play_FireAbility_StopBurning
       maxAttenuation: 100
       maxDuration: 1.1661056
       minDuration: 1.0848774
@@ -989,13 +992,16 @@ MonoBehaviour:
       - ElementName: Tardigrades
         ObjectType: 4
         guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Ice
+        ObjectType: 4
+        guid: 1306bdb76681cf40b3e278ec672dbe17
       - ElementName: Play_FreezeAbility_Blast
         ObjectType: 3
         guid: 436cb7a148fbf246a31801544549e3e6
-      Path: Events\Default Work Unit\Tardigrades\Play_FreezeAbility_Blast
+      Path: Events\Default Work Unit\Tardigrades\Ice\Play_FreezeAbility_Blast
       maxAttenuation: 100
-      maxDuration: 1.6585795
-      minDuration: 1.6585795
+      maxDuration: 4.0291405
+      minDuration: 4.0291405
     - name: Play_GemChime
       guid: 915ffdd25b2b8b4bbcbe82de87397047
       id: 3393043477
@@ -1049,13 +1055,16 @@ MonoBehaviour:
       - ElementName: Tardigrades
         ObjectType: 4
         guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Ice
+        ObjectType: 4
+        guid: 1306bdb76681cf40b3e278ec672dbe17
       - ElementName: Play_IceAbility_Healing_wPop_02
         ObjectType: 3
         guid: fb51a10bacda4042b7b493e60a53b41a
-      Path: Events\Default Work Unit\Tardigrades\Play_IceAbility_Healing_wPop_02
+      Path: Events\Default Work Unit\Tardigrades\Ice\Play_IceAbility_Healing_wPop_02
       maxAttenuation: 100
-      maxDuration: 3.45
-      minDuration: 3.45
+      maxDuration: 3.65
+      minDuration: 3.65
     - name: Play_Log_Disintegrate
       guid: e8ac650f8e2663418cd768121729ca47
       id: 500576682
@@ -1196,6 +1205,26 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: -1
       minDuration: -1
+    - name: Play_Silence
+      guid: 3d4e07d45b1dde4fa3c8fcc2d685d361
+      id: 2807572219
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: General
+        ObjectType: 4
+        guid: e238518739d7fe4d975d5a34b63bb2e6
+      - ElementName: Play_Silence
+        ObjectType: 3
+        guid: 3d4e07d45b1dde4fa3c8fcc2d685d361
+      Path: Events\Default Work Unit\General\Play_Silence
+      maxAttenuation: 0
+      maxDuration: 0.1
+      minDuration: 0.1
     - name: Play_SpawnerBox_Sequence
       guid: aa00bf852846a04ca0751a73caafad4e
       id: 3640949955
@@ -1229,10 +1258,13 @@ MonoBehaviour:
       - ElementName: Tardigrades
         ObjectType: 4
         guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Stone
+        ObjectType: 4
+        guid: 280522b5836505439cd257e782c61a6e
       - ElementName: Play_StoneAbility_Rocks
         ObjectType: 3
         guid: cbfb6de122454f4bbaefb8825ea59951
-      Path: Events\Default Work Unit\Tardigrades\Play_StoneAbility_Rocks
+      Path: Events\Default Work Unit\Tardigrades\Stone\Play_StoneAbility_Rocks
       maxAttenuation: 100
       maxDuration: 2.2333333
       minDuration: 2.2333333
@@ -1249,10 +1281,13 @@ MonoBehaviour:
       - ElementName: Tardigrades
         ObjectType: 4
         guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Stone
+        ObjectType: 4
+        guid: 280522b5836505439cd257e782c61a6e
       - ElementName: Play_StoneAbility_WeightDownArrow
         ObjectType: 3
         guid: 184872b769280844bd4edc1c0c0806ca
-      Path: Events\Default Work Unit\Tardigrades\Play_StoneAbility_WeightDownArrow
+      Path: Events\Default Work Unit\Tardigrades\Stone\Play_StoneAbility_WeightDownArrow
       maxAttenuation: 100
       maxDuration: 0.9
       minDuration: 0.9
@@ -1792,7 +1827,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000070000000a0000000c0000000d0000000f0000001100000012000000230000002500000027000000290000002a0000003c0000003d000000
+  ExpandedWaapiItemIds: 05000000060000000d0000000f0000001100000012000000230000002500000027000000290000002a0000003c0000003d000000430000004f000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

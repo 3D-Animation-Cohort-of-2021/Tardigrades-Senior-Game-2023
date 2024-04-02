@@ -40,10 +40,12 @@ public class FireTardigrade : TardigradeBase
         if (ignited)
         {     
             _abilityEffect.Play();
+            audioSecondaryStart.Post(gameObject);
         }
         else
         {
             _abilityEffect.Stop();
+            audioSecondaryEnd.Post(gameObject);
         }
     }
 

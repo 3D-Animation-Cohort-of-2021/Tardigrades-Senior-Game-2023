@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2847780179842382095}
   - component: {fileID: 2847780179842382094}
   - component: {fileID: 5034575686785628688}
+  - component: {fileID: 1600028129821771664}
   m_Layer: 0
   m_Name: Explodable Rock
   m_TagString: Untagged
@@ -261,10 +262,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1600028129821771664}
+        m_TargetAssemblyTypeName: PostAudioEvent, Assembly-CSharp
+        m_MethodName: PostEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   oneTimeDamage: 0
   alreadyDamaged: 0
   requiresSpecificType: 0
   requiredType: 1
+--- !u!114 &1600028129821771664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760424906615697539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992fac49650f9f498e400c2b9e979a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a66566b84862f074498354982c22066f,
+      type: 2}
 --- !u!1 &8577171253990715030
 GameObject:
   m_ObjectHideFlags: 0

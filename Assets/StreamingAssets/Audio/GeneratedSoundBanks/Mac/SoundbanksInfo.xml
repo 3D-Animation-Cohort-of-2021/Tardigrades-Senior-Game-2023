@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{A67257F5-BB50-1738-4A67-761437C224D5}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{1284610A-853A-8DF3-1F65-25768A964258}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -115,7 +115,7 @@
 						<MediaRef Id="524569025"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1913892122" Name="Play_AcidDrop_Falling" DurationType="OneShot" DurationMin="1.5166667" DurationMax="1.5166667">
+				<Event Id="1913892122" Name="Play_AcidDrop_Falling" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.7666667" DurationMax="2.7666667">
 					<MediaRefs>
 						<MediaRef Id="347079794"/>
 					</MediaRefs>
@@ -185,10 +185,14 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{3696FB40-1013-1864-6085-5D423A5AE776}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{2F704CF7-85C3-EB01-E066-FD2B1756D3BC}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
+				<File Id="6087675" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FreezeAbility_Shatter_Final_Wet.wav</ShortName>
+					<CachePath>SFX/FreezeAbility_Shatter_Final_Wet_45E62FC7.wem</CachePath>
+				</File>
 				<File Id="62295430" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_PressQuit_V2.wav</ShortName>
 					<CachePath>SFX/UI_PressQuit_V2_2CE66A1E.wem</CachePath>
@@ -215,7 +219,7 @@
 				</File>
 				<File Id="176324972" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FireAbility_StopBurning.wav</ShortName>
-					<CachePath>SFX/FireAbility_StopBurning_3E4B63C8.wem</CachePath>
+					<CachePath>SFX/FireAbility_StopBurning_A737B8B4.wem</CachePath>
 				</File>
 				<File Id="176383385" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BellChime_03.wav</ShortName>
@@ -314,6 +318,9 @@
 				</File>
 			</Media>
 			<Plugins>
+				<Custom>
+					<Plugin Id="333971782" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
+				</Custom>
 				<ShareSets>
 					<Plugin Id="1588715066" Name="Echoes_Linear" LibName="Wwise Delay" LibId="6946819"/>
 				</ShareSets>
@@ -356,12 +363,13 @@
 						<MediaRef Id="176324972"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="712876480" Name="Play_FreezeAbility_Blast" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.6585795" DurationMax="1.6585795">
+				<Event Id="712876480" Name="Play_FreezeAbility_Blast" MaxAttenuation="100" DurationType="OneShot" DurationMin="4.0291405" DurationMax="4.0291405">
 					<MediaRefs>
+						<MediaRef Id="6087675"/>
 						<MediaRef Id="124185785"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1652449308" Name="Play_IceAbility_Healing_wPop_02" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.45" DurationMax="3.45">
+				<Event Id="1652449308" Name="Play_IceAbility_Healing_wPop_02" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.65" DurationMax="3.65">
 					<MediaRefs>
 						<MediaRef Id="352887448"/>
 					</MediaRefs>
@@ -371,6 +379,13 @@
 						<MediaRef Id="769056427"/>
 						<MediaRef Id="818361875"/>
 					</MediaRefs>
+				</Event>
+				<Event Id="2807572219" Name="Play_Silence" DurationType="OneShot" DurationMin="0.1" DurationMax="0.1">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="333971782"/>
+						</Custom>
+					</PluginRefs>
 				</Event>
 				<Event Id="3640949955" Name="Play_SpawnerBox_Sequence" MaxAttenuation="16" DurationType="OneShot" DurationMin="3.6966202" DurationMax="3.6966202">
 					<MediaRefs>
@@ -482,7 +497,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D8ECDF34-25D1-A56C-A0B8-2F3102652CCE}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E9BBB68B-A954-7866-0149-CB9856AE727C}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -815,5 +830,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{2701293B-6B0A-1342-CA1D-A58FB3BFB50D}</FileHash>
+	<FileHash>{EFB899A1-4FC9-7C7A-1657-5AEA307FD44B}</FileHash>
 </SoundBanksInfo>

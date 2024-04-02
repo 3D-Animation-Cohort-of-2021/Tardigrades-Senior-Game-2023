@@ -65,10 +65,13 @@ public class StoneTardigrade : TardigradeBase
         if (diamond)
         {
             _abilityEffect.Play();
+            audioSecondaryStart.Post(gameObject);
+
         }
         else
         {
             _abilityEffect.Stop();
+            audioSecondaryEnd.Post(gameObject);
         }
     }
 

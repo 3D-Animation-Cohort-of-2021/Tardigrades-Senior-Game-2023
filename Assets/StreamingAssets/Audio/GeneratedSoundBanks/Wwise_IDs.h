@@ -37,6 +37,7 @@ namespace AK
         static const AkUniqueID PLAY_MUSHROOMBOSS_SPLATTER = 1775051791U;
         static const AkUniqueID PLAY_MUSIC_LAVATHEME = 4042899639U;
         static const AkUniqueID PLAY_QUESTIONMARKDRONE = 2073632745U;
+        static const AkUniqueID PLAY_SILENCE = 2807572219U;
         static const AkUniqueID PLAY_SPAWNERBOX_SEQUENCE = 3640949955U;
         static const AkUniqueID PLAY_STONEABILITY_ROCKS = 2406343346U;
         static const AkUniqueID PLAY_STONEABILITY_WEIGHTDOWNARROW = 3396071063U;
