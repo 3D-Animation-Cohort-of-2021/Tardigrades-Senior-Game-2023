@@ -89,7 +89,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(damageType, _type, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMGModifier(damageType, _type);
-        if(damageType == Elem.Water && IceCoroutine != null)
+        if((damageType == Elem.Water && IceCoroutine != null) || _mySquad.transform.parent == null)
         {
             return;
         }
@@ -221,6 +221,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void Death(DeathType deathType = DeathType.Default)
     {
+
+        if(_mySquad.transform.parent == null)
+        {
+            return;
+        }
+
         if (deathEvent != null)
         { 
         deathEvent.Invoke(_type, -1);
