@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class ThermalVentBehaviour : MonoBehaviour, IDamageable
 
 {
-    public UnityEvent onAwake, onDamage;
+    public UnityEvent onAwake, onFireDamage;
     private IDamageable _damageableImplementation;
 
     public void Awake()
@@ -18,7 +18,7 @@ public class ThermalVentBehaviour : MonoBehaviour, IDamageable
         if (dmgType == Elem.Fire)
         {
             Debug.Log("Warm Up Tardigrades");
-            onDamage.Invoke();
+            onFireDamage.Invoke();
         }
     }
 }
