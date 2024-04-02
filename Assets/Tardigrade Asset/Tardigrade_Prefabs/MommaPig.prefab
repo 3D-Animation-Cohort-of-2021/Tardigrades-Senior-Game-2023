@@ -799,7 +799,6 @@ GameObject:
   - component: {fileID: 9056121080630037356}
   - component: {fileID: 3226648322417933517}
   - component: {fileID: 3226648322417933513}
-  - component: {fileID: 3226648322417933512}
   - component: {fileID: 9175539273404361964}
   m_Layer: 8
   m_Name: MommaPig
@@ -874,28 +873,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0.6, z: 0}
---- !u!195 &3226648322417933512
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2307587230499916716}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 7
-  m_Acceleration: 100
-  avoidancePriority: 50
-  m_AngularSpeed: 360
-  m_StoppingDistance: 0.1
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &9175539273404361964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,8 +885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6bcbbe74fab094b93772ad822d1973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tarAnimator: {fileID: 0}
-  _navMeshAgent: {fileID: 0}
   targetObject: {fileID: 0}
   maxDistance: 0
 --- !u!1 &2370951156291964376
