@@ -58,7 +58,6 @@ public class DestroyImpact : MonoBehaviour
     public void delete()
     {
         Destroy(this.gameObject);
-        Debug.Log("test");
         // if (splatterPrefab != null)
         // {
         //     Destroy(splatterObject);
