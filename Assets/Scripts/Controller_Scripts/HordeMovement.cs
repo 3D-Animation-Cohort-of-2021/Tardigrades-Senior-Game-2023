@@ -27,6 +27,7 @@ public class HordeMovement : MonoBehaviour
     public GameObject pointTargetPrefab, pointTargetObj;
     public LayerMask groundLayer;
     private Coroutine lerpToPosRoutine;
+    public MommaPig mommaPig;
 
 
 
@@ -74,8 +75,15 @@ public class HordeMovement : MonoBehaviour
                 _hordeAgent.SetDestination(transform.position + moveVector);
 
             }
-
             _hordeAgent.Move(moveVector * Time.deltaTime * _hordeSpeed);
+
+            mommaPig.UpdateMovement(((moveVector.magnitude * _hordeSpeed) / _hordeSpeed) * 0.5f, transform.position);
+
+            if (moveVector.magnitude > 0.1f)
+            {
+                Debug.DrawLine(transform.position + Vector3.up, transform.position + moveVector + Vector3.up, Color.red, Time.deltaTime, false);
+                mommaPig.UpdateRotation(transform.position + moveVector);
+            }
         }
         else if (offMeshPathInstance == null)
         {
