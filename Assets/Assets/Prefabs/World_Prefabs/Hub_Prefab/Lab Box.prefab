@@ -2894,6 +2894,7 @@ GameObject:
   - component: {fileID: 5211334172306444979}
   - component: {fileID: 8940293132493882237}
   - component: {fileID: 8023196962667129117}
+  - component: {fileID: 4515185209408175749}
   m_Layer: 0
   m_Name: Lab Box
   m_TagString: Untagged
@@ -3011,6 +3012,23 @@ MonoBehaviour:
   rallyPoint: {fileID: 8023196960705560946}
   hordeBrain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
   levelData: {fileID: 0}
+--- !u!114 &4515185209408175749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023196962667129116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992fac49650f9f498e400c2b9e979a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1c07970fbf4d657489c07870cd7536ea,
+      type: 2}
 --- !u!1 &8059675213146940844
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,19 +1,68 @@
 Event	ID	Name			Wwise Object Path	Notes
+	209618788	UI_BackTo			\Default Work Unit\UI\UI_BackTo	
+	504204120	Play_FireAbility_StopBurning			\Default Work Unit\Tardigrades\Fire\Play_FireAbility_StopBurning	
+	712876480	Play_FreezeAbility_Blast			\Default Work Unit\Tardigrades\Ice\Play_FreezeAbility_Blast	
+	882936002	UI_AreYouSure			\Default Work Unit\UI\UI_AreYouSure	
 	946441836	LoopingMusicTEMP			\Default Work Unit\Music\LoopingMusicTEMP	
+	1285133454	Play_UI_TutorialMessage_Sequence			\Default Work Unit\UI\Play_UI_TutorialMessage_Sequence	
+	1444742504	Play_FireAbility_Burning			\Default Work Unit\Tardigrades\Fire\Play_FireAbility_Burning	
+	1652449308	Play_IceAbility_Healing_wPop_02			\Default Work Unit\Tardigrades\Ice\Play_IceAbility_Healing_wPop_02	
+	1984528726	Play_FireAbility_Boom			\Default Work Unit\Tardigrades\Fire\Play_FireAbility_Boom	
+	2073632745	Play_QuestionMarkDrone			\Default Work Unit\General\Play_QuestionMarkDrone	
+	2166256596	Play_EndBox_Sequence			\Default Work Unit\General\Play_EndBox_Sequence	
+	2406343346	Play_StoneAbility_Rocks			\Default Work Unit\Tardigrades\Stone\Play_StoneAbility_Rocks	
+	2454902471	UI_ResetButton			\Default Work Unit\UI\UI_ResetButton	
 	2691814938	UI_PressQuit			\Default Work Unit\UI\UI_PressQuit	
+	2755379793	Play_Brazier_Burning			\Default Work Unit\Environment\Play_Brazier_Burning	
+	2807572219	Play_Silence			\Default Work Unit\General\Play_Silence	
 	3153585820	UI_PressUnpause			\Default Work Unit\UI\UI_PressUnpause	
+	3235386399	Play_Brazier_Burning_NoChime			\Default Work Unit\Environment\Play_Brazier_Burning_NoChime	
 	3368070439	UI_PressPause			\Default Work Unit\UI\UI_PressPause	
+	3396071063	Play_StoneAbility_WeightDownArrow			\Default Work Unit\Tardigrades\Stone\Play_StoneAbility_WeightDownArrow	
+	3640949955	Play_SpawnerBox_Sequence			\Default Work Unit\General\Play_SpawnerBox_Sequence	
+	3664269105	Play_TardigradePain_Hit			\Default Work Unit\Tardigrades\General\Play_TardigradePain_Hit	
 	3824618851	UI_PressButton			\Default Work Unit\UI\UI_PressButton	
+	3903759629	StopAll_Delayed			\Default Work Unit\Stops\StopAll_Delayed	
+	4175962335	StopAll_General			\Default Work Unit\Stops\StopAll_General	
 
 Effect plug-ins	ID	Name	Type				Notes
 	1588715066	Echoes_Linear	Wwise Delay			
 
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	333971782	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\General\Silence\Silence	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	6087675	FreezeAbility_Shatter_Final_Wet	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\FreezeAbility_Shatter_Final_Wet_45E62FC7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Ice\FreezeAbility_Shatter_Final_Wet		10539
+	62295430	UI_PressQuit_V2	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_PressQuit_V2_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_PressQuit_V2		6638
+	104885782	FireAbility_BurningLoop	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\FireAbility_BurningLoop_37657DA8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Fire\FireAbility_BurningLoop		41190
+	108162959	StoneAbility_Rocks	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\StoneAbility_Rocks_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Stone\StoneAbility_Rocks		23869
+	124185785	FreezeAbility_Blast	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\FreezeAbility_Blast_4AE14983.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Ice\FreezeAbility_Blast		17644
+	157662111	TardigradeGrunt_PainHit_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\TardigradeGrunt_PainHit_02_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_02		2333
+	161461778	Brazier_Burning	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\Brazier_Burning_748CB298.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\1_1\Brazier_Burning		24569
+	176324972	FireAbility_StopBurning	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\FireAbility_StopBurning_A737B8B4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Fire\FireAbility_StopBurning		10035
+	176383385	BellChime_03	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\BellChime_03_523FA7DB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\1_2\BellChime_03		7478
+	178163077	FireAbility_Boom	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\FireAbility_Boom_95F3802D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Fire\FireAbility_Boom		14906
+	189534938	TardigradeGrunt_PainHit_03	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\TardigradeGrunt_PainHit_03_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_03		2796
+	305708374	TardigradeGrunt_PainHit_05	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\TardigradeGrunt_PainHit_05_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_05		4093
+	335115077	EndBox_Sequence	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\EndBox_Sequence_5002E4A3.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\EndBox_Sequence		39945
+	351531709	UI_TutorialMessage_FlyOut	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_TutorialMessage_FlyOut_8985DD1F.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_TutorialMessage_Sequence\UI_TutorialMessage_FlyOut		2245
+	352887448	IceAbility_Healing_wPop_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\IceAbility_Healing_wPop_02_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Ice\IceAbility_Healing_wPop_02		37197
+	476390243	UI_AreYouSure	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_AreYouSure_9E5C773F.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_AreYouSure		2020
 	502393985	UI_PressPause	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_PressPause_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_PressPause		2128
-	619333482	UI_ButtonPress	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_ButtonPress_D55EF1C3.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_ButtonPress		866
+	539769877	UI_TutorialMessage_FlyIn	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_TutorialMessage_FlyIn_125957B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_TutorialMessage_Sequence\UI_TutorialMessage_FlyIn		2377
+	552837019	UI_BackTo	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_BackTo_12CB6B1C.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_BackTo		3369
+	562881451	SpawnerBox_Sequence_01	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\SpawnerBox_Sequence_01_1ED08815.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\SpawnerBox_Sequence_01		45078
+	613020561	UI_ResetButton	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_ResetButton_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_ResetButton		1888
+	624600041	UI_PressButton_V3	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_PressButton_V3_EA56946F.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_PressButton_V3		914
+	686178676	TardigradeGrunt_PainHit_06	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\TardigradeGrunt_PainHit_06_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_06		3031
+	727543428	FireAbility_StartBurning_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\FireAbility_StartBurning_02_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Fire\FireAbility_StartBurning_02		8296
 	737277535	UI_Unpause	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_Unpause_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_Unpause		2463
-	939970532	UI_PressQuit	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\UI_PressQuit_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_PressQuit		4004
+	775879628	StoneAbility_WeightDownArrow_03	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\StoneAbility_WeightDownArrow_03_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Stone\StoneAbility_WeightDownArrow_03		4761
+	787660656	TardigradeGrunt_PainHit_04	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\TardigradeGrunt_PainHit_04_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_04		3790
+	932023741	TardigradeGrunt_PainHit_01	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\TardigradeGrunt_PainHit_01_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_01		2661
 
 Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
 	539989011	ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER_748CB298.wem	539989011.wem	\Actor-Mixer Hierarchy\Default Work Unit\Music\ShortRyan_Tardigrades-Theme-Pretty_120bpm4-4L48M_LOOPER	
+	769056427	DroneLoop	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\DroneLoop_37657DA8.wem	769056427.wem	\Actor-Mixer Hierarchy\Default Work Unit\General\DroneLoop	
+	818361875	WindChimesLoop	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Mac\SFX\WindChimesLoop_37657DA8.wem	818361875.wem	\Actor-Mixer Hierarchy\Default Work Unit\General\WindChimesLoop	
 

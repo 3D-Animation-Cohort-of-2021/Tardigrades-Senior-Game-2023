@@ -17,6 +17,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public HealthDisplay collar;
     public GameObject damageEffectObj;
 
+    public AK.Wwise.Event audioPrimary;
+    public AK.Wwise.Event audioSecondaryStart;
+    public AK.Wwise.Event audioSecondaryEnd;
+
     [SerializeField]protected Elem _type;
 
     public SquadBrain _mySquad;
@@ -189,6 +193,10 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             Instantiate(tardigradeSetSO._abilityChildObject, transform);
         }
+
+        audioPrimary = tardigradeSetSO.audioPrimary;
+        audioSecondaryStart = tardigradeSetSO.audioSecondaryStart;
+        audioSecondaryEnd = tardigradeSetSO.audioSecondaryEnd;
     }
     
     /// <summary>
@@ -197,7 +205,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void PrimaryAbility()
     {
-        
+        audioPrimary.Post(gameObject);
     }
     /// <summary>
     ///  Is called when ability button is pressed. Should be overloaded in child class to add functionality.
@@ -206,7 +214,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public virtual void SecondaryAbility()
     {
         SecondaryAbilityEffect();
-        
     }
 
     protected virtual void SecondaryAbilityEffect()
@@ -371,6 +378,16 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         if (_health < _maxHealth)
         {
             _health += healthGain;
+
+            if (_healVisualEffect.enabled)
+            {
+                _healVisualEffect.Play();
+                _healVisualEffect.gameObject.GetComponent<PostAudioEvent>().PostEvent();
+            }
+            else
+            {
+                _healVisualEffect.enabled = true;
+            }
 
             if (_health > _maxHealth)
             {

@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 5784694342208504427}
   - component: {fileID: 5784694342208504428}
   - component: {fileID: 1846762067938208552}
+  - component: {fileID: 6794270660364958703}
+  - component: {fileID: 7344378595029358849}
   m_Layer: 0
   m_Name: Acid Drop
   m_TagString: Untagged
@@ -83,6 +85,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6794270660364958703}
+        m_TargetAssemblyTypeName: PostAudioEvent, Assembly-CSharp
+        m_MethodName: PostEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -279,3 +293,37 @@ MonoBehaviour:
   enabledDelay: 0
   isDelayed: 1
   runOnEnabled: 0
+--- !u!114 &6794270660364958703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784694342208504435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992fac49650f9f498e400c2b9e979a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 82ca58b39886c824297c6d51d66f48f6,
+      type: 2}
+--- !u!114 &7344378595029358849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784694342208504435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27edd0341df0d4846ae404e6787708dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioEventOnStart:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: fe33c7897d591d44c83e2e0adbb8f142,
+      type: 2}
