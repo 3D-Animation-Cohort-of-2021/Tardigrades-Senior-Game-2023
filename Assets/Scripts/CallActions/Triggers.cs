@@ -8,29 +8,19 @@ public class Triggers : MonoBehaviour
     public UnityEvent onTriggerEnter;
     public UnityEvent onTriggerExit;
     public UnityEvent onTriggerStay;
-    private GameObject playerCenter;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out SquadManager sM))
-        {
-            onTriggerEnter.Invoke();
-        }
+        onTriggerEnter.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out SquadManager sM))
-        {
-            onTriggerExit.Invoke();
-        }
+        onTriggerExit.Invoke();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent(out SquadManager sM))
-        {
-            onTriggerStay.Invoke();
-        }
+        onTriggerStay.Invoke();
     }
 }
