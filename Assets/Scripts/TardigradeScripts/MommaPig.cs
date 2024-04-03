@@ -6,8 +6,7 @@ using UnityEngine.AI;
 
 public class MommaPig : MonoBehaviour
 {
-    public Animator _tarAnimator;
-    public NavMeshAgent _navMeshAgent;
+    private Animator _tarAnimator;
     public GameObject targetObject;
     public float maxDistance;
     private bool isChecking;
@@ -15,31 +14,24 @@ public class MommaPig : MonoBehaviour
     private void Awake()
     {
         _tarAnimator = GetComponent<Animator>();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void Start()
     {
         isChecking = true;
-        StartCoroutine(TeleportCheck());
     }
 
-    void FixedUpdate()
+    public void UpdateMovement(float relativeSpeed, Vector3 centerPosition)
     {
-        _navMeshAgent.destination = targetObject.transform.position;
-        _tarAnimator.SetFloat("speedPercent", (_navMeshAgent.velocity.magnitude / _navMeshAgent.speed));
-    }
-
-    private IEnumerator TeleportCheck()
-    {
-        WaitForSeconds wfs = new WaitForSeconds(1f);
-        while (isChecking)
+        if (_tarAnimator != null)
         {
-            if (Vector3.Distance(gameObject.transform.position, targetObject.transform.position) >= maxDistance)
-            {
-                _navMeshAgent.Warp(targetObject.transform.position);
-            }
-            yield return wfs;
+            _tarAnimator.SetFloat("speedPercent", relativeSpeed);
+            transform.position = centerPosition;
         }
+    }
+
+    public void UpdateRotation(Vector3 lookDir)
+    {
+        transform.LookAt(lookDir);
     }
 }

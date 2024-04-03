@@ -406,6 +406,7 @@ public class SquadManager : MonoBehaviour
 
     public void TerminateHorde()
     {
+        Debug.Log("Beginning Termination");
         Squad[] tempArray = new Squad[_squads.Count];
         for (int i = 0; i < tempArray.Length; i++)
         {

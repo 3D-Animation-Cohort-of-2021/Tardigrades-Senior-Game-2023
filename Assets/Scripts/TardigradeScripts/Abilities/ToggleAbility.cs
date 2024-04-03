@@ -32,4 +32,5 @@ public class ToggleAbility : Ability
 
         return toggled;
     }
+    
 }

@@ -56,11 +56,15 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     
 
     public Coroutine IceCoroutine;
+    public Coroutine HealCoroutine;
     public Coroutine StatusRoutine;
 
     public GameObject _fireAccessory;
     public GameObject _waterAccessory;
     public GameObject _earthAccessory;
+
+    private WaitForSeconds healIncrement;
+    private float healIncrementAmount = 0.25f;
 
 
 
@@ -71,7 +75,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _animators = GetComponentsInChildren<Animator>();
         _tarAnimator = GetComponent<Animator>();
 
-        
+        healIncrement = new WaitForSeconds(healIncrementAmount);
 
         if (_type == Elem.Neutral && _earthAccessory != null)
         {
@@ -89,7 +93,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(damageType, _type, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMGModifier(damageType, _type);
-        if(damageType == Elem.Water && IceCoroutine != null)
+        if((damageType == Elem.Water && IceCoroutine != null) || _mySquad.transform.parent == null)
         {
             return;
         }
@@ -224,6 +228,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void Death(DeathType deathType = DeathType.Default)
     {
+
+        if(_mySquad.transform.parent == null)
+        {
+            return;
+        }
+
         if (deathEvent != null)
         { 
         deathEvent.Invoke(_type, -1);
@@ -386,6 +396,25 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             collar.UpdateColor(_health,_maxHealth);
         }
     }
+    
+
+    public IEnumerator HealingEffect(float healAmount, float length)
+    {
+        if (_healVisualEffect.enabled)
+        {
+            _healVisualEffect.SetFloat("TotalTime", length);
+            _healVisualEffect.Play();
+            
+            for(float i =0; i<length; i+= healIncrementAmount)
+            {
+                Heal(healAmount);
+                yield return healIncrement;
+            }
+        }
+
+        HealCoroutine = null;
+    }
+    
 
     /// <summary>
     ///  Starts the ActivateIceShield coroutine that Turns the shield shader on for a duration.
@@ -396,6 +425,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         if (IceCoroutine == null)
         {
             IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
+        }
+    }
+    
+    public void StartHeal(float healAmount, float length)
+    {
+        if (HealCoroutine == null)
+        {
+            HealCoroutine = StartCoroutine(HealingEffect(healAmount, length));
         }
     }
 

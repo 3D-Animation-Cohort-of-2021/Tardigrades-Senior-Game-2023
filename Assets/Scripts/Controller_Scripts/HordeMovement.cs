@@ -26,6 +26,8 @@ public class HordeMovement : MonoBehaviour
     public GameActionBool mouseMoveCall;
     public GameObject pointTargetPrefab, pointTargetObj;
     public LayerMask groundLayer;
+    private Coroutine lerpToPosRoutine;
+    public MommaPig mommaPig;
 
 
 
@@ -73,8 +75,15 @@ public class HordeMovement : MonoBehaviour
                 _hordeAgent.SetDestination(transform.position + moveVector);
 
             }
-
             _hordeAgent.Move(moveVector * Time.deltaTime * _hordeSpeed);
+
+            mommaPig.UpdateMovement(((moveVector.magnitude * _hordeSpeed) / _hordeSpeed) * 0.5f, transform.position);
+
+            if (moveVector.magnitude > 0.1f)
+            {
+                Debug.DrawLine(transform.position + Vector3.up, transform.position + moveVector + Vector3.up, Color.red, Time.deltaTime, false);
+                mommaPig.UpdateRotation(transform.position + moveVector);
+            }
         }
         else if (offMeshPathInstance == null)
         {
@@ -244,5 +253,24 @@ public class HordeMovement : MonoBehaviour
     private void OnDestroy()
     {
         mouseMoveCall.raise -= SetMouseMoveActive;
+    }
+
+    public void MoveToLocation(GameObject obj)
+    {
+        if(lerpToPosRoutine!=null)
+            StopCoroutine(lerpToPosRoutine);
+        StartCoroutine(moveHoardeTo(obj.transform.position));
+    }
+
+    private IEnumerator moveHoardeTo(Vector3 pos)
+    {
+        WaitForEndOfFrame wff = new WaitForEndOfFrame();
+        float elapsedTime = 0;
+        Vector3 startPos = transform.position;
+        while (elapsedTime<=1.5)
+        {
+            transform.position = Vector3.Lerp(startPos, pos, 1.5f / elapsedTime);
+            yield return wff;
+        }
     }
 }

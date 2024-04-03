@@ -12,13 +12,14 @@ public class LabBoxBehavior : MonoBehaviour
 {
     public UnityEvent initializeEvent, spawnEvent, controlsEnableEvent, fadeOutEvent, menuCallEvent;
     public Boolean isEnd;
-    public GameAction menuCall, loadLevel;
+    public GameAction menuCall, loadLevel, despawnCenter;
     public GameObject rallyPoint;
     private Animator boxAnimator;
     private GameObject playerCenter;
     public Horde_Info hordeBrain;
     public LevelData levelData;
     private bool boxAvailable;
+    public LABUISelectedBoxRef labMenu;
 
     private void Awake()
     {
@@ -70,6 +71,7 @@ public class LabBoxBehavior : MonoBehaviour
         if(playerCenter==null)
             return;
         playerCenter.GetComponent<SquadManager>().TerminateHorde();
+        despawnCenter.raise();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -82,6 +84,7 @@ public class LabBoxBehavior : MonoBehaviour
             playerCenter = sM.gameObject;
             menuCall.raise();
             menuCallEvent.Invoke();
+            labMenu.setSelectedBox(this);
         }
     }
 

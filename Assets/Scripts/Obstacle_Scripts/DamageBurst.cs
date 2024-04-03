@@ -41,7 +41,6 @@ public class DamageBurst : MonoBehaviour
 
     private IEnumerator WaitPeriod()
     {
-        Debug.Log("Start Waiting");
         yield return wfNext;
         currentRoutine = StartCoroutine(DamagePeriod());
     }
@@ -50,9 +49,7 @@ public class DamageBurst : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(.5f, 2f));
         beginDamageDisplayEvent.Invoke();
-        Debug.Log("getReady");
         yield return wfDamage;
-        Debug.Log("Damage!");
         currentTick = 0;
         while (currentTick < numTicks)
         {
