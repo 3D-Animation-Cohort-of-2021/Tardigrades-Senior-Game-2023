@@ -725,7 +725,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2561270309" Type="User" Language="SFX" Hash="{1844B0CF-91E9-A82B-5CAD-E313F5DB277E}">
+		<SoundBank Id="2561270309" Type="User" Language="SFX" Hash="{CAD4F452-A3D0-D3CF-77E5-3DF20D1837EF}">
 			<ShortName>Level_2_1_Lava_SB</ShortName>
 			<Path>Level_2_1_Lava_SB.bnk</Path>
 			<Media>
@@ -734,11 +734,21 @@
 					<Path>Media/261261006.wem</Path>
 					<CachePath>SFX/ShortRyan_Tardigrades-Lava-Theme_95bpm4-4L43M_LOOPER_Draft2_608C1A9C.wem</CachePath>
 				</File>
+				<File Id="272590377" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>StrongWind.wav</ShortName>
+					<Path>Media/272590377.wem</Path>
+					<CachePath>SFX/StrongWind_37657DA8.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
 				<Event Id="4042899639" Name="Play_MUSIC_LavaTheme" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="261261006"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2364834417" Name="Play_StrongWind" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="272590377"/>
 					</MediaRefs>
 				</Event>
 			</Events>
@@ -830,5 +840,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{3FB295DC-0976-886C-5308-4A739DD2757E}</FileHash>
+	<FileHash>{6663F980-7508-9620-B782-549231707B62}</FileHash>
 </SoundBanksInfo>
