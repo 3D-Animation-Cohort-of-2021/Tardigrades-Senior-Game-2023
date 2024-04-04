@@ -7,7 +7,6 @@ public class DamageOnEnter : MonoBehaviour
     public float _damage;
     public Elem _damageType;
     public DeathType tardDeathType;
-
     private void Awake()
     {
         GetComponent<Collider>().isTrigger = true;
