@@ -42,6 +42,8 @@ namespace AK
         static const AkUniqueID PLAY_STONEABILITY_ROCKS = 2406343346U;
         static const AkUniqueID PLAY_STONEABILITY_WEIGHTDOWNARROW = 3396071063U;
         static const AkUniqueID PLAY_STRONGWIND = 2364834417U;
+        static const AkUniqueID PLAY_TARDIGRADE_CONVERTTOFIRE = 853308612U;
+        static const AkUniqueID PLAY_TARDIGRADE_CONVERTTOWATER = 3430396397U;
         static const AkUniqueID PLAY_TARDIGRADEPAIN_HIT = 3664269105U;
         static const AkUniqueID PLAY_TOXICPLANT_AURA = 3280802904U;
         static const AkUniqueID PLAY_TREE_AMBIENTRUSTLING = 1620839241U;
