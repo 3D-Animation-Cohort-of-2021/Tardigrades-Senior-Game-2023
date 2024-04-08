@@ -21,11 +21,15 @@ Event	ID	Name			Wwise Object Path	Notes
 	3368070439	UI_PressPause			\Default Work Unit\UI\UI_PressPause	
 	3396071063	Play_StoneAbility_WeightDownArrow			\Default Work Unit\Tardigrades\Stone\Play_StoneAbility_WeightDownArrow	
 	3430396397	Play_Tardigrade_ConvertToWater			\Default Work Unit\Tardigrades\Conversions\Play_Tardigrade_ConvertToWater	
+	3527586943	Play_Tardigrade_ConvertToStone			\Default Work Unit\Tardigrades\Conversions\Play_Tardigrade_ConvertToStone	
 	3640949955	Play_SpawnerBox_Sequence			\Default Work Unit\General\Play_SpawnerBox_Sequence	
 	3664269105	Play_TardigradePain_Hit			\Default Work Unit\Tardigrades\General\Play_TardigradePain_Hit	
 	3824618851	UI_PressButton			\Default Work Unit\UI\UI_PressButton	
 	3903759629	StopAll_Delayed			\Default Work Unit\Stops\StopAll_Delayed	
 	4175962335	StopAll_General			\Default Work Unit\Stops\StopAll_General	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1865867188	TardigradeConvertRTPC			\Default Work Unit\Volume\TardigradeConvertRTPC	
 
 Effect plug-ins	ID	Name	Type				Notes
 	418265525	Gentle_Program_Compressor_Minus_14dB_RMS	Wwise Compressor			
@@ -37,9 +41,10 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	6087675	FreezeAbility_Shatter_Final_Wet	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\FreezeAbility_Shatter_Final_Wet_45E62FC7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Ice\FreezeAbility_Shatter_Final_Wet		10539
 	62295430	UI_PressQuit_V2	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_PressQuit_V2_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_PressQuit_V2		6638
-	89134427	Tardigrade_ConvertToFire_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\Tardigrade_ConvertToFire_02_BE4562E8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Conversions\Tardigrade_ConvertToFire_02		8134
+	89134427	Tardigrade_ConvertToFire_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\Tardigrade_ConvertToFire_02_75887FD5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Conversions\Tardigrade_ConvertToFire_02		8134
 	104885782	FireAbility_BurningLoop	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\FireAbility_BurningLoop_37657DA8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Fire\FireAbility_BurningLoop		41190
 	108162959	StoneAbility_Rocks	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\StoneAbility_Rocks_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Stone\StoneAbility_Rocks		23869
+	119400910	Tardigrade_ConvertToStone	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\Tardigrade_ConvertToStone_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Conversions\Tardigrade_ConvertToStone		6348
 	124185785	FreezeAbility_Blast	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\FreezeAbility_Blast_4AE14983.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Ice\FreezeAbility_Blast		17644
 	157662111	TardigradeGrunt_PainHit_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_02_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_02		2333
 	161461778	Brazier_Burning	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\Brazier_Burning_748CB298.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\1_1\Brazier_Burning		24569
@@ -48,10 +53,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	178163077	FireAbility_Boom	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\FireAbility_Boom_95F3802D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Fire\FireAbility_Boom		14906
 	189534938	TardigradeGrunt_PainHit_03	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_03_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_03		2796
 	305708374	TardigradeGrunt_PainHit_05	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\TardigradeGrunt_PainHit_05_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\General\Tardigrade_Pain\TardigradePain_Hit\TardigradeGrunt_PainHit_05		4093
-	320322832	WaterAbility_ConvertToWater	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\WaterAbility_ConvertToWater_13DFC1EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Conversions\WaterAbility_ConvertToWater		5084
+	320322832	WaterAbility_ConvertToWater	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\WaterAbility_ConvertToWater_2AB7A7A7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Conversions\WaterAbility_ConvertToWater		5084
 	335115077	EndBox_Sequence	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\EndBox_Sequence_5002E4A3.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\EndBox_Sequence		39945
 	351531709	UI_TutorialMessage_FlyOut	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_TutorialMessage_FlyOut_8985DD1F.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_TutorialMessage_Sequence\UI_TutorialMessage_FlyOut		2245
-	352887448	IceAbility_Healing_wPop_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\IceAbility_Healing_wPop_02_9C9892DC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Ice\IceAbility_Healing_wPop_02		37142
+	352887448	IceAbility_Healing_wPop_02	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\IceAbility_Healing_wPop_02_DBCBE2B4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tardigrades\Ice\IceAbility_Healing_wPop_02		37142
 	476390243	UI_AreYouSure	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_AreYouSure_9E5C773F.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_AreYouSure		2020
 	502393985	UI_PressPause	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_PressPause_2CE66A1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_PressPause		2128
 	539769877	UI_TutorialMessage_FlyIn	C:\Users\TKM\Documents\WwiseProjects\Tardigrades_WWise_TKM\.cache\Windows\SFX\UI_TutorialMessage_FlyIn_125957B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_AM\UI_TutorialMessage_Sequence\UI_TutorialMessage_FlyIn		2377

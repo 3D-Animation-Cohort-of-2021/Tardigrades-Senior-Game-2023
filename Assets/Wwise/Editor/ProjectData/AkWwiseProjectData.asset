@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584893978056491230
+    m_lastTime: -8584890655373789138
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -477,7 +477,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584893978056554993
+    m_lastTime: -8584890655373744105
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -1351,9 +1351,32 @@ MonoBehaviour:
         ObjectType: 3
         guid: 6887470bacb8ce419b6eef83f9b1a2ee
       Path: Events\Default Work Unit\Tardigrades\Conversions\Play_Tardigrade_ConvertToFire
-      maxAttenuation: 0
+      maxAttenuation: 100
       maxDuration: 0.87837166
       minDuration: 0.87837166
+    - name: Play_Tardigrade_ConvertToStone
+      guid: 25e5b49e9e721342959b7daf5aeea8bf
+      id: 3527586943
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Tardigrades
+        ObjectType: 4
+        guid: 6ed0be1ed3829b4497c0c0d01d38a319
+      - ElementName: Conversions
+        ObjectType: 4
+        guid: 8be11f8cbb35884da2c2d31467c72370
+      - ElementName: Play_Tardigrade_ConvertToStone
+        ObjectType: 3
+        guid: 25e5b49e9e721342959b7daf5aeea8bf
+      Path: Events\Default Work Unit\Tardigrades\Conversions\Play_Tardigrade_ConvertToStone
+      maxAttenuation: 100
+      maxDuration: 0.46666667
+      minDuration: 0.46666667
     - name: Play_Tardigrade_ConvertToWater
       guid: 808265920307854db120eaa15672590d
       id: 3430396397
@@ -1374,7 +1397,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 808265920307854db120eaa15672590d
       Path: Events\Default Work Unit\Tardigrades\Conversions\Play_Tardigrade_ConvertToWater
-      maxAttenuation: 0
+      maxAttenuation: 100
       maxDuration: 0.5941546
       minDuration: 0.5941546
     - name: Play_TardigradeJoin
@@ -1766,7 +1789,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: f072fa0b6eff4c44a854e3147b5c579a
     GuidInternal: 
-    m_lastTime: -8584908948677127254
+    m_lastTime: -8584890691470523656
     List:
     - name: DuckAudioRTPC
       guid: 31c9caf61817124d8403f9b25e02afb4
@@ -1836,6 +1859,23 @@ MonoBehaviour:
         ObjectType: 13
         guid: 8016c34bf541b34f925455fe7c04cc4d
       Path: Game Parameters\Default Work Unit\Volume\SFXVolumeRTPC
+    - name: TardigradeConvertRTPC
+      guid: 5f90e369543b7645a725cd1631d778fc
+      id: 1865867188
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f072fa0b6eff4c44a854e3147b5c579a
+      - ElementName: Volume
+        ObjectType: 4
+        guid: 3583c9ff1d520b418e7ce1c5dd665875
+      - ElementName: TardigradeConvertRTPC
+        ObjectType: 13
+        guid: 5f90e369543b7645a725cd1631d778fc
+      Path: Game Parameters\Default Work Unit\Volume\TardigradeConvertRTPC
     - name: Volume
       guid: 3583c9ff1d520b418e7ce1c5dd665875
       id: 2415836739
@@ -1893,7 +1933,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000d000000450000005c000000
+  ExpandedWaapiItemIds: 05000000060000000d00000044000000450000005c000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
