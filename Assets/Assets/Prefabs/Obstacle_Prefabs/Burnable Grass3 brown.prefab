@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5700139979027400053}
   - component: {fileID: 5700139979027400054}
   - component: {fileID: 5700139979027400055}
+  - component: {fileID: 1760847930323449255}
   m_Layer: 0
   m_Name: Burnable Grass3 brown
   m_TagString: Untagged
@@ -135,6 +136,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5700139979027400061}
         m_TargetAssemblyTypeName: VisualBurn, Assembly-CSharp
         m_MethodName: Burn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1760847930323449255}
+        m_TargetAssemblyTypeName: PostAudioEvent, Assembly-CSharp
+        m_MethodName: PostEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -286,7 +299,7 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5700139979027400063}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Asset: {fileID: 8926484042661614526, guid: 99e531d4e0e1457459dc2ca476454f77, type: 3}
   m_InitialEventName: 
   m_InitialEventNameOverriden: 0
@@ -339,6 +352,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1760847930323449255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700139979027400063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992fac49650f9f498e400c2b9e979a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 84d61e2efa19d9749a9ada030afb9e5a,
+      type: 2}
 --- !u!1 &8434211843385662933
 GameObject:
   m_ObjectHideFlags: 0
