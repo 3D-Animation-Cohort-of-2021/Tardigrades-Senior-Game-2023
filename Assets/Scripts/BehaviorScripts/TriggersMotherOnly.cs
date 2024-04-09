@@ -12,7 +12,6 @@ public class TriggersMotherOnly : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        onTriggerEnter.Invoke();
         if (other.TryGetComponent(out SquadManager sM))
         {
             onTriggerEnter.Invoke();
@@ -21,7 +20,6 @@ public class TriggersMotherOnly : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        onTriggerExit.Invoke();
         if (other.TryGetComponent(out SquadManager sM))
         {
             onTriggerExit.Invoke();
@@ -30,7 +28,6 @@ public class TriggersMotherOnly : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        onTriggerStay.Invoke();
         if (other.TryGetComponent(out SquadManager sM))
         {
             onTriggerStay.Invoke();
