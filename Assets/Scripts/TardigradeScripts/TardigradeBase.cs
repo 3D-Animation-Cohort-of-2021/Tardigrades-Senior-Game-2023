@@ -20,6 +20,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public AK.Wwise.Event audioPrimary;
     public AK.Wwise.Event audioSecondaryStart;
     public AK.Wwise.Event audioSecondaryEnd;
+    public AK.Wwise.Event audioConvertFX;
 
     [SerializeField]protected Elem _type;
 
@@ -197,6 +198,9 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         audioPrimary = tardigradeSetSO.audioPrimary;
         audioSecondaryStart = tardigradeSetSO.audioSecondaryStart;
         audioSecondaryEnd = tardigradeSetSO.audioSecondaryEnd;
+        audioConvertFX = tardigradeSetSO.audioConvertFX;
+
+        audioConvertFX.Post(gameObject);
     }
     
     /// <summary>
@@ -491,6 +495,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase.frozenBodyPrefab = frozenBodyPrefab;
 
         tardigradeBase.UpdateTardigrade();
+        
 
         return tardigradeBase;
         
