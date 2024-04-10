@@ -15,5 +15,5 @@ public class TardigradeSetSO : ScriptableObject
     public AK.Wwise.Event audioPrimary;
     public AK.Wwise.Event audioSecondaryStart;
     public AK.Wwise.Event audioSecondaryEnd;
-
+    public AK.Wwise.Event audioConvertFX;
 }
