@@ -177,9 +177,6 @@ MonoBehaviour:
           m_StringArgument: OnActivate
           m_BoolArgument: 0
         m_CallState: 2
-  prefixToTurnOff: Cold Damage
-  prefabObject: {fileID: 0}
-  activationRadius: 10
 --- !u!1 &5977748111162340358
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8784377986009937360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.25, z: 0.4}
+  m_LocalPosition: {x: -0.07, y: 1.25, z: 0.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -503,11 +500,17 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 12
+      - m_Value: 5
         m_Name: Size
         m_Overridden: 1
       - m_Value: 2
         m_Name: Visability
+        m_Overridden: 1
+      - m_Value: 30
+        m_Name: Density
+        m_Overridden: 1
+      - m_Value: 7
+        m_Name: Turbulance
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -594,8 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bdaa9d63d09994c9674209a7fd42b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageIntervalTime: 2.5
-  damagePerTick: 1
+  damageIntervalTime: 4
+  damagePerTick: 0.25
   type: 2
   isRunning: 0
   tardDeathType: 4
