@@ -1524,6 +1524,7 @@ GameObject:
   - component: {fileID: 7357154464993697898}
   - component: {fileID: 7357154464993697899}
   - component: {fileID: 8667360378641850778}
+  - component: {fileID: 3491913553130264115}
   m_Layer: 0
   m_Name: Level Box Spawn
   m_TagString: Untagged
@@ -1609,6 +1610,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3491913553130264115}
+        m_TargetAssemblyTypeName: ToggleMuteRTPC, Assembly-CSharp
+        m_MethodName: ToggleMute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   finishEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1651,12 +1664,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 3491913553130264115}
+        m_TargetAssemblyTypeName: ToggleMuteRTPC, Assembly-CSharp
+        m_MethodName: ToggleUnmute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   endOfSequenceEvent:
     m_PersistentCalls:
       m_Calls: []
   isEnd: 0
   startGameplay: 0
   spawnMom: {fileID: 11400000, guid: a8ade25074e2cbd4ebca1c81f7325f87, type: 2}
+  killMom: {fileID: 0}
   endLevel: {fileID: 11400000, guid: b195b3ae8eee91f4db2bd436739c4af7, type: 2}
   rallyPoint: {fileID: 8192830056405021714}
   hordeBrain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
@@ -1752,6 +1778,18 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 25f2e072463dfbe4984aa133b05030c2,
       type: 2}
+--- !u!114 &3491913553130264115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447852476620621389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6973596faaee4e4d807379a8e68db5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4504101909548001449
 GameObject:
   m_ObjectHideFlags: 0

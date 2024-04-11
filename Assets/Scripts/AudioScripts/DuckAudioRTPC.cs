@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class DuckAudioRTPC : MonoBehaviour
 {
-    
     public void DuckAudio()
     {
         AkSoundEngine.SetRTPCValue("DuckAudioRTPC", 0);
