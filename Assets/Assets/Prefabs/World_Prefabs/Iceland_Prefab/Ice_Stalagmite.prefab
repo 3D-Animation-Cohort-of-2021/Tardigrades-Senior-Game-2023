@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3007916797572111980}
   - component: {fileID: 6885730234495375378}
   - component: {fileID: 8998743351449045446}
+  - component: {fileID: 4769875290777107823}
   m_Layer: 0
   m_Name: Snow_Base
   m_TagString: Untagged
@@ -184,3 +185,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &4769875290777107823
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530958375231569015}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.4280001, y: 0.47200003, z: 1.57}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.193, y: 0, z: -0.11000001}
+  m_TimeToStationary: 0.5

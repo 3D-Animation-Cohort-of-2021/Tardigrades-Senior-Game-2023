@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 1761410158666858050}
   - component: {fileID: 1761410158666858051}
   - component: {fileID: 1761410158666858076}
+  - component: {fileID: 2610261920497515602}
   m_Layer: 0
   m_Name: AnimatedFrostGate
   m_TagString: Untagged
@@ -334,3 +335,19 @@ MonoBehaviour:
   enabledDelay: 0
   isDelayed: 0
   runOnEnabled: 0
+--- !u!208 &2610261920497515602
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761410158666858077}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4.0550003, y: 2.594, z: 0.9110001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 2.594, z: 0}
+  m_TimeToStationary: 0.5
