@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{E84A64ED-5874-9AE8-A0FD-E98D164D6D37}">
+		<SoundBank Id="551713303" Type="User" Language="SFX" Hash="{CD37682F-8D50-344F-DAD5-B144AA0931F3}">
 			<ShortName>Level_1_1_Wasteland_SB</ShortName>
 			<Path>Level_1_1_Wasteland_SB.bnk</Path>
 			<Media>
@@ -62,6 +62,11 @@
 				<File Id="355979116" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>MushroomBoss_SquishImpact_03.wav</ShortName>
 					<CachePath>SFX/MushroomBoss_SquishImpact_03_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="400190417" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>ShortRyan_Tardigrades-Theme-Draft_140bpm4-4L49M_Looper.wav</ShortName>
+					<Path>Media/400190417.wem</Path>
+					<CachePath>SFX/ShortRyan_Tardigrades-Theme-Draft_140bpm4-4L49M_Looper_49AF6B7D.wem</CachePath>
 				</File>
 				<File Id="412191787" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoulderBlast_01.wav</ShortName>
@@ -163,6 +168,11 @@
 						<MediaRef Id="558915682"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3530027016" Name="Play_MUSIC_LevelOne" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="400190417"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3280802904" Name="Play_ToxicPlant_Aura" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="953339158"/>
@@ -185,7 +195,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{DBFC8A2F-6E23-ED4D-1231-3337BCB41447}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{8757A764-C2F9-DF34-463B-0EA58A9B5168}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -199,7 +209,7 @@
 				</File>
 				<File Id="89134427" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tardigrade_ConvertToFire_02.wav</ShortName>
-					<CachePath>SFX/Tardigrade_ConvertToFire_02_BE4562E8.wem</CachePath>
+					<CachePath>SFX/Tardigrade_ConvertToFire_02_75887FD5.wem</CachePath>
 				</File>
 				<File Id="104885782" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FireAbility_BurningLoop.wav</ShortName>
@@ -208,6 +218,10 @@
 				<File Id="108162959" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>StoneAbility_Rocks.wav</ShortName>
 					<CachePath>SFX/StoneAbility_Rocks_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="119400910" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Tardigrade_ConvertToStone.wav</ShortName>
+					<CachePath>SFX/Tardigrade_ConvertToStone_2CE66A1E.wem</CachePath>
 				</File>
 				<File Id="124185785" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FreezeAbility_Blast.wav</ShortName>
@@ -243,7 +257,7 @@
 				</File>
 				<File Id="320322832" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>WaterAbility_ConvertToWater.wav</ShortName>
-					<CachePath>SFX/WaterAbility_ConvertToWater_13DFC1EE.wem</CachePath>
+					<CachePath>SFX/WaterAbility_ConvertToWater_2AB7A7A7.wem</CachePath>
 				</File>
 				<File Id="335115077" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>EndBox_Sequence.wav</ShortName>
@@ -255,7 +269,7 @@
 				</File>
 				<File Id="352887448" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>IceAbility_Healing_wPop_02.wav</ShortName>
-					<CachePath>SFX/IceAbility_Healing_wPop_02_9C9892DC.wem</CachePath>
+					<CachePath>SFX/IceAbility_Healing_wPop_02_F8C1F530.wem</CachePath>
 				</File>
 				<File Id="476390243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_AreYouSure.wav</ShortName>
@@ -378,7 +392,7 @@
 						<MediaRef Id="124185785"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1652449308" Name="Play_IceAbility_Healing_wPop_02" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.65" DurationMax="3.65">
+				<Event Id="1652449308" Name="Play_IceAbility_Healing_wPop_02" MaxAttenuation="100" DurationType="OneShot" DurationMin="6.9303594" DurationMax="6.9303594">
 					<MediaRefs>
 						<MediaRef Id="352887448"/>
 					</MediaRefs>
@@ -416,7 +430,7 @@
 						<MediaRef Id="775879628"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="853308612" Name="Play_Tardigrade_ConvertToFire" DurationType="OneShot" DurationMin="0.87837166" DurationMax="0.87837166">
+				<Event Id="853308612" Name="Play_Tardigrade_ConvertToFire" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.87837166" DurationMax="0.87837166">
 					<MediaRefs>
 						<MediaRef Id="89134427"/>
 					</MediaRefs>
@@ -426,7 +440,17 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="3430396397" Name="Play_Tardigrade_ConvertToWater" DurationType="OneShot" DurationMin="0.5941546" DurationMax="0.5941546">
+				<Event Id="3527586943" Name="Play_Tardigrade_ConvertToStone" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.46666667" DurationMax="0.46666667">
+					<MediaRefs>
+						<MediaRef Id="119400910"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="418265525"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="3430396397" Name="Play_Tardigrade_ConvertToWater" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.5941546" DurationMax="0.5941546">
 					<MediaRefs>
 						<MediaRef Id="320322832"/>
 					</MediaRefs>
@@ -530,8 +554,11 @@
 					</PluginRefs>
 				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="1865867188" Name="TardigradeConvertRTPC"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F5C6B6D0-6247-596D-0F86-342A3A94A90D}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5FD6EDCF-3CED-7DE9-8AB5-D6390FE16848}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -548,6 +575,7 @@
 			<GameParameters>
 				<GameParameter Id="438351637" Name="MusicVolumeRTPC"/>
 				<GameParameter Id="1082095005" Name="DuckAudioRTPC"/>
+				<GameParameter Id="1865867188" Name="TardigradeConvertRTPC"/>
 				<GameParameter Id="2706739992" Name="MasterVolumeRTPC"/>
 				<GameParameter Id="3729481997" Name="SFXVolumeRTPC"/>
 			</GameParameters>
@@ -666,7 +694,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1778457274" Type="User" Language="SFX" Hash="{F2AF4ED4-A807-96C1-7073-57997E715F0F}">
+		<SoundBank Id="1778457274" Type="User" Language="SFX" Hash="{60240204-59D2-65A5-7637-1495980F537F}">
 			<ShortName>HubScene_SB</ShortName>
 			<Path>HubScene_SB.bnk</Path>
 			<Media>
@@ -694,7 +722,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{5096D2A7-7970-77D0-5879-B8667725B706}">
+		<SoundBank Id="1892470695" Type="User" Language="SFX" Hash="{175EF22E-759A-543C-2CB5-8C8DE42C7207}">
 			<ShortName>Level_0_1_Tutorial_SB</ShortName>
 			<Path>Level_0_1_Tutorial_SB.bnk</Path>
 			<Media>
@@ -759,7 +787,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2561270309" Type="User" Language="SFX" Hash="{CAD4F452-A3D0-D3CF-77E5-3DF20D1837EF}">
+		<SoundBank Id="2561270309" Type="User" Language="SFX" Hash="{605AA1D6-AA39-45C3-10FC-A3F2DDBB4577}">
 			<ShortName>Level_2_1_Lava_SB</ShortName>
 			<Path>Level_2_1_Lava_SB.bnk</Path>
 			<Media>
@@ -817,7 +845,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{6326943F-0D3B-9CF6-FEDD-2E647D52DFC0}">
+		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{0A285F70-9983-B5A1-7BA4-D3D14DA0CA42}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
 			<Media>
@@ -874,5 +902,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EF017061-4D23-E2C7-5E54-B6A84A545BEF}</FileHash>
+	<FileHash>{E253CB5A-744C-53A3-5322-43E53F05D237}</FileHash>
 </SoundBanksInfo>

@@ -36,6 +36,7 @@ namespace AK
         static const AkUniqueID PLAY_MUSHROOMBOSS_IMPACT = 587782264U;
         static const AkUniqueID PLAY_MUSHROOMBOSS_SPLATTER = 1775051791U;
         static const AkUniqueID PLAY_MUSIC_LAVATHEME = 4042899639U;
+        static const AkUniqueID PLAY_MUSIC_LEVELONE = 3530027016U;
         static const AkUniqueID PLAY_QUESTIONMARKDRONE = 2073632745U;
         static const AkUniqueID PLAY_SILENCE = 2807572219U;
         static const AkUniqueID PLAY_SPAWNERBOX_SEQUENCE = 3640949955U;
@@ -43,6 +44,7 @@ namespace AK
         static const AkUniqueID PLAY_STONEABILITY_WEIGHTDOWNARROW = 3396071063U;
         static const AkUniqueID PLAY_STRONGWIND = 2364834417U;
         static const AkUniqueID PLAY_TARDIGRADE_CONVERTTOFIRE = 853308612U;
+        static const AkUniqueID PLAY_TARDIGRADE_CONVERTTOSTONE = 3527586943U;
         static const AkUniqueID PLAY_TARDIGRADE_CONVERTTOWATER = 3430396397U;
         static const AkUniqueID PLAY_TARDIGRADEPAIN_HIT = 3664269105U;
         static const AkUniqueID PLAY_TOXICPLANT_AURA = 3280802904U;
@@ -66,6 +68,7 @@ namespace AK
         static const AkUniqueID MASTERVOLUMERTPC = 2706739992U;
         static const AkUniqueID MUSICVOLUMERTPC = 438351637U;
         static const AkUniqueID SFXVOLUMERTPC = 3729481997U;
+        static const AkUniqueID TARDIGRADECONVERTRTPC = 1865867188U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
