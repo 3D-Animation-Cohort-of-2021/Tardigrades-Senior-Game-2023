@@ -80,6 +80,7 @@ namespace AK
         static const AkUniqueID LEVEL_1_1_WASTELAND_SB = 551713303U;
         static const AkUniqueID LEVEL_1_2_BEACH_SB = 3486483130U;
         static const AkUniqueID LEVEL_2_1_LAVA_SB = 2561270309U;
+        static const AkUniqueID LEVEL_3_1_ICELANDS_SB = 3458449705U;
         static const AkUniqueID MAINMENU_SB = 2840159625U;
     } // namespace BANKS
 
