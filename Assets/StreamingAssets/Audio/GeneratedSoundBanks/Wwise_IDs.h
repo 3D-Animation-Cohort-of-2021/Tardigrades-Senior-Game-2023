@@ -31,9 +31,7 @@ namespace AK
         static const AkUniqueID PLAY_GRASS_BURNINGUP = 3080242803U;
         static const AkUniqueID PLAY_ICE_FLOORBREAK = 2430596333U;
         static const AkUniqueID PLAY_ICEABILITY_HEALING_WPOP_02 = 1652449308U;
-        static const AkUniqueID PLAY_ICECRACKING_1ST = 3375933132U;
-        static const AkUniqueID PLAY_ICECRACKING_2ND = 3023750180U;
-        static const AkUniqueID PLAY_ICECRACKING_3RD = 3124562989U;
+        static const AkUniqueID PLAY_ICEFLOOR_CRACKINGSEQUENCE = 1699117399U;
         static const AkUniqueID PLAY_ICELANDS_AMBIENCE = 680386102U;
         static const AkUniqueID PLAY_ICELANDS_HEATVENT_ONFIRE = 309072279U;
         static const AkUniqueID PLAY_ICELANDS_HEATVENT_STEAM = 1885743616U;

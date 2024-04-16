@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584883579862376250
+    m_lastTime: -8584883004109232392
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -491,7 +491,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584883579963441479
+    m_lastTime: -8584883004109178970
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -668,6 +668,23 @@ MonoBehaviour:
       maxDuration: -1
       minDuration: -1
     - name: General
+      guid: e238518739d7fe4d975d5a34b63bb2e6
+      id: 133642231
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: General
+        ObjectType: 4
+        guid: e238518739d7fe4d975d5a34b63bb2e6
+      Path: Events\Default Work Unit\General
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: General
       guid: 3fb8d8f521a63a489b680df7f4074a0f
       id: 133642231
       PathAndIcons:
@@ -684,23 +701,6 @@ MonoBehaviour:
         ObjectType: 4
         guid: 3fb8d8f521a63a489b680df7f4074a0f
       Path: Events\Default Work Unit\Tardigrades\General
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: General
-      guid: e238518739d7fe4d975d5a34b63bb2e6
-      id: 133642231
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 2c5444863974a2409959f332a77548bb
-      - ElementName: General
-        ObjectType: 4
-        guid: e238518739d7fe4d975d5a34b63bb2e6
-      Path: Events\Default Work Unit\General
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1139,9 +1139,9 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 6.9303594
       minDuration: 6.9303594
-    - name: Play_IceCracking_1st
-      guid: 86693bbe6d99bf4884237b5a40c3ec6e
-      id: 3375933132
+    - name: Play_IceFloor_CrackingSequence
+      guid: 744cfbabdd2e814a9329d39240fa305b
+      id: 1699117399
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -1152,53 +1152,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 64188b3e9b0d41439e2008c4bbe18844
-      - ElementName: Play_IceCracking_1st
+      - ElementName: Play_IceFloor_CrackingSequence
         ObjectType: 3
-        guid: 86693bbe6d99bf4884237b5a40c3ec6e
-      Path: Events\Default Work Unit\Environment\Play_IceCracking_1st
+        guid: 744cfbabdd2e814a9329d39240fa305b
+      Path: Events\Default Work Unit\Environment\Play_IceFloor_CrackingSequence
       maxAttenuation: 100
-      maxDuration: 1.2506682
-      minDuration: 1.2506682
-    - name: Play_IceCracking_2nd
-      guid: d3559f3b655e7a46b0124cf5f1306d08
-      id: 3023750180
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 2c5444863974a2409959f332a77548bb
-      - ElementName: Environment
-        ObjectType: 4
-        guid: 64188b3e9b0d41439e2008c4bbe18844
-      - ElementName: Play_IceCracking_2nd
-        ObjectType: 3
-        guid: d3559f3b655e7a46b0124cf5f1306d08
-      Path: Events\Default Work Unit\Environment\Play_IceCracking_2nd
-      maxAttenuation: 100
-      maxDuration: 1.2720714
-      minDuration: 1.2720714
-    - name: Play_IceCracking_3rd
-      guid: 9312f2f8e6e7e54c90a3b75ed485222a
-      id: 3124562989
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 2c5444863974a2409959f332a77548bb
-      - ElementName: Environment
-        ObjectType: 4
-        guid: 64188b3e9b0d41439e2008c4bbe18844
-      - ElementName: Play_IceCracking_3rd
-        ObjectType: 3
-        guid: 9312f2f8e6e7e54c90a3b75ed485222a
-      Path: Events\Default Work Unit\Environment\Play_IceCracking_3rd
-      maxAttenuation: 100
-      maxDuration: 1.3410904
-      minDuration: 1.3410904
+      maxDuration: 1.0735606
+      minDuration: 0.74288416
     - name: Play_Icelands_Ambience
       guid: e003a729e99b0b448f0828ba984f2bf2
       id: 680386102
@@ -2150,7 +2110,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000110000001200000044000000450000005c000000790000007d000000
+  ExpandedWaapiItemIds: 050000000600000008000000110000001200000044000000450000005c000000790000007d000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
