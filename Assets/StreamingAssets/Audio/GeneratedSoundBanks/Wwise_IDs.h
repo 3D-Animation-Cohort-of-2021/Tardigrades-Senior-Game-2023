@@ -29,7 +29,14 @@ namespace AK
         static const AkUniqueID PLAY_FREEZEABILITY_BLAST = 712876480U;
         static const AkUniqueID PLAY_GEMCHIME = 3393043477U;
         static const AkUniqueID PLAY_GRASS_BURNINGUP = 3080242803U;
+        static const AkUniqueID PLAY_ICE_FLOORBREAK = 2430596333U;
         static const AkUniqueID PLAY_ICEABILITY_HEALING_WPOP_02 = 1652449308U;
+        static const AkUniqueID PLAY_ICECRACKING_1ST = 3375933132U;
+        static const AkUniqueID PLAY_ICECRACKING_2ND = 3023750180U;
+        static const AkUniqueID PLAY_ICECRACKING_3RD = 3124562989U;
+        static const AkUniqueID PLAY_ICELANDS_AMBIENCE = 680386102U;
+        static const AkUniqueID PLAY_ICELANDS_HEATVENT_ONFIRE = 309072279U;
+        static const AkUniqueID PLAY_ICELANDS_HEATVENT_STEAM = 1885743616U;
         static const AkUniqueID PLAY_LOG_DISINTEGRATE = 500576682U;
         static const AkUniqueID PLAY_MAINMENUAMBIENCE = 2773040656U;
         static const AkUniqueID PLAY_MUSHROOM_SPLATTER = 4217436442U;
@@ -51,6 +58,7 @@ namespace AK
         static const AkUniqueID PLAY_TREE_AMBIENTRUSTLING = 1620839241U;
         static const AkUniqueID PLAY_TREE_FALL = 3560238346U;
         static const AkUniqueID PLAY_UI_TUTORIALMESSAGE_SEQUENCE = 1285133454U;
+        static const AkUniqueID STOP_ICELANDS_HEATVENT_STEAM = 2626575138U;
         static const AkUniqueID STOPALL_DELAYED = 3903759629U;
         static const AkUniqueID STOPALL_GENERAL = 4175962335U;
         static const AkUniqueID UI_AREYOUSURE = 882936002U;
