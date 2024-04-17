@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584888820724307338
+    m_lastTime: -8584882947739439708
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -451,6 +451,20 @@ MonoBehaviour:
         ObjectType: 7
         guid: 67fa0f9f683de54781919ea0b5e64918
       Path: SoundBanks\Default Work Unit\Level_2_1_Lava_SB
+    - name: Level_3_1_Icelands_SB
+      guid: 31e61e4f370bed4aabe30909dc867b7a
+      id: 3458449705
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: c55937d096768a428ea2e4ef73f3e81a
+      - ElementName: Level_3_1_Icelands_SB
+        ObjectType: 7
+        guid: 31e61e4f370bed4aabe30909dc867b7a
+      Path: SoundBanks\Default Work Unit\Level_3_1_Icelands_SB
     - name: MainMenu_SB
       guid: a7bfc965be69b447898c6fb010fb1211
       id: 2840159625
@@ -477,7 +491,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584888820724362471
+    m_lastTime: -8584882947739494667
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -559,6 +573,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: 3_1 Icelands
+      guid: 66e50187e9965449b506fb14f23f32cb
+      id: 2163350969
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Ambiences
+        ObjectType: 4
+        guid: fa88a5b47edbcd40a8031a9944a5c0d1
+      - ElementName: 3_1 Icelands
+        ObjectType: 4
+        guid: 66e50187e9965449b506fb14f23f32cb
+      Path: Events\Default Work Unit\Ambiences\3_1 Icelands
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Ambiences
       guid: fa88a5b47edbcd40a8031a9944a5c0d1
       id: 1017660616
@@ -634,23 +668,6 @@ MonoBehaviour:
       maxDuration: -1
       minDuration: -1
     - name: General
-      guid: e238518739d7fe4d975d5a34b63bb2e6
-      id: 133642231
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 2c5444863974a2409959f332a77548bb
-      - ElementName: General
-        ObjectType: 4
-        guid: e238518739d7fe4d975d5a34b63bb2e6
-      Path: Events\Default Work Unit\General
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: General
       guid: 3fb8d8f521a63a489b680df7f4074a0f
       id: 133642231
       PathAndIcons:
@@ -667,6 +684,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: 3fb8d8f521a63a489b680df7f4074a0f
       Path: Events\Default Work Unit\Tardigrades\General
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: General
+      guid: e238518739d7fe4d975d5a34b63bb2e6
+      id: 133642231
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: General
+        ObjectType: 4
+        guid: e238518739d7fe4d975d5a34b63bb2e6
+      Path: Events\Default Work Unit\General
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1062,6 +1096,26 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 3.3620236
       minDuration: 1.9990714
+    - name: Play_Ice_FloorBreak
+      guid: cdd69e79fbbeb94793a07e96dc7df6b5
+      id: 2430596333
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Ice_FloorBreak
+        ObjectType: 3
+        guid: cdd69e79fbbeb94793a07e96dc7df6b5
+      Path: Events\Default Work Unit\Environment\Play_Ice_FloorBreak
+      maxAttenuation: 100
+      maxDuration: 1.7
+      minDuration: 1.7
     - name: Play_IceAbility_Healing_wPop_02
       guid: fb51a10bacda4042b7b493e60a53b41a
       id: 1652449308
@@ -1083,8 +1137,151 @@ MonoBehaviour:
         guid: fb51a10bacda4042b7b493e60a53b41a
       Path: Events\Default Work Unit\Tardigrades\Ice\Play_IceAbility_Healing_wPop_02
       maxAttenuation: 100
-      maxDuration: 5.2901797
-      minDuration: 5.2901797
+      maxDuration: 6.9303594
+      minDuration: 6.9303594
+    - name: Play_IceFloor_CrackingSequence
+      guid: 744cfbabdd2e814a9329d39240fa305b
+      id: 1699117399
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_IceFloor_CrackingSequence
+        ObjectType: 3
+        guid: 744cfbabdd2e814a9329d39240fa305b
+      Path: Events\Default Work Unit\Environment\Play_IceFloor_CrackingSequence
+      maxAttenuation: 100
+      maxDuration: 1.0735606
+      minDuration: 0.74288416
+    - name: Play_IceGate_Move
+      guid: 63fdc19efee0ab48bcb112aba04be79c
+      id: 4132787042
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_IceGate_Move
+        ObjectType: 3
+        guid: 63fdc19efee0ab48bcb112aba04be79c
+      Path: Events\Default Work Unit\Environment\Play_IceGate_Move
+      maxAttenuation: 100
+      maxDuration: 2.9666667
+      minDuration: 2.9666667
+    - name: Play_IceGate_TriggerChime
+      guid: 68989dc2e7cc73478af19ae605a42069
+      id: 1561848681
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_IceGate_TriggerChime
+        ObjectType: 3
+        guid: 68989dc2e7cc73478af19ae605a42069
+      Path: Events\Default Work Unit\Environment\Play_IceGate_TriggerChime
+      maxAttenuation: 0
+      maxDuration: 1.8333334
+      minDuration: 1.8333334
+    - name: Play_Icelands_Ambience
+      guid: e003a729e99b0b448f0828ba984f2bf2
+      id: 680386102
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Ambiences
+        ObjectType: 4
+        guid: fa88a5b47edbcd40a8031a9944a5c0d1
+      - ElementName: 3_1 Icelands
+        ObjectType: 4
+        guid: 66e50187e9965449b506fb14f23f32cb
+      - ElementName: Play_Icelands_Ambience
+        ObjectType: 3
+        guid: e003a729e99b0b448f0828ba984f2bf2
+      Path: Events\Default Work Unit\Ambiences\3_1 Icelands\Play_Icelands_Ambience
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Icelands_HeatVent_OnFire
+      guid: ea30a6e4dc8a224b8e7b9f52ddad2e92
+      id: 309072279
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Icelands_HeatVent_OnFire
+        ObjectType: 3
+        guid: ea30a6e4dc8a224b8e7b9f52ddad2e92
+      Path: Events\Default Work Unit\Environment\Play_Icelands_HeatVent_OnFire
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Icelands_HeatVent_Steam
+      guid: fd41b106c36df44db24b1b3aca7696d0
+      id: 1885743616
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Icelands_HeatVent_Steam
+        ObjectType: 3
+        guid: fd41b106c36df44db24b1b3aca7696d0
+      Path: Events\Default Work Unit\Environment\Play_Icelands_HeatVent_Steam
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Icicle_Shatter
+      guid: f93ccadff7823547a3328db647936bd2
+      id: 2290100405
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Icicle_Shatter
+        ObjectType: 3
+        guid: f93ccadff7823547a3328db647936bd2
+      Path: Events\Default Work Unit\Environment\Play_Icicle_Shatter
+      maxAttenuation: 100
+      maxDuration: 1.0654564
+      minDuration: 0.9221914
     - name: Play_Log_Disintegrate
       guid: e8ac650f8e2663418cd768121729ca47
       id: 500576682
@@ -1566,6 +1763,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Stop_Icelands_HeatVent_Steam
+      guid: f0daa36ad2cbc84c82bf5384e3f5a7a0
+      id: 2626575138
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Stops
+        ObjectType: 4
+        guid: 3d24c4d35cb4d447a7aa1679296fc4b5
+      - ElementName: Stop_Icelands_HeatVent_Steam
+        ObjectType: 3
+        guid: f0daa36ad2cbc84c82bf5384e3f5a7a0
+      Path: Events\Default Work Unit\Stops\Stop_Icelands_HeatVent_Steam
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: StopAll_Delayed
       guid: 1a48f97ff340a14080270d30a351f4e1
       id: 3903759629
@@ -1953,7 +2170,7 @@ MonoBehaviour:
     m_lastTime: -8585029312696606882
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000d00000044000000450000005c000000
+  ExpandedWaapiItemIds: 050000000600000008000000110000001200000044000000450000005c000000790000007d000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
