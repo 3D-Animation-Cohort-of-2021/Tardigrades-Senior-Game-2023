@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: c55937d096768a428ea2e4ef73f3e81a
     GuidInternal: 
-    m_lastTime: -8584883004109232392
+    m_lastTime: -8584882947739439708
     List:
     - name: General_SB
       guid: dc23fe8a4ddb2d468c3b1fe6c477250a
@@ -491,7 +491,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2c5444863974a2409959f332a77548bb
     GuidInternal: 
-    m_lastTime: -8584883004109178970
+    m_lastTime: -8584882947739494667
     List:
     - name: 0_1 Tutorial
       guid: 1ca17c0139891f4fb8c465b353701a6c
@@ -668,23 +668,6 @@ MonoBehaviour:
       maxDuration: -1
       minDuration: -1
     - name: General
-      guid: e238518739d7fe4d975d5a34b63bb2e6
-      id: 133642231
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 2c5444863974a2409959f332a77548bb
-      - ElementName: General
-        ObjectType: 4
-        guid: e238518739d7fe4d975d5a34b63bb2e6
-      Path: Events\Default Work Unit\General
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: General
       guid: 3fb8d8f521a63a489b680df7f4074a0f
       id: 133642231
       PathAndIcons:
@@ -701,6 +684,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: 3fb8d8f521a63a489b680df7f4074a0f
       Path: Events\Default Work Unit\Tardigrades\General
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: General
+      guid: e238518739d7fe4d975d5a34b63bb2e6
+      id: 133642231
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: General
+        ObjectType: 4
+        guid: e238518739d7fe4d975d5a34b63bb2e6
+      Path: Events\Default Work Unit\General
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1159,6 +1159,46 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 1.0735606
       minDuration: 0.74288416
+    - name: Play_IceGate_Move
+      guid: 63fdc19efee0ab48bcb112aba04be79c
+      id: 4132787042
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_IceGate_Move
+        ObjectType: 3
+        guid: 63fdc19efee0ab48bcb112aba04be79c
+      Path: Events\Default Work Unit\Environment\Play_IceGate_Move
+      maxAttenuation: 100
+      maxDuration: 2.9666667
+      minDuration: 2.9666667
+    - name: Play_IceGate_TriggerChime
+      guid: 68989dc2e7cc73478af19ae605a42069
+      id: 1561848681
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_IceGate_TriggerChime
+        ObjectType: 3
+        guid: 68989dc2e7cc73478af19ae605a42069
+      Path: Events\Default Work Unit\Environment\Play_IceGate_TriggerChime
+      maxAttenuation: 0
+      maxDuration: 1.8333334
+      minDuration: 1.8333334
     - name: Play_Icelands_Ambience
       guid: e003a729e99b0b448f0828ba984f2bf2
       id: 680386102
@@ -1222,6 +1262,26 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: -1
       minDuration: -1
+    - name: Play_Icicle_Shatter
+      guid: f93ccadff7823547a3328db647936bd2
+      id: 2290100405
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c5444863974a2409959f332a77548bb
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 64188b3e9b0d41439e2008c4bbe18844
+      - ElementName: Play_Icicle_Shatter
+        ObjectType: 3
+        guid: f93ccadff7823547a3328db647936bd2
+      Path: Events\Default Work Unit\Environment\Play_Icicle_Shatter
+      maxAttenuation: 100
+      maxDuration: 1.0654564
+      minDuration: 0.9221914
     - name: Play_Log_Disintegrate
       guid: e8ac650f8e2663418cd768121729ca47
       id: 500576682
