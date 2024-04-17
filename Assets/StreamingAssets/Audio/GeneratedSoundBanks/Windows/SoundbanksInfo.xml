@@ -66,7 +66,7 @@
 				<File Id="400190417" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>ShortRyan_Tardigrades-Theme-Draft_140bpm4-4L49M_Looper.wav</ShortName>
 					<Path>Media/400190417.wem</Path>
-					<CachePath>SFX/ShortRyan_Tardigrades-Theme-Draft_140bpm4-4L49M_Looper_49AF6B7D.wem</CachePath>
+					<CachePath>SFX/ShortRyan_Tardigrades-Theme-Draft_140bpm4-4L49M_Looper_9B27C5A2.wem</CachePath>
 				</File>
 				<File Id="412191787" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoulderBlast_01.wav</ShortName>
@@ -195,7 +195,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{8757A764-C2F9-DF34-463B-0EA58A9B5168}">
+		<SoundBank Id="935286101" Type="User" Language="SFX" Hash="{778B0907-AD72-04B1-F89C-ABC5DFBA7A0C}">
 			<ShortName>General_SB</ShortName>
 			<Path>General_SB.bnk</Path>
 			<Media>
@@ -845,6 +845,98 @@
 				</Event>
 			</Events>
 		</SoundBank>
+		<SoundBank Id="3458449705" Type="User" Language="SFX" Hash="{3A81986F-F33A-EE04-18F7-2EEF24C0869D}">
+			<ShortName>Level_3_1_Icelands_SB</ShortName>
+			<Path>Level_3_1_Icelands_SB.bnk</Path>
+			<Media>
+				<File Id="69545448" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ice_FloorBreak.wav</ShortName>
+					<CachePath>SFX/Ice_FloorBreak_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="91430876" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>IceCracking_1st.wav</ShortName>
+					<CachePath>SFX/IceCracking_1st_45E9F077.wem</CachePath>
+				</File>
+				<File Id="263658385" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>IceCracking_3rd.wav</ShortName>
+					<CachePath>SFX/IceCracking_3rd_2F308CAB.wem</CachePath>
+				</File>
+				<File Id="281065059" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>IceCracking_2nd.wav</ShortName>
+					<CachePath>SFX/IceCracking_2nd_1D936E6F.wem</CachePath>
+				</File>
+				<File Id="475500427" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>IceGate_TriggerChime.wav</ShortName>
+					<CachePath>SFX/IceGate_TriggerChime_2CE66A1E.wem</CachePath>
+				</File>
+				<File Id="576965940" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Icicle_Shatter.wav</ShortName>
+					<CachePath>SFX/Icicle_Shatter_561B7E34.wem</CachePath>
+				</File>
+				<File Id="736491483" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Icelands_Ambience.wav</ShortName>
+					<Path>Media/736491483.wem</Path>
+					<CachePath>SFX/Icelands_Ambience_37657DA8.wem</CachePath>
+				</File>
+				<File Id="964776982" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Icelands_HeatVent_Steam.wav</ShortName>
+					<CachePath>SFX/Icelands_HeatVent_Steam_7B73DE48.wem</CachePath>
+				</File>
+				<File Id="1059084491" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Icelands_HeatVent_OnFire.wav</ShortName>
+					<CachePath>SFX/Icelands_HeatVent_OnFire_37657DA8.wem</CachePath>
+				</File>
+				<File Id="1069311898" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>IceGate_Move.wav</ShortName>
+					<CachePath>SFX/IceGate_Move_2CE66A1E.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="2430596333" Name="Play_Ice_FloorBreak" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.7" DurationMax="1.7">
+					<MediaRefs>
+						<MediaRef Id="69545448"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1699117399" Name="Play_IceFloor_CrackingSequence" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.74288416" DurationMax="1.0735606">
+					<MediaRefs>
+						<MediaRef Id="91430876"/>
+						<MediaRef Id="263658385"/>
+						<MediaRef Id="281065059"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4132787042" Name="Play_IceGate_Move" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.9666667" DurationMax="2.9666667">
+					<MediaRefs>
+						<MediaRef Id="1069311898"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1561848681" Name="Play_IceGate_TriggerChime" DurationType="OneShot" DurationMin="1.8333334" DurationMax="1.8333334">
+					<MediaRefs>
+						<MediaRef Id="475500427"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="680386102" Name="Play_Icelands_Ambience" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="736491483"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="309072279" Name="Play_Icelands_HeatVent_OnFire" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="1059084491"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1885743616" Name="Play_Icelands_HeatVent_Steam" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="964776982"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2290100405" Name="Play_Icicle_Shatter" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.9221914" DurationMax="1.0654564">
+					<MediaRefs>
+						<MediaRef Id="576965940"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2626575138" Name="Stop_Icelands_HeatVent_Steam" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+			</Events>
+		</SoundBank>
 		<SoundBank Id="3486483130" Type="User" Language="SFX" Hash="{0A285F70-9983-B5A1-7BA4-D3D14DA0CA42}">
 			<ShortName>Level_1_2_Beach_SB</ShortName>
 			<Path>Level_1_2_Beach_SB.bnk</Path>
@@ -902,5 +994,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{C4F07BA4-3C01-7FBA-044C-FEEC561C7050}</FileHash>
+	<FileHash>{8D950BD7-A24A-EB4F-EACB-9177E6926842}</FileHash>
 </SoundBanksInfo>
