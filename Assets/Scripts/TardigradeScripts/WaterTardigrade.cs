@@ -7,7 +7,7 @@ using UnityEngine.VFX;
 public class WaterTardigrade : TardigradeBase
 {
 
-    private float _iceDuration = 3;
+    private float _iceDuration = 4;
     private float _healAmount = 0.5f;
     public List<TardigradeBase> _shieldableTards;
     public List<Obstacle> _inRangeObstacles;
