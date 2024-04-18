@@ -7,6 +7,7 @@ using UnityEngine.VFX;
 
 public class VisualBurn : MonoBehaviour
 {
+    public VisualEffect Flames;
     //public UnityEvent burnEvent;
     //private void OnTriggerEnter(Collider other)
     //{
@@ -17,7 +18,7 @@ public class VisualBurn : MonoBehaviour
     //            burnEvent.Invoke();
     //    }
     //}
-
+    
     public void Burn()
     {
         if(TryGetComponent<Animator>(out Animator otherAnim))
@@ -25,8 +26,9 @@ public class VisualBurn : MonoBehaviour
             if (otherAnim.runtimeAnimatorController.name == "BurnController")
             {
                 otherAnim.SetTrigger("Burn");
-                
-                if (TryGetComponent<VisualEffect>(out VisualEffect effect))
+                if (Flames != null)
+                    Flames.enabled = true;
+                else if (TryGetComponent<VisualEffect>(out VisualEffect effect))
                 {
                     effect.enabled = true;
                 }

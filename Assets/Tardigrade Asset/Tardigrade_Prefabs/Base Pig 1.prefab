@@ -897,6 +897,7 @@ GameObject:
   - component: {fileID: 8237996732408648060}
   - component: {fileID: 8594644056886927006}
   - component: {fileID: 115471360373520691}
+  - component: {fileID: 1016061532264956770}
   m_Layer: 8
   m_Name: Geo
   m_TagString: Untagged
@@ -948,7 +949,7 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903280960663148091}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 90390acea85c7e043be8725a4580abcb, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 1
@@ -986,7 +987,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903280960663148091}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1018,6 +1019,23 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1016061532264956770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903280960663148091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992fac49650f9f498e400c2b9e979a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 68a11f342003e6a47b7cecfbbac604f4,
+      type: 2}
 --- !u!1 &2235070761282504336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,7 +2829,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!114 &6335191518240494145
 MonoBehaviour:
@@ -2829,6 +2847,18 @@ MonoBehaviour:
   _maxHealth: 10
   collar: {fileID: 2830374374431774614}
   damageEffectObj: {fileID: 649843461024096067}
+  audioPrimary:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  audioSecondaryStart:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  audioSecondaryEnd:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   _type: 0
   _mySquad: {fileID: 0}
   _tardigradeSets: {fileID: 11400000, guid: 9614204b4f4666840ad257e048994aaf, type: 2}

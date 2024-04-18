@@ -2894,6 +2894,7 @@ GameObject:
   - component: {fileID: 5211334172306444979}
   - component: {fileID: 8940293132493882237}
   - component: {fileID: 8023196962667129117}
+  - component: {fileID: 4515185209408175749}
   m_Layer: 0
   m_Name: Lab Box
   m_TagString: Untagged
@@ -3004,36 +3005,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneManagerUI, Assembly-CSharp
-        m_MethodName: setSelectedSimIndex
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LABUISelectedBoxRef, Assembly-CSharp
-        m_MethodName: setSelectedBox
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8023196962667129117}
-          m_ObjectArgumentAssemblyTypeName: LabBoxBehavior, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   isEnd: 1
   menuCall: {fileID: 11400000, guid: 9d5e76caacb59694f97a6f4d4f0f09b4, type: 2}
   loadLevel: {fileID: 11400000, guid: af45398dc13eff641a2dbf92ccccf1b5, type: 2}
+  despawnCenter: {fileID: 11400000, guid: 376a184c2d3273543b60bab7f5b97503, type: 2}
   rallyPoint: {fileID: 8023196960705560946}
   hordeBrain: {fileID: 11400000, guid: 5d594f4afe8a37d4aae95a22e618dd2d, type: 2}
   levelData: {fileID: 0}
+--- !u!114 &4515185209408175749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023196962667129116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992fac49650f9f498e400c2b9e979a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1c07970fbf4d657489c07870cd7536ea,
+      type: 2}
 --- !u!1 &8059675213146940844
 GameObject:
   m_ObjectHideFlags: 0

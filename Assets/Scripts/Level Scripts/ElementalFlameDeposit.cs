@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.VFX;
 
 [RequireComponent(typeof(Collider))]
-public class ElementalFlameDeposit : MonoBehaviour
+public class ElementalFlameDeposit : MonoBehaviour, IReset
 {
     public UnityEvent depositGrowEvent, mismatchEvent, fullEvent;
     public VisualEffect fullFlame;
@@ -39,10 +39,23 @@ public class ElementalFlameDeposit : MonoBehaviour
                 fullEvent.Invoke();
                 if(fullFlame!=null)
                     fullFlame.Play();
+                GetComponent<Collider>().enabled = false;
             }
             else
                 depositGrowEvent.Invoke();
             
         }
     }
+
+    public void Reset()
+    {
+        if(shouldReset)
+        {
+            GetComponent<Collider>().enabled = true;
+            fullFlame.Stop();
+        }
+    }
+
+    public bool shouldReset { get; set; }
+    
 }

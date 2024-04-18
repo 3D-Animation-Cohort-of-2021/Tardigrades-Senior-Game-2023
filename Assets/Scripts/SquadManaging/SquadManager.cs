@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 
 //using Random = UnityEngine.Random;
 
@@ -23,6 +24,9 @@ public class SquadManager : MonoBehaviour
     public float _centerRadius = 2.5f;
     public GameActionElemental _gameActionElemental;
     public GameActionElemental _abilityElemental;
+    public GameActionElementalFormation formationUpdateAction;
+    public UnityAction<Elem, Formation> _formationUpdate;
+
 
     private CinemachineTargeting _camTargetScript;
     public GameObject _targetGroup;
@@ -264,6 +268,7 @@ public class SquadManager : MonoBehaviour
                 _activeSquad = squad.SquadObj.GetComponent<SquadBrain>();
                 break;
             }
+            
         }
     }
     public void MutateActiveSquad()
@@ -401,6 +406,7 @@ public class SquadManager : MonoBehaviour
 
     public void TerminateHorde()
     {
+        Debug.Log("Beginning Termination");
         Squad[] tempArray = new Squad[_squads.Count];
         for (int i = 0; i < tempArray.Length; i++)
         {

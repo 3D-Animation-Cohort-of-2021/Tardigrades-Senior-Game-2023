@@ -17,6 +17,11 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public HealthDisplay collar;
     public GameObject damageEffectObj;
 
+    public AK.Wwise.Event audioPrimary;
+    public AK.Wwise.Event audioSecondaryStart;
+    public AK.Wwise.Event audioSecondaryEnd;
+    public AK.Wwise.Event audioConvertFX;
+
     [SerializeField]protected Elem _type;
 
     public SquadBrain _mySquad;
@@ -52,11 +57,15 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     
 
     public Coroutine IceCoroutine;
+    public Coroutine HealCoroutine;
     public Coroutine StatusRoutine;
 
     public GameObject _fireAccessory;
     public GameObject _waterAccessory;
     public GameObject _earthAccessory;
+
+    private WaitForSeconds healIncrement;
+    private float healIncrementAmount = 0.25f;
 
 
 
@@ -67,7 +76,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         _animators = GetComponentsInChildren<Animator>();
         _tarAnimator = GetComponent<Animator>();
 
-        
+        healIncrement = new WaitForSeconds(healIncrementAmount);
 
         if (_type == Elem.Neutral && _earthAccessory != null)
         {
@@ -85,10 +94,27 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     {
         float finalDmg = EffectiveTable.CalculateEffectiveDMG(damageType, _type, damageAmount);
         float modifier = EffectiveTable.CalculateEffectiveDMGModifier(damageType, _type);
-        if(damageType == Elem.Water && IceCoroutine != null)
+        if((damageType == Elem.Water && IceCoroutine != null) || _mySquad.transform.parent == null)
         {
             return;
         }
+        else if(IceCoroutine != null)
+        {
+            Animator iceAnimator = null;
+
+            for (int i = 0; i < _animators.Length; i++)
+            {
+                if (_animators[i].runtimeAnimatorController.name == "PiglettController")
+                {
+                    iceAnimator = _animators[i];
+                    break;
+                }
+            }
+
+            DeactivateIceShield(_iceShardsForDeath, iceAnimator);
+            return;
+        }
+
         damageEffectObj.GetComponent<VisualEffect>().Play();
         _tarAnimator.SetTrigger("flinch");
 
@@ -102,17 +128,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             ReactToStrong();
         }
-        
-        if (_animators[1] != null)
-        {
-            if (_animators[1].GetBool("IceShield"))
-            {
-                finalDmg = 0;
-                _animators[1].SetBool("IceShield", false);
-                Instantiate(_iceShardsForDeath, transform);
-                IceCoroutine = null;
-            }
-        }
+
         _health -= finalDmg;
         collar.UpdateColor(_health, _maxHealth);
 
@@ -178,6 +194,13 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         {
             Instantiate(tardigradeSetSO._abilityChildObject, transform);
         }
+
+        audioPrimary = tardigradeSetSO.audioPrimary;
+        audioSecondaryStart = tardigradeSetSO.audioSecondaryStart;
+        audioSecondaryEnd = tardigradeSetSO.audioSecondaryEnd;
+        audioConvertFX = tardigradeSetSO.audioConvertFX;
+
+        audioConvertFX.Post(gameObject);
     }
     
     /// <summary>
@@ -186,7 +209,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void PrimaryAbility()
     {
-        
+        audioPrimary.Post(gameObject);
     }
     /// <summary>
     ///  Is called when ability button is pressed. Should be overloaded in child class to add functionality.
@@ -195,7 +218,6 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     public virtual void SecondaryAbility()
     {
         SecondaryAbilityEffect();
-        
     }
 
     protected virtual void SecondaryAbilityEffect()
@@ -210,6 +232,12 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
     /// </summary>
     public virtual void Death(DeathType deathType = DeathType.Default)
     {
+
+        if(_mySquad.transform.parent == null)
+        {
+            return;
+        }
+
         if (deathEvent != null)
         { 
         deathEvent.Invoke(_type, -1);
@@ -299,14 +327,23 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
 
             yield return new WaitForSeconds(iceDuration);
 
-            if (iceAnimator.GetBool("IceShield"))
-            {
-                iceAnimator.SetBool("IceShield", false);
-                Instantiate(iceShards, transform);
-            }
+            DeactivateIceShield(iceShards, iceAnimator);
+            
         }
         IceCoroutine = null;
     }
+
+    private void DeactivateIceShield(GameObject iceShards, Animator iceAnimator)
+    {
+        if (iceAnimator.GetBool("IceShield"))
+        {
+            iceAnimator.SetBool("IceShield", false);
+            Instantiate(iceShards, transform);
+            StopCoroutine(IceCoroutine);
+            IceCoroutine = null;
+        }
+    }
+
 
     public void ChangeTardigradeHighlight(bool shouldHighlight)
     {
@@ -349,6 +386,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             if (_healVisualEffect.enabled)
             {
                 _healVisualEffect.Play();
+                _healVisualEffect.gameObject.GetComponent<PostAudioEvent>().PostEvent();
             }
             else
             {
@@ -362,6 +400,25 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
             collar.UpdateColor(_health,_maxHealth);
         }
     }
+    
+
+    public IEnumerator HealingEffect(float healAmount, float length)
+    {
+        if (_healVisualEffect.enabled)
+        {
+            _healVisualEffect.SetFloat("TotalTime", length);
+            _healVisualEffect.Play();
+            
+            for(float i =0; i<length; i+= healIncrementAmount)
+            {
+                Heal(healAmount);
+                yield return healIncrement;
+            }
+        }
+
+        HealCoroutine = null;
+    }
+    
 
     /// <summary>
     ///  Starts the ActivateIceShield coroutine that Turns the shield shader on for a duration.
@@ -372,6 +429,14 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         if (IceCoroutine == null)
         {
             IceCoroutine = StartCoroutine(ActivateIceShield(iceDuration, iceShards));
+        }
+    }
+    
+    public void StartHeal(float healAmount, float length)
+    {
+        if (HealCoroutine == null)
+        {
+            HealCoroutine = StartCoroutine(HealingEffect(healAmount, length));
         }
     }
 
@@ -430,6 +495,7 @@ public abstract class TardigradeBase : MonoBehaviour, IDamageable
         tardigradeBase.frozenBodyPrefab = frozenBodyPrefab;
 
         tardigradeBase.UpdateTardigrade();
+        
 
         return tardigradeBase;
         

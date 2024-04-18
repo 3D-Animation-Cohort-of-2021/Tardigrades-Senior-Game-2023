@@ -129,6 +129,22 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: ScrollSquad
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: eb64ea29-aa57-469b-97e3-724ecb744d78
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: ActivateMouseMove
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: c8d89178-b1dc-4656-8ce0-9858e8f6a6f6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: cf394f6b-5afd-4d44-b5b3-f95939e3cacc
@@ -204,7 +220,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: dc7266a8-1110-44c6-855e-a45578d9326f
-      m_Path: <Keyboard>/e
+      m_Path: <Keyboard>/tab
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -219,8 +235,8 @@ MonoBehaviour:
       m_Action: PreviousSquad
       m_Flags: 0
     - m_Name: 
-      m_Id: 603820fc-5b1b-4e5f-adf1-1d51df86c4ba
-      m_Path: <Keyboard>/q
+      m_Id: 05c8e0ef-c431-4333-8a7f-13f91dbdd533
+      m_Path: <Keyboard>/leftShift
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -245,6 +261,30 @@ MonoBehaviour:
     - m_Name: positive
       m_Id: 7ad0fc07-37a2-484a-a17a-2549732a9673
       m_Path: <Gamepad>/rightTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 8
+    - m_Name: 1D Axis
+      m_Id: 200066c3-e18c-44d8-a568-313ac4eb30c8
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 985b2f8f-2879-42c5-9e54-0bec804ac702
+      m_Path: <Keyboard>/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 6e571f3a-8951-4889-ac61-04aa9b835e76
+      m_Path: <Keyboard>/e
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -315,6 +355,14 @@ MonoBehaviour:
       m_Action: MutateSquad
       m_Flags: 0
     - m_Name: 
+      m_Id: 93a4d392-6dfd-4c88-ad6f-6ba220b68398
+      m_Path: <Keyboard>/leftAlt
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MutateSquad
+      m_Flags: 0
+    - m_Name: 
       m_Id: cb603479-174a-4813-96fa-23b93387364c
       m_Path: <Gamepad>/buttonSouth
       m_Interactions: 
@@ -340,7 +388,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: ef3885b1-56c0-4558-a41a-f5adb7d1f497
-      m_Path: <Keyboard>/1
+      m_Path: <Keyboard>/leftShift
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -356,7 +404,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 02e09a78-0f5b-4a50-8345-b3623422aee1
-      m_Path: <Keyboard>/2
+      m_Path: <Keyboard>/leftCtrl
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -372,7 +420,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 7d220a28-4f47-4790-bb2c-b7f53b60aa44
-      m_Path: <Keyboard>/3
+      m_Path: <Keyboard>/g
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -388,7 +436,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 010037f3-032a-45bc-b11d-4c2ca70bb273
-      m_Path: <Keyboard>/4
+      m_Path: <Keyboard>/f
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -404,15 +452,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 9d35c22b-0c37-4b01-9a6c-abe812146628
-      m_Path: <Mouse>/rightButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: SecondaryAbility
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 184b44f9-34af-494a-99bd-2b40403c2c34
-      m_Path: <Keyboard>/o
+      m_Path: <Keyboard>/space
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -434,11 +474,35 @@ MonoBehaviour:
       m_Groups: 
       m_Action: PauseGame
       m_Flags: 0
-    - m_Name: 
-      m_Id: 37b2eb5e-3717-4a60-a972-4f7cf4093558
-      m_Path: <Keyboard>/p
+    - m_Name: 1D Axis
+      m_Id: b0a07a66-6eb0-402d-b50c-b8c5c67cdda3
+      m_Path: 1DAxis
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: PauseGame
+      m_Action: ScrollSquad
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 7ec18fb4-bfdd-43bf-988e-4be96bc39baa
+      m_Path: <Mouse>/scroll/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ScrollSquad
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 398211f1-8426-4918-84ad-a3a327690b8b
+      m_Path: <Mouse>/scroll/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ScrollSquad
+      m_Flags: 8
+    - m_Name: 
+      m_Id: 002c123d-79ca-4981-b363-c7f5c1b43aca
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ActivateMouseMove
       m_Flags: 0

@@ -11,6 +11,7 @@ public class SquadBrain : MonoBehaviour
     public SO_SquadData _movementVector;
     public GameObject _piggyPrefab;
     public int _amountPerGroup;
+    public GameActionElementalFormation formationUpdateCall;
 
     private NavMeshAgent _navMeshAgent;
     private WaitForFixedUpdate _wffu;
@@ -65,7 +66,7 @@ public class SquadBrain : MonoBehaviour
     {
         _primary.cooldown = _hordeInfo.GetCD(_squadType);
         _secondary.cooldown = _hordeInfo.GetToggleCD(_squadType);
-        _loopDelay = new WaitForSeconds(1f);
+        _loopDelay = new WaitForSeconds(0.25f);
     }
     private void FixedUpdate()
     {
@@ -137,12 +138,15 @@ public class SquadBrain : MonoBehaviour
         if (_movementVector.squadNumber == _brainNumber /*&& _squadType != Elem.Neutral*/)
         {
             activeSquad = StartCoroutine(ActiveSquad());
-
+            formationUpdateCall.RaiseAction(_squadType, _formation);
             //Grabs new selection and Highlights them
             foreach (TardigradeBase tard in _myTards)
             {
                 ChangeHighlight(tard, true);
             }
+            //Highlight squad center
+            GetComponentInChildren<SquadCenterVisual>().HighLight();
+            
         }
         else
         {
@@ -150,6 +154,8 @@ public class SquadBrain : MonoBehaviour
             {
                 ChangeHighlight(tard, false);
             }
+            //UnHighlights squad center
+            GetComponentInChildren<SquadCenterVisual>().UnHighLight();
         }
         
     }
@@ -191,7 +197,7 @@ public class SquadBrain : MonoBehaviour
             for (int i = 0; i < amountOfTards; i++)
             {
 
-                Vector3 newPos = transform.position + RandomPointInRadius(1f);
+                Vector3 newPos = transform.position;
                 GameObject newPiglet = Instantiate(_piggyPrefab, newPos, Quaternion.identity);
 
                 TardigradeBase pigBase = newPiglet.GetComponent<TardigradeBase>();
@@ -221,10 +227,44 @@ public class SquadBrain : MonoBehaviour
         _navMeshAgent.Warp(dest + Vector3.up * _navMeshAgent.baseOffset);
     }
 
-    private Vector3 RandomPointInRadius(float clusterRadius)
+    private Vector3 RandomPointInRadius(float clusterRadius, bool isNeutral)
     {
         Vector3 currentPos = transform.position;
-        return new Vector3((Random.Range(-clusterRadius, clusterRadius)), 0, (Random.Range(-clusterRadius, clusterRadius)));
+        Vector3 result = Vector3.zero;
+        float iterations = 0;
+        do
+        {
+            result.x = Random.Range(-clusterRadius, clusterRadius);
+            result.z = Random.Range(-clusterRadius, clusterRadius);
+            iterations++;
+
+        } while (IsOverlappingPoint(result) && iterations < 10);
+
+        if (isNeutral)
+        {
+            if (result.x < clusterRadius * .5 && result.x > 0)
+                result.x += 1;
+            if (result.x > clusterRadius * -.5 && result.x < 0)
+                result.x -= 1;
+            if (result.z < clusterRadius * .5 && result.z > 0)
+                result.z += 1;
+            if (result.z > clusterRadius * -.5 && result.z < 0)
+                result.z -= 1;
+        }
+
+        return result;
+    }
+
+    private bool IsOverlappingPoint(Vector3 point)
+    {
+        for(int i = 0; i < _formationPositions.Count; i++)
+        {
+            if(Vector3.Distance(point, _formationPositions[i].Position) <= 0.3f)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -241,6 +281,10 @@ public class SquadBrain : MonoBehaviour
         else
         {
             newTransform = new CustomTransform(transform, Vector3.zero, Quaternion.identity, Vector3.one);
+        }
+        if (_secondary.ToggleStatus())
+        {
+            newTard.SecondaryAbility();
         }
 
         _formationPositions.Add(newTransform);
@@ -314,14 +358,19 @@ public class SquadBrain : MonoBehaviour
 
         if (_squadType == Elem.Water)
         {
-            if (_secondary.FlipToggle())
+            if (!_secondary.ToggleStatus() && _secondary.activatable)
             {
-                SecondaryAbility = StartCoroutine(SecondaryLoop());
+                foreach (TardigradeBase tard in _myTards)
+                {
+                    tard.SecondaryAbility();
+                }
+                _secondary.FlipToggle();
+                _secondary.FlipToggle();
             }
             else
             {
-                StopCoroutine(SecondaryAbility);
-                SecondaryAbility = null;
+                /*StopCoroutine(SecondaryAbility);
+                SecondaryAbility = null; */
             }
         }
         else
@@ -344,12 +393,13 @@ public class SquadBrain : MonoBehaviour
 
         return true;
     }
-
+    
     public bool GetToggledStatus()
     {
         return _secondary.ToggleStatus();
     }
 
+    /*
     protected IEnumerator SecondaryLoop()
     {
         foreach (TardigradeBase tard in _myTards)
@@ -362,6 +412,7 @@ public class SquadBrain : MonoBehaviour
         SecondaryAbility = StartCoroutine(SecondaryLoop());
 
     }
+*/
 
     public List<TardigradeBase> GetTards()
     {
@@ -410,7 +461,6 @@ public class SquadBrain : MonoBehaviour
         {
             newFormation = (Formation)(currentFormationValue + formationIterator);
         }
-
         UpdateFormation(newFormation, false);
     }
         private void UpdateFormation(Formation newFormation, bool formationOverride)
@@ -421,7 +471,7 @@ public class SquadBrain : MonoBehaviour
         }
 
         _formation = newFormation;
-
+        formationUpdateCall.RaiseAction(_squadType, _formation);
         if (_myTards != null)
         {
             switch(_formation)
@@ -440,18 +490,19 @@ public class SquadBrain : MonoBehaviour
                     break;
             }
         }
+        
     }
 
     private void ClusterFormation()
     {
-        float clusterRadius = Mathf.Log((float)_formationPositions.Count, 4);
+        float clusterRadius = Mathf.Log((float)_formationPositions.Count, 4) > 0 ? Mathf.Log((float)_formationPositions.Count, 4) : 0.6f;
         float minSpacing = 1;
         float fullSpacing = minSpacing + _spacing;
 
         for (int i = 0; i < _formationPositions.Count; i++)
         {
 
-            _formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing);
+            _formationPositions[i].Position = RandomPointInRadius(clusterRadius * fullSpacing, _squadType==Elem.Neutral);
             _formationPositions[i].willRotate = false;
         }
     }
@@ -523,7 +574,7 @@ public class SquadBrain : MonoBehaviour
         {
             refList.Add(pig);
         }
-
+        
         foreach (TardigradeBase pig in refList)
         {
             pig.Death(DeathType.None);

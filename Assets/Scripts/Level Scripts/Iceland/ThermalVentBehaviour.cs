@@ -1,15 +1,19 @@
+
 using UnityEngine;
 using UnityEngine.Events;
 
 public class ThermalVentBehaviour : MonoBehaviour, IDamageable
 
 {
-    public UnityEvent onAwake, onDamage;
+    public UnityEvent onAwake, onFireDamage;
+    
+    private GameObject prefabParent;
     private IDamageable _damageableImplementation;
-
+    
     public void Awake()
     {
         onAwake.Invoke();
+        prefabParent = gameObject;
     }
 
 
@@ -18,8 +22,15 @@ public class ThermalVentBehaviour : MonoBehaviour, IDamageable
         if (dmgType == Elem.Fire)
         {
             Debug.Log("Warm Up Tardigrades");
-            onDamage.Invoke();
+            onFireDamage.Invoke();
+            TurnOffChildObject();
         }
+    }
+
+    public void TurnOffChildObject()
+    {
+        GameObject childObject = prefabParent.transform.GetChild(0).gameObject;
+        childObject.SetActive(false);
     }
 }
 

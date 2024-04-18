@@ -16,6 +16,9 @@ public class CrackedIceBehaviour : MonoBehaviour
     private float time = 0;
     private bool isReady = true;
     private float cooldown = 1f;
+
+    public AK.Wwise.Event finalBreakAudio;
+    public AK.Wwise.Event crackingSequenceAudio;
     private void Start()
     {
         aniController = GetComponent<Animator>();
@@ -34,12 +37,14 @@ public class CrackedIceBehaviour : MonoBehaviour
                 GetComponent<MeshRenderer>().enabled = false;
                 //Instantiate(crackPrefab, transform.position, transform.rotation);
                 Instantiate(crackPrefab, transform.position, transform.rotation);
+                finalBreakAudio.Post(gameObject);
             }
             //Cracks
             else
             {
                 mainSystem.Play(false);
                 aniController.SetTrigger("CrackTrigger");
+                crackingSequenceAudio.Post(gameObject);
             }
 
             time = 0;

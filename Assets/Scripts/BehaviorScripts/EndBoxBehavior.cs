@@ -12,7 +12,7 @@ public class EndBoxBehavior : MonoBehaviour
 {
     public UnityEvent spawnEvent, finishEvent, controlsEnableEvent, endOfSequenceEvent;
     public Boolean isEnd, startGameplay;
-    public GameAction endLevel;
+    public GameAction spawnMom, killMom, endLevel;
     public GameObject rallyPoint;
     private Animator boxAnimator;
     private GameObject playerCenter;
@@ -43,6 +43,8 @@ public class EndBoxBehavior : MonoBehaviour
     public void SpawnEvent()
     {
         spawnEvent.Invoke();
+        if(!isEnd)
+            spawnMom.raise();
     }
 
     public void DespawnEvent()
@@ -60,6 +62,7 @@ public class EndBoxBehavior : MonoBehaviour
         if(playerCenter==null)
             return;
         playerCenter.GetComponent<SquadManager>().TerminateHorde();
+        killMom.raise();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -70,7 +73,8 @@ public class EndBoxBehavior : MonoBehaviour
         {
             playerCenter = sM.gameObject;
             finishEvent.Invoke();
-            sM.RallyAtPoint(rallyPoint.transform.position);
+            //sM.RallyAtPoint(rallyPoint.transform.position);
+            sM.GetComponent<HordeMovement>().MoveToLocation(this.gameObject);
         }
     }
 
@@ -81,6 +85,11 @@ public class EndBoxBehavior : MonoBehaviour
         {
             nextLevel.levelUnlocked = true;
         }
+    }
+
+    public void endOfSequence()
+    {
+        endOfSequenceEvent.Invoke();
     }
     
 }
